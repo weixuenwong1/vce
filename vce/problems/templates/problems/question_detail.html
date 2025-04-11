@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Detail</title>
+</head>
+<body>
+    <h1>Question</h1>
+    <pre>{{ question.question_text }}</pre>
+
+    <h2>Content</h2>
+    {% comment %} <ul>
+        {% for order in orders %}
+            <li>
+                {% if order.content_type == "TEXT" %}
+                    <pre>{{ order.text_content }}</pre>
+                {% elif order.content_type == "IMAGE" %}
+                    <img src="{{ order.image_content.url }}" alt="Image Content" style="max-width:300px;">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>  {% endcomment %}
+</body>
+</html>
