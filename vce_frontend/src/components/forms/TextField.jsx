@@ -21,7 +21,7 @@ export default function FormTextField(props) {
           value={value}
           label={label}
           variant="outlined"
-          className={"myForm"}
+          className={"myInput"}
           error={!!error}
           helperText={error?.message}
         />

@@ -137,6 +137,10 @@ form *{
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     color: #e5e5e5;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 10px;
+    width: 100%;
 }
 
 .customLabel{
@@ -153,7 +157,7 @@ form *{
 }
 
 .MuiOutlinedInput-root.Mui-focused .MuiInputBase-input {
-    color: hsl(19, 78%, 50%) !important;
+    color: rgba(0,0,0,0.87) !important;
     font-size: 18px;
 }
 
@@ -207,3 +211,19 @@ button:hover {
 
 
 /* -------------------------------------------------------------- */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    color: rgba(0,0,0,0.87) !important;
+    -webkit-text-fill-color: rgba(0,0,0,0.87) !important;
+    transition: background-color 5000s ease-in-out 0s; /* delays the autofill bg */
+    box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.07) inset !important;
+}
