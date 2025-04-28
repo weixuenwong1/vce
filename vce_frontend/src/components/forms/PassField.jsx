@@ -59,7 +59,7 @@ export default function FormPassField(props) {
             }
             label={label}
           />
-          <FormHelperText sx={{color: "#d32f2f"}}> {error?.message} </FormHelperText>
+          <FormHelperText sx={{color: "#ff5555", mt: 1}}> {error?.message} </FormHelperText>
         </FormControl>
         )
       }

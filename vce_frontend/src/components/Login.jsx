@@ -1,15 +1,18 @@
 import '../App.css';
 import { Box } from '@mui/material'
+import {React, useState} from 'react'
 import FormTextField from './forms/TextField'
 import FormPassField from './forms/PassField'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import AxiosInstance from './AxiosInstance'
 import { useNavigate } from 'react-router-dom'
+import Message from './Message'
 
 const Login = () => {
   const navigate = useNavigate()
   const {handleSubmit, control} = useForm()
+  const [ShowMessage, setShowMessage] = useState(false)
 
   const submission = (data) => {
     AxiosInstance.post('login/', {
@@ -21,6 +24,7 @@ const Login = () => {
       navigate(`/`)
     })
     .catch((error) => {
+      setShowMessage(true)
       console.error('Error during login', error)
     })
   }
@@ -33,6 +37,7 @@ const Login = () => {
                   backgroundColor: '#071c39',
                   overflow: 'hidden',
                 }}>
+      {ShowMessage ? <Message text={"We couldn’t find an account with the email and password you entered. Please double-check your details and try again."} color={"#FF5555"}/> : null}
       <div className="gradient-bg-blue" />
       <div className="gradient-bg-orange" />
       <div style={{
@@ -54,6 +59,11 @@ const Login = () => {
               <Box className={"itemBox"}>
                   <label htmlFor="password" className="customLabel">Password</label>
                   <FormPassField name={"password"} control={control} id="password" label="Password" />
+              </Box>
+              <Box className={"itemBox"} style={{ height: 'auto', marginTop: '10px' }}>
+                <Link to="/request/password_reset" className="forgotPasswordLink">
+                  Forgot password?
+                </Link>
               </Box>
               <Box className={"itemBox"}>
                   <button type={"submit"}>Log In</button>

@@ -1,5 +1,5 @@
 import AxiosInstance from "./AxiosInstance"
-import {React, useEffect, useMemo, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import {Box} from '@mui/material'
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
     }, [])
     return(
         <div>
-            { loading ? <p>Looading...</p> :
+            { loading ? <p>Loading...</p> :
             <div>
                 {myData.map((item, index) => (
                     <Box key={index} sx={{p:2, m:2, boxShadow: 3}}>

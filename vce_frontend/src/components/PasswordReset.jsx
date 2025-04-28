@@ -39,7 +39,7 @@ const PasswordReset = () => {
                       backgroundColor: '#071c39',
                       overflow: 'hidden',
                     }}>
-          {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."}/> : null}
+          {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."} color={"black"}/> : null}
           <div className="gradient-bg-blue" />
           <div className="gradient-bg-orange" />
           <div style={{
