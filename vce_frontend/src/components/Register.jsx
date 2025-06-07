@@ -82,7 +82,7 @@ const Register = () => {
               </Box>
               <Box className={"itemBox"}>
                   <p>
-                      Already have an Expliqa account? <Link to="/login">Log in!</Link>
+                      Already have an Chuba account? <Link to="/login">Log in!</Link>
                   </p>
               </Box>
           </Box>

@@ -1,0 +1,268 @@
+[
+{
+  "question_uid": 831,
+  "question_text": "A student believes an unknown compound is a carboxylic acid. IR and ¹H NMR spectroscopy are used to confirm its identity.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2272,
+      "content_type": "TEXT",
+      "text_content": "a) What two key features in the IR spectrum would support the identification of a carboxylic acid?\n(2 marks)",
+      "image_content": null,
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{A broad peak at 2500–3300 cm}^{-1}\\text{ from the O–H stretch.} \\\\\n\\text{A strong peak at around 1710 cm}^{-1}\\text{ due to the C=O stretch.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2273,
+      "content_type": "TEXT",
+      "text_content": "b) The ¹H NMR spectrum shows a singlet at 11.5 ppm. What does this signal represent?\n(1 mark)",
+      "image_content": null,
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{The singlet at 11.5 ppm corresponds to the acidic proton of the –COOH group.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2274,
+      "content_type": "TEXT",
+      "text_content": "c) The molecular formula of the compound is C₂H₄O₂. Propose a structure and justify it based on the spectra.\n(2 marks)",
+      "image_content": null,
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{C}_2\\text{H}_4\\text{O}_2 with IR and NMR data supports ethanoic acid (CH}_3\\text{COOH).} \\\\\n\\text{IR: broad OH + carbonyl; NMR: singlet at 11.5 ppm and methyl protons near 2 ppm.}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+},
+{
+  "question_uid": 832,
+  "question_text": "A compound with molecular formula C₃H₆O is suspected to be either propan-1-ol or propanone. IR and ¹H NMR spectroscopy are used to determine which it is.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2275,
+      "content_type": "TEXT",
+      "text_content": "a) What key difference in the IR spectra would help distinguish propan-1-ol from propanone?\n(2 marks)",
+      "image_content": null,
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{Propan-1-ol shows a broad O–H stretch around 3300 cm}^{-1}. \\\\\n\\text{Propanone shows a strong sharp C=O peak around 1715 cm}^{-1}, but no broad O–H stretch.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2276,
+      "content_type": "TEXT",
+      "text_content": "b) The ¹H NMR spectrum of the compound shows a singlet at 2.1 ppm and no signals above 4 ppm. Which compound does this suggest and why?\n(2 marks)",
+      "image_content": null,
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{Singlet at 2.1 ppm is consistent with the CH}_3\\text{ groups on either side of a carbonyl in propanone.} \\\\\n\\text{Absence of peaks above 4 ppm indicates no O–H group, confirming propanone.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2277,
+      "content_type": "TEXT",
+      "text_content": "c) Name one way mass spectrometry could also distinguish between propan-1-ol and propanone.\n(1 mark)",
+      "image_content": null,
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{Each compound would have a different fragmentation pattern, especially around m/z = 31 (CH}_2\\text{OH}^+)\\text{ for alcohol and m/z = 43 (CH}_3\\text{CO}^+)\\text{ for ketone.}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+},
+{
+  "question_uid": 833,
+  "question_text": "A compound with molecular formula C₄H₈ was suspected to be an alkene. IR and ¹H NMR spectroscopy were used to confirm the identity.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2278,
+      "content_type": "TEXT",
+      "text_content": "a) What feature in the IR spectrum would support the presence of an alkene?\n(1 mark)",
+      "image_content": null,
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{A medium peak around 1640–1680 cm}^{-1}\\text{ indicates the presence of a C=C bond in an alkene.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2279,
+      "content_type": "TEXT",
+      "text_content": "b) The ¹H NMR spectrum shows two doublets at 5.5 and 6.0 ppm and a singlet at 1.8 ppm. What does this suggest?\n(2 marks)",
+      "image_content": null,
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{Doublets at 5.5–6.0 ppm indicate vinylic protons on a C=C bond.} \\\\\n\\text{Singlet at 1.8 ppm likely corresponds to CH}_3\\text{ groups near the double bond.} \\\\\n\\text{Consistent with but-2-ene.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2280,
+      "content_type": "TEXT",
+      "text_content": "c) Could mass spectrometry confirm the molecular formula? If so, how?\n(1 mark)",
+      "image_content": null,
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{Yes, the molecular ion peak at m/z = 56 would confirm the molecular formula C}_4\\text{H}_8.}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+},
+{
+  "question_uid": 834,
+  "question_text": "A compound with molecular formula C₆H₆ was analysed using IR and ¹H NMR spectroscopy. The results are shown below.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2281,
+      "content_type": "TEXT",
+      "text_content": "a) What feature in the IR spectrum would suggest the presence of an aromatic ring?\n(1 mark)",
+      "image_content": null,
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{IR peaks between 1450 and 1600 cm}^{-1}\\text{ are characteristic of C=C bonds in aromatic rings.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2282,
+      "content_type": "TEXT",
+      "text_content": "b) The ¹H NMR spectrum shows a single peak around 7.3 ppm. What does this suggest?\n(1 mark)",
+      "image_content": null,
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{A singlet at 7.3 ppm is typical of hydrogen atoms on a symmetrical aromatic ring, such as benzene.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2283,
+      "content_type": "TEXT",
+      "text_content": "c) If the molecular ion peak in the mass spectrum is at m/z = 78, what does this confirm?\n(1 mark)",
+      "image_content": null,
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{A molecular ion peak at m/z = 78 confirms the molar mass of C}_6\\text{H}_6, supporting identification as benzene.}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+},
+{
+  "question_uid": 835,
+  "question_text": "A compound with molecular formula C₃H₈O was analysed using ¹H NMR. The spectrum showed a triplet, a quartet, and a broad singlet. Use this data to answer the following questions.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2284,
+      "content_type": "TEXT",
+      "text_content": "a) What does the triplet suggest about the type of hydrogen environment?\n(1 mark)",
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{The triplet suggests a CH}_3\\text{ group next to a CH}_2\\text{ group.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2285,
+      "content_type": "TEXT",
+      "text_content": "b) What does the quartet indicate?\n(1 mark)",
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{The quartet suggests a CH}_2\\text{ group next to a CH}_3\\text{ group.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2286,
+      "content_type": "TEXT",
+      "text_content": "c) The broad singlet appears around 2–5 ppm. What type of hydrogen does this represent?\n(1 mark)",
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{The broad singlet is from an -OH proton typical of alcohols.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2287,
+      "content_type": "TEXT",
+      "text_content": "d) Suggest the identity of the compound based on these signals.\n(1 mark)",
+      "section_order": 4,
+      "solution": {
+        "solution_text": "\\[\n\\text{Triplet + quartet + OH singlet match the pattern of propan-1-ol (CH}_3\\text{CH}_2\\text{CH}_2\\text{OH).}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+},
+{
+  "question_uid": 836,
+  "question_text": "A chemist uses HPLC to analyse a mixture of three compounds. The HPLC chromatogram shows peaks at retention times of 1.2, 3.8, and 7.6 minutes.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2288,
+      "content_type": "TEXT",
+      "text_content": "a) What does a retention time represent in HPLC?\n(1 mark)",
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{Retention time is the time a compound takes to pass through the column and be detected.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2289,
+      "content_type": "TEXT",
+      "text_content": "b) Which peak corresponds to the least strongly retained compound?\n(1 mark)",
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{The peak at 1.2 minutes, since it elutes the fastest.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2290,
+      "content_type": "TEXT",
+      "text_content": "c) How could changing the polarity of the mobile phase affect retention times?\n(1 mark)",
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{If the mobile phase becomes more polar, polar compounds elute faster and retention times decrease.}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+},
+{
+  "question_uid": 837,
+  "question_text": "A compound with molecular formula C₂H₆O was analysed using mass spectrometry. The spectrum showed a molecular ion peak at m/z = 46 and a base peak at m/z = 31.",
+  "difficulty": "Easy",
+  "orders": [
+    {
+      "order_uid": 2291,
+      "content_type": "TEXT",
+      "text_content": "a) What does the peak at m/z = 46 represent?\n(1 mark)",
+      "section_order": 1,
+      "solution": {
+        "solution_text": "\\[\n\\text{The peak at m/z = 46 is the molecular ion, indicating the molar mass of the whole molecule (C}_2\\text{H}_6\\text{O).}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2292,
+      "content_type": "TEXT",
+      "text_content": "b) What does the base peak at m/z = 31 suggest?\n(1 mark)",
+      "section_order": 2,
+      "solution": {
+        "solution_text": "\\[\n\\text{The base peak at m/z = 31 corresponds to a CH}_2\\text{OH}^+\\text{ fragment, common for ethanol.}\n\\]"
+      }
+    },
+    {
+      "order_uid": 2293,
+      "content_type": "TEXT",
+      "text_content": "c) How can mass spectrometry help distinguish ethanol from dimethyl ether (also C₂H₆O)?\n(2 marks)",
+      "section_order": 3,
+      "solution": {
+        "solution_text": "\\[\n\\text{Although both have m/z = 46 for their molecular ion, their fragmentation patterns differ.} \\\\\n\\text{Ethanol shows m/z = 31 (CH}_2\\text{OH}^+), while dimethyl ether may show m/z = 45 or 29.}\n\\]"
+      }
+    }
+  ],
+  "general_solution": null
+}
+]

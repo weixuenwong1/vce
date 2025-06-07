@@ -2,11 +2,22 @@ from django.db import models
 from django.utils.text import slugify
 
 # Create your models here.
+class Subject(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'subject'
+
+
 class Chapter(models.Model):
     chapter_uid = models.BigAutoField(primary_key=True)
-    chapter_name = models.CharField(max_length=30)
+    chapter_name = models.CharField(max_length=100)
     chapter_description = models.TextField()
-    slug = models.SlugField(max_length=50, blank=True, null=True)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="chapters", null=True)
+    slug = models.SlugField(max_length=50, blank=True, null=True, unique=True)
 
     class Meta:
         db_table = 'chapter'
@@ -19,12 +30,13 @@ class Chapter(models.Model):
             self.slug = slugify(self.chapter_name)
         super().save(*args, **kwargs)
 
+
 class Topic(models.Model):
     topic_uid = models.BigAutoField(primary_key=True)
     chapter = models.ForeignKey(Chapter, on_delete = models.SET_NULL, blank=True, null=True)
-    topic_name = models.TextField()
+    topic_name = models.CharField(max_length=50)
     content = models.TextField(blank=True, null=True)
-    slug = models.SlugField(max_length=100, blank=True, null=True)
+    slug = models.SlugField(max_length=100, blank=True, null=True, unique=True)
 
     class Meta:
         db_table = 'topic'

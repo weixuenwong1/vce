@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Practice from './components/Practice'
 import Chapters from './components/Chapters'
 import Problems from './components/Problems'
+import Summaries from './components/Summaries'
 import PasswordResetRequest from './components/PasswordResetRequest'
 import PasswordReset from './components/PasswordReset'
 import { Routes, Route, useLocation } from 'react-router-dom'
@@ -30,9 +31,10 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/chapters" element={<Chapters />} />
-              <Route path="/practice" element={<Practice />} />
-              <Route path="/practice/physics/:chapter_slug/:topic_slug" element={<Problems />} />
+              <Route path="/chapters/:subject" element={<Chapters />} />
+              <Route path="/summaries/:subject/:chapter_slug/:topic_slug" element={<Summaries />} />
+              <Route path="/practice/:subject" element={<Practice />} />
+              <Route path="/practice/:subject/:chapter_slug/:topic_slug" element={<Problems />} />
             </Routes>
             
           </div>

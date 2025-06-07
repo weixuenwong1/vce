@@ -70,7 +70,7 @@ const Login = () => {
               </Box>
               <Box className={"itemBox"}>
                   <p>
-                      Need an Expliqa account? <Link to="/register">Create account!</Link>
+                      Need a Chuba account? <Link to="/register">Create account!</Link>
                   </p>
               </Box>
           </Box>

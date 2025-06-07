@@ -34,9 +34,9 @@ export default function FormPassField(props) {
           formState,
         }) =>(
           <FormControl variant="outlined" className={"myForm"}>
-          <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
+          <InputLabel htmlFor={`outlined-adornment-${name}`}>{label}</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
+            id={`outlined-adornment-${name}`}
             onChange={onChange}
             value={value}
             type={showPassword ? 'text' : 'password'}

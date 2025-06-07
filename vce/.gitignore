@@ -8,3 +8,8 @@ __pycache__/
 *.pyd
 
 .vscode/
+
+.venv/
+test.md
+test2.md
+vce/problems/data/
