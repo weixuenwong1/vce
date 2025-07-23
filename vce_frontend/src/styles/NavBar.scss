@@ -1,0 +1,207 @@
+$black: #2A363B;
+$gray: #2E2E2E;
+$dark-gray: #1F1F1F;
+$orange: hsl(19, 78%, 61%);
+$dark-orange: hsl(19, 59%, 50%);
+$white: #FFF;
+$royal-blue: #102542;
+$vibrant-blue: #3D5A80;
+$light-blue: #4FC3F7;
+
+
+.navbar {
+  background: #424242;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  font-family: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+  &-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .navbar-logo {
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: rotate(-30deg);
+      }
+    }
+    
+    .navbar-menu {
+      list-style-type: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+
+      .navbar-item {
+        position: relative;
+        padding: 0.75rem 0;
+        color: $white;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+
+        &:hover {
+          background: #424242;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          bottom: 5px;
+          left: calc(50% - 2px);
+          background: $white;
+          will-change: transform;
+          transform: scale(0);
+          transition: transform 0.5s ease;
+        }
+
+        &:hover:after {
+          transform: scale(1);
+          transform: scale(1.55);
+        }
+
+        .navbar-submenu {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #424242;
+          border-radius: 6px;
+          padding: 0.5rem 0;
+          list-style: none;
+          min-width: 150px;
+          z-index: 1;
+          opacity: 1;
+          text-align: center;
+          animation: dropdownEnter 0.2s ease forwards;
+
+          .navbar-subitem {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: enter 0.3s ease forwards;
+            animation-fill-mode: forwards;
+
+            // Ripple delays
+            &:nth-child(1) { animation-delay: 0.1s; }
+            &:nth-child(2) { animation-delay: 0.2s; }
+            &:nth-child(3) { animation-delay: 0.3s; }
+
+            padding: 0.75rem 1rem;
+            color: $white;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s ease;
+
+            &:hover {
+              background: #333333;
+              color: $orange;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-right {
+    .navbar-button {
+      font-family: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
+      background: $orange;
+      color: $white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.4rem 1.1rem;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: hsl(19, 78%, 50%);
+      }
+    }
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 1rem; // optional: reduces padding on mobile
+
+    &-left {
+      gap: 1rem;
+
+      .navbar-menu {
+        gap: 1rem;
+
+        .navbar-item {
+          font-size: 0.9rem;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 1rem; // optional: reduces padding on mobile
+
+    &-left {
+      gap: 1rem;
+
+      .navbar-logo {
+        height: 50px; // ✅ logo smaller
+      }
+
+      .navbar-menu {
+        gap: 1rem;
+
+        .navbar-item {
+          font-size: 0.9rem;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+
+    &-right {
+      .navbar-button {
+        padding: 0.5rem 1.0rem; // ✅ smaller button
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+  &-right {
+      .navbar-button {
+        padding: 0.4rem 0.9rem; // ✅ smaller button
+        font-size: 0.8rem;
+      }
+    }
+  }
+} 

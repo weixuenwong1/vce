@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import AxiosInstance from './AxiosInstance';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
 
@@ -11,6 +11,12 @@ const QuestionsForTopic = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showSolutions, setShowSolutions] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [delayedLoading, setDelayedLoading] = useState(false);
+    const [minimumLoadTimePassed, setMinimumLoadTimePassed] = useState(false);
+    const [contentVisible, setContentVisible] = useState(false);
+
+    const navigate = useNavigate();
+
 
 
     const shuffleArray = (arr) => [...arr].sort(() => Math.random() - 0.5);
@@ -19,38 +25,67 @@ const QuestionsForTopic = () => {
         const fetchQuestions = async () => {
             try {
                 const res = await AxiosInstance.get(`api/problems/${subject}/${chapter_slug}/${topic_slug}/?count=1`);
+                const data = res.data;
+
+                if (!data || data.length === 0) {
+                    navigate(`/practice/${subject}`);
+                    return;
+                }
+
+                const shuffled = shuffleArray(res.data);
                 setAllQuestions(res.data);
                 console.log(res.data)
-                const shuffled = shuffleArray(res.data);
                 setQuestionCycle(shuffled);
                 setCurrentIndex(0);
-                setLoading(false);
             } catch (err) {
                 console.error("Failed to load questions", err);
+                navigate(`/practice/${subject}`);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchQuestions();
+
+        const timer = setTimeout(() => {
+            setMinimumLoadTimePassed(true);
+        }, 2000);
+
+        return () => clearTimeout(timer);
     }, [chapter_slug, topic_slug]);
 
 
     const handleNextQuestion = () => {
         setShowSolutions(false);
-        const nextIndex = currentIndex + 1;
-        if (nextIndex >= questionCycle.length) {
-            const reshuffled = shuffleArray(allQuestions);
-            setQuestionCycle(reshuffled);
-            setCurrentIndex(0);
-        } else {
-            setCurrentIndex(nextIndex);
-            console.log(currentIndex)
-        }
+        setDelayedLoading(true);
+
+        setTimeout(() => {
+            const nextIndex = currentIndex + 1;
+
+            if (nextIndex >= questionCycle.length) {
+                const reshuffled = shuffleArray(allQuestions);
+                setQuestionCycle(prev => [...prev, ...reshuffled]);
+            }
+
+            setCurrentIndex(nextIndex); 
+            setDelayedLoading(false);
+            console.log(nextIndex + 1);
+        }, 2000);
     };
 
     const toggleShowSolutions = () => {
         setShowSolutions(prev => !prev);
     };
 
+    useEffect(() => {
+        if (!loading && minimumLoadTimePassed && !delayedLoading) {
+            setTimeout(() => {
+                setContentVisible(true);
+            }, 10); 
+        } else {
+            setContentVisible(false); 
+        }
+    }, [loading, minimumLoadTimePassed, delayedLoading]);
 
     useEffect(() => {
         if (window.MathJax && window.MathJax.typesetPromise) {
@@ -59,14 +94,18 @@ const QuestionsForTopic = () => {
         }
     }, [questionCycle, currentIndex, showSolutions]);
 
-    if (loading) return <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '80vh'
-    }}>
-        <div className="loader"></div>
-    </div>;
+    if (loading || delayedLoading || !minimumLoadTimePassed) {
+        return (
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '80vh'
+            }}>
+                <div className="loader1"></div>
+            </div>
+        );
+    }
     if (questionCycle.length === 0) return <div>No questions available.</div>;
 
     const currentQuestion = questionCycle[currentIndex];
@@ -86,13 +125,22 @@ const QuestionsForTopic = () => {
     };
 
 
+    
     return (
         <div style={{display: 'flex', justifyContent: 'center', padding: '2rem'}}>
-            <div style={{ maxWidth: '1300px', width: '100%', overflowY: 'auto' }}>
+            <div className={`fade-in ${contentVisible ? 'visible' : ''}`}
+                style={{ maxWidth: '1300px', width: '100%', overflowY: 'auto' }}>
             <h3 style={{ fontFamily: 'Poppins, sans-serif', whiteSpace: 'pre-line'}}>
                 {currentQuestion.question_text}
             </h3>
-
+            <p style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '0.9rem',
+                marginTop: '-1rem',
+                marginBottom: '2rem'
+            }}>
+                <strong>Question ID:</strong> {currentQuestion.question_uid}
+            </p>
             <div>
                 {currentQuestion.orders.map(order => (
                     <div key={order.order_uid} style={{ marginBottom: '3.5rem' }}>
@@ -102,7 +150,7 @@ const QuestionsForTopic = () => {
                                     const { body, marks } = extractMarks(order.text_content);
                                     return (
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                                            <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 550, fontSize: '1.1rem', whiteSpace: 'pre-line', margin: 0,flex: 1 }}>
+                                            <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 550, fontSize: '1.1rem', whiteSpace: 'pre-line', margin: 0, flex: 1 }}>
                                                 {body}
                                             </p>
                                             {marks && (
@@ -174,8 +222,26 @@ const QuestionsForTopic = () => {
                     )}
                 </div>
             )}
-                <div style={{ marginTop: '2rem' ,display: 'flex', justifyContent: 'center' }}>
-                        <button onClick={handleNextQuestion} style={{ width: '70%' }}>Next Question</button>
+                <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+                    <button
+                    onClick={() => {
+                        if (currentIndex > 0) {
+                        setShowSolutions(false);
+                        setCurrentIndex(prev => prev - 1);
+                        }
+                    }}
+                    disabled={currentIndex === 0}
+                    style={{ flex: 1 }}
+                    >
+                        Previous Question
+                    </button>
+
+                    <button
+                    onClick={handleNextQuestion}
+                    style={{ flex: 1 }}
+                    >
+                        Next Question
+                    </button>
                 </div>
             </div>
         </div>
@@ -185,4 +251,3 @@ const QuestionsForTopic = () => {
 };
 
 export default QuestionsForTopic;
- 

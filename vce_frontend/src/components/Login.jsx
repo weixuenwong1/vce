@@ -34,10 +34,10 @@ const Login = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  backgroundColor: '#071c39',
+                  backgroundColor: '#2E2E2E',
                   overflow: 'hidden',
                 }}>
-      {ShowMessage ? <Message text={"We couldn’t find an account with the email and password you entered. Please double-check your details and try again."} color={"#FF5555"}/> : null}
+      {ShowMessage ? <Message text={<span className="message-text">We couldn’t find an account with the email and password you entered. Please double-check your details and try again.</span>} color={"#FF5555"}/> : null}
       <div className="gradient-bg-blue" />
       <div className="gradient-bg-orange" />
       <div style={{
@@ -66,7 +66,7 @@ const Login = () => {
                 </Link>
               </Box>
               <Box className={"itemBox"}>
-                  <button type={"submit"}>Log In</button>
+                  <button className="regButton" type={"submit"}>Log In</button>
               </Box>
               <Box className={"itemBox"}>
                   <p>

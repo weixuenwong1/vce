@@ -1,16 +1,21 @@
 import AxiosInstance from "./AxiosInstance"
 import {React, useEffect, useState} from 'react'
-import {Box, Button, Collapse, Typography} from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom';
 import { chapterOrders, topicOrders } from "../constants/ListOrders";
+import '../styles/MenuDropdown.scss'
 
 const Practice = () => {
     const { subject } = useParams(); 
     const [chapter, setChapter] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [expanded, setExpanded] = useState({});
     const [topics, setTopics] = useState({});
     const navigate = useNavigate();
+
+    const subjectEmojis = {
+        physics: "🚀",
+        chemistry: "🧪",
+        biology: "🧬"
+    };
 
     const GetChapter = () => {
         AxiosInstance.get(`api/chapters`).then((res) => {
@@ -40,18 +45,6 @@ const Practice = () => {
     };
 
 
-
-    const toggleExpand = (slug) => {
-        setExpanded((prev) => ({ ...prev, [slug]: !prev[slug] }));
-        if (!topics[slug]) {
-          fetchTopics(slug)
-        }
-      };
-    
-    const handleTopicClick = (chapterSlug, topicSlug) => {
-        navigate(`/practice/${subject}/${chapterSlug}/${topicSlug}/`);
-    };
-
     useEffect(() => {
         const validSubjects = ['physics', 'chemistry', 'biology'];
         if (!validSubjects.includes(subject.toLowerCase())) {
@@ -61,72 +54,71 @@ const Practice = () => {
         }
     }, [subject]);
 
-    return(
-        <div>
-            <Typography variant="h4" sx={{ mt: 2, mb: 2, textAlign: 'center' }}>
-                {subject.charAt(0).toUpperCase() + subject.slice(1)} Problems
-            </Typography>
-            { loading ?  <div style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            minHeight: '80vh'
-                        }}>
-                            <div className="loader"></div>
-                        </div> :
-            <div>
-                {chapter
-                  .slice()
-                  .sort((a, b) => {
-                    const indexA = chapterOrders.indexOf(a.chapter_name);
-                    const indexB = chapterOrders.indexOf(b.chapter_name);
-                    return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
-                    })
-                  .map((item) => (
-                    <Box key={item.chapter_uid} sx={{p:2, m:2, boxShadow: 3}}>
-                        <Typography variant="h6">{item.chapter_name}</Typography>
-                        <Typography variant="body2">{item.chapter_description}</Typography>
-                        <Button
-                            onClick={() => toggleExpand(item.slug)}
-                            variant="outlined"
-                            sx={{ mt: 1 }}
-                        >
-                            {expanded[item.slug] ? "Hide Topics" : "Show Topics"}
-                        </Button>
-                        <Collapse in={expanded[item.slug]}>
-                            <Box sx={{ mt: 1, pl: 2 }}>
-                            {topics[item.slug] ? (
-                                topics[item.slug].map((topic, i) => (
-                                    <Typography
-                                        key={i}
-                                        variant="body2"
-                                        sx={{ cursor: 'pointer' }}
-                                        onClick={() => handleTopicClick(item.slug, topic.slug)}
-                                    >
-                                        • {topic.topic_name}
-                                    </Typography>
-                                ))
-                            ) : (
-                                <div style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    height: '100px'
-                                }}>
-                                    <div className="loader"></div>
+    useEffect(() => {
+        chapter.forEach(item => fetchTopics(item.slug));
+    }, [chapter]);
+
+
+    return (
+        <div className="practice-page">
+            <div className="practice-container">
+                <h1>
+                    {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice {subjectEmojis[subject.toLowerCase()] || "📚"}
+                </h1>
+                <p className="practice-description">
+                    This section provides a range of practice questions, from easy to exam-level and occasionally beyond, to test your understanding of the topic.                 </p>
+                <p className="side-note">
+                    There isn’t always just one way to solve a problem.
+                </p>
+
+                <hr className="dividerMenu" />
+                
+                {loading ? (
+                    <div className="loader-wrapper">
+                        <div className="loader"></div>
+                    </div>
+                ) : (
+                    <div className="chapter-section">
+                        {chapter
+                            .slice()
+                            .sort((a, b) => {
+                                const order = chapterOrders[subject.toLowerCase()] || [];
+                                const indexA = order.indexOf(a.chapter_name);
+                                const indexB = order.indexOf(b.chapter_name);
+                                return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
+                            })
+                            .map(item => (
+                            <div key={item.chapter_uid}>
+                                <h4 className="chapter-heading">{item.chapter_name}</h4>
+                                <div className="chapter-wrapper">
+                                    <div className="chapter-left-box">
+                                         <h4 className="subtitle">Description</h4>
+                                        <p className="chapter-description">{item.chapter_description}</p>
+                                    </div>
+                                    <div className="chapter-right-box">
+                                        <table className="topics-table">
+                                            <tbody>
+                                                {topics[item.slug]?.map((topic, index) => (
+                                                    <tr key={index}
+                                                        className="topic-row"
+                                                        onClick={() => navigate(`/practice/${subject}/${item.slug}/${topic.slug}/`)}>
+                                                        <td>
+                                                            <span className="topic-text">{topic.topic_name}</span>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            )}
-                            </Box>
-                        </Collapse>
-                    </Box>
-                ))}
-            </div>
-            }
-            {chapter.length === 0 && !loading && (
-                <Typography sx={{ textAlign: 'center', mt: 4 }}>
-                    No chapters found for subject: {subject}
-                </Typography>
-            )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+                {chapter.length === 0 && !loading && (
+                    <p className="coming-soon">{subject.charAt(0).toUpperCase() + subject.slice(1)} Practice Questions Coming Soon!</p>
+                )}
+            </div>    
         </div>
     )
 }

@@ -34,14 +34,19 @@ export default function FormPassField(props) {
           formState,
         }) =>(
           <FormControl variant="outlined" className={"myForm"}>
-          <InputLabel htmlFor={`outlined-adornment-${name}`}>{label}</InputLabel>
           <OutlinedInput
             id={`outlined-adornment-${name}`}
             onChange={onChange}
             value={value}
             type={showPassword ? 'text' : 'password'}
             error={!!error}
-            className={"myInput"}
+            sx = {{
+              color: 'black',
+              fontSize: '1.0rem',
+              fontFamily: 'Poppins',
+              fontWeight: 500,
+              letterSpacing: '0.2px',
+            }}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -57,7 +62,7 @@ export default function FormPassField(props) {
                 </IconButton>
               </InputAdornment>
             }
-            label={label}
+            placeholder={label}
           />
           <FormHelperText sx={{color: "#ff5555", mt: 1}}> {error?.message} </FormHelperText>
         </FormControl>

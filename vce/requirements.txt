@@ -18,3 +18,5 @@ tzdata==2025.1
 urllib3==2.3.0
 django-cors-headers==4.7.0
 django-rest-knox==5.0.2
+django-storages==1.14.2
+boto3==1.37.3

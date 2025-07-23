@@ -20,7 +20,7 @@ body {
 .gradient-bg-orange,
 .gradient-bg-blue-reg,
 .gradient-bg-orange-reg  {
-    --size: 750px;
+    --size: 400px;
     --speed: 50s;
     --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
 
@@ -35,41 +35,31 @@ body {
 }
 
 .gradient-bg-blue {
-    top: 5%;
-    left: 14%;
+    top: 47%;
+    left: 65%;
     background-image: linear-gradient(hsl(222, 84%, 60%), hsl(164, 79%, 71%));
 }
 
 .gradient-bg-blue-reg {
-    top: 0%;
-    left: 18%;
+    top: 50%;
+    left: 56%;
     background-image: linear-gradient(hsl(222, 84%, 60%), hsl(164, 79%, 71%));
 }
 
 .gradient-bg-orange {
-    top: 47%;
-    left: 57%;
+    top: 5%;
+    left: 15%;
     background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
 }
 
 .gradient-bg-orange-reg {
-    top: 50%;
-    left: 56%;
+    top: 0%;
+    left: 18%;
     background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
 }
 
-@media (min-width: 720px) {
-    .gradient-bg-blue,
-    .gradient-bg-orange,
-    .gradient-bg-blue-reg,
-    .gradient-bg-orange-reg {
-        --size: 500px;
-    }
-}
 
-* {
-    transition: all 0.5s ease-out;
-}
+
 
 .formBox,
 .regFormBox {
@@ -87,7 +77,7 @@ body {
 
 .formBox {
     width: 380px;
-    height: 520px;
+    height: auto;
 }
 
 .regFormBox {
@@ -110,7 +100,16 @@ form *{
     align-items: flex-start;
     width: 100%;
     margin-top: 8px;
-    height: 100px;
+    height: auto;
+}
+
+.regItemBox {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
 }
 
 .title {
@@ -119,11 +118,23 @@ form *{
     line-height: 42px;
     align-self: center; 
     text-align: center;
+    margin-bottom: 30px;
 }
 
-.title:hover {
-    color: hsl(19, 78%, 61%);
-    transition: color 0.3s ease;  
+.password-title {
+  font-size: 40px;
+    font-weight: 500;
+    line-height: 42px;
+    align-self: flex-start; 
+    text-align: center;
+}
+
+.reset-password-title {
+  font-size: 40px;
+    font-weight: 500;
+    line-height: 42px;
+    align-self: center; 
+    text-align: center;
 }
 
 .myForm {
@@ -133,32 +144,19 @@ form *{
     width: 100%;
 }
 
-.myInput {
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    color: #e5e5e5;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0 10px;
-    width: 100%;
-}
-
 .customLabel{
     display: block;
-    margin-top: 30px;
-    font-size: 16px;
+    margin-top: 20px;
+    font-size: 15px;
     font-weight: 500;
-    margin-bottom: 3px;
+    margin-bottom: 7px;
 }
 
-.customLabel:hover {
-    color: hsl(19, 78%, 61%);
-    transition: color 0.3s ease; 
-}
+
 
 .MuiOutlinedInput-root.Mui-focused .MuiInputBase-input {
     color: rgba(0,0,0,0.87) !important;
-    font-size: 18px;
+    font-size: 0.9rem;
 }
 
 .MuiInputBase-root.Mui-focused {
@@ -187,24 +185,25 @@ form *{
     text-decoration-color: hsl(19, 78%, 50%); 
 }
 
-button{
+.regButton {
     font-family: 'Poppins', sans-serif;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
-    padding: 15px 15px;
+    padding: 10px 10px;
     font-size: 18px;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 40px;
     cursor: pointer;
 }
 
-button:hover {
+.regButton:hover {
     background-color: hsl(19, 78%, 61%); 
     color: #ffffff; 
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);  
     transform: scale(1.05);  
+    transition: 0.5s;
 }
 
 .itemBox a {
@@ -223,6 +222,266 @@ button:hover {
     transition: color 0.3s ease, text-decoration-color 0.5s ease, text-underline-offset 0.5s ease;
 }
 
+.key-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.instruction-text {
+  text-align: center;
+  color: #dddddd;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.itemBox .back-login {
+  color: #FFF;
+  transition: color 0.3s ease, text-decoration-color 0.5s ease, text-underline-offset 0.5s ease;
+}
+
+.itemBox .back-login:hover {
+    color: hsl(19, 78%, 61%);  
+    text-decoration: underline;
+    text-decoration-color: hsl(19, 78%, 61%);  
+    text-underline-offset: 4px;  
+}
+
+@media (max-width: 1200px) {
+  .gradient-bg-blue,
+  .gradient-bg-orange,
+  .gradient-bg-blue-reg,
+  .gradient-bg-orange-reg {
+    --size: 350px;
+  }
+  .gradient-bg-orange {
+    top: 10%;
+    left: 5%;
+    background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+  }
+
+  .gradient-bg-orange-reg {
+      top: 5%;
+      left: 10%;
+      background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+  }
+}
+
+@media (max-width: 1000px) {
+  .message-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .gradient-bg-blue,
+  .gradient-bg-orange,
+  .gradient-bg-blue-reg,
+  .gradient-bg-orange-reg {
+    --size: 300px;
+  }
+
+  .gradient-bg-orange {
+    top: 15%;
+    left: 0%;
+    background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+  }
+
+  .gradient-bg-orange-reg {
+      top: 10%;
+      left: 2%;
+      background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+  }
+  .regFormBox {
+    width: 400px;
+    height: auto;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+  .formBox {
+    width: 350px;
+  }
+
+  .title {
+    font-size: 35px;
+    line-height: 32px;
+    margin-bottom: 3.0rem;
+  }
+
+  .password-title {
+    font-size: 35px;
+    line-height: 32px;
+    margin: 1rem 0;
+    align-self: flex-start;
+  }
+
+  .reset-password-title {
+    font-size: 35px;
+    line-height: 32px;
+    margin: 1rem 0;
+    align-self: center;
+  }
+
+  .customLabel {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .itemBox {
+    margin-top: 6px;
+    height: auto;
+  }
+
+  .regButton {
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+
+  .itemBox p {
+    font-size: 13px;
+  }
+
+  .forgotPasswordLink {
+    font-size: 12px;
+  }
+
+  .key-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .instruction-text {
+    font-size: 1.0rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .itemBox .back-login {
+    font-size: 1.0rem;
+  }
+
+  .message-text {
+    font-size: 0.8rem;
+  }
+
+  .MuiFormControl-root {
+    margin-bottom: 10px;
+  }
+
+  .MuiOutlinedInput-input,
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .gradient-bg-blue,
+  .gradient-bg-orange,
+  .gradient-bg-blue-reg,
+  .gradient-bg-orange-reg {
+    --size: 250px;
+  }
+
+  .gradient-bg-orange {
+    top: 15%;
+    left: 0%;
+    background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+  }
+
+  .gradient-bg-orange-reg {
+      top: 10%;
+      left: 2%;
+      background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+  }
+
+  .formBox,
+  .regFormBox {
+    width: 320px;
+    padding: 30px 25px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .password-title {
+    font-size: 27px;
+    line-height: 26px;
+    margin: 1rem 0;
+    align-self: flex-start;
+  }
+
+  .customLabel {
+    font-size: 14px;
+  }
+
+  .regButton {
+    font-size: 15px;
+    padding: 10px 12px;
+    margin-top: 20px;
+  }
+
+  .forgotPasswordLink {
+    font-size: 12px;
+  }
+
+  .itemBox p {
+    font-size: 13px;
+  }
+
+  .itemBox .back-login {
+    font-size: 0.9rem;
+  }
+
+  .MuiOutlinedInput-input,
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .formBox,
+  .regFormBox {
+    width: 80vw;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .customLabel {
+    font-size: 13px;
+  }
+
+  .regButton {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 10px;
+  }
+
+  .forgotPasswordLink {
+    font-size: 11px;
+  }
+
+  .itemBox p {
+    font-size: 12px;
+  }
+}
+
 
 /* -------------------------------------------------------------- */
 
@@ -236,37 +495,104 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     background-color: rgba(255, 255, 255, 0.07) !important;
-    color: rgba(0,0,0,0.87) !important;
-    -webkit-text-fill-color: rgba(0,0,0,0.87) !important;
+    color: rgba(0,0,0,0.95) !important;
+    -webkit-text-fill-color: rgba(0,0,0,0.) !important;
     transition: background-color 5000s ease-in-out 0s; /* delays the autofill bg */
     box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.07) inset !important;
 }
 
+.MuiOutlinedInput-root.Mui-focused, .MuiInputBase-input {
+  font-size: 1.1rem;
+}
 
 /* CSS for practice/chapters page */
 /* --------------------------------------------------------------- */
-/* HTML: <div class="loader"></div> */
-.loader {
-    height: 80px;
-    aspect-ratio: 1;
-    padding: 10px;
-    border-radius: 50%;
-    box-sizing: border-box;
-    position: relative;
-    mask: conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);
-    filter: blur(12px);
-  }
-  .loader:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: conic-gradient(#0000 35%,#C02942,#0000 65%);
-    animation: l1 1.5s linear infinite;
-  }
-  @keyframes l1 {
-    to {rotate: 1turn}
-  }
 
+.loader1 {
+  width: 120px;
+  height: 20px;
+  background: 
+    linear-gradient(#000 50%,#0000 0),
+    linear-gradient(#0000 50%,#000 0),
+    linear-gradient(#000 50%,#0000 0),
+    linear-gradient(#0000 50%,#000 0),
+    linear-gradient(#000 50%,#0000 0),
+    linear-gradient(#0000 50%,#000 0)
+    #ddd;
+  background-size: calc(100%/6 + 1px) 200%;
+  background-repeat: no-repeat;
+  animation: l12 2s infinite;
+}
+@keyframes l12 {
+  0%     {background-position: calc(0*100%/5) 100%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  16.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  33.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  50%    {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  66.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  83.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5)   0%}
+  100%   {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5) 100%}
+}
+
+
+.loader2 {
+  display: inline-flex;
+  gap: 10px;
+}
+.loader2:before,
+.loader2:after {
+  content: "";
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    linear-gradient(#222 0 0) top/100% 40% no-repeat,
+    radial-gradient(farthest-side,#000 95%,#0000) 50%/8px 8px no-repeat
+    #fff;
+  animation: 2.5s infinite ;
+  animation-name: l8-1, e8-2;
+}
+@keyframes l8-1 {
+  0%,
+  40%,
+  100%{background-size:100% 40%,8px 8px}
+  50%,
+  80% {background-size:100% 0% ,8px 8px}
+}
+@keyframes l8-2 {
+  0%,
+  50% {background-position:top,50% 50%}
+  60%,
+  65%{background-position:top,70% 50%}
+  70%,
+  75%{background-position:top,30% 50%}
+  90%,
+  100%{background-position:top,50% 50%}
+}
+
+
+.loader3 {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
+  animation: l21 2s infinite linear;
+}
+.loader3::before {
+  content :"Generating SAC...";
+  color: #0000;
+  padding: 0 5px;
+  background: inherit;
+  background-image: linear-gradient(90deg,#fff 50%,#000 0);
+  -webkit-background-clip:text;
+          background-clip:text;
+}
+
+@keyframes l21{
+  100%{background-position: left}
+}
+
+/* Problems.jsx*/
 .scroll-math {
   overflow-x: auto;
   overflow-y: hidden;
@@ -286,6 +612,92 @@ select:-webkit-autofill:focus {
 .katex-display {
   font-size: 1.2em; 
 }
+
 .katex-html {
   font-size: 1.1em; 
 }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 3.0s ease, transform 3.0s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SAC.jsx*/
+@media print {
+  .sac-page {
+    page-break-after: always;
+  }
+}
+
+/* CSS for Logo */
+/* --------------------------------------------------------------- */
+.logo-login {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    z-index: 9999;
+}
+
+.logo-register {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    z-index: 9999;
+}
+
+.logo-login:hover,
+.logo-register:hover {
+    transform: rotate(-30deg);
+}
+
+@media (max-width: 900px) {
+    .logo-login {
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100px;
+    }
+
+    .logo-register {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100px;
+    }
+    .message-text {
+      font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo-login {
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 80px;
+    }
+
+    .logo-register {
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 80px;
+    }
+    .message-text {
+      font-size: 0.7rem;
+    }
+}
+
+

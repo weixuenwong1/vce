@@ -6,15 +6,32 @@ import { useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import AxiosInstance from './AxiosInstance'
 import { useNavigate } from 'react-router-dom'
-import LockIcon from '@mui/icons-material/Lock';
+import { KeyRound } from 'lucide-react';
 import Message from './Message';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 
 const PasswordReset = () => {
   const navigate = useNavigate()
-  const {handleSubmit, control} = useForm()
   const {token} = useParams()
   const [ShowMessage, setShowMessage] = useState(false)
+
+  const resetPasswordSchema = yup.object({
+    password: yup.string()
+      .required("Password can't be blank")
+      .min(6, 'Password must be at least 6 characters')
+      .matches(/[a-z]/, 'Password must include at least one lowercase letter')
+      .matches(/[0-9]/, 'Password must include at least one number'),
+    
+    password2: yup.string()
+      .required("Please confirm your password")
+      .oneOf([yup.ref('password'), null], 'Passwords must match'),
+  });
+
+  const { handleSubmit, control } = useForm({
+    resolver: yupResolver(resetPasswordSchema),
+  });
 
   const submission = (data) => {
     AxiosInstance.post('api/password_reset/confirm/', {
@@ -26,7 +43,7 @@ const PasswordReset = () => {
       setShowMessage(true)
       setTimeout(() => {
         navigate('/login')
-      }, 2000)
+      }, 2500)
     })
 
   }
@@ -36,7 +53,7 @@ const PasswordReset = () => {
                       display: 'flex',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      backgroundColor: '#071c39',
+                      backgroundColor: '#2E2E2E',
                       overflow: 'hidden',
                     }}>
           {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."} color={"black"}/> : null}
@@ -52,8 +69,12 @@ const PasswordReset = () => {
             <form onSubmit={handleSubmit(submission)}>
               <Box className ={"formBox"}>
                   <Box className={"itemBox"}>
-                      <Box className={"title"}> Reset Password </Box>
+                    <Box className="key-circle">
+                      <KeyRound size={50} color="white" />
+                    </Box>
+                      <Box className={"reset-password-title"}> Reset Password </Box>
                   </Box>
+                  <p className="instruction-text">Enter a new password</p>
                   <Box className={"itemBox"}>
                     <label htmlFor="password" className="customLabel">Password</label>
                     <FormPassField name={"password"} control={control} label="Password" />
@@ -63,7 +84,7 @@ const PasswordReset = () => {
                     <FormPassField name={"password2"} control={control} label="Confirm Password" />
                   </Box>
                   <Box className={"itemBox"}>
-                      <button type={"submit"}>Reset Password</button>
+                      <button className="regButton"  type={"submit"}>Reset Password</button>
                   </Box>
                   <Box className={"itemBox"}>
                   </Box>

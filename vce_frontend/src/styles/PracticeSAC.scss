@@ -1,0 +1,105 @@
+$black: #2A363B;
+$gray: #2E2E2E;
+$dark-gray: #1F1F1F;
+$orange: hsl(19, 78%, 61%);
+$dark-orange: hsl(19, 59%, 50%);
+$white: #FFF;
+$royal-blue: #102542;
+$vibrant-blue: #3D5A80;
+$light-blue: #4FC3F7;
+$sac-orange-light: hsl(19, 90%, 65%);
+$sac-orange: hsl(19, 78%, 61%);
+$sac-orange-deep: hsl(19, 70%, 50%);
+$sac-highlight: hsl(12, 85%, 62%);
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sac-chapter-wrapper {
+  display: flex;
+  background: $dark-gray;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  overflow: hidden;
+  margin: 2rem 0;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, border 0.3s ease;
+
+  &:hover {
+    border: 2px solid $sac-orange;
+    transform: translateY(-5px);
+  }
+
+  .sac-left {
+    flex: 3;
+    padding: 2rem;
+
+    .sac-chapter-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $orange;
+      margin-bottom: 1rem;
+    }
+
+    .sac-chapter-description {
+      font-size: 1rem;
+      color: #D0D0D0;
+      line-height: 1.6;
+    }
+  }
+
+  .sac-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $dark-gray;
+    cursor: pointer;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+  .generate-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.8s ease;
+    }
+    }
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        $sac-orange-light,
+        $sac-highlight,
+        $sac-orange-deep,
+        $sac-orange,
+      );
+      background-size: 500% 500%;
+      animation: backgroundShift 7s ease infinite; // slower background animation
+      box-shadow: 0 0 15px rgba(255, 149, 0, 0.7), 0 0 30px rgba(255, 205, 100, 0.5);
+
+      .generate-tab h2 {
+        transform: scale(1.08);
+      }
+    }
+  }  
+}
+

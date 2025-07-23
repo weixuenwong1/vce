@@ -1,206 +1,356 @@
 > ⚠️ **Note:** This explanation is meant to support your understanding, but it is **not a substitute for your official textbook or prescribed course materials**. Always refer to your school resources for complete and accurate coverage of the syllabus.
 
 
-# **Magnetic Fields (Applications)**
 
 
-In exploring **magnetic fields**, we now look at their practical applications — such as how magnetic fields drive devices like **DC motors** or control the motion of **charged particles** in tools like the **mass spectrometer.**
+# **Einstein's Special Theory of Relativity**
 
 
 
 
-## DC Motor
+We will now discuss the topic of **special relativity**, a theory that revolutionised our understanding of space, time, and motion. Einstein proposed that **time and space are not fixed**, but adjust themselves to keep the **speed of light constant for all observers,** leading to the phenomena of  **time dilation** and **length contraction.**
 
-DC Motors are devices that transform **electrical energy** (power supply) into **rotational kinetic energy** (rotation of the coil). They are widely used in various tools and devices including electric toothbrushes, electric screwdrivers and drills, robotics and automation systems.
-
-![Right hand grip rule problem](https://vceproblems.s3.amazonaws.com/question_media/DCMotor.png)
-
-
-In the image above, a coil is placed inside a **magnetic field** and a **current (from a power supply) flows in an anticlockwise direction**.
-
-Using the **Right-Hand Slap Rule**:
-
-- The **magnetic field** is directed from **left to right** (North to South).
-- The **current** flows from **J to M**, so your **palm faces downward**.
-- This means:
-  - The **force on side JM is downward**.
-  - The **force on side KL is upward**.
 
 ---
 
-### 🛑 The Problem Without a Commutator
 
-After rotating **90°**, the coil becomes vertical (as shown on the right side of the image). If the current remains unchanged, the direction of the forces will reverse, causing the coil to:
+## Special Relativity
 
-- Rotate **back to its original position**.
-- Result in a **back-and-forth motion**, not continuous rotation.
+
+We first need to understand that **all motion is relative,** except for the speed of light. **Nobody can measure something without making reference to something else.**
+
+
+>For example, consider the scenario below:
+>
+>- **Person A** is driving at **50 km/h** relative to the ground.
+>- **Person B** is standing still on the side of the road and uses a speed gun to measure Person A’s speed as **50 km/h**.
+>
+>However:
+>
+>- **Person C** is driving towards Person A at **50 km/h** in the opposite direction.
+>- From Person C’s perspective, **Person A’s speed appears to be 100 km/h**, because their speeds add up relative to each other.
+
+
+
+
+
+
+Despite everything appearing relative, there are **two things that remain constant**, given as **Einstein’s postulates**:
+
+
+1. **The laws of physics are the same in all inertial reference frames.**
+2. **The speed of light in a vacuum is constant and absolute.**
+
 
 ---
 
-#### 🔄 Solution: Split-Ring Commutator
 
-To fix this, a **split-ring commutator** is used. It:
+### ***Michelson-Morley experiment***
 
-- **Reverses the direction of the current** every **half turn**.
-- This reversal keeps the **forces on the coil in the same direction**.
-- Ensures that the **torque and rotation remain continuous** in **one direction**.
+
+Einstein's second postulate is supported by the **Michelson–Morley experiment.**
+
+
+The Michelson-Morley experiment tested for the existence of the hypothesised luminiferous aether by detecting any changes in the speed of light due to the movement of Earth through the aether. However, there are no changes detected which implied that the speed of light is constant in all reference frames.
+
 
 ---
 
-### ⚙️ Quantifying Force and Torque in a DC Motor
 
-We’ve seen how to determine the **direction of rotation** using the **Right-Hand Slap Rule**. But to **quantify** the actual **force** and **torque**, we use the following formulas:
+## ⏳ Time Dilation
 
-$$
-   \boldsymbol{F = nILB}
-$$
 
-and
+**Time measured in the rest frame** (where the clock is stationary relative to the observer) is always **shorter** than the time measured from an **external frame** when the object is moving. This results in:
+
 
 $$
-   \boldsymbol{\tau = rF}
+   \boldsymbol{t = \gamma t_0}
 $$
 
-Or, for a rectangular coil:
-
-$$
-   \boldsymbol{\tau = (F_{JM} \cdot \frac{JK}{2}) \cdot 2}
-$$
 
 Where:
-- $ F_{JM} $ = Force on side JM of the coil
-- $ JK $ = Width of the coil
-- The factor of 2 accounts for the force on both sides of the coil
+- **$ t $** = dilated time (s) ***- time interval measured by an observer for whom the clock is moving***
+- **$ t_0 $** = proper time (s) ***- time interval measured in the clock’s own rest frame***
+- **$ \gamma $** = Lorentz factor $ (\boldsymbol{\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}})  $
+
+
+
+
+The **Lorentz factor** is always **greater than 1**, hence **dilated time (t)** is always **longer** (stretched) compared to **proper time (t₀)**.
+
 
 ---
 
+
+## 📏 Length Contraction
+
+
+**Length measured in the rest frame** (where the object is stationary) is always **longer** than the length measured from an **external frame** when the object is moving. This results in:
+
+
+$$
+   \boldsymbol{L = \frac{L_0}{\gamma}}
+$$
+
+
+Where:
+- **$ L $** = contracted length (m) ***- length measured by an observer for whom the object is moving***
+- **$ L_0 $** = proper length (m) ***- length measured in the object's own rest frame***
+- **$ \gamma $** = Lorentz factor $ (\boldsymbol{\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}})  $
+
+
+
+
+The **Lorentz factor ($ \gamma $)** is always **greater than 1**, hence **contracted length (L)** is always **shorter** than the **proper length (L₀)**.
+
+
+---
+
+
+### ***Application of Special Relativity***
+
+
+
+
+Muons are particles produced high in the **upper atmosphere** where most muons are expected to **decay before reaching Earth’s surface** due to their short half-lives. However, many are detected at ground level,  something that can only be explained using **special relativity**.
+
+
+
+
+***Perspective of the muons:***
+
+
+- The **Earth is moving towards them** at a high speed. 
+- They observe **length contraction**, where the **distance from their position in the atmosphere to Earth’s surface is shorter** than what scientists on Earth measure. 
+- Thus, they can reach the surface **before decaying**.
+
+
+***Perspective of the scientists (Earth frame):***
+
+
+- Muons are moving towards them at **high speeds**. 
+- Due to **time dilation**, the muons’ **half-lives are dilated**. 
+- This means muons take **longer to decay**, allowing **more of them to reach the surface** than classical physics predicts.
+
+
+---
+
+
 <br>
+
 
 Let's consider the problem below.
 
-<br>
-
-**e.g 1. As shown in Figure A below, a coil of 40 turns is positioned to rotate about a horizontal axis with little friction. The coil is connected to a DC supply, enabling the flow of current and causing the coil to rotate based on electromagnetic forces.**
-
-
-![DC Motor Problem](https://vceproblems.s3.amazonaws.com/question_media/DCMotor13.png)
-
-
-**a) Determine whether the coil will rotate in a clockwise or anticlockwise direction as viewed from the side of the split-ring commutator. Give your reasoning. (2 marks)**
-
-***The direction of rotation will be anticlockwise, considering side JM, the magnetic field direction is to the right and the direction of current is from M to J through side JM, hence the force on JM is down using right hand slap rule and the direction of rotation is anticlockwise.***
-
-
----
-
-The **direction of force** must always be determined using the **Right-Hand Slap Rule**.  
-The key point to remember is that **current flows from the positive terminal** of the power supply. In this case, the current flows from **M → J → K → L**.
-
----
 
 <br>
 
-**b) If the magnitude of the force on side JM is 25 N, determine the strength of the magnetic field B. Show your working. (2 marks)**
 
-$$ F = n I L B $$
 
-$$ 25 = 40 \cdot 1.5 \cdot 0.50 \cdot B $$
 
-$$ B = \frac{25}{ 40 \cdot 1.5 \cdot 0.50} $$
+**e.g 1. An interstellar spacecraft, Orion, travels from Earth to a star system 9.0 light-years away, as measured by observers on Earth. The spacecraft moves at 0.8c relative to Earth.**
 
-$$ B = 0.83 \; T $$
-
----
-
-We apply the **magnetic force equation for a current-carrying wire** and solve for the unknown magnetic field strength $B$.
-
----
 
 <br>
 
-**c) Provide two methods by which the force acting on side KL can be increased. (2 marks)**
 
-***The force on side KL can be increased by increasing the number of turns or increasing the magnetic field strength.***
+**a) Calculate the Lorentz factor (γ) for the spacecraft’s journey. (1 mark)**
+$$ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} $$
 
----
 
-Increasing any variable in the equation $F = nILB$ will result in a greater magnetic force.  
-Also, **increasing the voltage** of the power supply will **increase the current**, which in turn increases the force.
+$$ \gamma = \frac{1}{\sqrt{1 - \frac{(0.8c)^2}{c^2}}} $$
 
----
 
->## Controlling Motion of Charged Particles
->A charged particle entering a uniform magnetic field experiences a force $F = qvB$, always **perpendicular to its motion** (by right hand-slap rule). This acts as a **centripetal force,** so equating $F = qvB$ and $F = \frac{mv^2}{r} $, we get the **radius of its circular path:**
->$$
->   \boldsymbol{r = \frac{mv}{qB}}
->$$
+$$ \gamma = \frac{1}{\sqrt{1 - (0.8)^2}} $$
+
+
+$$ \therefore \; \gamma = 1.667 $$
+
 
 ---
+
 
 <br>
 
-Let's consider an example that considers both electric and magnetic fields.
+
+**b) How long does the journey take according to observers on Earth? Show your working. (2 marks)**
+$$ t = \frac{d}{v} $$
+
+
+$$t = \frac{9.0 \; \text{ly}}{0.8c} $$
+
+
+$$t = 11.25 \; \text{years} $$
+
+
+---
+
+
+From **Earth’s perspective**, the distance is **9.0 light-years** (proper length) and the spacecraft travels at **0.8c**, so they measure the journey time as **11.25 years**.
+
+
+---
+
 
 <br>
 
-**e.g 2. An electron enters a magnetic field directed out of the page, positioned between parallel plates, as shown in Figure A. The plates are spaced 5.0 × 10⁻³ m apart, with a potential difference of V₀ = 1.0 kV applied across them.**
 
-**In the first experiment, the switch remains open and no electric field is present. Use the mass of the electron as 9.11 × 10⁻³¹ kg and charge of the electron as 1.6 × 10⁻¹⁹C.**
-
-![Magnetic and Electric Field Problem](https://vceproblems.s3.amazonaws.com/question_media/MEfield1.6.png)
-
-**a) Describe the motion of the electron as it enters the magnetic field and determine the radius of its path if it enters the magnetic field at a speed of 2.5 × 10⁶ m s⁻¹. Use B = 9.0 mT. (3 marks)**
+**c) How long does the journey take according to astronauts on the spacecraft? Show your working. (2 marks)**
 
 
-***The electron would be deflected upwards and would travel in a circular path.***
+$$ t_0 = \frac{t}{\gamma} $$
 
-$$r = \frac{mv}{qB} $$ 
 
-$$r = \frac{(9.11 \cdot 10^{-31}) \times (2.5 \cdot 10^6)}{(1.6 \cdot 10^{-19}) \times (9.0 \cdot 10^{-3})} $$
+$$ \frac{11.25}{1.667} = 6.75 \; \text{years} $$
 
-$$r = 1.6 \times 10^{-3} \; m $$
 
 ---
 
-To determine the direction in which the electron travels, we use the **right-hand slap rule**.  
-- **Thumb** points to the **left** (opposite to electron’s velocity).  
-- **Fingers** point **out of the page.**   
-- The **palm** then faces **upwards**
 
-To determine the radius of its path we just use $r = \frac{mv}{qB} $
+This is **proper time**, as the astronauts are at rest relative to themselves during the journey. They experience **less time passing.**
+
 
 ---
 
-![Magnetic and Electric Field Problem](https://vceproblems.s3.amazonaws.com/question_media/MEfield1.6B.png)
+
+<br>
 
 
-**b) In the second experiment, the electron enters a different magnetic field with the switch closed but at the same speed, allowing an electric field to be present between the parallel plates.**
+**d)  What distance does the spacecraft crew measure between Earth and the star system during the journey? Explain your answer with working. (2 marks)**
 
-**Determine the magnitude of the magnetic field so that the electron's path remains undeflected. Assume that the distance between the plates and the potential difference is the same as in part. (3 marks)**
 
-$qvB = qE \; $ ***, if the electron remains undeflected, magnetic force down = electric force up***
-$$vB = E $$
+$$ L = \frac{L_0}{\gamma} $$
 
-$$2.5 \times 10^6 \times B = \frac{1.0\times 10^3}{5 \times 10^{-3}} $$
 
-$$B = 8.0 \times 10^{-2} \; T $$
+$$L = \frac{9.0}{1.667} $$
+
+
+$$L =  5.4 \; \text{light-years} $$
+
 
 ---
 
-The **top plate is positively charged** as it’s connected to the positive terminal of the power supply, so the **electric force** on the electron is **upwards**. The **magnetic field** is directed **into the page**, so using the **right-hand slap rule**, the **magnetic force** on the electron is **downwards**.
 
-For the electron to remain **undeflected**, the forces must **balance**:  
+From the **astronauts’ perspective**, the star system is moving towards them at **0.8c**. Due to **length contraction**, they measure the distance to be **shorter (5.4 ly)**, making the journey take less time at their observed speed.
+
+
+> - **Earth’s frame:** Proper length, dilated time. 
+> - **Astronauts’ frame:** Proper time, contracted length.
+
+
+---
+
+
+## Einstein's Relationship between Mass and Energy
+
+
+Einstein’s theory showed that **mass is a form of energy**, captured by **E = mc²**, meaning that if work is done on an object to increase its energy, its mass also increases. However, because **c² is so large**, these changes in mass are usually too small to notice in everyday life.
+
+
+Both **kinetic energy and mass are relative and interconnected**, depending on the observer’s frame of reference; as an object moves faster relative to an observer, its **kinetic energy and measured mass increase**.
+
+
+An object at rest has its **rest mass ($\boldsymbol{m_0}$)**, while its mass measured from a **frame where it is moving is greater**, given by:
+
+
 $$
-qE = qvB
+   \boldsymbol{m = \gamma m_0}
 $$
+
+
+Where:
+- $m$ = relativistic mass (kg)
+- $m_0$ = rest mass (kg)
+- $ \gamma $ = Lorentz factor
+
+
+
+
+The **total energy** of an object is:
+
+
+$$ E_\text{total} = mc^2 = \gamma m_0 c^2 $$
+
+
+As:
+
+
+$$ E_\text{total} = E_k + E_\text{rest} $$
+
+
+So,
+
+
+$$ E_k = E_\text{total} - E_\text{rest} $$
+
+
+$$
+   \therefore \; E_k = (\gamma - 1) m_0 c^2
+$$
+
 
 ---
 
 
-## Conclusion for Magnetic Fields (Applications)
+✅ **Key point:** For **high speeds approaching the speed of light**, the traditional kinetic energy formula **$ \frac{1}{2}mv^2 $** underestimates the true energy, and the **relativistic form** must be used.
 
-- In a **DC motor**, magnetic fields interact with current-carrying conductors to produce a **rotational force (torque)**. This force arises due to the **magnetic force** on the wire segments, determined using the **Right-Hand Slap Rule**.
 
-- The **commutator** in a DC motor ensures the current direction reverses every half-turn, maintaining **continuous rotation** in one direction.
+---
 
-- For **charged particles**, magnetic fields can be used to **control motion**. The force $$ F = qvB $$ is always **perpendicular** to velocity, resulting in **circular motion**
+
+<br>
+
+
+Let's consider the problem below.
+
+
+<br>
+
+
+**e.g 2. A proton has a rest mass of 1.67 × 10⁻²⁷ kg and is moving at 0.60c. Calculate its relativistic kinetic energy and total energy. Use c = 3.00 × 10⁸ m s⁻¹.(3 marks)**
+$$ \gamma = \frac{1}{\sqrt{1 - (0.95)^2}} $$ \
+$$ \gamma = \frac{1}{\sqrt{1 - 0.9025}} = \frac{1}{\sqrt{0.0975}} $$ \
+$$ \gamma = 3.20 $$
+
+
+$$ E_\text{k} = (\gamma - 1) m_0 c^2 $$ \
+$$ E_\text{k} = (3.20 - 1) \cdot (1.67 \times 10^{-27}) \cdot (3.00 \times 10^8)^2 $$ \
+$$ E_\text{k} = 3.31 \times 10^{-10} \; \text{J} $$
+
+
+$$ E_\text{tot} = \gamma m_0 c^2 $$ \
+$$ E_\text{tot} = 3.20 \cdot (1.67 \times 10^{-27}) \cdot (3.00 \times 10^8)^2 $$ \
+$$ E_\text{tot} = 4.81 \times 10^{-10} \; \text{J} $$
+
+
+---
+
+
+## Conclusion for Einstein’s Theory of Special Relativity
+
+
+Einstein’s special relativity fundamentally changed our understanding of **space, time, and energy**. It showed that **time and length are not absolute**, but instead depend on the **relative motion** between observers. Moving clocks run slower (**time dilation**), and moving objects contract in length along the direction of motion (**length contraction**), ensuring the **speed of light remains constant in all inertial frames**.
+
+
+The theory is built upon two postulates:
+1. The **laws of physics are the same** in all inertial reference frames.
+2. The **speed of light in a vacuum is constant** for all observers, regardless of their relative motion.
+
+
+These ideas were supported by experimental evidence such as the **Michelson–Morley experiment** and observations like muons reaching Earth’s surface due to relativistic effects.
+
+
+Additionally, special relativity revealed the relationship between **mass and energy** ($ E = mc^2 $), implying that mass is a form of energy and that as an object’s speed increases, so does its **relativistic mass and total energy**.
+
+
+---
+
+
+
+
+
+
+
+
+
+
+

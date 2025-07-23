@@ -1,9 +1,11 @@
+import uuid
 from django.db import models
 from contents.models import Topic
 from storages.backends.s3boto3 import S3Boto3Storage
 
 class Question(models.Model):
     question_uid = models.BigAutoField(primary_key=True)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, null=True)
     topic = models.ManyToManyField(Topic, related_name='questions')
     question_text = models.TextField()
     difficulty = models.CharField(max_length=20)
@@ -15,6 +17,7 @@ class Question(models.Model):
     def __str__(self):
         return f"{self.question_uid}: {self.question_text[:20]}"
 
+
 class Order(models.Model):
     CONTENT_TYPE_CHOICES = [
         ('TEXT', 'Text'),
@@ -22,6 +25,7 @@ class Order(models.Model):
     ]
     order_uid = models.BigAutoField(primary_key=True)
     question_id = models.ForeignKey(Question, on_delete = models.SET_NULL, null=True, related_name='order')
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, null=True) 
     content_type = models.CharField(max_length = 15, choices=CONTENT_TYPE_CHOICES)
     text_content = models.TextField(blank=True, null=True)
     image_content = models.ImageField(upload_to='question_media/', storage=S3Boto3Storage() , blank=True, null=True)
@@ -35,6 +39,7 @@ class Order(models.Model):
 
 class Solution(models.Model):
     solution_uid = models.BigAutoField(primary_key=True)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, null=True)
     question_id = models.ForeignKey(Question, on_delete = models.SET_NULL, null=True, blank=True, related_name='solution')
     order_id = models.OneToOneField(Order, on_delete = models.SET_NULL, null=True, blank=True, related_name='solution')
     solution_text = models.TextField()

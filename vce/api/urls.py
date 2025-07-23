@@ -4,7 +4,9 @@ from .views import (
     TopicsByChapterSlugView,
     TopicInChapterDetailView,
     QuestionInChapterDetailView,
-    TopicSummaryView
+    TopicSummaryView,
+    RandomSACQuestionsView,
+    ChapterBySlugView
 )
 
 urlpatterns = [
@@ -14,5 +16,7 @@ urlpatterns = [
 
     path('problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/', QuestionInChapterDetailView.as_view(), name='topic-in-chapter-detail'),
     path('summary/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/', TopicSummaryView.as_view(), name='topic-summary'),
+    path('sac/<str:subject>/<slug:chapter_slug>/', RandomSACQuestionsView.as_view(), name='sac-questions'),
+    path('chapters/<slug:slug>/', ChapterBySlugView.as_view(), name='chapter-by-slug')
 ]
 

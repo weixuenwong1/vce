@@ -15,13 +15,22 @@ export default function FormTextField(props) {
         fieldState: { error }
       }) => (
         <FormControl variant="outlined" className="myForm" error={!!error}>
-          <InputLabel htmlFor={name}>{label}</InputLabel>
           <OutlinedInput
             id={name}
             value={value}
             onChange={onChange}
-            label={label}
-            className="myInput"
+            placeholder={label}
+            sx={{
+              color: 'black',
+              fontFamily: 'Poppins',
+              fontWeight: 500,
+              letterSpacing: '0.2px',
+              fontSize: {
+                xs: '0.7rem', 
+                sm: '0.8rem',     
+                md: '0.9rem',   
+              },
+            }}
           />
           <FormHelperText sx={{color: "#ff5555", mt: 1}} >{error?.message}</FormHelperText>
         </FormControl>

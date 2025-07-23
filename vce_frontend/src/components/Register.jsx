@@ -20,7 +20,6 @@ const Register = () => {
                   .min(6, 'Password is too short (minimum 6 characters)')
                   .matches(/[a-z]/, 'Password must contain at least one lower case letter')
                   .matches(/[0-9]/, 'Password must contain at least one number'),
-      school: yup.string().required("School can't be blank"),
       password2: yup.string().required("Password confirmation can't be blank")
                   .oneOf([yup.ref('password'), null], 'Passwords must match')
   })
@@ -44,7 +43,7 @@ const Register = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  backgroundColor: '#071c39',
+                  backgroundColor: '#2E2E2E',
                   overflow: 'hidden',
                 }}>
       <div className="gradient-bg-blue-reg"/>
@@ -58,31 +57,31 @@ const Register = () => {
       }}>
         <form onSubmit={handleSubmit(submission)}>
           <Box className ={"regFormBox"}>
-              <Box className={"itemBox"}>
+              <Box className={"regItemBox"}>
                   <Box className={"title"}> Sign Up Here </Box>
               </Box>
-              <Box className={"itemBox"}>
+              <Box className={"regItemBox"}>
                   <label htmlFor="email" className="customLabel">Email</label>
                   <FormTextField name={"email"} label={"Email"} control={control}/>
               </Box>
-              <Box className={"itemBox"}>
+              <Box className={"regItemBox"}>
                   <label htmlFor="school" className="customLabel">School</label>
                   <FormTextField name={"school"} label={"School"} control={control}/>
               </Box>
-              <Box className={"itemBox"}>
+              <Box className={"regItemBox"}>
                   <label htmlFor="password" className="customLabel">Password</label>
                   <FormPassField name={"password"} label={"Password"} control={control}/>
               </Box>
-              <Box className={"itemBox"}>
+              <Box className={"regItemBox"}>
                   <label htmlFor="password2" className="customLabel">Confirm Password</label>
                   <FormPassField name={"password2"} label={"Confirm Password"} control ={control}/>
               </Box>
-              <Box className={"itemBox"}>
-                <button type={"submit"}>Sign Up</button>
+              <Box className={"regItemBox"}>
+                <button className="regButton" type={"submit"}>Sign Up</button>
               </Box>
               <Box className={"itemBox"}>
-                  <p>
-                      Already have an Chuba account? <Link to="/login">Log in!</Link>
+                  <p className="have-account">
+                      Already have a Chuba account? <Link to="/login">Log in!</Link>
                   </p>
               </Box>
           </Box>

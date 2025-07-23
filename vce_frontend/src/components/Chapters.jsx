@@ -1,133 +1,125 @@
 import AxiosInstance from "./AxiosInstance";
 import { React, useEffect, useState } from 'react';
-import { Box, Button, Collapse, Typography } from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { chapterOrders, topicOrders } from "../constants/ListOrders";
+import '../styles/MenuDropdown.scss';
 
 const Chapters = () => {
-  const { subject } = useParams();
-  const navigate = useNavigate();
+    const { subject } = useParams();
+    const navigate = useNavigate();
 
-  const [chapter, setChapter] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [expanded, setExpanded] = useState({});
-  const [topics, setTopics] = useState({});
+    const [chapter, setChapter] = useState([]);
+    const [topics, setTopics] = useState({});
+    const [loading, setLoading] = useState(true);
 
-  const GetChapter = () => {
-    AxiosInstance.get(`api/chapters`).then((res) => {
-      const filtered = res.data.filter(item =>
-        item.subject && item.subject.toLowerCase() === subject.toLowerCase()
-      );
+    const subjectEmojis = {
+        physics: "🚀",
+        chemistry: "🧪",
+        biology: "🧬"
+    };
 
-      const sorted = filtered.sort((a, b) =>
-        chapterOrders.indexOf(a.chapter_name) - chapterOrders.indexOf(b.chapter_name)
-      );
+    const GetChapter = () => {
+        AxiosInstance.get(`api/chapters`).then((res) => {
+            const filtered = res.data.filter(item =>
+                item.subject && item.subject.toLowerCase() === subject.toLowerCase()
+            );
 
-      setChapter(sorted);
-      setLoading(false);
-    });
-  };
+            const sorted = filtered.sort((a, b) => {
+                const order = chapterOrders[subject.toLowerCase()] || [];
+                return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
+            });
 
-  const fetchTopics = async (slug) => {
-    if (topics[slug]) return;
+            setChapter(sorted);
+            setLoading(false);
+        });
+    };
 
-    try {
-      const res = await AxiosInstance.get(`api/chapters/${slug}/topics/`);
-      const desiredOrder = topicOrders[subject?.toLowerCase()]?.[slug] || [];
+    const fetchTopics = async (slug) => {
+        if (topics[slug]) return;
+        try {
+            const res = await AxiosInstance.get(`api/chapters/${slug}/topics/`);
+            const desiredOrder = topicOrders[subject?.toLowerCase()]?.[slug] || [];
+            const sortedTopics = res.data.sort((a, b) =>
+                desiredOrder.indexOf(a.topic_name) - desiredOrder.indexOf(b.topic_name)
+            );
+            setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
+        } catch (err) {
+            console.error("Failed to load topics for", slug, err);
+        }
+    };
 
-      const sortedTopics = res.data.sort((a, b) => {
-        const indexA = desiredOrder.indexOf(a.topic_name);
-        const indexB = desiredOrder.indexOf(b.topic_name);
-        return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
-      });
+    useEffect(() => {
+        const validSubjects = ['physics', 'chemistry', 'biology'];
+        if (!validSubjects.includes(subject?.toLowerCase())) {
+            navigate('/');
+        } else {
+            GetChapter();
+        }
+    }, [subject]);
 
-      setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
-    } catch (err) {
-      console.error("Failed to load topics for", slug, err);
-    }
-  };
+    useEffect(() => {
+        chapter.forEach(item => fetchTopics(item.slug));
+    }, [chapter]);
 
-  const toggleExpand = (slug) => {
-    setExpanded((prev) => ({ ...prev, [slug]: !prev[slug] }));
-    if (!topics[slug]) {
-      fetchTopics(slug);
-    }
-  };
+    return (
+        <div className="practice-page">
+            <div className="practice-container">
+                <h1>
+                    {subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}
+                </h1>
+                <p className="practice-description">
+                    This section provides chapter and topic summaries, helping you understand key concepts efficiently and see how they are applied in assessments.
+                </p>
+                <p className="side-note">
+                    Summaries are designed to complement your textbook — focus on understanding, not memorising.
+                </p>
 
-  const handleTopicClick = (chapterSlug, topicSlug) => {
-    navigate(`/summaries/${subject}/${chapterSlug}/${topicSlug}`);
-  };
-
-  useEffect(() => {
-    const validSubjects = ['physics', 'chemistry', 'biology'];
-    if (!validSubjects.includes(subject?.toLowerCase())) {
-      navigate('/');
-    } else {
-      GetChapter();
-    }
-  }, [subject]);
-
-  return (
-    <div>
-      <Typography variant="h4" sx={{ mt: 2, mb: 2, textAlign: 'center' }}>
-        {subject?.charAt(0).toUpperCase() + subject?.slice(1)} Chapters
-      </Typography>
-      {loading ? (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '80vh'
-        }}>
-          <div className="loader"></div>
-        </div>
-      ) : (
-        <div>
-          {chapter
-            .slice()
-            .sort((a, b) => chapterOrders.indexOf(a.chapter_name) - chapterOrders.indexOf(b.chapter_name))
-            .map((item) => (
-              <Box key={item.chapter_uid} sx={{ p: 2, m: 2, boxShadow: 3 }}>
-                <Typography variant="h6">{item.chapter_name}</Typography>
-                <Typography variant="body2">{item.chapter_description}</Typography>
-                <Button
-                  onClick={() => toggleExpand(item.slug)}
-                  variant="outlined"
-                  sx={{ mt: 1 }}
-                >
-                  {expanded[item.slug] ? "Hide Topics" : "Show Topics"}
-                </Button>
-                <Collapse in={expanded[item.slug]}>
-                  <Box sx={{ mt: 1, pl: 2 }}>
-                    {topics[item.slug] ? (
-                      topics[item.slug].map((topic, i) => (
-                        <Typography
-                          key={i}
-                          variant="body2"
-                          sx={{ cursor: 'pointer' }}
-                          onClick={() => handleTopicClick(item.slug, topic.slug)}
-                        >
-                          • {topic.topic_name}
-                        </Typography>
-                      ))
-                    ) : (
-                      <div style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '100px'
-                      }}>
+                 <hr className="dividerMenu"/>
+                 
+                {loading ? (
+                    <div className="loader-wrapper">
                         <div className="loader"></div>
-                      </div>
-                    )}
-                  </Box>
-                </Collapse>
-              </Box>
-            ))}
+                    </div>
+                ) : (
+                    <div className="chapter-section">
+                        {chapter
+                            .slice()
+                            .sort((a, b) => {
+                                const order = chapterOrders[subject.toLowerCase()] || [];
+                                return (order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name));
+                            })
+                            .map(item => (
+                                <div key={item.chapter_uid}>
+                                    <h4 className="chapter-heading">{item.chapter_name}</h4>
+                                    <div className="chapter-wrapper">
+                                        <div className="chapter-left-box">
+                                            <h4 className="subtitle">Description</h4>
+                                            <p className="chapter-description">{item.chapter_description}</p>
+                                        </div>
+                                        <div className="chapter-right-box">
+                                            <table className="topics-table">
+                                                <tbody>
+                                                    {topics[item.slug]?.map((topic, index) => (
+                                                        <tr key={index} className="topic-row"
+                                                            onClick={() => navigate(`/summaries/${subject}/${item.slug}/${topic.slug}`)}>
+                                                            <td><span className="topic-text">{topic.topic_name}</span></td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                    </div>
+                )}
+
+                {!loading && chapter.length === 0 && (
+                    <p className="coming-soon">{subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries Coming Soon!</p>
+                )}
+            </div>
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default Chapters;

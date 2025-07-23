@@ -1,0 +1,2535 @@
+[
+  {
+    "model": "contents.subject",
+    "pk": 2,
+    "fields": {
+      "name": "Chemistry"
+    }
+  },
+  {
+    "model": "contents.chapter",
+    "pk": 9,
+    "fields": {
+      "chapter_name": "Fundamentals of Organic Compounds",
+      "subject": 2
+    }
+  },
+  {
+    "model": "contents.chapter",
+    "pk": 10,
+    "fields": {
+      "chapter_name": "Analysis and Applications of Organic Compounds",
+      "subject": 2
+    }
+  },
+  {
+    "model": "contents.topic",
+    "pk": 42,
+    "fields": {
+      "topic_name": "Reactions of Organic Compounds",
+      "chapter": 9
+    }
+  },
+  {
+    "model": "contents.topic",
+    "pk": 45,
+    "fields": {
+      "topic_name": "Medicinal Chemistry",
+      "chapter": 10
+    }
+  },
+  {
+    "model": "contents.topic",
+    "pk": 43,
+    "fields": {
+      "topic_name": "Lab Analysis of Organic Compounds",
+      "chapter": 10
+    }
+  },
+  {
+    "model": "contents.topic",
+    "pk": 41,
+    "fields": {
+      "topic_name": "Organic Compound Structure and Properties",
+      "chapter": 9
+    }
+  },
+  {
+    "model": "contents.topic",
+    "pk": 44,
+    "fields": {
+      "topic_name": "Instrumental Analysis of Organic Compounds",
+      "chapter": 10
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "3da5f3e5-9157-4fe8-af83-1286a6a2e68e",
+    "fields": {
+      "uuid": "3da5f3e5-9157-4fe8-af83-1286a6a2e68e",
+      "question_text": "Which functional group is present in aldehydes but not in ketones? \r\nA. Carboxyl \r\nB. Carbonyl \r\nC. Hydroxyl \r\nD. Hydrogen attached to the carbonyl carbon",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T03:02:44.921752+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "a21c1a3a-b9e2-4642-9a2f-20164230e678",
+    "fields": {
+      "uuid": "a21c1a3a-b9e2-4642-9a2f-20164230e678",
+      "question_text": "Which of the following has the highest atom economy for producing ethyl ethanoate? \r\n\r\nA. Ethanol + Ethanoic acid \r\nB. Ethanol + Ethanoyl chloride \r\nC. Ethanol + Acetic anhydride \r\nD. All have the same atom economy",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.466464+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+    "fields": {
+      "uuid": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "question_text": "A food chemistry research team is analysing different organic compounds present in artificial flavourings. Some of these include compounds with carbonyl groups.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.503370+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+    "fields": {
+      "uuid": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "question_text": "A food science lab is investigating how biochemical changes during cooking and digestion affect macronutrients. They’re focusing on fats and carbohydrates in processed foods.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-29T02:59:55.431143+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "c169bae7-8f25-49a9-80e2-7a59c885b075",
+    "fields": {
+      "uuid": "c169bae7-8f25-49a9-80e2-7a59c885b075",
+      "question_text": "Which trend is observed in boiling points as the number of carbon atoms in a straight-chain alkane increases? \r\n\r\nA. Boiling point decreases \r\nB. Boiling point increases \r\nC. Boiling point remains constant \r\nD. There is no predictable trend",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T03:02:44.923750+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "e0cb0571-c0c1-41b3-8530-b745c1b2ffa7",
+    "fields": {
+      "uuid": "e0cb0571-c0c1-41b3-8530-b745c1b2ffa7",
+      "question_text": "What is the correct IUPAC name for the compound with the structure CH3CH2CHBrCH3?\r\n\r\nA. 2-bromobutane \r\nB. 1-bromobutane \r\nC. 3-bromobutane \r\nD. 2-bromopropane",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T03:02:44.921752+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+    "fields": {
+      "uuid": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "question_text": "A student is analysing a compound suspected to be an amine as shown below.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-28T02:45:35.371437+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+    "fields": {
+      "uuid": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "question_text": "The table lists the boiling points of several alcohols and alkanes. Use the data to answer the following questions.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-28T02:45:35.256530+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+    "fields": {
+      "uuid": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "question_text": "Researchers at a chemical education lab are investigating common reactions and biomolecular processes.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-29T02:59:55.438141+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+    "fields": {
+      "uuid": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "question_text": "The structure shown belongs to a haloalkane compound. Answer the following questions about its naming and physical properties.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-28T02:45:35.335152+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "4a18a916-b682-4177-9584-a0c375e51df6",
+    "fields": {
+      "uuid": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "question_text": "An environmental chemistry team is analysing organic compounds found in natural and industrial samples. Use the diagrams and descriptions below to answer the following questions.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-29T02:59:55.455661+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+    "fields": {
+      "uuid": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "question_text": "A chemical manufacturing company is researching ways to improve their processes using organic and biochemical reaction pathways.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.434143+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+    "fields": {
+      "uuid": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "question_text": "Esters and amides are commonly found in both natural and synthetic compounds. A student is analysing a sample that may contain either functional group.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.425854+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "0eb37019-ca1c-4580-a294-d7b849f471e0",
+    "fields": {
+      "uuid": "0eb37019-ca1c-4580-a294-d7b849f471e0",
+      "question_text": "Name the functional group present in all alcohols.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.467465+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "8587843c-878c-4d58-85b0-3775cfd40588",
+    "fields": {
+      "uuid": "8587843c-878c-4d58-85b0-3775cfd40588",
+      "question_text": "Which statement about condensation polymerisation is correct? \r\n\r\nA. Only one type of monomer is required \r\nB. A polymer is formed without the loss of small molecules \r\nC. Water or another small molecule is eliminated during the reaction \r\nD. It only occurs in synthetic reactions",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.466464+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "c7bbc8a5-2f0e-4c37-b2f4-133a382d1694",
+    "fields": {
+      "uuid": "c7bbc8a5-2f0e-4c37-b2f4-133a382d1694",
+      "question_text": "Which of the following reactions is a substitution reaction? \\\\ A. Ethene + Br₂ → 1,2-dibromoethane \\\\ B. Ethanol + ethanoic acid → ethyl ethanoate + water \\\\ C. CH₄ + Cl₂ → CH₃Cl + HCl \\\\ D. Glucose → Ethanol + CO₂",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-29T02:59:55.465456+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+    "fields": {
+      "uuid": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "question_text": "During a chemistry field day, students investigate properties of fuels and their combustion products. One sample tested is octane, a major component of petrol.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.471996+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "79acc877-311e-439b-94f0-ea8344e4233b",
+    "fields": {
+      "uuid": "79acc877-311e-439b-94f0-ea8344e4233b",
+      "question_text": "What type of reaction converts a carboxylic acid and an alcohol into an ester?",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.468465+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "be1d3a75-b456-413e-830e-f8924c290633",
+    "fields": {
+      "uuid": "be1d3a75-b456-413e-830e-f8924c290633",
+      "question_text": "Which statement is true about physical properties of alcohols compared to alkanes?\r\nA. Alcohols have lower boiling points than alkanes\r\nB. Alcohols are non-polar and insoluble in water\r\nC. Alcohols can form hydrogen bonds, leading to higher boiling points\r\nD. Alcohols are always more acidic than alkanes",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T03:02:44.921752+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "46e6d726-14e6-4796-91b6-0de2c81fd188",
+    "fields": {
+      "uuid": "46e6d726-14e6-4796-91b6-0de2c81fd188",
+      "question_text": "Which of the following statements about hydrocarbons is true? \r\n\r\nA. Alkenes contain only single bonds \r\nB. Alkanes are unsaturated hydrocarbons\r\nC. Alkynes contain triple bonds between carbon atoms \r\nD. Aromatic hydrocarbons do not contain any carbon atoms",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T03:02:44.922752+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "c1ce926f-c871-49a1-9ce2-15145011a89d",
+    "fields": {
+      "uuid": "c1ce926f-c871-49a1-9ce2-15145011a89d",
+      "question_text": "Which of the following best describes a homologous series?\r\n\r\nA. Compounds with different functional groups\r\nB. Compounds that differ by a CH2 group\r\nC. Compounds that are structural isomers\r\nD. Compounds that have identical molecular formulas",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T03:02:44.918749+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+    "fields": {
+      "uuid": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "question_text": "The molecule below is a haloalkane. Use the structural representation to answer the following questions.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.329609+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "9f7b2417-dc93-4fdb-8c79-82c2b319f8fa",
+    "fields": {
+      "uuid": "9f7b2417-dc93-4fdb-8c79-82c2b319f8fa",
+      "question_text": "What are the products of the complete hydrolysis of a triglyceride? \r\n\r\nA. One fatty acid and three glycerols \r\nB. Three fatty acids and one glycerol \r\nC. Two fatty acids and two alcohols \r\nD. Three alcohols and one fatty acid",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.465456+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+    "fields": {
+      "uuid": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "question_text": "A pharmaceutical company is designing a drug synthesis route using green chemistry principles. They are also developing methods to model how this drug will be metabolised in the human body. The following questions relate to this scenario.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-29T02:59:55.427343+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+    "fields": {
+      "uuid": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "question_text": "The compounds shown below contain carbonyl groups. Use the following information to answer the questions.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.340149+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+    "fields": {
+      "uuid": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "question_text": "The compound shown below is an alcohol. Use this information to answer the following questions.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.296674+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+    "fields": {
+      "uuid": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "question_text": "A chemist is investigating a series of organic compounds that include esters and amides.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.416175+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "a800b98c-c93f-4698-bd69-3584468a3098",
+    "fields": {
+      "uuid": "a800b98c-c93f-4698-bd69-3584468a3098",
+      "question_text": "Which of the following compounds is an example of a primary amine?\r\n\r\nA. CH3CH2NH2 \r\nB. CH3NHCH3 \r\nC. CH3CH2CH2OH \r\nD. CH3COOH",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-29T03:02:44.920728+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "fc8a3a19-7a00-4d90-90a1-d1e90300c607",
+    "fields": {
+      "uuid": "fc8a3a19-7a00-4d90-90a1-d1e90300c607",
+      "question_text": "Which compound is most likely to undergo addition reactions? \r\n\r\nA. Propane \r\nB. Butane \r\nC. Ethanol \r\nD. Propene",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.465456+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+    "fields": {
+      "uuid": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "question_text": "James compares the boiling points of a series of straight-chain carboxylic acids during a practical investigation.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.514137+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "39087da1-ff0b-426d-8d6d-17c6b260e980",
+    "fields": {
+      "uuid": "39087da1-ff0b-426d-8d6d-17c6b260e980",
+      "question_text": "Give the name of the ester formed from methanol and ethanoic acid.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.468465+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+    "fields": {
+      "uuid": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "question_text": "The compound contains both a hydroxyl and a carbonyl group. Answer the following questions.",
+      "difficulty": "Exam-Level",
+      "created_at": "2025-05-28T02:45:35.376824+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+    "fields": {
+      "uuid": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "question_text": "A medical research team is studying how organic reactions apply to drug development and metabolism. The following transformations involve biologically relevant molecules.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-29T02:59:55.406433+00:00"
+    }
+  },
+  {
+    "model": "problems.question",
+    "pk": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+    "fields": {
+      "uuid": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "question_text": "A student in a school laboratory is investigating a range of organic compounds to identify their functional groups and predict some of their physical properties.",
+      "difficulty": "Easy",
+      "created_at": "2025-05-28T02:45:35.466998+00:00"
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "3da5f3e5-9157-4fe8-af83-1286a6a2e68e",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "a21c1a3a-b9e2-4642-9a2f-20164230e678",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "c169bae7-8f25-49a9-80e2-7a59c885b075",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "e0cb0571-c0c1-41b3-8530-b745c1b2ffa7",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "0eb37019-ca1c-4580-a294-d7b849f471e0",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "8587843c-878c-4d58-85b0-3775cfd40588",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "c7bbc8a5-2f0e-4c37-b2f4-133a382d1694",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "79acc877-311e-439b-94f0-ea8344e4233b",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "be1d3a75-b456-413e-830e-f8924c290633",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "46e6d726-14e6-4796-91b6-0de2c81fd188",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "c1ce926f-c871-49a1-9ce2-15145011a89d",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "9f7b2417-dc93-4fdb-8c79-82c2b319f8fa",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "a800b98c-c93f-4698-bd69-3584468a3098",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "fc8a3a19-7a00-4d90-90a1-d1e90300c607",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "39087da1-ff0b-426d-8d6d-17c6b260e980",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "topic": 42
+    }
+  },
+  {
+    "model": "problems.question_topic",
+    "pk": null,
+    "fields": {
+      "question": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "topic": 41
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "d30904b9-c019-47ef-bc6f-2146e81422fd",
+    "fields": {
+      "uuid": "d30904b9-c019-47ef-bc6f-2146e81422fd",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "content_type": "TEXT",
+      "text_content": "b)    Draw the displayed structure of 2-methylpropan-2-ol.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "f3ce3369-ff3b-412c-befa-181896e28be0",
+    "fields": {
+      "uuid": "f3ce3369-ff3b-412c-befa-181896e28be0",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "content_type": "TEXT",
+      "text_content": "d)    Identify the functional groups present in the following compound: CH₃COOH\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "d89cec1a-8b3e-405c-af52-0039ccacf87a",
+    "fields": {
+      "uuid": "d89cec1a-8b3e-405c-af52-0039ccacf87a",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "content_type": "TEXT",
+      "text_content": "e)    Write the condensed structural formula of a primary amine with the formula C₂H₇N.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 5
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "55248fc5-3439-4b59-874a-87852bb606d0",
+    "fields": {
+      "uuid": "55248fc5-3439-4b59-874a-87852bb606d0",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "content_type": "TEXT",
+      "text_content": "a)    Identify whether the alcohol is primary, secondary or tertiary.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "6a819a2b-e6bc-4c97-8417-965c91e3c050",
+    "fields": {
+      "uuid": "6a819a2b-e6bc-4c97-8417-965c91e3c050",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "content_type": "TEXT",
+      "text_content": "b)    Draw the structure of a positional isomer of the compound.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "b6400c4c-af61-4dca-a0f8-7c47a0405504",
+    "fields": {
+      "uuid": "b6400c4c-af61-4dca-a0f8-7c47a0405504",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "content_type": "TEXT",
+      "text_content": "d)    Explain why alcohols are generally more soluble in water than alkanes.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "9bc468d6-3de6-4c3b-88b8-def2be03cfdd",
+    "fields": {
+      "uuid": "9bc468d6-3de6-4c3b-88b8-def2be03cfdd",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "content_type": "TEXT",
+      "text_content": "a)    Identify the functional group present in the compound.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "3f350ee5-95f3-4296-b1d7-8239bb4ea19f",
+    "fields": {
+      "uuid": "3f350ee5-95f3-4296-b1d7-8239bb4ea19f",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "content_type": "TEXT",
+      "text_content": "b)    Write the IUPAC name for the compound CH₃CHBrCH₂CH₃.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "e0c70b7e-8bc0-49df-ae75-8a20b73fc7c2",
+    "fields": {
+      "uuid": "e0c70b7e-8bc0-49df-ae75-8a20b73fc7c2",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "content_type": "TEXT",
+      "text_content": "c)    Explain why haloalkanes are typically more reactive than alkanes.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "7957b1a8-bdaa-4ae1-9ec2-11b377e3cc4b",
+    "fields": {
+      "uuid": "7957b1a8-bdaa-4ae1-9ec2-11b377e3cc4b",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "content_type": "TEXT",
+      "text_content": "a)    Give the correct IUPAC name for CH₃CH₂CH₂Cl.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "15bfd8bb-126b-4d30-be6e-6f0e11bc10b1",
+    "fields": {
+      "uuid": "15bfd8bb-126b-4d30-be6e-6f0e11bc10b1",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "content_type": "TEXT",
+      "text_content": "b)    Explain the trend in boiling point of haloalkanes as the halogen changes from fluorine to iodine.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "d800023d-d0ad-4eeb-88ae-da15f48523bc",
+    "fields": {
+      "uuid": "d800023d-d0ad-4eeb-88ae-da15f48523bc",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "content_type": "TEXT",
+      "text_content": "c)    Compare the reactivity of 1-chloropropane to propane.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "4e286d19-2c52-4f25-a14f-8c484fadf639",
+    "fields": {
+      "uuid": "4e286d19-2c52-4f25-a14f-8c484fadf639",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "content_type": "TEXT",
+      "text_content": "d)    Predict and justify the solubility of 1-chloropropane in water.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "e01226c9-ffa5-4bde-a1ca-59cb12e31abc",
+    "fields": {
+      "uuid": "e01226c9-ffa5-4bde-a1ca-59cb12e31abc",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "content_type": "TEXT",
+      "text_content": "a)    Provide the IUPAC name of CH₃CH₂CHO.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "81282ba0-74db-4337-b747-6d32ad08ff42",
+    "fields": {
+      "uuid": "81282ba0-74db-4337-b747-6d32ad08ff42",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "content_type": "TEXT",
+      "text_content": "b)    Compare the boiling points of propanal and propan-1-ol.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "d5a9cadd-fde2-4e44-87f1-b37aa5076a9c",
+    "fields": {
+      "uuid": "d5a9cadd-fde2-4e44-87f1-b37aa5076a9c",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "content_type": "TEXT",
+      "text_content": "c)    Draw the displayed formula of butanone.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "2c0f7443-47c1-4995-9c27-5ed23e6c7bea",
+    "fields": {
+      "uuid": "2c0f7443-47c1-4995-9c27-5ed23e6c7bea",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "content_type": "TEXT",
+      "text_content": "d)    Explain why ketones are less reactive than aldehydes in nucleophilic addition reactions.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "05ec8207-d34b-46a1-af6a-05035ad08c6b",
+    "fields": {
+      "uuid": "05ec8207-d34b-46a1-af6a-05035ad08c6b",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "content_type": "TEXT",
+      "text_content": "a)    Identify the type of amine for CH₃CH₂NH₂.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "effcba84-6436-45a2-bc24-e654307b96d1",
+    "fields": {
+      "uuid": "effcba84-6436-45a2-bc24-e654307b96d1",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "content_type": "TEXT",
+      "text_content": "b)    Compare the boiling point of methylamine and ethylamine.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "b37cb856-b9be-4a4a-8201-e54cbd519d65",
+    "fields": {
+      "uuid": "b37cb856-b9be-4a4a-8201-e54cbd519d65",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "content_type": "TEXT",
+      "text_content": "c)    Draw and name a secondary amine with the formula C₂H₇N.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "aa960ab4-1bee-4c9d-9e40-8a1d429b4d73",
+    "fields": {
+      "uuid": "aa960ab4-1bee-4c9d-9e40-8a1d429b4d73",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "content_type": "TEXT",
+      "text_content": "d)    Explain why primary amines are more soluble in water than tertiary amines.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "eaafbf47-9b43-48db-86aa-3e4ff4176379",
+    "fields": {
+      "uuid": "eaafbf47-9b43-48db-86aa-3e4ff4176379",
+      "question_id": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "content_type": "TEXT",
+      "text_content": "c)    Identify the principal functional group in CH₃CH(OH)CH₂COOH.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "24943b38-da43-489a-be31-ebf781a4169f",
+    "fields": {
+      "uuid": "24943b38-da43-489a-be31-ebf781a4169f",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "content_type": "TEXT",
+      "text_content": "a)    Give the IUPAC name of the ester formed from ethanol and propanoic acid.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "81e60c50-1fcc-4dfd-ac88-1d8f00f05aad",
+    "fields": {
+      "uuid": "81e60c50-1fcc-4dfd-ac88-1d8f00f05aad",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "content_type": "TEXT",
+      "text_content": "b)    Draw the structure of methyl butanoate.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "3c343eac-7740-45bd-800a-f1f3589e558c",
+    "fields": {
+      "uuid": "3c343eac-7740-45bd-800a-f1f3589e558c",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "content_type": "TEXT",
+      "text_content": "c)    Compare the boiling points of ethyl ethanoate and ethanol.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "73482fae-78bd-40cd-87b5-5e19dbbb0d00",
+    "fields": {
+      "uuid": "73482fae-78bd-40cd-87b5-5e19dbbb0d00",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "content_type": "TEXT",
+      "text_content": "d)    Explain why amides have higher boiling points than esters of similar molar mass.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "a26e9675-2ca0-4c6f-b95e-f68c8cd1a36d",
+    "fields": {
+      "uuid": "a26e9675-2ca0-4c6f-b95e-f68c8cd1a36d",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "content_type": "TEXT",
+      "text_content": "a)    Identify the functional groups present in CH₃CONH₂.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "a1ed470e-82be-4190-a4b4-e01485bad4c7",
+    "fields": {
+      "uuid": "a1ed470e-82be-4190-a4b4-e01485bad4c7",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "content_type": "TEXT",
+      "text_content": "b)    Give the IUPAC name of CH₃CH₂COOCH₃.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "364112f5-f5bd-4160-bb96-47efe2b5c3c1",
+    "fields": {
+      "uuid": "364112f5-f5bd-4160-bb96-47efe2b5c3c1",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "content_type": "TEXT",
+      "text_content": "c)    Describe the type of reaction used to form an ester.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "1939e598-659d-42a9-a3a0-4e8dbfd54aff",
+    "fields": {
+      "uuid": "1939e598-659d-42a9-a3a0-4e8dbfd54aff",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "content_type": "TEXT",
+      "text_content": "d)    Explain how the presence of the amide group affects boiling point relative to a similar ester.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "06d8fcf9-d10c-46aa-8085-021670651816",
+    "fields": {
+      "uuid": "06d8fcf9-d10c-46aa-8085-021670651816",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "content_type": "TEXT",
+      "text_content": "b)    The student observes that CH₃CH₂OH has a much higher boiling point than CH₄. Provide a reason for this observation.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "960043e5-bb8a-4781-87a6-d26224d0108e",
+    "fields": {
+      "uuid": "960043e5-bb8a-4781-87a6-d26224d0108e",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "content_type": "TEXT",
+      "text_content": "c)    Another compound tested has the formula CH₃Cl. Name this compound using IUPAC rules.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "9fa66c9f-d2ec-41bf-af81-d6d950e9ad2a",
+    "fields": {
+      "uuid": "9fa66c9f-d2ec-41bf-af81-d6d950e9ad2a",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "content_type": "TEXT",
+      "text_content": "d)    Briefly explain why chloromethane is less soluble in water than ethanol.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "f192ae71-2f7a-4809-b1df-0e99e9d3de39",
+    "fields": {
+      "uuid": "f192ae71-2f7a-4809-b1df-0e99e9d3de39",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "content_type": "TEXT",
+      "text_content": "a)    Write the molecular formula of octane.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "bc4eadd9-bccf-4847-a6b1-cad4364dda2d",
+    "fields": {
+      "uuid": "bc4eadd9-bccf-4847-a6b1-cad4364dda2d",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "content_type": "TEXT",
+      "text_content": "b)    To which homologous series does octane belong?\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "55fac36c-dfe6-40ac-bfae-9a8ebd6dc25c",
+    "fields": {
+      "uuid": "55fac36c-dfe6-40ac-bfae-9a8ebd6dc25c",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "content_type": "TEXT",
+      "text_content": "c)    Complete the balanced equation for the complete combustion of octane in oxygen.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "d0828df3-8ade-4044-a0ef-cf5e1952babf",
+    "fields": {
+      "uuid": "d0828df3-8ade-4044-a0ef-cf5e1952babf",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "content_type": "TEXT",
+      "text_content": "d)    Explain why octane is non-polar.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "b0edb966-5ebe-45f0-a030-6df71e94685e",
+    "fields": {
+      "uuid": "b0edb966-5ebe-45f0-a030-6df71e94685e",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "content_type": "TEXT",
+      "text_content": "a)    One compound has the formula CH₃CHO. Identify the functional group present in this compound.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "ce50f4de-b363-49ec-a96a-50134f010e58",
+    "fields": {
+      "uuid": "ce50f4de-b363-49ec-a96a-50134f010e58",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "content_type": "TEXT",
+      "text_content": "b)    Give the IUPAC name for CH₃CHO.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "f6728b88-d33f-4815-befb-022df57bc423",
+    "fields": {
+      "uuid": "f6728b88-d33f-4815-befb-022df57bc423",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "content_type": "TEXT",
+      "text_content": "c)    Another compound has the formula CH₃COCH₃. State whether this is an aldehyde or a ketone, and justify your answer.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "f96800c4-d127-438d-935b-c83a502f2526",
+    "fields": {
+      "uuid": "f96800c4-d127-438d-935b-c83a502f2526",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "content_type": "TEXT",
+      "text_content": "d)    Predict which compound has the higher boiling point: CH₃CHO or CH₃COCH₃. Briefly justify your answer.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "7e6d8f04-c4aa-466e-b917-08e458f16c15",
+    "fields": {
+      "uuid": "7e6d8f04-c4aa-466e-b917-08e458f16c15",
+      "question_id": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "content_type": "TEXT",
+      "text_content": "a)    Name the functional group present in all carboxylic acids.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "ed321cfe-f72d-4934-a8aa-8f82f56da5e7",
+    "fields": {
+      "uuid": "ed321cfe-f72d-4934-a8aa-8f82f56da5e7",
+      "question_id": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "content_type": "TEXT",
+      "text_content": "c)    Provide a reason for the trend described in part b.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "884cd152-5c24-4659-a3e4-0d1d9e147645",
+    "fields": {
+      "uuid": "884cd152-5c24-4659-a3e4-0d1d9e147645",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "content_type": "TEXT",
+      "text_content": "a) Write the chemical equation for the complete combustion of propanol.\n(2 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "3f3c3180-c8d0-483e-8923-ea93a01ff511",
+    "fields": {
+      "uuid": "3f3c3180-c8d0-483e-8923-ea93a01ff511",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "content_type": "TEXT",
+      "text_content": "b) Name the type of reaction and the product formed when ethene reacts with bromine.\n(2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "4ed6d997-0a4d-4222-9300-6a5642fe038d",
+    "fields": {
+      "uuid": "4ed6d997-0a4d-4222-9300-6a5642fe038d",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "content_type": "TEXT",
+      "text_content": "c) Describe how proteins are formed from amino acids.\n(2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "29bc5d05-5744-455c-b87c-9438bf537771",
+    "fields": {
+      "uuid": "29bc5d05-5744-455c-b87c-9438bf537771",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "content_type": "TEXT",
+      "text_content": "e) Explain how sustainable chemical production can be achieved using bio-based feedstocks.\n(1 mark)",
+      "image_content": "",
+      "section_order": 5
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "46bcccd1-7671-42f7-9146-fdb884e89b67",
+    "fields": {
+      "uuid": "46bcccd1-7671-42f7-9146-fdb884e89b67",
+      "question_id": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "content_type": "TEXT",
+      "text_content": "b) During digestion, the active form of the drug is released via hydrolysis of an ester group in the compound. Describe the type of reaction and name the products expected.\n(2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "61e91673-96af-4400-9652-730564ebdb8e",
+    "fields": {
+      "uuid": "61e91673-96af-4400-9652-730564ebdb8e",
+      "question_id": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "content_type": "TEXT",
+      "text_content": "c) To maximise sustainability, the company plans to optimise atom economy in the final esterification step. Explain how this improves the green profile of the synthesis.\n(2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "17585b28-f55a-42db-b526-7d7ac6933584",
+    "fields": {
+      "uuid": "17585b28-f55a-42db-b526-7d7ac6933584",
+      "question_id": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "content_type": "TEXT",
+      "text_content": "a) The team analyses the triglycerides in vegetable oil. Describe the products formed when triglycerides undergo complete hydrolysis in the digestive system and name the enzyme responsible.\n(2 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "34f7d67a-3d25-48fa-9a0e-aaad769d4a7e",
+    "fields": {
+      "uuid": "34f7d67a-3d25-48fa-9a0e-aaad769d4a7e",
+      "question_id": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "content_type": "TEXT",
+      "text_content": "b) To understand carbohydrate digestion, the lab simulates hydrolysis of starch. What type of reaction occurs, and what is the main product?\n(2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "ee28878d-3c27-4d68-a8d7-38e39eccbcc5",
+    "fields": {
+      "uuid": "ee28878d-3c27-4d68-a8d7-38e39eccbcc5",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "content_type": "TEXT",
+      "text_content": "c) A student hydrolyses an ester formed from methanol and propanoic acid. Write the balanced equation and name both products.\r\n(2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "a5d66746-c1bc-4178-b212-b877f43baa76",
+    "fields": {
+      "uuid": "a5d66746-c1bc-4178-b212-b877f43baa76",
+      "question_id": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "content_type": "TEXT",
+      "text_content": "c) A new processing technique aims to reduce chemical waste in ester-based food flavor production. Suggest how using catalysts and reaction monitoring could support this goal.\n(2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "18a45bde-3ee4-4099-9b43-48163093ebb3",
+    "fields": {
+      "uuid": "18a45bde-3ee4-4099-9b43-48163093ebb3",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "content_type": "TEXT",
+      "text_content": "a) A team investigates converting methane to chloromethane. State the type of reaction involved and write a balanced chemical equation for the process.\n(2 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "0a5a3128-caeb-4049-b295-2b1c45eb9e18",
+    "fields": {
+      "uuid": "0a5a3128-caeb-4049-b295-2b1c45eb9e18",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "content_type": "TEXT",
+      "text_content": "b) During a trial, ethene is hydrated in the presence of a catalyst. Identify the reaction type and product, including the conditions used.\n(2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "325bebbc-4d89-4ca8-855d-5451a4096110",
+    "fields": {
+      "uuid": "325bebbc-4d89-4ca8-855d-5451a4096110",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "content_type": "TEXT",
+      "text_content": "c) Ethanoic acid reacts with ethanol during esterification. Write the balanced chemical equation and name the ester formed.\n(2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "b7010d03-beb7-4ab1-8640-9efda9dde568",
+    "fields": {
+      "uuid": "b7010d03-beb7-4ab1-8640-9efda9dde568",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "content_type": "TEXT",
+      "text_content": "d) A production team designs a multistep synthesis for aspirin, including esterification. Describe how improving atom economy benefits the sustainability of this process.\n(1 mark)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "50a0e5a3-aa68-4fd4-92a1-57ec6c3a2898",
+    "fields": {
+      "uuid": "50a0e5a3-aa68-4fd4-92a1-57ec6c3a2898",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "content_type": "TEXT",
+      "text_content": "e) During digestion, a triglyceride is hydrolysed. Write the general equation and name the enzyme involved.\n(2 marks)",
+      "image_content": "",
+      "section_order": 5
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "c94e7a52-d5ca-40eb-a014-f941affb0c54",
+    "fields": {
+      "uuid": "c94e7a52-d5ca-40eb-a014-f941affb0c54",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "content_type": "TEXT",
+      "text_content": "a) To demonstrate substitution reactions, a teacher chlorinates propane under UV light. Write the reaction equation and identify the type of mechanism.\n(2 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "585190dd-2026-4e83-b9d3-77895ed4e298",
+    "fields": {
+      "uuid": "585190dd-2026-4e83-b9d3-77895ed4e298",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "content_type": "TEXT",
+      "text_content": "b) In a hydration experiment, steam is passed over ethene in the presence of a catalyst. Identify the organic product and the conditions required.\n(2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "93acd22b-a992-448e-8fe6-50f168629e2b",
+    "fields": {
+      "uuid": "93acd22b-a992-448e-8fe6-50f168629e2b",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "content_type": "TEXT",
+      "text_content": "d) A sustainability group reviews atom economy in the synthesis of polyesters. Explain one benefit of high atom economy in this context.\n(1 mark)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "3e8f293e-7cfd-4cf4-9a47-f3b0fb47d8a1",
+    "fields": {
+      "uuid": "3e8f293e-7cfd-4cf4-9a47-f3b0fb47d8a1",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "content_type": "TEXT",
+      "text_content": "e) During digestion, proteins are hydrolysed into amino acids. State the type of reaction and the catalyst involved.\n(2 marks)",
+      "image_content": "",
+      "section_order": 5
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "aceebde0-23b3-4156-8138-1a83a7c82fe5",
+    "fields": {
+      "uuid": "aceebde0-23b3-4156-8138-1a83a7c82fe5",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "content_type": "TEXT",
+      "text_content": "a) One of the samples contains propene. Describe the type of reaction and product formed when propene is reacted with bromine water. Include observations.\r\n(3 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "291b8275-f945-4592-b63e-f214b3c0d145",
+    "fields": {
+      "uuid": "291b8275-f945-4592-b63e-f214b3c0d145",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "content_type": "TEXT",
+      "text_content": "b) A sample of triglyceride undergoes hydrolysis. Name the enzyme involved and describe the type of reaction.\r\n(2 marks)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "8648b9f0-1065-4020-a439-bf9c856b2b40",
+    "fields": {
+      "uuid": "8648b9f0-1065-4020-a439-bf9c856b2b40",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "content_type": "TEXT",
+      "text_content": "e) A chemist evaluates the atom economy of a reaction converting glucose to ethanol and carbon dioxide. Define atom economy and explain how it can be improved.\n(2 marks)",
+      "image_content": "",
+      "section_order": 5
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "40d13e6d-7dde-45c5-b8dc-d70e4d7402a1",
+    "fields": {
+      "uuid": "40d13e6d-7dde-45c5-b8dc-d70e4d7402a1",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "content_type": "TEXT",
+      "text_content": "a)    Explain the trend in boiling points for the alcohols listed.\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "46ed7552-413f-4a8a-9b56-b895653ad8b1",
+    "fields": {
+      "uuid": "46ed7552-413f-4a8a-9b56-b895653ad8b1",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "content_type": "TEXT",
+      "text_content": "c)    Name the following molecule using IUPAC nomenclature: CH₃CH₂CH(NH₂)CH₃\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "be91bd91-a2e1-4d9a-80a9-e1025f248aa6",
+    "fields": {
+      "uuid": "be91bd91-a2e1-4d9a-80a9-e1025f248aa6",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "content_type": "TEXT",
+      "text_content": "d)    State the trend in boiling points of haloalkanes as the halogen size increases.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "5a9c5036-2440-41bf-b9c2-dd62f73089ef",
+    "fields": {
+      "uuid": "5a9c5036-2440-41bf-b9c2-dd62f73089ef",
+      "question_id": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "content_type": "TEXT",
+      "text_content": "a)    Provide the IUPAC name for HOCH₂CH₂COOH.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "586b6032-c666-46d6-9df2-ce0cffe669c8",
+    "fields": {
+      "uuid": "586b6032-c666-46d6-9df2-ce0cffe669c8",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "content_type": "TEXT",
+      "text_content": "a)    One of the compounds has the molecular formula CH₃CH₂OH. Identify the homologous series to which this compound belongs.\n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "46940e05-4c7c-4513-a067-bfa78159b9b9",
+    "fields": {
+      "uuid": "46940e05-4c7c-4513-a067-bfa78159b9b9",
+      "question_id": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "content_type": "TEXT",
+      "text_content": "b)    As the carbon chain length increases in the carboxylic acid series, what general trend is observed in boiling point? \n                                                                                                                             (1 mark)",
+      "image_content": "",
+      "section_order": 2
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "34279470-03e2-4b66-b34b-0fd491755716",
+    "fields": {
+      "uuid": "34279470-03e2-4b66-b34b-0fd491755716",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "content_type": "TEXT",
+      "text_content": "d) Write the equation for the hydrolysis of an ester, such as methyl ethanoate, under acidic conditions.\n(2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "0895b10d-cdde-48e0-9dc5-97dd16574232",
+    "fields": {
+      "uuid": "0895b10d-cdde-48e0-9dc5-97dd16574232",
+      "question_id": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "content_type": "TEXT",
+      "text_content": "a) As part of the synthesis, an intermediate alcohol must be oxidised to a carboxylic acid. Identify a suitable reagent and explain the type of reaction taking place.\n(2 marks)",
+      "image_content": "",
+      "section_order": 1
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "80a38357-87e6-4014-b3b9-f160b7389820",
+    "fields": {
+      "uuid": "80a38357-87e6-4014-b3b9-f160b7389820",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "content_type": "TEXT",
+      "text_content": "c)    Describe how boiling point changes when branching in alcohols increase.\r\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "e1e5783f-362d-480d-8f54-934324a1932d",
+    "fields": {
+      "uuid": "e1e5783f-362d-480d-8f54-934324a1932d",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "content_type": "TEXT",
+      "text_content": "d) The structure shown below represents a short polypeptide. Circle the peptide bonds and name the process that formed this molecule.\r\n(2 marks)",
+      "image_content": "",
+      "section_order": 4
+    }
+  },
+  {
+    "model": "problems.order",
+    "pk": "5a5124f3-8540-4fbb-8a5c-94ce7d857e6f",
+    "fields": {
+      "uuid": "5a5124f3-8540-4fbb-8a5c-94ce7d857e6f",
+      "question_id": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "content_type": "TEXT",
+      "text_content": "c)    Explain how the presence of both OH and COOH groups affects water solubility.\r\n                                                                                                                             (2 marks)",
+      "image_content": "",
+      "section_order": 3
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "313fbe45-a9af-499a-9ec9-831e0ed6849f",
+    "fields": {
+      "uuid": "313fbe45-a9af-499a-9ec9-831e0ed6849f",
+      "question_id": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "order_id": "46940e05-4c7c-4513-a067-bfa78159b9b9",
+      "solution_text": "\\[\r\n\\text{Boiling point increases with carbon chain length.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "5f8227e3-3200-4130-bf16-3da3587adba5",
+    "fields": {
+      "uuid": "5f8227e3-3200-4130-bf16-3da3587adba5",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "order_id": "f96800c4-d127-438d-935b-c83a502f2526",
+      "solution_text": "\\\\(\\text{CH₃COCH₃ (propanone) has a slightly higher boiling point due to its greater molecular mass and symmetrical structure,}\\\\)\r\n\\\\(\\\\text{leading to stronger dispersion forces.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "d770782a-cf74-41dd-a38f-cf59d13aaa23",
+    "fields": {
+      "uuid": "d770782a-cf74-41dd-a38f-cf59d13aaa23",
+      "question_id": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "order_id": "7e6d8f04-c4aa-466e-b917-08e458f16c15",
+      "solution_text": "\\[\r\n\\text{The carboxyl group (-COOH).}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "681ebf3b-dea8-409c-b266-08505eb32fe1",
+    "fields": {
+      "uuid": "681ebf3b-dea8-409c-b266-08505eb32fe1",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "order_id": "b6400c4c-af61-4dca-a0f8-7c47a0405504",
+      "solution_text": "\\[\r\n\\text{Alcohols form hydrogen bonds with water, enhancing solubility. Alkanes cannot.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "f1964785-7d63-4545-aab1-f94825f8834c",
+    "fields": {
+      "uuid": "f1964785-7d63-4545-aab1-f94825f8834c",
+      "question_id": "be1d3a75-b456-413e-830e-f8924c290633",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{C is correct. Alcohols form hydrogen bonds, which increases their boiling points relative to alkanes of similar molar mass.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "0ddfce1b-2b67-4540-847c-47a7690a8c93",
+    "fields": {
+      "uuid": "0ddfce1b-2b67-4540-847c-47a7690a8c93",
+      "question_id": "58b7e98a-b8dc-4271-99e0-f6788c592ac6",
+      "order_id": "ed321cfe-f72d-4934-a8aa-8f82f56da5e7",
+      "solution_text": "\\\\(\\text{Longer carbon chains have greater surface area, which increases dispersion forces between molecules, requiring}\\\\)\r\n\\\\(\\\\text{more energy (higher temperature) to separate them.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "33cc961d-89f5-4de7-9857-8f5afeea3f0b",
+    "fields": {
+      "uuid": "33cc961d-89f5-4de7-9857-8f5afeea3f0b",
+      "question_id": "c169bae7-8f25-49a9-80e2-7a59c885b075",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{B is correct. As the number of carbon atoms increases, so does molecular mass and surface area, leading to higher boiling points.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "8951b7d0-f381-4243-b78a-5885a018ecb4",
+    "fields": {
+      "uuid": "8951b7d0-f381-4243-b78a-5885a018ecb4",
+      "question_id": "c1ce926f-c871-49a1-9ce2-15145011a89d",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{B is correct. Members of a homologous series differ by a CH}_2 \\\\text{ group.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "1a55e05e-6a14-449a-b8c7-cc4a6a8b3764",
+    "fields": {
+      "uuid": "1a55e05e-6a14-449a-b8c7-cc4a6a8b3764",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "order_id": "81e60c50-1fcc-4dfd-ac88-1d8f00f05aad",
+      "solution_text": "\\[\r\n\\text{The molecule consists of a methyl group attached to the oxygen of the ester group and a four-carbon acid chain.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "44bd0fb3-e67d-476c-a201-56cf658d8318",
+    "fields": {
+      "uuid": "44bd0fb3-e67d-476c-a201-56cf658d8318",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "order_id": "46ed7552-413f-4a8a-9b56-b895653ad8b1",
+      "solution_text": "\\[\r\n\\text{The correct IUPAC name is 2-aminobutane.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "bb262e19-56a3-4cfa-bdaa-7fae433b08cb",
+    "fields": {
+      "uuid": "bb262e19-56a3-4cfa-bdaa-7fae433b08cb",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "order_id": "40d13e6d-7dde-45c5-b8dc-d70e4d7402a1",
+      "solution_text": "\\\\(\\text{Boiling points increase due to stronger dispersion forces with increasing molecular mass. Alcohols also exhibit}\\\\)\r\n\\\\(\\\\text{hydrogen bonding, making their boiling points higher than alkanes.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "b0591922-c809-4274-bd80-58765c4e5f2f",
+    "fields": {
+      "uuid": "b0591922-c809-4274-bd80-58765c4e5f2f",
+      "question_id": "79acc877-311e-439b-94f0-ea8344e4233b",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{Condensation reaction (also known as esterification)}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "8fdeeccd-f71b-4821-86af-475cc347b5aa",
+    "fields": {
+      "uuid": "8fdeeccd-f71b-4821-86af-475cc347b5aa",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "order_id": "aa960ab4-1bee-4c9d-9e40-8a1d429b4d73",
+      "solution_text": "\\[\r\n\\text{Primary amines can form more hydrogen bonds with water due to the presence of an N-H bond,}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "e9de3937-7f16-484e-b238-0243968ed48a",
+    "fields": {
+      "uuid": "e9de3937-7f16-484e-b238-0243968ed48a",
+      "question_id": "3da5f3e5-9157-4fe8-af83-1286a6a2e68e",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{D is correct. Aldehydes have a hydrogen atom attached to the carbonyl carbon, while ketones do not.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "6dfe735d-f95c-45b0-bc09-5a928a38b0a1",
+    "fields": {
+      "uuid": "6dfe735d-f95c-45b0-bc09-5a928a38b0a1",
+      "question_id": "e0cb0571-c0c1-41b3-8530-b745c1b2ffa7",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{A is correct. The longest chain is butane and the Br is on the second carbon: 2-bromobutane.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "ad6f909c-41b7-43ec-a149-09f5f963ee94",
+    "fields": {
+      "uuid": "ad6f909c-41b7-43ec-a149-09f5f963ee94",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "order_id": "6a819a2b-e6bc-4c97-8417-965c91e3c050",
+      "solution_text": "\\[\r\n\\text{One possible positional isomer is propan-1-ol.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "f11c70ac-0398-495c-89f4-12d3c560e3e8",
+    "fields": {
+      "uuid": "f11c70ac-0398-495c-89f4-12d3c560e3e8",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "order_id": "81282ba0-74db-4337-b747-6d32ad08ff42",
+      "solution_text": "\\\\(\\text{Propan-1-ol has a higher boiling point due to hydrogen bonding. Propanal can only form dipole-dipole interactions.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "187d68c2-7238-4f91-b5b2-05104bac11f8",
+    "fields": {
+      "uuid": "187d68c2-7238-4f91-b5b2-05104bac11f8",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "order_id": "80a38357-87e6-4014-b3b9-f160b7389820",
+      "solution_text": "\\\\(\\text{Increased branching reduces surface area for dispersion forces, thus lowering the boiling point despite the presence of hydrogen bonding.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "6d944880-eb96-4eda-827c-f9017a35f7f2",
+    "fields": {
+      "uuid": "6d944880-eb96-4eda-827c-f9017a35f7f2",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "order_id": "e01226c9-ffa5-4bde-a1ca-59cb12e31abc",
+      "solution_text": "\\[\r\n\\text{The compound is propanal.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "b53e7294-f586-4e24-8f0b-d51e4854175c",
+    "fields": {
+      "uuid": "b53e7294-f586-4e24-8f0b-d51e4854175c",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "order_id": "4e286d19-2c52-4f25-a14f-8c484fadf639",
+      "solution_text": "\\[\r\n\\text{1-chloropropane is slightly polar but not able to form hydrogen bonds with water, hence it has low solubility.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "a68af847-b4ee-4684-b8fa-64854302ebdc",
+    "fields": {
+      "uuid": "a68af847-b4ee-4684-b8fa-64854302ebdc",
+      "question_id": "a800b98c-c93f-4698-bd69-3584468a3098",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{A is correct. CH}_3\\\\text{CH}_2\\\\text{NH}_2 \\\\text{ is a primary amine with the -NH}_2 \\\\text{ group attached to one alkyl group.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "f6239a65-ab84-460e-bf6a-f44af370c474",
+    "fields": {
+      "uuid": "f6239a65-ab84-460e-bf6a-f44af370c474",
+      "question_id": "3fce18d3-7657-47de-9ca7-fb1d6a0596c1",
+      "order_id": "55248fc5-3439-4b59-874a-87852bb606d0",
+      "solution_text": "\\\\(\\text{The OH group is attached to a carbon bonded to two other carbon atoms. Therefore, the alcohol is secondary.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "477227f0-3038-4130-86bc-3de955c18329",
+    "fields": {
+      "uuid": "477227f0-3038-4130-86bc-3de955c18329",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "order_id": "d89cec1a-8b3e-405c-af52-0039ccacf87a",
+      "solution_text": "\\[\r\n\\text{CH}_3\\text{CH}_2\\text{NH}_2\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "00ef0f88-735c-442f-8732-f59c1b29c2a2",
+    "fields": {
+      "uuid": "00ef0f88-735c-442f-8732-f59c1b29c2a2",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "order_id": "7957b1a8-bdaa-4ae1-9ec2-11b377e3cc4b",
+      "solution_text": "\\[\r\n\\text{The IUPAC name is 1-chloropropane.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "c9a83833-7b01-439e-8cdf-d7bf17a187ca",
+    "fields": {
+      "uuid": "c9a83833-7b01-439e-8cdf-d7bf17a187ca",
+      "question_id": "ccc0b011-1a57-46ed-96d7-101f46c84076",
+      "order_id": "d5a9cadd-fde2-4e44-87f1-b37aa5076a9c",
+      "solution_text": "\\[\r\n\\text{Butanone has the carbonyl group on carbon-2 of a four-carbon chain.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "54db2f9c-eca6-482e-b680-98213e0b6c90",
+    "fields": {
+      "uuid": "54db2f9c-eca6-482e-b680-98213e0b6c90",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "order_id": "f3ce3369-ff3b-412c-befa-181896e28be0",
+      "solution_text": "\\[\r\n\\text{The molecule contains a carboxylic acid functional group.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "0d3af106-b8ce-40ef-ab89-b54e68be468e",
+    "fields": {
+      "uuid": "0d3af106-b8ce-40ef-ab89-b54e68be468e",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "order_id": "05ec8207-d34b-46a1-af6a-05035ad08c6b",
+      "solution_text": "\\\\(\\text{CH}_3\\text{CH}_2\\text{NH}_2 \\text{ is a primary amine. (Primary amines are bonded to one alkyl group)}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "044abfd6-e1da-498b-a57a-de59f44224ea",
+    "fields": {
+      "uuid": "044abfd6-e1da-498b-a57a-de59f44224ea",
+      "question_id": "46e6d726-14e6-4796-91b6-0de2c81fd188",
+      "order_id": null,
+      "solution_text": "\\\\[\\n\\\\text{C is correct. Alkynes are hydrocarbons that include a carbon-carbon triple bond.}\\n\\\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "305491d1-3647-4713-a4ae-457708aff935",
+    "fields": {
+      "uuid": "305491d1-3647-4713-a4ae-457708aff935",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "order_id": "b37cb856-b9be-4a4a-8201-e54cbd519d65",
+      "solution_text": "\\[\r\n\\text{One possible structure is dimethylamine: (CH}_3)_2\\text{NH}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "252c685a-3ec8-4efc-8dc6-9c716f6d579b",
+    "fields": {
+      "uuid": "252c685a-3ec8-4efc-8dc6-9c716f6d579b",
+      "question_id": "b4baadbc-362c-4580-92c7-0fe205762c6c",
+      "order_id": "effcba84-6436-45a2-bc24-e654307b96d1",
+      "solution_text": "\\[\r\n\\text{Ethylamine has a higher boiling point due to increased molecular mass and stronger dispersion forces.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "3a6bfc86-abfd-4ce2-9c64-81eeb6cac4a3",
+    "fields": {
+      "uuid": "3a6bfc86-abfd-4ce2-9c64-81eeb6cac4a3",
+      "question_id": "fc8a3a19-7a00-4d90-90a1-d1e90300c607",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{D is correct. Propene is an alkene and has a C=C bond, making it reactive in addition reactions.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "130aaf2a-d5e7-4158-a8c0-43ccb27bd956",
+    "fields": {
+      "uuid": "130aaf2a-d5e7-4158-a8c0-43ccb27bd956",
+      "question_id": "e2d6dc98-0cc6-4151-b663-8e06a6964fb1",
+      "order_id": "d30904b9-c019-47ef-bc6f-2146e81422fd",
+      "solution_text": "\\[\r\n\\text{Structure must show a central carbon with three methyl groups and one OH group.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "ea30ac6e-7ec4-4f5d-9507-5c7ab5dbbd2e",
+    "fields": {
+      "uuid": "ea30ac6e-7ec4-4f5d-9507-5c7ab5dbbd2e",
+      "question_id": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "order_id": "eaafbf47-9b43-48db-86aa-3e4ff4176379",
+      "solution_text": "\\[\r\n\\text{The carboxylic acid is the principal functional group according to IUPAC rules.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "dd1031b0-5779-42f7-86eb-4cbc4e145bf3",
+    "fields": {
+      "uuid": "dd1031b0-5779-42f7-86eb-4cbc4e145bf3",
+      "question_id": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "order_id": "5a9c5036-2440-41bf-b9c2-dd62f73089ef",
+      "solution_text": "\\\\(\\text{The IUPAC name is 2-hydroxypropanoic acid.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "11852a38-32fb-4447-bfcb-9f2701d689ec",
+    "fields": {
+      "uuid": "11852a38-32fb-4447-bfcb-9f2701d689ec",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "order_id": "24943b38-da43-489a-be31-ebf781a4169f",
+      "solution_text": "\\[\r\n\\text{The name is ethyl propanoate.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "760a2820-7574-4ac2-9456-a8611c3a6849",
+    "fields": {
+      "uuid": "760a2820-7574-4ac2-9456-a8611c3a6849",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "order_id": "be91bd91-a2e1-4d9a-80a9-e1025f248aa6",
+      "solution_text": "\\[\r\n\\text{Boiling point increases with halogen size due to greater molecular mass and stronger dispersion forces.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "4154ad10-19af-4280-a922-64f4072fe5db",
+    "fields": {
+      "uuid": "4154ad10-19af-4280-a922-64f4072fe5db",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "order_id": "960043e5-bb8a-4781-87a6-d26224d0108e",
+      "solution_text": "\\[\r\n\\text{The name is chloromethane.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "97768ae6-a5f0-4841-9cff-148c136e31db",
+    "fields": {
+      "uuid": "97768ae6-a5f0-4841-9cff-148c136e31db",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "order_id": "364112f5-f5bd-4160-bb96-47efe2b5c3c1",
+      "solution_text": "\\\\(\\text{An ester is formed via a condensation reaction between a carboxylic acid and an alcohol, producing an ester and water.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "4c95627e-d63d-4380-a25e-4a7c2c7dc8d0",
+    "fields": {
+      "uuid": "4c95627e-d63d-4380-a25e-4a7c2c7dc8d0",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "order_id": "586b6032-c666-46d6-9df2-ce0cffe669c8",
+      "solution_text": "\\[\r\n\\text{This compound is an alcohol.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "016c7550-8b4f-4d1c-8c8f-a8d1a4374d0d",
+    "fields": {
+      "uuid": "016c7550-8b4f-4d1c-8c8f-a8d1a4374d0d",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "order_id": "a1ed470e-82be-4190-a4b4-e01485bad4c7",
+      "solution_text": "\\[\r\n\\text{The name is methyl propanoate.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "d12e3e69-100c-4778-93a0-f57ddae8c1b2",
+    "fields": {
+      "uuid": "d12e3e69-100c-4778-93a0-f57ddae8c1b2",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "order_id": "a26e9675-2ca0-4c6f-b95e-f68c8cd1a36d",
+      "solution_text": "\\[\r\n\\text{The molecule contains an amide group.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "69e3fa7b-0306-4cc2-9324-4bacdc0a2185",
+    "fields": {
+      "uuid": "69e3fa7b-0306-4cc2-9324-4bacdc0a2185",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "order_id": "73482fae-78bd-40cd-87b5-5e19dbbb0d00",
+      "solution_text": "\\\\(\\text{Amides form hydrogen bonds due to the presence of N-H bonds, which increases intermolecular attraction. Esters}\\\\)\r\n\\\\(\\\\text{lack N-H bonds and thus rely on weaker dipole interactions.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "7937cceb-334a-4202-b6dc-395412e018b6",
+    "fields": {
+      "uuid": "7937cceb-334a-4202-b6dc-395412e018b6",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "order_id": "3f350ee5-95f3-4296-b1d7-8239bb4ea19f",
+      "solution_text": "\\[\r\n\\text{The name is 2-bromobutane.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "f5df554f-1c05-4ee3-a6dc-e5191bd9403d",
+    "fields": {
+      "uuid": "f5df554f-1c05-4ee3-a6dc-e5191bd9403d",
+      "question_id": "0c5134b9-0210-40b7-8dff-9470abf6d9e5",
+      "order_id": "3c343eac-7740-45bd-800a-f1f3589e558c",
+      "solution_text": "\\\\(\\text{Ethanol has a higher boiling point due to hydrogen bonding between molecules. Esters can only form dipole-dipole}\\\\)\r\n\\\\(\\\\text{interactions, not hydrogen bonds with themselves.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "776f5deb-a02a-4626-97f5-52281d69d376",
+    "fields": {
+      "uuid": "776f5deb-a02a-4626-97f5-52281d69d376",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "order_id": "06d8fcf9-d10c-46aa-8085-021670651816",
+      "solution_text": "\\\\(\\\\text{CH₃CH₂OH can form hydrogen bonds due to its hydroxyl group, which significantly increases its boiling point}\\\\)\r\n\\\\(\\\\text{compared to non-polar methane (CH₄).}\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "a6cbb693-2ab3-4ebd-80f3-6fc7bd8ac053",
+    "fields": {
+      "uuid": "a6cbb693-2ab3-4ebd-80f3-6fc7bd8ac053",
+      "question_id": "9512b2b6-dddc-4fb6-8e6c-469a28be93d1",
+      "order_id": "1939e598-659d-42a9-a3a0-4e8dbfd54aff",
+      "solution_text": "\\\\(\\text{The amide group contains N-H bonds which enable hydrogen bonding, leading to a higher boiling point than an}\\\\)\r\n\\\\(\\\\text{ester of similar molar mass.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "e598af5b-4f88-4b78-be0b-f7e6a4e3c19c",
+    "fields": {
+      "uuid": "e598af5b-4f88-4b78-be0b-f7e6a4e3c19c",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "order_id": "f6728b88-d33f-4815-befb-022df57bc423",
+      "solution_text": "\\[\r\n\\text{It is a ketone because the carbonyl group is bonded to two carbon atoms, not to a hydrogen.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "b4e21e0c-2fa5-4f27-8105-d2304572b133",
+    "fields": {
+      "uuid": "b4e21e0c-2fa5-4f27-8105-d2304572b133",
+      "question_id": "c0fef929-387d-441a-ad11-290e3a5f2b17",
+      "order_id": "9fa66c9f-d2ec-41bf-af81-d6d950e9ad2a",
+      "solution_text": "\\\\(\\text{Chloromethane cannot form hydrogen bonds with water, whereas ethanol can, making ethanol more soluble}\\\\)\r\n\\\\(\\\\text{in water.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "e1aba637-e172-417c-9196-e007012140b8",
+    "fields": {
+      "uuid": "e1aba637-e172-417c-9196-e007012140b8",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "order_id": "ce50f4de-b363-49ec-a96a-50134f010e58",
+      "solution_text": "\\[\r\n\\text{The name is ethanal.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "86b576a7-fd1c-417b-810e-c192ec4f470c",
+    "fields": {
+      "uuid": "86b576a7-fd1c-417b-810e-c192ec4f470c",
+      "question_id": "92d6c8c7-7b15-40e1-a617-9911023d8780",
+      "order_id": "b0edb966-5ebe-45f0-a030-6df71e94685e",
+      "solution_text": "\\[\r\n\\text{The compound contains an aldehyde group.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "1d955e99-ed97-464e-9b3a-1d05970e6cd0",
+    "fields": {
+      "uuid": "1d955e99-ed97-464e-9b3a-1d05970e6cd0",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "order_id": "55fac36c-dfe6-40ac-bfae-9a8ebd6dc25c",
+      "solution_text": "\\[\r\n2C_8H_{18} + 25O_2 \\rightarrow 16CO_2 + 18H_2O\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "6987b853-91df-41d8-9419-dfba32cfd699",
+    "fields": {
+      "uuid": "6987b853-91df-41d8-9419-dfba32cfd699",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "order_id": "bc4eadd9-bccf-4847-a6b1-cad4364dda2d",
+      "solution_text": "\\[\r\n\\text{Octane belongs to the alkane series.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "18d87b22-48bb-4971-b8c5-3e11d2d163be",
+    "fields": {
+      "uuid": "18d87b22-48bb-4971-b8c5-3e11d2d163be",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "order_id": "f192ae71-2f7a-4809-b1df-0e99e9d3de39",
+      "solution_text": "\\[\r\n\\text{The molecular formula of octane is } C_8H_{18}.\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "3f68c245-e26f-47ca-b920-43ab10996319",
+    "fields": {
+      "uuid": "3f68c245-e26f-47ca-b920-43ab10996319",
+      "question_id": "17f56d35-0e37-4b36-8224-9f5ad73a4b2b",
+      "order_id": "d0828df3-8ade-4044-a0ef-cf5e1952babf",
+      "solution_text": "\\\\(\\text{Octane is non-polar because it consists entirely of C–C and C–H bonds, which have similar electronegativities}\\\\)\r\n\\\\(\\\\text{and no permanent dipole.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "02f2e0d9-d18b-4e01-b981-17ea46773e15",
+    "fields": {
+      "uuid": "02f2e0d9-d18b-4e01-b981-17ea46773e15",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "order_id": "9bc468d6-3de6-4c3b-88b8-def2be03cfdd",
+      "solution_text": "\\[\r\n\\text{The functional group is a halogen (bromo), making it a haloalkane.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "92c6ae21-5cff-4fe6-a9a0-7f190ac40a9b",
+    "fields": {
+      "uuid": "92c6ae21-5cff-4fe6-a9a0-7f190ac40a9b",
+      "question_id": "9f7b2417-dc93-4fdb-8c79-82c2b319f8fa",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{B is correct. Triglycerides break into three fatty acids and one glycerol molecule upon hydrolysis.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "34e6c18a-681c-4727-a453-01db43a3bb82",
+    "fields": {
+      "uuid": "34e6c18a-681c-4727-a453-01db43a3bb82",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "order_id": "15bfd8bb-126b-4d30-be6e-6f0e11bc10b1",
+      "solution_text": "\\\\(\\text{As the halogen increases in size (from F to I), molecular mass increases and dispersion forces become stronger,}\\\\)\r\n\\\\(\\\\text{leading to a higher boiling point.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "7babb92e-3880-4bfa-ab08-258689a10a19",
+    "fields": {
+      "uuid": "7babb92e-3880-4bfa-ab08-258689a10a19",
+      "question_id": "5296b2a8-a57c-4130-97c9-975b1ec33e13",
+      "order_id": "e0c70b7e-8bc0-49df-ae75-8a20b73fc7c2",
+      "solution_text": "\\\\(\\text{Haloalkanes contain polar C-X bonds (e.g., C-Br), making them more susceptible to nucleophilic substitution reactions compared to non-polar alkanes.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "859297f8-8460-4492-9eb7-8ad442b09c92",
+    "fields": {
+      "uuid": "859297f8-8460-4492-9eb7-8ad442b09c92",
+      "question_id": "710bac8b-f8b2-4fc9-a786-7f3c3051deb3",
+      "order_id": "d800023d-d0ad-4eeb-88ae-da15f48523bc",
+      "solution_text": "\\\\(\\text{1-chloropropane is more reactive due to the polar C-Cl bond, propane lacks such polarity and reacts mainly via radical substitution under UV.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "dfcfeac9-5ee4-4583-a6c4-c2ab778da5e7",
+    "fields": {
+      "uuid": "dfcfeac9-5ee4-4583-a6c4-c2ab778da5e7",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "order_id": "4ed6d997-0a4d-4222-9300-6a5642fe038d",
+      "solution_text": "\\\\(\\text{Proteins form through a condensation reaction between the amine group of one amino acid and the carboxyl group}\\\\)\r\n\\\\(\\\\text{of another. This produces a peptide bond and water.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "cd1b7a8c-f085-494c-99e3-b4005c8e39ab",
+    "fields": {
+      "uuid": "cd1b7a8c-f085-494c-99e3-b4005c8e39ab",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "order_id": "34279470-03e2-4b66-b34b-0fd491755716",
+      "solution_text": "\\\\(\\text{CH}_3\\text{COOCH}_3 + \\text{H}_2\\text{O} \\xrightarrow{\\text{H}^+} \\text{CH}_3\\text{COOH} + \\text{CH}_3\\text{OH}\\\\)\r\n\\\\(\\text{Hydrolysis breaks the ester into a carboxylic acid and an alcohol.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "fb300f87-5c0f-465b-8ee4-299645643b1e",
+    "fields": {
+      "uuid": "fb300f87-5c0f-465b-8ee4-299645643b1e",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "order_id": "93acd22b-a992-448e-8fe6-50f168629e2b",
+      "solution_text": "\\[\r\n\\text{High atom economy means more reactants are converted into useful product, reducing waste and improving sustainability.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "a9f3fc73-090a-4582-8d02-ebfc04f99a34",
+    "fields": {
+      "uuid": "a9f3fc73-090a-4582-8d02-ebfc04f99a34",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "order_id": "3e8f293e-7cfd-4cf4-9a47-f3b0fb47d8a1",
+      "solution_text": "\\\\(\\text{Hydrolysis reaction catalysed by protease enzymes.} \\\\)\r\n\\\\(\\text{Polypeptides + water → amino acids.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "a129bec2-8db3-446a-a8e1-a49bfd9cc3d2",
+    "fields": {
+      "uuid": "a129bec2-8db3-446a-a8e1-a49bfd9cc3d2",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "order_id": "ee28878d-3c27-4d68-a8d7-38e39eccbcc5",
+      "solution_text": "\\\\(\\text{CH}_3\\text{CH}_2\\text{COOCH}_3 + \\text{H}_2\\text{O} \\xrightarrow{H^+} \\text{CH}_3\\text{CH}_2\\text{COOH} + \\text{CH}_3\\text{OH} \\\\)\r\n\\\\(\\text{Products: Propanoic acid and methanol.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "fe2dcfbc-e83a-4693-ad14-2e38c8aa8482",
+    "fields": {
+      "uuid": "fe2dcfbc-e83a-4693-ad14-2e38c8aa8482",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "order_id": "50a0e5a3-aa68-4fd4-92a1-57ec6c3a2898",
+      "solution_text": "\\[\r\n\\text{Triglyceride + 3 H}_2\\text{O} \\xrightarrow{\\text{lipase}} \\text{Glycerol + 3 Fatty acids}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "32d74d32-6f2c-4281-81b7-abf65e695529",
+    "fields": {
+      "uuid": "32d74d32-6f2c-4281-81b7-abf65e695529",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "order_id": "c94e7a52-d5ca-40eb-a014-f941affb0c54",
+      "solution_text": "\\\\(\\text{CH}_3\\text{CH}_2\\text{CH}_3 + \\text{Cl}_2 \\xrightarrow{UV} \\text{CH}_3\\text{CHClCH}_3 + \\text{HCl} \\\\)\r\n\\\\(\\text{This is a free radical substitution reaction.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "b0d6cbac-6c39-4c8d-8b3c-1509302c45a5",
+    "fields": {
+      "uuid": "b0d6cbac-6c39-4c8d-8b3c-1509302c45a5",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "order_id": "b7010d03-beb7-4ab1-8640-9efda9dde568",
+      "solution_text": "\\\\(\\text{Higher atom economy reduces waste and uses reactants more efficiently, improving environmental impact.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "a92f1dab-3e74-4c8d-9a42-731da125e435",
+    "fields": {
+      "uuid": "a92f1dab-3e74-4c8d-9a42-731da125e435",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "order_id": "325bebbc-4d89-4ca8-855d-5451a4096110",
+      "solution_text": "\\\\(\\text{CH}_3\\text{COOH} + \\text{CH}_3\\text{CH}_2\\text{OH} \\xrightarrow{H^+} \\text{CH}_3\\text{COOCH}_2\\text{CH}_3 + \\text{H}_2\\text{O} \\\\)\r\n\\\\(\\text{Ester formed: Ethyl ethanoate}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "bd1a3839-474c-48f6-83f4-2ddc90a110d9",
+    "fields": {
+      "uuid": "bd1a3839-474c-48f6-83f4-2ddc90a110d9",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "order_id": "18a45bde-3ee4-4099-9b43-48163093ebb3",
+      "solution_text": "\\[\r\n\\text{Free radical substitution:} \\\\\r\n\\text{CH}_4 + \\text{Cl}_2 \\xrightarrow{UV} \\text{CH}_3\\text{Cl} + \\text{HCl}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "8bd4258f-3530-4fc8-af6f-d22fee018c3c",
+    "fields": {
+      "uuid": "8bd4258f-3530-4fc8-af6f-d22fee018c3c",
+      "question_id": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "order_id": "a5d66746-c1bc-4178-b212-b877f43baa76",
+      "solution_text": "\\[\r\n\\text{Catalysts increase reaction efficiency and monitoring helps avoid excess reagents, improving atom economy and reducing waste.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "8f93be3d-46bb-4d0c-8b8e-6a12fd2e682f",
+    "fields": {
+      "uuid": "8f93be3d-46bb-4d0c-8b8e-6a12fd2e682f",
+      "question_id": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "order_id": "34f7d67a-3d25-48fa-9a0e-aaad769d4a7e",
+      "solution_text": "\\[\r\n\\text{Hydrolysis is a decomposition reaction that breaks glycosidic bonds. The main product is glucose.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "cf9f34c5-5362-4448-a946-4dbfb160a113",
+    "fields": {
+      "uuid": "cf9f34c5-5362-4448-a946-4dbfb160a113",
+      "question_id": "574ab7c8-d359-4871-a439-ccd2614c3d01",
+      "order_id": "17585b28-f55a-42db-b526-7d7ac6933584",
+      "solution_text": "\\[\r\n\\text{Triglycerides are hydrolysed into one glycerol and three fatty acids. The enzyme responsible is lipase.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "236a56ae-80de-4c90-aaba-911c3433a7b7",
+    "fields": {
+      "uuid": "236a56ae-80de-4c90-aaba-911c3433a7b7",
+      "question_id": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "order_id": "46bcccd1-7671-42f7-9146-fdb884e89b67",
+      "solution_text": "\\[\r\n\\text{This is a hydrolysis reaction. The ester is broken into a carboxylic acid and an alcohol.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "ac62393d-c0fa-4d85-9804-22d3a32feb6a",
+    "fields": {
+      "uuid": "ac62393d-c0fa-4d85-9804-22d3a32feb6a",
+      "question_id": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "order_id": "61e91673-96af-4400-9652-730564ebdb8e",
+      "solution_text": "\\\\(\\text{Improving atom economy reduces waste and ensures more of the reactants are converted to useful products. This}\\\\)\r\n\\\\(\\\\text[supports environmentally sustainable manufacturing.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "86d347aa-b6be-4bb3-bc1c-f67cc6919971",
+    "fields": {
+      "uuid": "86d347aa-b6be-4bb3-bc1c-f67cc6919971",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "order_id": "3f3c3180-c8d0-483e-8923-ea93a01ff511",
+      "solution_text": "\\[\r\n\\text{The reaction is an addition reaction, and the product is 1,2-dibromoethane.}\r\n\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "81968146-bf84-4083-a876-db2c540a8f3e",
+    "fields": {
+      "uuid": "81968146-bf84-4083-a876-db2c540a8f3e",
+      "question_id": "db5fb93b-8cf9-4bdc-bfcf-79072bc7f127",
+      "order_id": "0a5a3128-caeb-4049-b295-2b1c45eb9e18",
+      "solution_text": "\\\\(\\text{Addition reaction: Ethene reacts with steam to form ethanol.} \\\\)\r\n\\\\(\\text{CH}_2=\\text{CH}_2 + \\text{H}_2\\text{O} \\xrightarrow{H_3PO_4, heat} \\text{CH}_3\\text{CH}_2\\text{OH}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "09b73faf-2798-4d49-a340-65072fc5e3b7",
+    "fields": {
+      "uuid": "09b73faf-2798-4d49-a340-65072fc5e3b7",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "order_id": "8648b9f0-1065-4020-a439-bf9c856b2b40",
+      "solution_text": "\\\\(\\text{Atom economy = } \\frac{\\text{mass of desired product}}{\\text{total mass of all products}} \\times 100\\%. \\\\)\r\n\\\\(\\text{Improved by minimising by-products and maximising desired outputs.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "290a9c89-5a88-4c63-97fa-3c98199b427d",
+    "fields": {
+      "uuid": "290a9c89-5a88-4c63-97fa-3c98199b427d",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "order_id": "e1e5783f-362d-480d-8f54-934324a1932d",
+      "solution_text": "\\\\(\\text{This molecule formed via a condensation reaction between amino acids.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "49bc23c9-db36-4674-b362-0130d7a22831",
+    "fields": {
+      "uuid": "49bc23c9-db36-4674-b362-0130d7a22831",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "order_id": "291b8275-f945-4592-b63e-f214b3c0d145",
+      "solution_text": "\\\\(\\\\text{Enzyme: Lipase.}\\\\)\r\n\\\\(\\\\text{Reaction type: Hydrolysis.}\\\\)\r\n\\\\(\\\\text{Products: Glycerol and 3 fatty acids.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "d9fffcd1-2574-489f-85ee-c3ca81e293a2",
+    "fields": {
+      "uuid": "d9fffcd1-2574-489f-85ee-c3ca81e293a2",
+      "question_id": "44e31a6e-ad0b-4290-894e-a582e9de710f",
+      "order_id": "884cd152-5c24-4659-a3e4-0d1d9e147645",
+      "solution_text": "\\\\(2\\text{C}_3\\text{H}_7\\text{OH} + 9 \\text{O}_2 \\rightarrow 6 \\text{CO}_2 + 8 \\text{H}_2\\text{O} \\\\)\r\n\\\\(\\text{Propanol combusts completely in oxygen to produce carbon dioxide and water.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "9246cb3e-e8d8-4ae5-a6f5-ca4d9e7d26d8",
+    "fields": {
+      "uuid": "9246cb3e-e8d8-4ae5-a6f5-ca4d9e7d26d8",
+      "question_id": "e38a6b6a-9a5a-449b-b9f9-c77e639fb36b",
+      "order_id": "585190dd-2026-4e83-b9d3-77895ed4e298",
+      "solution_text": "\\\\(\\text{CH}_2=\\text{CH}_2 + \\text{H}_2\\text{O} \\xrightarrow{H_3PO_4,\\ heat} \\text{CH}_3\\text{CH}_2\\text{OH} \\\\)\r\n\\\\(\\text{Product: Ethanol; Conditions: phosphoric acid catalyst and high temperature.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "d2bc9b20-a73b-4060-a8f3-d04665aafe92",
+    "fields": {
+      "uuid": "d2bc9b20-a73b-4060-a8f3-d04665aafe92",
+      "question_id": "a21c1a3a-b9e2-4642-9a2f-20164230e678",
+      "order_id": null,
+      "solution_text": "\\\\[\\n\\\\text{A is correct. The esterification of ethanol with ethanoic acid only produces water as a by-product, resulting in the highest atom economy.}\\n\\\\]",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "2b8af6cc-1ec6-4948-abc2-3fba344f09e9",
+    "fields": {
+      "uuid": "2b8af6cc-1ec6-4948-abc2-3fba344f09e9",
+      "question_id": "4a18a916-b682-4177-9584-a0c375e51df6",
+      "order_id": "aceebde0-23b3-4156-8138-1a83a7c82fe5",
+      "solution_text": "\\\\(\\\\text{Type of reaction: Addition.}\\\\)\r\n\\\\(\\\\text{Product: 1,2-dibromopropane.}\\\\)\r\n\\\\(\\\\text{Observation: Bromine water decolorises.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "c41ddc35-bd07-4789-9241-329241d20e7e",
+    "fields": {
+      "uuid": "c41ddc35-bd07-4789-9241-329241d20e7e",
+      "question_id": "8587843c-878c-4d58-85b0-3775cfd40588",
+      "order_id": null,
+      "solution_text": "\\\\(\\\\text{C is correct. Condensation polymerisation involves the loss of small molecules like water during the formation of bonds between monomers.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "4993eaa1-62b9-4b2e-b947-1c6228bdf253",
+    "fields": {
+      "uuid": "4993eaa1-62b9-4b2e-b947-1c6228bdf253",
+      "question_id": "e0280ea3-7da6-41b4-8b6b-d4f251eb6142",
+      "order_id": "5a5124f3-8540-4fbb-8a5c-94ce7d857e6f",
+      "solution_text": "\\\\(\\text{Both OH and COOH groups form hydrogen bonds with water. This enhances solubility due to multiple sites for interaction.}\\\\)",
+      "solution_image": ""
+    }
+  },
+  {
+    "model": "problems.solution",
+    "pk": "04b22259-621b-4447-a93e-530b05b296bd",
+    "fields": {
+      "uuid": "04b22259-621b-4447-a93e-530b05b296bd",
+      "question_id": "9446846f-8272-47fc-baa8-209ee3e3fd5d",
+      "order_id": "0895b10d-cdde-48e0-9dc5-97dd16574232",
+      "solution_text": "\\\\(\\text{Reagent: Acidified potassium permanganate or dichromate.} \\\\)\r\n\\\\(\\text{This is an oxidation reaction, where the alcohol is converted to a carboxylic acid.}\\\\)",
+      "solution_image": ""
+    }
+  }
+]
