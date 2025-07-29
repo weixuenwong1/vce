@@ -103,3 +103,123 @@ $sac-highlight: hsl(12, 85%, 62%);
   }  
 }
 
+.coming-soon {
+  align-items: center; 
+  text-align: center;
+  font-size: 3.0rem;
+  font-weight: 700;
+  color: $white;
+  margin: 8rem 0;
+  letter-spacing: 1px;
+}
+
+.flipping-hourglass {
+  font-size: 3.0rem;
+  display: inline-block;
+  animation: flipHourglass 2.0s infinite linear;
+}
+
+@keyframes flipHourglass {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotateX(180deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotateX(360deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1000px) {
+  .sac-chapter-wrapper {
+    flex-direction: column;
+
+    .sac-left {
+      padding: 1.5rem;
+
+      .sac-chapter-heading {
+        font-size: 1.8rem;
+      }
+
+      .sac-chapter-description {
+        font-size: 0.95rem;
+      }
+    }
+
+    .sac-right {
+      border-left: none;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+
+      .generate-tab {
+        padding: 1.2rem;
+
+        h2 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+  .coming-soon, .flipping-hourglass {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sac-chapter-wrapper {
+    margin: 1.5rem 0;
+
+    .sac-left {
+      padding: 1.2rem;
+
+      .sac-chapter-heading {
+        font-size: 1.5rem;
+      }
+
+      .sac-chapter-description {
+        font-size: 0.9rem;
+      }
+    }
+
+    .sac-right {
+      .generate-tab {
+        padding: 1rem;
+
+        h2 {
+          font-size: 1.15rem;
+        }
+      }
+    }
+  }
+  .coming-soon, .flipping-hourglass {
+    font-size: 2.0rem !important; 
+  }
+}
+
+@media (max-width: 480px) {
+  .sac-chapter-wrapper {
+    margin: 1rem 0;
+
+    .sac-left {
+      padding: 1rem;
+
+      .sac-chapter-heading {
+        font-size: 1.3rem;
+      }
+
+      .sac-chapter-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+    }
+
+    .sac-right {
+      .generate-tab {
+        padding: 0.8rem;
+
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .coming-soon, .flipping-hourglass {
+    font-size: 1.5rem !important; 
+  }
+}

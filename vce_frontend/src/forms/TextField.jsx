@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {FormControl, InputLabel, OutlinedInput, FormHelperText} from '@mui/material';
-import '../../App.css'
+import '../App.css'
 import { Controller } from 'react-hook-form'
 
 export default function FormTextField(props) {

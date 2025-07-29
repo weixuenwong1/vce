@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, React} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import AxiosInstance from './AxiosInstance';
+import AxiosInstance from '../utils/AxiosInstance'
 import '../styles/NavBar.scss';
 
 function Navbar() {

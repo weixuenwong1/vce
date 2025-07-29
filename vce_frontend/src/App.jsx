@@ -1,23 +1,24 @@
 import { useState, createContext } from 'react'
 import './App.css'
-import Home from './components/Home'
-import Register from './components/Register'
-import Login from './components/Login'
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Practice from './components/Practice'
-import Chapters from './components/Chapters'
-import Problems from './components/Problems'
-import Summaries from './components/Summaries'
-import PasswordResetRequest from './components/PasswordResetRequest'
-import PasswordReset from './components/PasswordReset'
-import PrivacyPolicy from './components/PrivacyPolicy'
-import TermsOfService from './components/TermsOfService'
-import PracticeSAC from './components/PracticeSAC'
-import SAC from './components/SAC'
-import HowToUseChuba from './components/UsingChuba'
+import Practice from './pages/Practice'
+import Chapters from './pages/Chapters'
+import Problems from './pages/Problems'
+import Summaries from './pages/Summaries'
+import PasswordResetRequest from './pages/PasswordResetRequest'
+import PasswordReset from './pages/PasswordReset'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
+import PracticeSAC from './pages/PracticeSAC'
+import SAC from './pages/SAC'
+import HowToUseChuba from './pages/UsingChuba'
 import Logo from './components/Logo'
-import { Routes, Route, useLocation, matchPath } from 'react-router-dom'
+import NotFound from './pages/NotFound'
+import { Routes, Route, useLocation, matchPath, Navigate } from 'react-router-dom'
 
 
 function App() {
@@ -74,6 +75,9 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/how-to-use-chuba" element={<HowToUseChuba />} />
+          <Route path="/404" element={<NotFound />} />
+
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </div>
       {!noFooter && <Footer />}

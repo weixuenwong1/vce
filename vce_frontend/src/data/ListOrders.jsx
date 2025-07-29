@@ -57,7 +57,7 @@ export const topicOrders = {
       "Redox Reactions",
       "Galvanic and Fuel Cells",
     ],
-    'rates-and-chemical-reactions': [
+    'rate-and-yield': [
       "Rates of Chemical Reactions",
       "Extent of Chemical Reactions",
       "Electrolysis"

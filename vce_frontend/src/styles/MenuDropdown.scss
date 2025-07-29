@@ -148,16 +148,159 @@ $white: #FFF;
 }
 
 .coming-soon {
-    text-align: center;
-    font-size: 3.0rem;
-    font-weight: 700;
-    color: $light-blue;
-    margin: 8rem 0;
-    letter-spacing: 1px;
+  align-items: center; 
+  text-align: center;
+  font-size: 5.0rem;
+  font-weight: 700;
+  color: $white;
+  margin: 8rem 0;
+  letter-spacing: 1px;
+}
+
+.flipping-hourglass {
+  font-size: 2.5rem;
+  display: inline-block;
+  animation: flipHourglass 2.0s infinite linear;
+}
+
+@keyframes flipHourglass {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotateX(180deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotateX(360deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes backgroundShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 1000px) {
+  .practice-container {
+    padding: 2.5rem 1.5rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .chapter-left-box {
+        .chapter-description {
+            font-size: 1.05rem;
+        }
+    }
+
+    .side-note {
+      font-size: 1rem;
+    }
+
+    .chapter-heading {
+      font-size: 2.2rem;
+    }
+
+    .chapter-wrapper {
+      flex-direction: column;
+    }
+
+    .chapter-right-box {
+      border-right: none;
+      border-top: 2px solid #444;
+    }
+
+    .chapter-left-box{
+      border-right: none;
+    }
+
+    .chapter-right-box {
+      padding-top: 1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .practice-container {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    .chapter-left-box {
+        .chapter-description {
+            font-size: 0.95rem;
+        }
+    }
+    span {
+        font-size: 1.05rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+    }
+
+    .practice-description,
+    .side-note {
+      font-size: 1rem;
+      padding: 0;
+    }
+
+    .chapter-heading {
+      font-size: 2rem;
+    }
+
+    .chapter-description {
+      font-size: 1rem;
+    }
+
+    .topics-table td {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .practice-container {
+    padding: 1.5rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+    .chapter-left-box {
+        .chapter-description {
+            font-size: 0.90rem;
+        }
+    }
+    
+    span {
+        font-size: 0.90rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .practice-description,
+    .side-note {
+      font-size: 0.95rem;
+    }
+
+    .chapter-heading {
+      font-size: 1.6rem;
+    }
+
+    .chapter-description {
+      font-size: 0.95rem;
+    }
+
+    .topics-table td {
+      font-size: 0.95rem;
+      padding: 0.9rem;
+    }
+
+    .coming-soon {
+      font-size: 2.2rem;
+      margin: 6rem 0;
+    }
+  }
 }

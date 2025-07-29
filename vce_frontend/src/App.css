@@ -508,90 +508,6 @@ select:-webkit-autofill:focus {
 /* CSS for practice/chapters page */
 /* --------------------------------------------------------------- */
 
-.loader1 {
-  width: 120px;
-  height: 20px;
-  background: 
-    linear-gradient(#000 50%,#0000 0),
-    linear-gradient(#0000 50%,#000 0),
-    linear-gradient(#000 50%,#0000 0),
-    linear-gradient(#0000 50%,#000 0),
-    linear-gradient(#000 50%,#0000 0),
-    linear-gradient(#0000 50%,#000 0)
-    #ddd;
-  background-size: calc(100%/6 + 1px) 200%;
-  background-repeat: no-repeat;
-  animation: l12 2s infinite;
-}
-@keyframes l12 {
-  0%     {background-position: calc(0*100%/5) 100%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  16.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  33.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  50%    {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  66.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  83.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5)   0%}
-  100%   {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5) 100%}
-}
-
-
-.loader2 {
-  display: inline-flex;
-  gap: 10px;
-}
-.loader2:before,
-.loader2:after {
-  content: "";
-  height: 20px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    linear-gradient(#222 0 0) top/100% 40% no-repeat,
-    radial-gradient(farthest-side,#000 95%,#0000) 50%/8px 8px no-repeat
-    #fff;
-  animation: 2.5s infinite ;
-  animation-name: l8-1, e8-2;
-}
-@keyframes l8-1 {
-  0%,
-  40%,
-  100%{background-size:100% 40%,8px 8px}
-  50%,
-  80% {background-size:100% 0% ,8px 8px}
-}
-@keyframes l8-2 {
-  0%,
-  50% {background-position:top,50% 50%}
-  60%,
-  65%{background-position:top,70% 50%}
-  70%,
-  75%{background-position:top,30% 50%}
-  90%,
-  100%{background-position:top,50% 50%}
-}
-
-
-.loader3 {
-  width: fit-content;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 30px;
-  background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
-  animation: l21 2s infinite linear;
-}
-.loader3::before {
-  content :"Generating SAC...";
-  color: #0000;
-  padding: 0 5px;
-  background: inherit;
-  background-image: linear-gradient(90deg,#fff 50%,#000 0);
-  -webkit-background-clip:text;
-          background-clip:text;
-}
-
-@keyframes l21{
-  100%{background-position: left}
-}
-
 /* Problems.jsx*/
 .scroll-math {
   overflow-x: auto;
@@ -607,14 +523,6 @@ select:-webkit-autofill:focus {
 .scroll-math::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 3px;
-}
-
-.katex-display {
-  font-size: 1.2em; 
-}
-
-.katex-html {
-  font-size: 1.1em; 
 }
 
 .fade-in {
@@ -637,7 +545,8 @@ select:-webkit-autofill:focus {
 
 /* CSS for Logo */
 /* --------------------------------------------------------------- */
-.logo-login {
+.logo-login,
+.logo-register  {
     position: fixed;
     top: 30px;
     left: 30px;
@@ -645,16 +554,7 @@ select:-webkit-autofill:focus {
     cursor: pointer;
     transition: transform 0.5s ease;
     z-index: 9999;
-}
-
-.logo-register {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    height: 100px;
-    cursor: pointer;
-    transition: transform 0.5s ease;
-    z-index: 9999;
+    transform-origin: center;
 }
 
 .logo-login:hover,
@@ -663,36 +563,43 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width: 900px) {
-    .logo-login {
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 100px;
-    }
+  .logo-login {
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100px;
+  }
 
-    .logo-register {
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 100px;
-    }
-    .message-text {
-      font-size: 0.8rem;
-    }
+  .logo-login:hover {
+    transform: translateX(-50%) rotate(-30deg);
+  }
+
+  .logo-register {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100px;
+  }
+
+  .logo-register:hover {
+    transform: translateX(-50%) rotate(-30deg);
+  }
+
+  .message-text {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 600px) {
     .logo-login {
         top: 90px;
         left: 50%;
-        transform: translateX(-50%);
         height: 80px;
     }
 
     .logo-register {
         top: 40px;
         left: 50%;
-        transform: translateX(-50%);
         height: 80px;
     }
     .message-text {

@@ -24,7 +24,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h4>Biology <span className="coming-soon">(Coming Soon!)</span></h4>
+          <h4>Biology <span className="coming-soon1">(Coming Soon!)</span></h4>
           {/* <ul>
             <li><Link to="/chapters/biology/">Topic Summary</Link></li>
             <li><Link to="/practice/biology/">Practice Questions</Link></li>

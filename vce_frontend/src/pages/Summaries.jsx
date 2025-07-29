@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import AxiosInstance from './AxiosInstance';
+import AxiosInstance from '../utils/AxiosInstance'
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import { topicOrders } from '../constants/ListOrders';
+import { topicOrders } from '../data/ListOrders';
 import 'katex/dist/katex.min.css';
+import '../styles/Summaries.scss';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+import '../styles/Loader.scss';
 
 const Summaries = () => {
   const { subject, chapter_slug, topic_slug } = useParams();
@@ -15,7 +18,6 @@ const Summaries = () => {
   const [content, setContent] = useState('');
   const [topicName, setTopicName] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [minDelayPassed, setMinDelayPassed] = useState(false);
   const [prevTopic, setPrevTopic] = useState(null);
   const [nextTopic, setNextTopic] = useState(null);
 
@@ -34,7 +36,6 @@ const Summaries = () => {
   }, [subject, chapter_slug, topicName]);
 
   useEffect(() => {
-    setMinDelayPassed(false);
     setDataLoaded(false); 
     
     AxiosInstance.get(`api/summary/${subject}/${chapter_slug}/${topic_slug}/`)
@@ -50,12 +51,6 @@ const Summaries = () => {
       });
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    const timer = setTimeout(() => {
-      setMinDelayPassed(true);
-    }, 2500);
-
-    return () => clearTimeout(timer);
   }, [subject, chapter_slug, topic_slug]);
 
 
@@ -82,14 +77,9 @@ const Summaries = () => {
   };
 
 
-  if (!dataLoaded || !minDelayPassed) {
+  if (!dataLoaded) {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '70vh'
-      }}>
+      <div className="loader-wrapper">
         <div className="loader2"></div>
       </div>
     );
@@ -97,27 +87,46 @@ const Summaries = () => {
 
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
-      <ReactMarkdown
-        children={content}
-        remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeRaw, rehypeKatex]}
-        components={renderers}
-      />
-      <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-        {prevTopic && (
-          <button onClick={() => navigate(`/summaries/${subject}/${chapter_slug}/${slugify(prevTopic)}`)}>
-            ← Previous: {prevTopic}
-          </button>
-        )}
-        <button onClick={() => navigate(`/practice/${subject}/${chapter_slug}/${topic_slug}`)}>
-          🎯 Practice Questions
-        </button>
-        {nextTopic && (
-          <button onClick={() => navigate(`/summaries/${subject}/${chapter_slug}/${slugify(nextTopic)}`)}>
-            Next: {nextTopic} →
-          </button>
-        )}
+    <div className="summaries-page">
+      <div className="summaries-page-container">
+        <ReactMarkdown
+          children={content}
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeRaw, rehypeKatex]}
+          components={renderers}
+        />
+        <div className="summary-navigation">
+          {prevTopic && (
+            <span
+              className="summary-link left"
+              onClick={() => navigate(`/summaries/${subject}/${chapter_slug}/${slugify(prevTopic)}`)}
+              title={prevTopic} 
+            >
+                <ChevronLeft />
+                <span className="link-label-full">{prevTopic}</span>
+                <span className="link-label-short">Previous</span>
+              </span>
+          )}
+          
+          <span
+            className="summary-link practice-link"
+            onClick={() => navigate(`/practice/${subject}/${chapter_slug}/${topic_slug}`)}
+          >
+            🎯 Practice Questions
+          </span>
+
+          {nextTopic && (
+            <span
+              className="summary-link right"
+              onClick={() => navigate(`/summaries/${subject}/${chapter_slug}/${slugify(nextTopic)}`)}
+              title={nextTopic}
+            >
+                <span className="link-label-short">Next</span>
+                <span className="link-label-full">{nextTopic}</span>
+                <ChevronRight />
+              </span>
+          )}
+        </div>
       </div>
     </div>
   );

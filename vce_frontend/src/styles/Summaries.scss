@@ -1,0 +1,288 @@
+@import url('https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css');
+
+
+$black: #2A363B;
+$gray: #2E2E2E;
+$dark-gray: #1F1F1F;
+$orange: hsl(19, 78%, 61%);
+$dark-orange: hsl(19, 59%, 50%);
+$white: #FFF;
+$royal-blue: #102542;
+$vibrant-blue: #3D5A80;
+$light-blue: #4FC3F7;
+$soft-yellow: #FFD180;
+
+
+.summaries-page {
+    background-color: $gray;
+    padding: 2rem 0 ;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    
+  .summaries-page-container {
+    max-width: 60%;
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: #fff;
+  }
+
+  img {
+    display: block;
+    margin: 2rem auto;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  blockquote {
+    border-left: 5px solid #888;
+    padding-left: 1rem;
+    margin: 2rem 0;
+  }
+
+   h1 {
+    color: $royal-blue;
+    font-size: 2.7rem;
+    padding-bottom: 1.3rem;
+    font-family: Cursive;
+   } 
+
+   h2 {
+      color: $royal-blue; 
+      font-size: 2.0rem;
+      padding: 1rem 0 1rem;
+   } 
+   h3 {
+      color: $vibrant-blue; 
+      font-size: 1.5rem;
+      padding: 1.4rem 0 1rem;
+    }
+
+  li {
+    font-size: 1.0rem;
+  }
+
+  p {
+    font-size: 1.0rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 3px solid #666;
+    margin: 2rem 0;
+  }
+
+  .katex-display {
+    font-size: 1.2em; 
+  }
+
+  .katex, .katex-html, .long-text {
+    font-family: 'KaTeX_Main';
+    font-size: 1.30rem; 
+    line-height: 1.4rem;
+  }
+
+  .summary-navigation {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 1rem;
+    
+
+  .summary-link {
+    font-family: Cursive;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $vibrant-blue;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    max-width: 35%;
+
+    svg {
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      margin-top: 0.2rem; 
+    }
+
+    .link-label-short {
+      display: none;
+    }
+
+    .link-label-full {
+      display: inline;
+    }
+
+
+    &:hover {
+      color: $royal-blue;
+    }
+  }
+  .left {
+    text-align: start;
+  }
+  .right {
+    text-align:end;
+  }
+  .practice-link {
+    font-family: Cursive;
+    max-width: 40%;
+    text-align: center;
+    font-size: 1.15rem;
+  }
+  .link-label-full, .link-label-short {
+    font-family: Cursive;
+    font-size: 1.15rem;
+  }
+
+}
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 1200px) {
+     .summaries-page-container {
+        max-width: 65%;
+        padding: 2rem 3rem;
+      }
+      .summary-navigation {
+
+        .summary-link {
+          font-size: 1.0rem;
+          .link-label-full, .link-label-short {
+            font-size: 1.0rem;
+          }
+        }
+    }
+  }
+
+  @media (max-width: 1000px) {
+      h1 {
+        font-size: 2.7rem;
+      }
+
+      h2 {
+        font-size: 2.0rem;
+      }
+
+      p, li {
+        font-size: 0.90rem;
+      }
+
+      .katex, .katex-html, .long-text {
+        font-size: 1.05rem;
+      }
+
+      .summaries-page-container {
+        max-width: 75%;
+        padding: 2rem 3rem;
+      }
+
+      .summary-navigation {
+        .summary-link {
+          font-size: 1rem;
+
+          .link-label-short {
+            display: inline;
+          }
+
+          .link-label-full {
+            display: none;
+          }
+        }
+      }
+    }
+
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.2rem;
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    p, li {
+      font-size:  0.85rem;
+    }
+
+    .katex-display {
+      font-size: 1.2rem; 
+    }
+
+    .katex, .katex-html, .long-text {
+      font-size: 1.0rem;
+    }
+
+    .summaries-page-container {
+        max-width: 90%;
+      }
+
+    .summary-navigation {
+
+      .summary-link {
+        font-size: 0.95rem;
+        .link-label-short {
+          display: inline;
+        }
+
+        .link-label-full {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1.0rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+    }
+    p, li {
+      font-size: 0.75rem;
+    }
+
+    .katex-display {
+      font-size: 1.1rem; 
+    }
+
+    .katex, .katex-html, .long-text {
+      font-size: 0.90rem;
+    }
+
+    .summaries-page-container {
+        max-width: 100%;
+        padding: 2rem 1.0rem;
+      }
+      .summary-navigation {
+        .summary-link {
+          font-size: 0.75rem;
+
+          .link-label-full, .link-label-short {
+            font-size: 0.75rem;
+          }
+
+          .link-label-short {
+            display: inline;
+          }
+
+          .link-label-full {
+            display: none;
+          }
+        }
+      }
+  }
+}

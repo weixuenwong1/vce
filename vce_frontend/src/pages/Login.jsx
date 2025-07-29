@@ -1,13 +1,13 @@
 import '../App.css';
 import { Box } from '@mui/material'
 import {React, useState} from 'react'
-import FormTextField from './forms/TextField'
-import FormPassField from './forms/PassField'
+import FormTextField from '../forms/TextField'
+import FormPassField from '../forms/PassField'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import AxiosInstance from './AxiosInstance'
+import AxiosInstance from '../utils/AxiosInstance'
 import { useNavigate } from 'react-router-dom'
-import Message from './Message'
+import Message from '../components/Message'
 
 const Login = () => {
   const navigate = useNavigate()

@@ -1,0 +1,99 @@
+$black: #2A363B;
+$gray: #2E2E2E;
+$dark-gray: #1F1F1F;
+$orange: hsl(19, 78%, 61%);
+$dark-orange: hsl(19, 59%, 50%);
+$white: #FFF;
+$royal-blue: #102542;
+$vibrant-blue: #3D5A80;
+$light-blue: #4FC3F7;
+$soft-yellow: #FFD180;
+
+.loader1 {
+  width: 120px;
+  height: 20px;
+  background: 
+    linear-gradient(#000 50%,#0000 0),
+    linear-gradient(#0000 50%,#000 0),
+    linear-gradient(#000 50%,#0000 0),
+    linear-gradient(#0000 50%,#000 0),
+    linear-gradient(#000 50%,#0000 0),
+    linear-gradient(#0000 50%,#000 0)
+    #ddd;
+  background-size: calc(100%/6 + 1px) 200%;
+  background-repeat: no-repeat;
+  animation: l12 2s infinite;
+}
+@keyframes l12 {
+  0%     {background-position: calc(0*100%/5) 100%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  16.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  33.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  50%    {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  66.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
+  83.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5)   0%}
+  100%   {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5) 100%}
+}
+
+/* HTML: <div class="loader"></div> */
+.loader-wrapper {
+    background-color: #2E2E2E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.loader2 {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  color: $orange;
+  background: radial-gradient(farthest-side, currentColor calc(100% - 6px),#0000 calc(100% - 5px) 0);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 calc(100% - 12px));
+  mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 calc(100% - 12px));
+  border-radius: 50%;
+  animation: l19 2s infinite linear;
+  margin-top: -10vh;
+}
+.loader2::before,
+.loader2::after {    
+  content: "";
+  grid-area: 1/1;
+  background:
+    linear-gradient(currentColor 0 0) center,
+    linear-gradient(currentColor 0 0) center;
+  background-size: 100% 10px,10px 100%;
+  background-repeat: no-repeat;
+}
+.loader2::after {
+   transform: rotate(45deg);
+}
+
+@keyframes l19 { 
+  100%{transform: rotate(1turn)}
+}
+
+
+.loader3 {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 50px;
+  background:linear-gradient(90deg,$orange,50%,$gray 0) right/200% 100%;
+  animation: l21 2s infinite linear;
+  margin-top: -10vh;
+}
+.loader3::before {
+  content :"Generating SAC...";
+  color: $white;
+  padding: 0 5px;
+  background: inherit;
+  background-image: linear-gradient(90deg,#fff 50%,#000 0);
+  -webkit-background-clip:text;
+          background-clip:text;
+}
+
+@keyframes l21{
+  100%{background-position: left}
+}

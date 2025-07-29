@@ -1,7 +1,7 @@
-import AxiosInstance from "./AxiosInstance";
+import AxiosInstance from '../utils/AxiosInstance'
 import { React, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { chapterOrders } from "../constants/ListOrders";
+import { chapterOrders } from "../data/ListOrders";
 import '../styles/PracticeSAC.scss';
 
 const PracticeSAC = () => {
@@ -43,7 +43,7 @@ const PracticeSAC = () => {
     useEffect(() => {
         const validSubjects = ['physics', 'chemistry', 'biology'];
         if (!validSubjects.includes(subject.toLowerCase())) {
-            navigate('/');
+            navigate('/404');
         } else {
             getChapters();
         }
@@ -79,26 +79,28 @@ const PracticeSAC = () => {
                             return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
                         })
                         .map(item => (
-                            <div className="sac-chapter-wrapper">
+                            <div className="sac-chapter-wrapper" key={item.slug}>
                                 <div className="sac-left">
-                                    <h4 className="sac-chapter-heading">{item.chapter_name}</h4>
-                                    <p className="sac-chapter-description">{item.chapter_description}</p>
+                                <h4 className="sac-chapter-heading">{item.chapter_name}</h4>
+                                <p className="sac-chapter-description">{item.chapter_description}</p>
                                 </div>
                                 <div
-                                    className="sac-right"
-                                    onClick={() => handleChapterClick(item.slug)}
+                                className="sac-right"
+                                onClick={() => handleChapterClick(item.slug)}
                                 >
-                                    <div className="generate-tab">
-                                        <h2>Generate Practice SAC</h2>
-                                    </div>
+                                <div className="generate-tab">
+                                    <h2>Generate Practice SAC</h2>
+                                </div>
                                 </div>
                             </div>
-                        ))}
+                            ))}
                 </div>
             )}
 
             {!loading && chapters.length === 0 && (
-                <p className="coming-soon">{subject.charAt(0).toUpperCase() + subject.slice(1)} Practice SAC Coming Soon!</p>
+                <div className="coming-soon">
+                    <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice SAC Coming Soon!
+                </div>  
             )}
           </div>
       </div>

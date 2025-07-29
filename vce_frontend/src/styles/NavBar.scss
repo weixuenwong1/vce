@@ -28,6 +28,7 @@ $light-blue: #4FC3F7;
       height: 60px;
       cursor: pointer;
       transition: transform 0.5s ease;
+      transform-origin: center;
 
       &:hover {
         transform: rotate(-30deg);
@@ -199,8 +200,8 @@ $light-blue: #4FC3F7;
   .navbar {
   &-right {
       .navbar-button {
-        padding: 0.4rem 0.9rem; // ✅ smaller button
-        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem; // ✅ smaller button
+        font-size: 0.75rem;
       }
     }
   }

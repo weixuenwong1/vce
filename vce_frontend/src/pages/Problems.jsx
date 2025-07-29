@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AxiosInstance from './AxiosInstance';
+import AxiosInstance from '../utils/AxiosInstance'
 import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
@@ -49,7 +49,7 @@ const QuestionsForTopic = () => {
 
         const timer = setTimeout(() => {
             setMinimumLoadTimePassed(true);
-        }, 2000);
+        }, 1500);
 
         return () => clearTimeout(timer);
     }, [chapter_slug, topic_slug]);
@@ -70,7 +70,7 @@ const QuestionsForTopic = () => {
             setCurrentIndex(nextIndex); 
             setDelayedLoading(false);
             console.log(nextIndex + 1);
-        }, 2000);
+        }, 800);
     };
 
     const toggleShowSolutions = () => {
@@ -96,17 +96,12 @@ const QuestionsForTopic = () => {
 
     if (loading || delayedLoading || !minimumLoadTimePassed) {
         return (
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: '80vh'
-            }}>
-                <div className="loader1"></div>
+            <div className="loader-wrapper">
+                <div className="loader2"></div>
             </div>
         );
     }
-    if (questionCycle.length === 0) return <div>No questions available.</div>;
+    if (questionCycle.length === 0) return <div className="no-questions">No questions available.</div>;
 
     const currentQuestion = questionCycle[currentIndex];
 

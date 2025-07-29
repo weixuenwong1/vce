@@ -7,6 +7,7 @@ $white: #FFF;
 $royal-blue: #102542;
 $vibrant-blue: #3D5A80;
 $light-blue: #4FC3F7;
+$soft-yellow: #FFD180;
 
 /* HomePage SCSS */
 /* ------------------------------- */
@@ -94,6 +95,7 @@ $light-blue: #4FC3F7;
 
   @media (max-width: 500px) {
     img {
+      margin: 3rem 0;
       width: 95vw;
       max-height: 350px;
     }
@@ -146,6 +148,7 @@ $light-blue: #4FC3F7;
   }
 
   @media (max-width: 900px) {
+    margin: 8rem 0;
     padding: 3rem 1.5rem;
     h3 { font-size: 2.2rem; }
     .why-chuba {
@@ -252,7 +255,7 @@ $light-blue: #4FC3F7;
     }
 
     .card-container {
-      gap: 1.5rem;
+      gap: 3.5rem;
     }
 
     .card {
@@ -269,21 +272,21 @@ $light-blue: #4FC3F7;
 @media (max-width: 600px) {
   .homepage-container .card-section {
     .subject-heading {
-      font-size: 2.5rem;
-      margin: 4rem 0;
+      font-size: 2.2rem;
+      margin: 10rem 0 4rem;
     }
 
     .card-container {
-      gap: 1rem;
+      gap: 3.5rem;
     }
 
     .card {
-      width: 80vw;
+      width: 70vw;
 
       .card-content {
         padding: 1.2rem;
-        h3 { font-size: 1.6rem; }
-        p { font-size: 0.85rem; }
+        h3 { font-size: 1.3rem; }
+        p { font-size: 0.80rem; }
       }
     }
   }
@@ -301,7 +304,7 @@ $light-blue: #4FC3F7;
 
       .card-content {
         h3 {
-          font-size: 1.4rem;
+          font-size: 1.3rem;
         }
 
         p {
@@ -321,9 +324,9 @@ $light-blue: #4FC3F7;
   background: #1F1F1F;
   text-align: center;
   border-radius: 18px;
-  
 
   h3 {
+    font-family: 'Shadows Into Light', Cursive;
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 3rem;
@@ -332,8 +335,8 @@ $light-blue: #4FC3F7;
 
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -341,105 +344,132 @@ $light-blue: #4FC3F7;
   .feature-card {
     background: #2E2E2E;
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 15px;
     color: $white;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    svg {
+      background: #383838;
+      border-radius: 50%;
+      padding: 1rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      margin-bottom: 1rem;
+      color: $light-blue;
+    }
+
+    h4 {
+      font-family: Cursive;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: $light-blue;
+    }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.6;
-
-      strong {
-        font-size: 1.6rem;
-        font-weight: 800;
-        display: block;
-        margin-bottom: 0.5rem;
-        color: $light-blue;
-      }
+      color: $white;
     }
   }
-   button {
-      background: #00838F;
-      color: $white;
-      font-weight: 600;
-      font-size: 2.3rem;
-      padding: 1.5rem 1.75rem;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      margin: 5rem 0 2rem 0;
-      transition: background 0.3s ease, transform 0.3s ease;
 
-      &:hover {
-        background: #01464d;
-        transform: scale(1.05);
-      }
+  button {
+    font-family: Cursive;
+    background: #00838F;
+    color: $white;
+    font-weight: 600;
+    font-size: 2.3rem;
+    padding: 1.5rem 1.75rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 5rem 0 2rem 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: #01464d;
+      transform: scale(1.05);
     }
+  }
 }
 
-@media (max-width: 900px) {
+// Responsive styles
+@media (max-width: 1000px) {
   .features {
     padding: 3rem 1.5rem;
 
     h3 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
     }
 
     .features-grid {
-      grid-template-columns: repeat(2, 1fr); // ✅ shifts to 2 columns
-      gap: 1.2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
 
     .feature-card {
-      padding: 1.5rem;
+      padding: 1.8rem;
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+        padding: 0.9rem;
+      }
+
+      h4 {
+        font-size: 1.4rem;
+      }
 
       p {
-        font-size: 1.1rem;
-
-        strong {
-          font-size: 1.4rem;
-        }
+        font-size: 1rem;
       }
     }
 
     button {
-      font-size: 2.0rem;
-      padding: 1.2rem 1.5rem;
-      margin: 3rem 0 1.5rem 0;
+      font-size: 1.5rem;
+      padding: 1.3rem 1.5rem;
     }
   }
 }
 
 @media (max-width: 600px) {
   .features {
-     padding: 2rem 2.0rem;
+    padding: 2.5rem 1.5rem;
 
     h3 {
-      font-size: 2.0rem;
+      font-size: 2.3rem;
     }
 
     .features-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .feature-card {
-      padding: 1.2rem;
+      padding: 1.6rem;
+
+      svg {
+        width: 2.75rem;
+        height: 2.75rem;
+        padding: 0.8rem;
+      }
+
+      h4 {
+        font-size: 1.3rem;
+      }
 
       p {
-        font-size: 1rem;
-
-        strong {
-          font-size: 1.3rem;
-        }
+        font-size: 0.95rem;
       }
     }
 
     button {
-      font-size: 1.4rem;
-      padding: 1rem 1.2rem;
-      margin: 5rem 0 3rem 0;
+      font-size: 1.5rem;
+      padding: 1.0rem 1.2rem;
     }
   }
 }
@@ -544,6 +574,44 @@ $light-blue: #4FC3F7;
     p {
       font-size: 1rem;
       line-height: 1.6;
+    }
+  }
+}
+
+.domain-section {
+  text-align: center;
+  margin: 4rem 0 2rem 0;
+
+  .decorative-domains {
+    font-family: 'Shadows Into Light', cursive; // Or 'Pacifico', 'Great Vibes', etc.
+    font-size: 2rem;
+    color: $soft-yellow; // A soft orange/yellow contrast
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .domain-section {
+    .decorative-domains {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .domain-section {
+    .decorative-domains {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .domain-section {
+    .decorative-domains {
+      font-size: 1.0rem;
     }
   }
 }

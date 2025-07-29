@@ -1,13 +1,21 @@
-import AxiosInstance from "./AxiosInstance"
-import {React, useEffect, useState} from 'react'
-import Card from "./Card";
-import { HelpCircle } from 'lucide-react';
+import Card from "../components/Card";
+import { HelpCircle, PencilLine, Book, ScrollText, Lightbulb, Brain, Image, Scroll } from 'lucide-react';
+import '../styles/Home.scss';
 
 const Home = () => {
 
-    const PhysicsSummaryUrl = "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/PhysicsSummaryCard.png" 
-    const PhysicsPracticeUrl = "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/PhysicsPracticeCard.png" 
-    const PhysicsSACUrl = "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/PhysicsSacCard.png" 
+    const subjectImages = {
+      physics: {
+        summary: "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/PhysicsSummaryCard.png",
+        practice: "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/PhysicsPracticeCard.png",
+        sac: "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/PhysicsSacCard.png",
+      },
+      chemistry: {
+        summary: "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChemistrySummaryCard.png",
+        practice: "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChemistryPracticeCard.png",
+        sac: "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChemistrySacCard.png",
+      },
+    };
     const HeroImage = "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve1.2.png"
     return(
       <div className="homepage-container">
@@ -41,25 +49,25 @@ const Home = () => {
 
       <section>
         <div className="card-section">
-          <h3 className = "subject-heading">🧪 Chemistry 3/4 </h3>
+          <h3 className = "subject-heading">🚀 Physics 3/4</h3>
           <div className="card-container">
             <Card
-              image={PhysicsSummaryUrl}
+              image={subjectImages.physics.summary}
               title="Physics Summaries"
               description="Master concepts with curated summaries 
                            and step-by-step explanations of exam-style 
                            questions."
-              link="/chapters/physics"
+              link="/summaries/physics"
             />
             <Card
-              image={PhysicsPracticeUrl}
+              image={subjectImages.physics.practice}
               title="Physics Practice"
               description="Practice from beginner-friendly questions
                            to exam-style problems with full model solutions."
               link="/practice/physics"
             />
             <Card
-              image={PhysicsSACUrl}
+              image={subjectImages.physics.sac}
               title="Physics Practice SACs"
               description="Experience realistic SAC simulations to test your
                            understanding under exam conditions."
@@ -67,31 +75,31 @@ const Home = () => {
             />
           </div>
         </div>
-      
+
         <div className="card-section">
-          <h3 className = "subject-heading">🚀 Physics 3/4</h3>
+          <h3 className = "subject-heading">🧪 Chemistry 3/4 </h3>
           <div className="card-container">
             <Card
-              image={PhysicsSummaryUrl}
-              title="Physics Summaries"
+              image={subjectImages.chemistry.summary}
+              title="Chemistry Summaries"
               description="Master concepts with curated summaries 
                            and step-by-step explanations of exam-style 
                            questions."
-              link="/chapters/physics"
+              link="/summaries/chemistry"
             />
             <Card
-              image={PhysicsPracticeUrl}
-              title="Physics Practice"
+              image={subjectImages.chemistry.practice}
+              title="Chemistry Practice"
               description="Practice from beginner-friendly questions
                            to exam-style problems with full model solutions."
-              link="/practice/physics"
+              link="/practice/chemistry"
             />
             <Card
-              image={PhysicsSACUrl}
-              title="Physics Practice SACs"
+              image={subjectImages.chemistry.sac}
+              title="Chemistry Practice SACs"
               description="Experience realistic SAC simulations to test your
                            understanding under exam conditions."
-              link="/practice-sac/physics"
+              link="/practice-sac/chemistry"
             />
           </div>
         </div>
@@ -105,34 +113,45 @@ const Home = () => {
       <section className="features">
         <h3>The Essentials In One Place</h3>
         <div className="features-grid">
-          <div className="feature-card"> 
-            <p><strong>Practice Questions</strong><br /> Step-by-step, exam-style questions.</p>
+          <div className="feature-card">
+            <PencilLine size={20}/>
+            <h4>Practice Questions</h4>
+            <p>Step-by-step, exam-style questions.</p>
           </div>
           <div className="feature-card">
-            <p><strong>Topic Summaries</strong><br /> Concise guides reinforcing key concepts.</p>
+            <Book size={20}/>
+            <h4>Topic Summaries</h4>
+            <p>Concise guides reinforcing key concepts.</p>
           </div>
           <div className="feature-card">
-            <p><strong>Practice SACs</strong><br /> Simulate school-assessed coursework.</p>
+            <ScrollText size={20}/>
+            <h4>Practice SACs</h4>
+            <p>Simulate school-assessed coursework.</p>
           </div>
           <div className="feature-card">
-            <p><strong>Worked Examples</strong><br /> Explanations for tricky problems.</p>
+            <Lightbulb size={20}/>
+            <h4>Worked Examples</h4>
+            <p>Explanations for tricky problems.</p>
           </div>
           <div className="feature-card">
-            <p><strong>Exam-like Marks</strong><br /> Mimic real SAC and exam conditions.</p>
+            <Brain size={20}/>
+            <h4>Exam-like Marks</h4>
+            <p>Mimic real SAC and exam conditions.</p>
           </div>
           <div className="feature-card">
-            <p><strong>Images & Diagrams</strong><br /> High-quality visuals for clarity.</p>
+            <Image size={20}/>
+            <h4>Images & Diagrams</h4>
+            <p>High-quality visuals for clarity.</p>
           </div>
         </div>
         <a href="how-to-use-chuba">
           <button className="using-chuba">How to Use Chuba Effectively</button>
-      </a>
+        </a>
       </section>
       
 
       <hr className="divider" />
 
-      {/* About Chuba */}
       <section className="about-section">
         <span className="question-circle">
           <HelpCircle size={24} />
@@ -142,6 +161,10 @@ const Home = () => {
           Chuba's mission is to help all students master their subjects by providing the best resources in one place — making studying easier, more structured and more effective.        </p>
         <p>
             I started Chuba to make <strong>high-quality resources free and accessible</strong> for all students. With rising costs of tutoring and study materials, I wanted to bridge that gap and help everyone succeed.        </p>
+        </section>
+
+        <section className="domain-section">
+          <p className="decorative-domains">Inspired by vcetextbooks.xyz &nbsp;|&nbsp; vce.rocks</p>
         </section>
 
     </div>

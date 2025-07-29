@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import AxiosInstance from './AxiosInstance';
+import AxiosInstance from '../utils/AxiosInstance'
 import { useParams } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
+import '../styles/Loader.scss';
 
 const SAC = () => {
   const { subject, chapter_slug } = useParams();
@@ -64,12 +65,7 @@ const SAC = () => {
 
   if (loading) {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '70vh'
-      }}>
+      <div className="loader-wrapper">
         <div className="loader3"></div>
       </div>
     );

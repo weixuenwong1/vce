@@ -1,12 +1,12 @@
 import '../App.css';
 import { Box } from '@mui/material'
 import {React, useState} from 'react'
-import FormTextField from './forms/TextField'
+import FormTextField from '../forms/TextField'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import AxiosInstance from './AxiosInstance'
+import AxiosInstance from '../utils/AxiosInstance'
 import LockIcon from '@mui/icons-material/Lock';
-import Message from './Message';
+import Message from '../components/Message';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
 

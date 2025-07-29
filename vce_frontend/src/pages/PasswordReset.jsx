@@ -1,13 +1,13 @@
 import '../App.css';
 import { Box } from '@mui/material'
 import {React, useState} from 'react'
-import FormPassField from './forms/PassField'
+import FormPassField from '../forms/PassField';
 import { useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import AxiosInstance from './AxiosInstance'
+import AxiosInstance from '../utils/AxiosInstance'
 import { useNavigate } from 'react-router-dom'
 import { KeyRound } from 'lucide-react';
-import Message from './Message';
+import Message from '../components/Message';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 

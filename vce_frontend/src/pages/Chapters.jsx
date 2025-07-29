@@ -1,7 +1,7 @@
-import AxiosInstance from "./AxiosInstance";
+import AxiosInstance from '../utils/AxiosInstance'
 import { React, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { chapterOrders, topicOrders } from "../constants/ListOrders";
+import { chapterOrders, topicOrders } from "../data/ListOrders";
 import '../styles/MenuDropdown.scss';
 
 const Chapters = () => {
@@ -51,7 +51,7 @@ const Chapters = () => {
     useEffect(() => {
         const validSubjects = ['physics', 'chemistry', 'biology'];
         if (!validSubjects.includes(subject?.toLowerCase())) {
-            navigate('/');
+            navigate('/404');
         } else {
             GetChapter();
         }
@@ -115,7 +115,9 @@ const Chapters = () => {
                 )}
 
                 {!loading && chapter.length === 0 && (
-                    <p className="coming-soon">{subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries Coming Soon!</p>
+                    <div className="coming-soon">
+                        <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries Coming Soon!
+                    </div>   
                 )}
             </div>
         </div>
