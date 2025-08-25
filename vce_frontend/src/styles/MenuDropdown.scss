@@ -33,22 +33,65 @@ $white: #FFF;
     .practice-description {
         max-width: 900px;
         margin: 0 auto 1rem auto;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         line-height: 1.8;
         text-align: center;
         font-weight: 500;
         padding: 0 1rem;
         color: #fff;
     }
+
+    .side-note-practice,
     .side-note {
-        max-width: 1000px;
-        margin: 0 auto 3rem auto;
-        font-size: 1.1rem;
-        line-height: 1.8;
-        text-align: center;
-        font-weight: 400;
-        padding: 0 1rem;
-        color: $orange;
+      max-width: 1000px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: center;
+      font-weight: 400;
+      padding: 0 1rem;
+      color: $orange;
+      font-family: 'Courier New';
+    }
+
+    .side-note-practice {
+      margin: 0 auto 0 auto;
+    }
+    .side-note {
+      margin: 0 auto 4rem auto;
+    }
+
+    .contribute-box {
+      background: linear-gradient(145deg, #2b2b2b, #3d3d3d); 
+      border-radius: 12px;
+      border: 2px solid #FFD180; 
+      box-shadow: 0 0 0 2px #3d3d3d, 4px 4px 0 #FF7043; 
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-family: 'Courier New', monospace; 
+      color: #FFF3E0; 
+      max-width: 320px;
+      margin-left: auto;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(145deg, #3d3d3d, #2b2b2b);
+        box-shadow: 0 0 0 2px #3d3d3d, 4px 4px 0 #FF8A65;
+        cursor: pointer;
+      }
+
+      .pencil-icon-text {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1rem;
+      }
+
+      .pencil-icon {
+        font-size: 1.5rem;
+        color: #FFCC80;
+      }
     }
 
     .chapter-section {
@@ -60,83 +103,93 @@ $white: #FFF;
     .chapter-wrapper {
         display: flex;
         background: $dark-gray;
-        border-radius: 12px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        border: 2px solid #FFB74D; 
+        border-radius: 0; 
+        box-shadow:
+          5px 5px 0 #FF7043;
         overflow: hidden;
         min-height: 260px;
-        border: 2px solid transparent;
         margin-bottom: 2rem;
-        transition: border 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+        transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        font-family: 'Courier New', monospace; 
 
         &:hover {
-            border: 2px solid $orange; 
-            box-shadow: 0 0 8px $dark-orange, 0 0 15px $orange;
-            transform: translateY(-6px);
-            background-size: 300% 300%;
-            animation: backgroundShift 4s ease infinite;
+            border: 2px solid #FF5722; 
+            transform: translateY(-4px);
+            box-shadow:
+              0 0 0 2px #1a1a1a,
+              5px 5px 0 #FF7043,
+              -5px -5px 0 #FF7043;
+            background-color: #2b2b2b;
         }
     }
 
     .chapter-heading {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: $white;
-        text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 4rem;
+      color: $white;
+      text-align: center;
     }
 
     .chapter-left-box {
-        flex: 1;
-        padding: 2rem;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        border-right: 2px solid #444;
+      flex: 1;
+      padding: 2rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid #444;
 
-        .chapter-description {
-            font-size: 1.1rem;
-            color: #ccc;
-            line-height: 1.7;
-        }
+      .chapter-description {
+          font-size: 1.1rem;
+          color: #ccc;
+          line-height: 1.7;
+      }
     }
 
     .chapter-right-box {
-        flex: 1;
-        padding: 2rem;
-        color: #fff;
+      flex: 1;
+      padding: 2rem;
+      color: #fff;
 
-        .topics-table {
-            width: 100%;
-            border-collapse: collapse;
+      .topics-table {
+        width: 100%;
+        border-collapse: collapse;
 
-            td {
-                font-size: 1.1rem;
-                padding: 1.2rem;
-                border-bottom: 2px solid #444;
-            }
-
-            .topic-text {
-                transition: color 0.3s ease;
-                cursor: pointer;
-
-                &:hover {
-                    color: #00B4D8;
-                }
-            }
-
-            tr:last-child td {
-                border-bottom: none;
-            }
+        td {
+          font-size: 1.1rem;
+          padding: 1.2rem;
+          border-bottom: 2px solid #444;
         }
+
+        .topic-text {
+          transition: color 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+              color: #00B4D8;
+          }
+        }
+
+        tr:last-child td {
+          border-bottom: none;
+        }
+      }
     }
 }
 
 .dividerMenu {
   border: none;
-  height: 2px;
-  background: #D0D0D0;
+  height: 4px;
   width: 100%;
-  margin: 2rem auto;
+  margin: 0 0 4rem 0;
+  background-image: repeating-linear-gradient(
+    to right,
+    #FF7043 0px,
+    #FF7043 4px,
+    transparent 4px,
+    transparent 8px
+  );
 }
 
 
@@ -148,6 +201,7 @@ $white: #FFF;
 }
 
 .coming-soon {
+  font-family:'Courier New', monospace;
   align-items: center; 
   text-align: center;
   font-size: 5.0rem;
@@ -191,8 +245,23 @@ $white: #FFF;
         }
     }
 
-    .side-note {
+    .side-note-practice {
       font-size: 1rem;
+    }
+
+    .contribute-box {
+      max-width: 300px;
+      font-size: 1.0rem;
+      padding: 1rem 1.2rem;
+
+      .pencil-icon {
+        font-size: 1.5rem;
+      }
+
+      .pencil-icon-text {
+        gap: 0.6rem;
+        font-size: 1.0rem;
+      }
     }
 
     .chapter-heading {
@@ -209,11 +278,12 @@ $white: #FFF;
     }
 
     .chapter-left-box{
+      padding: 1.5rem;
       border-right: none;
     }
 
     .chapter-right-box {
-      padding-top: 1rem;
+      padding: 1.25rem;
     }
   }
 }
@@ -239,9 +309,27 @@ $white: #FFF;
     }
 
     .practice-description,
-    .side-note {
+    .side-note-practice {
       font-size: 1rem;
       padding: 0;
+    }
+    .side-note {
+      font-size: 1rem;
+    }
+
+    .contribute-box {
+      max-width: 55%;
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+
+      .pencil-icon {
+        font-size: 1.2rem;
+      }
+
+      .pencil-icon-text {
+        gap: 0.6rem;
+        font-size: 0.95rem;
+      }
     }
 
     .chapter-heading {
@@ -277,12 +365,29 @@ $white: #FFF;
     }
 
     .subtitle {
-      font-size: 1rem;
+      font-size: 1.15rem;
     }
 
     .practice-description,
+    .side-note-practice,
     .side-note {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+    }
+
+    .contribute-box {
+      margin: 1.5rem auto;
+      max-width: 70%;
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+
+      .pencil-icon {
+        font-size: 1.2rem;
+      }
+
+      .pencil-icon-text {
+        gap: 0.6rem;
+        font-size: 0.85rem;
+      }
     }
 
     .chapter-heading {

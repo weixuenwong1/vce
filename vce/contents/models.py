@@ -16,7 +16,9 @@ class Chapter(models.Model):
     chapter_uid = models.BigAutoField(primary_key=True)
     chapter_name = models.CharField(max_length=100)
     chapter_description = models.TextField()
-    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="chapters", null=True)
+    subject = models.ForeignKey(
+        Subject, on_delete=models.PROTECT, related_name="chapters"
+    )
     slug = models.SlugField(max_length=50, blank=True, null=True, unique=True)
 
     class Meta:
@@ -33,7 +35,9 @@ class Chapter(models.Model):
 
 class Topic(models.Model):
     topic_uid = models.BigAutoField(primary_key=True)
-    chapter = models.ForeignKey(Chapter, on_delete = models.SET_NULL, blank=True, null=True)
+    chapter = models.ForeignKey(
+        Chapter, on_delete=models.PROTECT, related_name="topics"
+    )
     topic_name = models.CharField(max_length=50)
     content = models.TextField(blank=True, null=True)
     slug = models.SlugField(max_length=100, blank=True, null=True, unique=True)

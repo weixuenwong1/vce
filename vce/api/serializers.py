@@ -1,9 +1,16 @@
 from rest_framework import serializers
 from problems.models import Question
 from rest_framework import serializers
-from contents.models import Chapter, Topic
+from contents.models import Subject, Chapter, Topic
 from problems.models import Question, Order, Solution
+from rest_framework import serializers
+from submission.models import QuestionSubmission
 
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        fields = ["id", "name"]
 
 class ChapterSerializer(serializers.ModelSerializer):
     subject = serializers.CharField(source='subject.name', read_only=True)
@@ -52,7 +59,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     orders = serializers.SerializerMethodField()
-    general_solution = serializers.SerializerMethodField()
+    general_solution = serializers.SerializerMethodField() 
 
     class Meta:
         model = Question
@@ -68,5 +75,33 @@ class QuestionSerializer(serializers.ModelSerializer):
             return SolutionSerializer(solution).data
         return None
 
+###########################################################################################
 
+
+class QuestionSubmissionSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True, source="pk")
+    subject = serializers.PrimaryKeyRelatedField(queryset=Subject.objects.all())
+    topic   = serializers.PrimaryKeyRelatedField(queryset=Topic.objects.all())
+    chapter = serializers.SlugRelatedField(slug_field="slug", queryset=Chapter.objects.all())
+    submitted_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = QuestionSubmission
+        fields = ("id", "subject", "chapter", "topic", "question_text", "submitted_by", "created_at")
+        read_only_fields = ("created_at",)
+
+    def validate(self, attrs):
+        subject = attrs["subject"]   # Subject instance
+        chapter = attrs["chapter"]   # Chapter instance (from SlugRelatedField)
+        topic   = attrs["topic"]     # Topic instance
+
+        # Chapter must belong to Subject
+        if chapter.subject_id != subject.pk:
+            raise serializers.ValidationError("Chapter does not belong to the selected subject.")
+
+        # Topic must belong to Chapter
+        if topic.chapter_id != chapter.pk:   # chapter.pk works whether PK is 'id' or 'chapter_uid'
+            raise serializers.ValidationError("Topic does not belong to the selected chapter.")
+
+        return attrs
 

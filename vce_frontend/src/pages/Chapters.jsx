@@ -18,8 +18,9 @@ const Chapters = () => {
         biology: "🧬"
     };
 
-    const GetChapter = () => {
-        AxiosInstance.get(`api/chapters`).then((res) => {
+    const GetChapter = async () => {
+        try {
+            const res = await AxiosInstance.get(`api/chapters`);
             const filtered = res.data.filter(item =>
                 item.subject && item.subject.toLowerCase() === subject.toLowerCase()
             );
@@ -31,17 +32,22 @@ const Chapters = () => {
 
             setChapter(sorted);
             setLoading(false);
-        });
+        } catch (err) {
+            console.error("Failed to load chapters for", subject, err);
+        }
     };
 
     const fetchTopics = async (slug) => {
         if (topics[slug]) return;
+
         try {
             const res = await AxiosInstance.get(`api/chapters/${slug}/topics/`);
             const desiredOrder = topicOrders[subject?.toLowerCase()]?.[slug] || [];
-            const sortedTopics = res.data.sort((a, b) =>
-                desiredOrder.indexOf(a.topic_name) - desiredOrder.indexOf(b.topic_name)
-            );
+
+            const sortedTopics = res.data.sort((a, b) => {
+            return desiredOrder.indexOf(a.topic_name) - desiredOrder.indexOf(b.topic_name);
+            });
+
             setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
         } catch (err) {
             console.error("Failed to load topics for", slug, err);
@@ -78,7 +84,7 @@ const Chapters = () => {
                  
                 {loading ? (
                     <div className="loader-wrapper">
-                        <div className="loader"></div>
+                        <div className="loader2"></div>
                     </div>
                 ) : (
                     <div className="chapter-section">
@@ -100,9 +106,23 @@ const Chapters = () => {
                                             <table className="topics-table">
                                                 <tbody>
                                                     {topics[item.slug]?.map((topic, index) => (
-                                                        <tr key={index} className="topic-row"
-                                                            onClick={() => navigate(`/summaries/${subject}/${item.slug}/${topic.slug}`)}>
-                                                            <td><span className="topic-text">{topic.topic_name}</span></td>
+                                                        <tr key={index}>
+                                                            <td>
+                                                                <div
+                                                                className="topic-row"
+                                                                tabIndex="0"
+                                                                role="link"
+                                                                aria-label={`Go to ${topic.topic_name} summary`}
+                                                                onClick={() => navigate(`/summaries/${subject}/${item.slug}/${topic.slug}`)}
+                                                                onKeyDown={(e) => {
+                                                                    if (e.key === 'Enter') {
+                                                                    navigate(`/summaries/${subject}/${item.slug}/${topic.slug}`);
+                                                                    }
+                                                                }}
+                                                                >
+                                                                <span className="topic-text">{topic.topic_name}</span>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     ))}
                                                 </tbody>
@@ -114,7 +134,7 @@ const Chapters = () => {
                     </div>
                 )}
 
-                {!loading && chapter.length === 0 && (
+                {chapter.length === 0 && !loading && (
                     <div className="coming-soon">
                         <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries Coming Soon!
                     </div>   

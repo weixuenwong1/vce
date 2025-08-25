@@ -1,9 +1,69 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
 html, body {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #2E2E2E;
+  font-family: 'Poppins',var(--ui);
+  max-width: 100%; 
+  overflow-x: hidden; 
+  line-height:1.4;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #8a8989;
+    background-clip: content-box; 
+    margin: 2px 0; 
+    transition: background-color 0.3s ease;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #5c5c5c;
+  }
+}
+
+:root {
+  --ui: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+h1 { line-height: 1.15; }
+h2 { line-height: 1.2; }
+h3, h4, p { line-height: 1.4; }
+
+
+#root, .app-shell { min-height: 100svh; }
+.app-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 100svh;
+}
+
+.app-shell > * { min-width: 0; }                
+.page-main,
+.question-display-container,
+.inner-container { min-width: 0; }
+
+:root {
+  --header-h: 72px;    
+  --header-h-sm: 60px;  
+  --footer-min-h: 220px;  
+}
+
+.route-skeleton {
+  min-height: calc(100svh - var(--header-h));
+}
+
+.footer { min-height: var(--footer-min-h); }
+
+@media (max-width: 700px) {
+  .route-skeleton { min-height: calc(100svh - var(--header-h-sm)); }
 }

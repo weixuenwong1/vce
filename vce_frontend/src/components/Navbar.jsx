@@ -50,7 +50,7 @@ function Navbar() {
   }, []);
 
 
-  const logoUrl = "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/LogoTransparent.png";
+  const logoUrl = "https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/LogoTransparent.webp";
   const subjects = ['physics', 'chemistry', 'biology'];
 
 
@@ -62,6 +62,7 @@ function Navbar() {
           alt="Chuba Logo"
           className="navbar-logo"
           onClick={() => navigate('/')}
+          width = "100" height="100"
         />
 
         <ul className="navbar-menu">

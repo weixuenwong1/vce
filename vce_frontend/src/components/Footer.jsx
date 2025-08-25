@@ -10,17 +10,17 @@ const Footer = () => {
         <div>
           <h4>Physics</h4>
           <ul>
-            <li><Link to="/chapters/physics/">Topic Summary</Link></li>
-            <li><Link to="/practice/physics/">Practice Questions</Link></li>
-            <li><Link to="/practice-sac/physics/">Practice SAC</Link></li>
+            <li><Link to="/summaries/physics">Topic Summary</Link></li>
+            <li><Link to="/practice/physics">Practice Questions</Link></li>
+            <li><Link to="/practice-sac/physics">Practice SAC</Link></li>
           </ul>
         </div>
         <div>
           <h4>Chemistry</h4>
           <ul>
-            <li><Link to="/chapters/chemistry/">Topic Summary</Link></li>
-            <li><Link to="/practice/chemistry/">Practice Questions</Link></li>
-            <li><Link to="/practice-sac/chemistry/">Practice SAC</Link></li>
+            <li><Link to="/summaries/chemistry">Topic Summary</Link></li>
+            <li><Link to="/practice/chemistry">Practice Questions</Link></li>
+            <li><Link to="/practice-sac/chemistry">Practice SAC</Link></li>
           </ul>
         </div>
         <div>

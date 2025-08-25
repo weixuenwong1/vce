@@ -28,6 +28,7 @@
 }
 
 .error-message {
+  font-family: 'Courier New', monospace;
   font-size: 1rem;
   color: #aaa;
   line-height: 1.8;
@@ -35,19 +36,29 @@
 }
 
 .home-button {
-  background: transparent;
+  background: #FFE0B2;
+  color: #2b2b2b;
+  font-family: 'Courier New', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   border: 2px solid hsl(19, 78%, 61%);
-  color: hsl(19, 78%, 61%);
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 20px;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 hsl(19, 78%, 61%);
+  padding: 0.7rem 1.4rem;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 
   &:hover {
-    background: hsl(19, 78%, 61%);
+    background: hsl(19, 68%, 69%);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0 hsl(19, 78%, 61%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 0 hsl(19, 78%, 61%);
   }
 }
 

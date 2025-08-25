@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from contents.models import Topic
 from storages.backends.s3boto3 import S3Boto3Storage
+from django.conf import settings
 
 class Question(models.Model):
     question_uid = models.BigAutoField(primary_key=True)
@@ -10,6 +11,7 @@ class Question(models.Model):
     question_text = models.TextField()
     difficulty = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    multiple_choice = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'question'
@@ -52,6 +54,24 @@ class Solution(models.Model):
     
     def __str__(self):
         return f"{self.question_id}"
+    
+
+class SeenQuestion(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "question", "topic"],
+                name="uq_seen_user_question_topic",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.user.email} - {self.question.question_uid}"
 
 
 

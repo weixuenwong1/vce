@@ -1,0 +1,462 @@
+$bg-gray-dark: #1f1f1f;     /* page bg start */
+$bg-gray-mid: #2a2a2a;      /* page bg end */
+$text: #0b0b0b;             /* black text for contrast */
+$orange: #FF7043;
+$retro-yellow: #FFB74D;
+$retro-orange: #FF7043;
+$retro-lighter-orange: #f7825e67;
+$retro-light-orange: #f7825e;
+$retro-red: #e43a3a;
+
+/* Animations */
+@keyframes blinkCursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes pulseTitle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* Page background stays gray */
+.SQPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #2E2E2E 0%, #1F1F1F 100%);
+  padding: 2rem 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.bgSquaresCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; 
+}
+
+
+.SQContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0; 
+  padding-right: 0;
+  display: block;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Form Box */
+.SQFormBox {
+  position: relative;
+  max-width: 1100px; 
+  margin-inline: auto;
+  border: 2px solid #FFB74D;        
+  box-shadow:
+    0 0 0 4px #313638,
+    0 0 0 8px $retro-orange;     
+  border-radius: 0;
+  padding: 2rem;
+  font-family: 'Courier New', monospace;
+  display: grid;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.13); 
+  color: white;
+
+  /* Title */
+  h3 {
+    margin: 0 0 6px;
+    text-align: center;
+    color: $orange;                      /* white title text */
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: inline-block;
+    animation: pulseTitle 1.5s ease-in-out infinite;
+  }
+
+  h3::after {
+    content: "▋";
+    font-size: 1.7rem;
+    margin-left: 6px;
+    color: #FF7043;                     /* orange block cursor */
+    animation: blinkCursor 1.5s step-start infinite;
+  }
+
+  .sqDivider {
+    margin: 12px 0;
+    border-top: 2px dashed $retro-red;
+    width: 100%;
+  }
+
+  /* Inputs */
+  .MuiOutlinedInput-root {
+    background: #ffffffe1;
+    color: $text;
+    border-radius: 6px;
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: $retro-orange!important;
+      border-width: 2px;
+    }
+    &.Mui-focused .MuiOutlinedInput-notchedOutline,
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: $retro-red !important;
+      box-shadow: 0 0 0 2px rgba(60,167,107,0.18) inset;
+    }
+
+    .MuiInputBase-input { color: $text; }
+    .MuiSelect-icon { color: $text; }
+  }
+  }
+
+  /* Checkboxes */
+  .MuiFormControlLabel-root {
+    .MuiFormControlLabel-label { color: #fff; }
+    input[type='checkbox'] {
+      cursor: pointer;
+    }
+}
+
+  /* Button */
+.submit-btn {
+  font-family: 'Courier New', monospace;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 10px 14px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 0;
+  border: 2px solid #FFB74D;      
+  box-shadow: 4px 4px 0 #FF7043;  
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #ffcc80, #ff7043, #ff8a65);
+    background-size: 400% 400%;
+    animation: backgroundShift 8s ease infinite;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0 #FF7043; 
+  }
+}
+
+.SQSuccess {
+  /* one source of truth for padding & ring */
+  --ov-pad: clamp(8px, 3vw, 20px); /* overlay padding */
+  --ring: 8px;                     /* outer ring thickness in box-shadow */
+
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--ov-pad);
+  background: rgba(34, 32, 52, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+  z-index: 999;
+
+  &.show { opacity: 1; visibility: visible; }
+}
+
+.SQSuccess-icon {
+  display: block;                     
+  width: clamp(56px, 10vw, 80px);
+  height: clamp(56px, 10vw, 80px);
+  margin: 0 auto clamp(12px, 2.4vw, 16px);
+  background: #00e436;                 
+  position: relative;
+  animation: sqPulse 1s infinite;
+
+}
+
+.SQSuccess-icon::before {
+  width: 28px; height: 12px;
+  bottom: 26px; left: 16px;
+  transform: rotate(45deg);
+}
+.SQSuccess-icon::after {
+  width: 56px; height: 12px;
+  bottom: 32px; right: 6px;
+  transform: rotate(-45deg);
+}
+
+.SQSuccess-card {
+  background: #313638;
+  border: 4px solid #f8b700;
+  box-shadow:
+    0 0 0 4px #313638,
+    0 0 0 var(--ring) #f8b700;
+
+  position: fixed;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  margin: 0;
+  box-sizing: border-box;
+
+  width: min(560px, calc(100dvw - 2 * var(--ov-pad) - 2 * var(--ring)));
+  max-height: calc(100dvh - 2 * var(--ov-pad) - 2 * var(--ring));
+  overflow: auto;
+
+  padding: clamp(14px, 3.5vw, 24px);
+  text-align: center;
+  color: #f4f4f4;
+
+  --title-size: clamp(1.1rem, 5vw, 1.8rem);
+  --body-size:  clamp(0.9rem, 3.2vw, 1.1rem);
+  --line: 1.35;
+}
+
+.SQSuccess-title {
+  font-size: var(--title-size);
+  line-height: var(--line);
+  color: #00e436;
+  margin: 10px 0 6px;
+  text-shadow: 2px 2px 0 #222034;
+}
+
+.SQSuccess-text {
+  font-size: var(--body-size);
+  line-height: var(--line);
+  margin-bottom: clamp(12px, 2.4vw, 16px);
+  opacity: 0.9;
+}
+
+.SQSuccess-btn {
+  --bg: #00e436;
+  --bd: #00e436;
+  --shadow: #128b2c;
+  --hover-bg: #29adff;
+  --hover-shadow: #1f6aa3;
+
+  position: relative;
+  display: inline-block;
+  width: clamp(160px, 40vw, 220px);
+  padding: clamp(9px, 2.4vw, 12px) clamp(14px, 3.2vw, 18px);
+  font: 800 0.95rem/1 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+
+  color: #222034;
+  background: var(--bg);
+  border: 0;
+  box-shadow:
+    0 0 0 3px var(--bd) inset,
+    4px 4px 0 var(--shadow);
+  image-rendering: pixelated;
+  cursor: pointer;
+  transition: transform .06s linear, box-shadow .06s linear, background .15s;
+}
+.SQSuccess-btn:hover {
+  background: var(--hover-bg);
+  box-shadow:
+    0 0 0 3px var(--hover-bg) inset,
+    6px 6px 0 var(--hover-shadow);
+}
+.SQSuccess-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    0 0 0 3px var(--hover-bg) inset,
+    2px 2px 0 var(--hover-shadow);
+}
+.SQSuccess-btn:focus-visible {
+  outline: 3px dashed #fff;
+  outline-offset: 3px;
+}
+
+/* === Minimal media hooks (adjust only padding var; sizing stays auto via clamp) === */
+@media (max-width: 768px) { .SQSuccess { --ov-pad: 16px; } }
+@media (max-width: 600px) { .SQSuccess { --ov-pad: 12px; } }
+@media (max-width: 420px) { .SQSuccess { --ov-pad: 8px; } }
+
+
+.sqSideNotes {
+  --accent: hsl(19, 78%, 61%); // your orange
+  --bg: #2e2e2e;
+  --fg: #f4f4f4;
+  --muted: #cfd8dc;
+
+  max-width: 960px;
+  margin: 1.2rem 0;
+
+  &__title {
+    margin: 0 0 0.6rem 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: .2px;
+    color: var(--fg);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin: .55rem 0;
+      line-height: 1.45;
+      color: var(--fg);
+
+      /* Tiny pixel-square bullet */
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        top: 0.48em;
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        box-shadow:
+          0 0 0 2px rgba(0,0,0,0.2),
+          0 0 8px rgba(255, 111, 67, 0.35);
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-size: 0.95em;
+        padding: 0 .35em;
+        border-radius: 6px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.09);
+        color: var(--muted);
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .SQContainer { max-width: 880px; }
+
+  .SQFormBox {
+    padding: 1.8rem;
+    gap: 12px;
+
+    h3 { font-size: 2rem; }
+  }
+
+  .submit-btn {
+    font-size: 17px;
+    padding: 10px 12px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .SQContainer { max-width: 760px; }
+
+  .SQFormBox {
+    padding: 1.5rem;
+    gap: 12px;
+
+    h3 { font-size: 1.85rem; }
+  }
+
+  .SQFormBox .MuiOutlinedInput-root {
+    .MuiInputBase-input { font-size: 0.95rem; }
+  }
+
+  .sqSideNotes {
+    &__title { font-size: 1rem; }
+    &__list  {
+      li {
+        font-size: 0.9rem;
+        padding-left: 1.4rem;
+        &::before { width: 7px; height: 7px; left: 0.4rem; }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .SQPage { padding: 1.5rem 1rem; }
+
+  .SQFormBox {
+    padding: 1.125rem;
+    gap: 10px;
+
+    h3 { font-size: 1.7rem; }
+    h3::after { font-size: 1.4rem; }
+  }
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 10px 12px;
+    box-shadow: 3px 3px 0 #FF7043;
+    &:hover { box-shadow: 4px 4px 0 #FF7043; }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .SQPage { padding: 1.25rem 0.75rem; }
+
+  .SQFormBox {
+    padding: 1rem;
+    gap: 10px;
+    h3 { font-size: 1.55rem; }
+  }
+
+  .SQFormBox .MuiOutlinedInput-root {
+    border-radius: 5px;
+    .MuiOutlinedInput-notchedOutline { border-width: 2px; }
+    .MuiInputBase-input { font-size: 0.9rem; }
+  }
+
+  .sqSideNotes {
+    &__title { font-size: 0.85rem; }
+    &__list {
+      li {
+        font-size: 0.75rem;
+        margin: 0.45rem 0;
+        padding-left: 1.2rem;
+        &::before { width: 6px; height: 6px; top: 0.5em; left: 0.35rem; }
+        code { font-size: 0.9em; }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 420px) {
+  .SQFormBox {
+    padding: 0.85rem;
+    h3 { font-size: 1.35rem; }
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    padding: 9px 12px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 #FF7043;
+  }
+}
+
+@keyframes sqPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .SQFormBox h3 { animation: none; }
+  .SQFormBox h3::after { animation: blinkCursor 1.2s steps(1) infinite; }
+}

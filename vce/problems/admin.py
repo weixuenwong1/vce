@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Order, Solution
+from .models import Question, Order, Solution, SeenQuestion
 # Register your models here.
 
 
@@ -20,3 +20,4 @@ class SolutionAdmin(admin.ModelAdmin):
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Question)
 admin.site.register(Solution, SolutionAdmin)
+admin.site.register(SeenQuestion)

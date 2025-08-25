@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    overflow-y: auto;
     font-family: 'Poppins',sans-serif;
 }
 
@@ -15,7 +14,45 @@ body {
       transform: rotate(360deg);
     }
   }
-  
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.loginPage,
+.passwordResetRequestPage {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2E2E2E;
+  overflow: hidden;
+  padding: clamp(8px, 2dvh, 20px);
+}
+
+.registerPage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2E2E2E;
+  min-height: 100dvh;
+  padding: clamp(8px, 2dvh, 20px);
+  box-sizing: border-box;
+  overflow: auto; /* no page scroll */
+}
+
+.loginContainer,
+.passwordResetRequestContainer,
+.registerContainer {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
 .gradient-bg-blue,
 .gradient-bg-orange,
 .gradient-bg-blue-reg,
@@ -59,48 +96,121 @@ body {
 }
 
 
-
-
 .formBox,
 .regFormBox {
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border: 2px solid #FFB74D;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #FF7043;
+  font-family: 'Courier New', monospace;
+  transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers everything vertically */
 }
 
 .formBox {
-    width: 380px;
-    height: auto;
+  padding: 4.5rem 2.2rem 2rem;
+  width: clamp(320px, 60vw, 440px);
+  min-height: clamp(400px, 65vh, 600px); /* scale with screen height */
 }
 
 .regFormBox {
-    width: 420px;
-    height: 700px;
+  padding: 3rem 2.5rem 1.5rem;
+  width: clamp(340px, 65vw, 470px);
+  min-height: clamp(400px, 65vh, 620px);
+}
+
+.passwordFormBox {
+  background-color: rgba(255, 255, 255, 0.13);
+  padding: 50px 35px;
+  border: 2px solid #64b5f6; 
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #2196f3; 
+  font-family: 'Courier New', monospace;
+  transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  width: 440px;
+  height: auto;
+}
+
+.passwordRegButton {
+  font-family: 'Courier New', monospace;
+  margin-top: 30px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0;
+  border: 2px solid #64b5f6;
+  box-shadow: 2px 2px 0 #2196f3; 
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.passwordRegButton:hover {
+  background: linear-gradient(135deg, #bbdefb, #2196f3, #64b5f6); 
+  background-size: 400% 400%;
+  animation: backgroundShift 8s ease infinite;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0 #2196f3;
 }
 
 form *{
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Courier New', monospace;
     color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
 
+.regCheckboxBox {
+  display: flex;
+  align-items: center;
+  font-family: 'Courier New', monospace !important;
+
+  .MuiFormControlLabel-label {
+    font-family: inherit !important;
+    font-size: 0.95rem;
+
+    @media (max-width: 900px) {
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  input[type='checkbox'] {
+    accent-color: #FF7043; 
+    cursor: pointer;
+  }
+
+  a {
+    color: #FF7043;
+    text-decoration: none;
+    border-bottom: 2px dashed transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    &:hover {
+      color: hsl(19, 78%, 50%);
+      border-bottom: 2px dashed #FF5722;
+      text-underline-offset: 3px;
+    }
+  }
+}
+
 .itemBox {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 8px;
-    height: auto;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 8px;
+  height: auto;
 }
 
 .regItemBox {
@@ -112,114 +222,152 @@ form *{
     height: auto;
 }
 
+.terms-text {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-top: 0;
+  text-align: center;
+  line-height: 1.4;
+
+  a {
+    color: #FF7043;
+    text-decoration: none;
+    border-bottom: 2px dashed transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+
+    &:hover {
+      color: hsl(19, 78%, 50%);
+      border-bottom: 2px dashed #FF5722;
+      text-underline-offset: 3px;
+    }
+  }
+}
+
 .title {
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 42px;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 30px;
     align-self: center; 
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .password-title {
   font-size: 40px;
-    font-weight: 500;
-    line-height: 42px;
-    align-self: flex-start; 
-    text-align: center;
+  font-weight: 600;
+  align-self: center; 
+  text-align: center;
 }
 
 .reset-password-title {
   font-size: 40px;
-    font-weight: 500;
-    line-height: 42px;
-    align-self: center; 
-    text-align: center;
+  font-weight: 600;
+  align-self: center; 
+  text-align: center;
 }
 
 .myForm {
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 60px;
-    width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
 }
 
 .customLabel{
     display: block;
-    margin-top: 20px;
-    font-size: 15px;
+    margin-top: 16px;
+    font-size: 18px;
     font-weight: 500;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 
 
 .MuiOutlinedInput-root.Mui-focused .MuiInputBase-input {
-    color: rgba(0,0,0,0.87) !important;
-    font-size: 0.9rem;
+  color: rgba(0,0,0,0.87) !important;
+  font-size: 1.1rem;
 }
 
-.MuiInputBase-root.Mui-focused {
+.passwordResetRequestPage {
+  --sq-hover: #2196f3;
+  --sq-focus: #2196f3;
+
+  .MuiInputLabel-root.Mui-focused {
+    color: #2196f3;
+  }
+}
+
+.loginPage, .registerPage {
+  .MuiInputBase-root.Mui-focused {
     border-color: hsl(19, 78%, 61%) !important;
-}
+  }
 
-.MuiOutlinedInput-root.Mui-focused fieldset {
+  .MuiOutlinedInput-root.Mui-focused fieldset {
     border-color: hsl(19, 78%, 61%) !important;
-}
+  }
 
-.MuiInputLabel-root.Mui-focused {
+  .MuiInputLabel-root.Mui-focused {
     color: hsl(19, 78%, 61%) !important;
+  }
 }
 
 .forgotPasswordLink {
     font-size: 14px;
     color: hsl(19, 78%, 61%);
-    text-decoration: underline;
     align-self: flex-end;
     margin-top: 5px;
 }
 
 .forgotPasswordLink:hover {
     color: hsl(19, 78%, 50%);
-    text-decoration: underline;
     text-decoration-color: hsl(19, 78%, 50%); 
 }
 
 .regButton {
-    font-family: 'Poppins', sans-serif;
-    margin-top: 30px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 10px 10px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 40px;
-    cursor: pointer;
+  font-family: 'Courier New', monospace;
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0;
+  border: 2px solid #FFB74D;
+  box-shadow: 2px 2px 0 #FF7043;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .regButton:hover {
-    background-color: hsl(19, 78%, 61%); 
-    color: #ffffff; 
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);  
-    transform: scale(1.05);  
-    transition: 0.5s;
+  background: linear-gradient(135deg, #ffcc80, #ff7043, #ff8a65);
+  background-size: 400% 400%;
+  animation: backgroundShift 8s ease infinite;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow:
+    4px 4px 0 #FF7043;
+}
+
+.itemBox p {
+  font-size: 15px;
+  align-self: center;
 }
 
 .itemBox a {
-    color: hsl(19, 78%, 61%);
-    font-weight: 500;  
-    text-decoration: none; 
-    margin-left: 5px;  
-    transition: color 0.3s ease;  
+  color: #FF7043;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  text-decoration: none;
+  margin-left: 5px;
+  border-bottom: 2px dashed transparent;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .itemBox a:hover {
-    color: hsl(19, 78%, 50%);  
-    text-decoration: underline;
-    text-decoration-color: hsl(19, 78%, 50%);  
-    text-underline-offset: 4px;  
-    transition: color 0.3s ease, text-decoration-color 0.5s ease, text-underline-offset 0.5s ease;
+  color: #FF5722;
+  border-bottom: 2px dashed #FF5722;
+  text-underline-offset: 3px;
 }
 
 .key-circle {
@@ -243,15 +391,14 @@ form *{
 }
 
 .itemBox .back-login {
-  color: #FFF;
+  color: #2196f3;
   transition: color 0.3s ease, text-decoration-color 0.5s ease, text-underline-offset 0.5s ease;
 }
 
 .itemBox .back-login:hover {
-    color: hsl(19, 78%, 61%);  
-    text-decoration: underline;
-    text-decoration-color: hsl(19, 78%, 61%);  
+    color: #0876d1;  
     text-underline-offset: 4px;  
+    border-bottom: 2px dashed #0876d1; 
 }
 
 @media (max-width: 1200px) {
@@ -278,6 +425,9 @@ form *{
   .message-text {
     font-size: 0.9rem;
   }
+  .regCheckboxBox {
+    font-size: 0.5rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -285,35 +435,51 @@ form *{
   .gradient-bg-orange,
   .gradient-bg-blue-reg,
   .gradient-bg-orange-reg {
-    --size: 300px;
+    position: fixed; 
+    width: clamp(200px, 50vw, 300px);
+    height: clamp(200px, 50vw, 300px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;      
+    transform: translate(-50%, -50%);
   }
 
   .gradient-bg-orange {
     top: 15%;
-    left: 0%;
-    background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+    left: 10%;  
+    background-image: linear-gradient(hsl(19 79% 64%), hsl(33 100% 70%));
   }
 
   .gradient-bg-orange-reg {
-      top: 10%;
-      left: 2%;
-      background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+    top: 10%;
+    left: 14%;  
+    background-image: linear-gradient(hsl(19 79% 64%), hsl(33 100% 70%));
   }
-  .regFormBox {
-    width: 400px;
-    height: auto;
+
+  .formBox, .passwordFormBox, .regFormBox {
     padding: 30px 25px;
     border-radius: 12px;
     margin-top: 2rem;
+    padding: 2.8rem 1.9rem 1.5rem;
   }
+
   .formBox {
-    width: 350px;
+    width: min(380px, 80vw);
+    min-height: clamp(460px, 56vh, 560px);
+  }
+  .regFormBox {
+    width: min(420px, 90vw);
+    min-height: clamp(480px, 58vh, 660px);
+  }
+  .passwordFormBox {
+    width: min(420px, 90vw);
+    min-height: clamp(420px, 52vh, 560px);
   }
 
   .title {
     font-size: 35px;
     line-height: 32px;
-    margin-bottom: 3.0rem;
+    margin-bottom: 2.0rem;
   }
 
   .password-title {
@@ -341,9 +507,9 @@ form *{
     height: auto;
   }
 
-  .regButton {
-    margin-top: 20px;
-    font-size: 15px;
+  .regButton,
+  .passwordRegButton {
+    font-size: 17px;
     padding: 10px 12px;
   }
 
@@ -374,13 +540,17 @@ form *{
     font-size: 0.8rem;
   }
 
+  .itemBox .terms-text {
+    font-size: 0.75rem;
+  }
+
   .MuiFormControl-root {
     margin-bottom: 10px;
   }
 
   .MuiOutlinedInput-input,
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
-    font-size: 0.9rem !important;
+    font-size: 1.0rem !important;
   }
 }
 
@@ -389,30 +559,33 @@ form *{
   .gradient-bg-orange,
   .gradient-bg-blue-reg,
   .gradient-bg-orange-reg {
-    --size: 250px;
-  }
-
-  .gradient-bg-orange {
-    top: 15%;
-    left: 0%;
-    background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
-  }
-
-  .gradient-bg-orange-reg {
-      top: 10%;
-      left: 2%;
-      background-image: linear-gradient(hsl(19, 79%, 64%), hsl(33, 100%, 70%));
+    width: clamp(160px, 60vw, 250px);
+    height: clamp(160px, 60vw, 250px);
   }
 
   .formBox,
-  .regFormBox {
-    width: 320px;
-    padding: 30px 25px;
+  .regFormBox,
+  .passwordFormBox {
+    padding: 2.5rem 1.5rem 1.5rem;
     border-radius: 12px;
+  }
+
+  .formBox {
+    width: min(340px, 86vw);
+    min-height: clamp(420px, 57vh, 520px);
+  }
+  .regFormBox {
+    width: min(360px, 90vw);
+    min-height: clamp(420px, 56vh, 540px);
+  }
+  .passwordFormBox {
+    width: min(330px, 84vw);
+    min-height: clamp(380px, 50vh, 500px);
   }
 
   .title {
     font-size: 28px;
+    margin-bottom: 1.5rem;
   }
 
   .password-title {
@@ -426,22 +599,28 @@ form *{
     font-size: 14px;
   }
 
-  .regButton {
-    font-size: 15px;
-    padding: 10px 12px;
-    margin-top: 20px;
+  .regButton,
+  .passwordRegButton {
+    font-size: 14px;
+    padding: 8px 9px;
+    margin-top: 0.2rem;
+    border-radius: 10px;
   }
 
   .forgotPasswordLink {
-    font-size: 12px;
+    font-size: 0.7rem;
   }
 
   .itemBox p {
-    font-size: 13px;
+    font-size: 0.7rem;
   }
 
   .itemBox .back-login {
     font-size: 0.9rem;
+  }
+
+  .itemBox .terms-text {
+    font-size: 0.7rem;
   }
 
   .MuiOutlinedInput-input,
@@ -452,24 +631,34 @@ form *{
 
 @media (max-width: 400px) {
   .formBox,
-  .regFormBox {
-    width: 80vw;
-    padding: 20px;
+  .regFormBox,
+  .passwordFormBox {
+    padding: 2rem 1.2rem 1.5rem;
     border-radius: 10px;
   }
 
-  .title {
-    font-size: 30px;
+  .formBox {
+    width: 82vw;
+    min-height: clamp(380px, 60vh, 480px);
+  }
+  .regFormBox {
+    width: 84vw;
+    min-height: clamp(380px, 60vh, 500px);
+  }
+  .passwordFormBox {
+    width: 84vw;
+    min-height: clamp(360px, 58vh, 460px);
   }
 
   .customLabel {
     font-size: 13px;
   }
 
-  .regButton {
-    font-size: 14px;
-    padding: 10px;
-    margin-top: 25px;
+  .regButton,
+  .passwordRegButton {
+    font-size: 13px;
+    padding: 8px;
+    margin-top: 0.5rem;
     border-radius: 10px;
   }
 
@@ -478,7 +667,16 @@ form *{
   }
 
   .itemBox p {
-    font-size: 12px;
+    font-size: 0.7rem;
+  }
+
+  .itemBox .terms-text {
+    font-size: 0.7rem;
+  }
+
+  .MuiOutlinedInput-input,
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
+    font-size: 0.8rem !important;
   }
 }
 
@@ -496,44 +694,9 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     background-color: rgba(255, 255, 255, 0.07) !important;
     color: rgba(0,0,0,0.95) !important;
-    -webkit-text-fill-color: rgba(0,0,0,0.) !important;
+    -webkit-text-fill-color: rgba(0,0,0,0.87) !important;
     transition: background-color 5000s ease-in-out 0s; /* delays the autofill bg */
     box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.07) inset !important;
-}
-
-.MuiOutlinedInput-root.Mui-focused, .MuiInputBase-input {
-  font-size: 1.1rem;
-}
-
-/* CSS for practice/chapters page */
-/* --------------------------------------------------------------- */
-
-/* Problems.jsx*/
-.scroll-math {
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  white-space: nowrap;
-}
-
-.scroll-math::-webkit-scrollbar {
-  height: 8px;
-}
-
-.scroll-math::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 3.0s ease, transform 3.0s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* SAC.jsx*/
@@ -545,66 +708,84 @@ select:-webkit-autofill:focus {
 
 /* CSS for Logo */
 /* --------------------------------------------------------------- */
-.logo-login,
-.logo-register  {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    height: 100px;
-    cursor: pointer;
-    transition: transform 0.5s ease;
-    z-index: 9999;
-    transform-origin: center;
+.auth-text-logo,
+.auth-text-logo-login {
+  font-family: 'Courier New', monospace;
+  font-size: 2.7rem;
+  color: #FFB74D;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  font-weight: 500;
+
+  /* retro glow effect */
+  text-shadow:
+    0 0 2px #FF7043,
+    0 0 5px #FF7043,
+    0 0 10px #FF8A65,
+    0 0 20px #FFD54F;
+
+  /* Inline block to keep cursor in place */
+  display: inline-flex;
+  align-items: center;
 }
 
-.logo-login:hover,
-.logo-register:hover {
-    transform: rotate(-30deg);
+.auth-text-logo {
+  margin: -20px 0 15px;
 }
 
+.auth-text-logo-login {
+  margin: -30px 0 15px;
+}
+
+.auth-text-logo::after,
+.auth-text-logo-login::after {
+  content: '';
+  display: inline-block;
+  width: 0.4em;
+  height: 0.8em;
+  margin-left: 6px;
+  background-color: #FFB74D;
+  animation: blink-caret 1s steps(1) infinite;
+  box-shadow:
+    0 0 3px #FF7043,
+    0 0 6px #FF7043,
+    0 0 10px #FF8A65;
+}
+
+/* blinking block animation */
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.auth-text-logo:hover,
+.auth-text-logo-login:hover {
+  transform: scale(1.05) rotate(-2deg);
+  text-shadow:
+    0 0 4px #FF7043,
+    0 0 8px #FF7043,
+    0 0 15px #FF8A65,
+    0 0 25px #FFD54F;
+}
+
+/* Responsive tweaks */
 @media (max-width: 900px) {
-  .logo-login {
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100px;
-  }
-
-  .logo-login:hover {
-    transform: translateX(-50%) rotate(-30deg);
-  }
-
-  .logo-register {
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100px;
-  }
-
-  .logo-register:hover {
-    transform: translateX(-50%) rotate(-30deg);
-  }
-
-  .message-text {
-    font-size: 0.8rem;
+  .auth-text-logo,
+  .auth-text-logo-login {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
   }
 }
 
 @media (max-width: 600px) {
-    .logo-login {
-        top: 90px;
-        left: 50%;
-        height: 80px;
-    }
-
-    .logo-register {
-        top: 40px;
-        left: 50%;
-        height: 80px;
-    }
-    .message-text {
-      font-size: 0.7rem;
-    }
+  .auth-text-logo,
+  .auth-text-logo-login {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
 }
-
 

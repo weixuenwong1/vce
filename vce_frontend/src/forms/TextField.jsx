@@ -1,20 +1,22 @@
 import * as React from 'react';
-import {FormControl, InputLabel, OutlinedInput, FormHelperText} from '@mui/material';
-import '../App.css'
-import { Controller } from 'react-hook-form'
+import { FormControl, OutlinedInput, FormHelperText } from '@mui/material';
+import { Controller } from 'react-hook-form';
+import '../App.css';
 
 export default function FormTextField(props) {
-  const {label, name, control} = props
+  const { label, name, control, className } = props;
+
   return (
-    <Controller 
+    <Controller
       name={name}
       control={control}
       defaultValue=""
-      render={({
-        field: { onChange, value },
-        fieldState: { error }
-      }) => (
-        <FormControl variant="outlined" className="myForm" error={!!error}>
+      render={({ field: { onChange, value }, fieldState: { error } }) => (
+        <FormControl
+          variant="outlined"
+          className={`myForm ${className || ''}`}
+          error={!!error}
+        >
           <OutlinedInput
             id={name}
             value={value}
@@ -22,17 +24,46 @@ export default function FormTextField(props) {
             placeholder={label}
             sx={{
               color: 'black',
-              fontFamily: 'Poppins',
-              fontWeight: 500,
+              fontFamily: 'Courier New',
+              fontWeight: 600,
               letterSpacing: '0.2px',
-              fontSize: {
-                xs: '0.7rem', 
-                sm: '0.8rem',     
-                md: '0.9rem',   
+              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+
+              '& .MuiOutlinedInput-input': {
+                padding: { xs: '12px 12px', sm: '12px 14px', md: '14px 16px' },
+                caretColor: '#0000009c',
+              },
+
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'var(--sq-hover, #FF7043)',
+              },
+
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'var(--sq-focus, #FF7043)',
+                borderWidth: '2px',
+              },
+
+              // misc input tweaks
+              '& input': {
+                WebkitTapHighlightColor: 'transparent',
+                WebkitAppearance: 'none',
+                outline: 'none',
+              },
+              '& input:focus': {
+                outline: 'none',
               },
             }}
           />
-          <FormHelperText sx={{color: "#ff5555", mt: 1}} >{error?.message}</FormHelperText>
+          <FormHelperText
+            sx={{
+              color: '#ff5555',
+              mt: 0.355,
+              lineHeight: 1,
+              fontSize: '0.75rem',
+            }}
+          >
+            {error?.message}
+          </FormHelperText>
         </FormControl>
       )}
     />

@@ -8,31 +8,10 @@ $royal-blue: #102542;
 $vibrant-blue: #3D5A80;
 $light-blue: #4FC3F7;
 $soft-yellow: #FFD180;
-
-.loader1 {
-  width: 120px;
-  height: 20px;
-  background: 
-    linear-gradient(#000 50%,#0000 0),
-    linear-gradient(#0000 50%,#000 0),
-    linear-gradient(#000 50%,#0000 0),
-    linear-gradient(#0000 50%,#000 0),
-    linear-gradient(#000 50%,#0000 0),
-    linear-gradient(#0000 50%,#000 0)
-    #ddd;
-  background-size: calc(100%/6 + 1px) 200%;
-  background-repeat: no-repeat;
-  animation: l12 2s infinite;
-}
-@keyframes l12 {
-  0%     {background-position: calc(0*100%/5) 100%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  16.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  33.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  50%    {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  66.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}
-  83.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5)   0%}
-  100%   {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5) 100%}
-}
+$retro-orange: #FF7043;
+$retro-lighter-orange: #f7825e67;
+$retro-light-orange: #f7825e;
+$retro-red: #e43a3a;
 
 /* HTML: <div class="loader"></div> */
 .loader-wrapper {
@@ -41,14 +20,15 @@ $soft-yellow: #FFD180;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .loader2 {
   width: 50px;
   aspect-ratio: 1;
   display: grid;
-  color: $orange;
+  color: $retro-orange;
   background: radial-gradient(farthest-side, currentColor calc(100% - 6px),#0000 calc(100% - 5px) 0);
   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 calc(100% - 12px));
   mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 calc(100% - 12px));
@@ -76,24 +56,47 @@ $soft-yellow: #FFD180;
 
 
 .loader3 {
-  width: fit-content;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 42px;
   font-weight: bold;
-  font-family: monospace;
-  font-size: 50px;
-  background:linear-gradient(90deg,$orange,50%,$gray 0) right/200% 100%;
-  animation: l21 2s infinite linear;
+  letter-spacing: 1px;
   margin-top: -10vh;
-}
-.loader3::before {
-  content :"Generating SAC...";
-  color: $white;
-  padding: 0 5px;
-  background: inherit;
-  background-image: linear-gradient(90deg,#fff 50%,#000 0);
-  -webkit-background-clip:text;
-          background-clip:text;
+  position: relative;
+  text-align: center;
+
+  /* Gradient text effect */
+  background: linear-gradient(90deg, $retro-orange, $gray);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Subtle glow for retro feel */
+  text-shadow: 0 0 3px rgba(255, 165, 0, 0.6);
+
+  animation: moveGradient 3s linear infinite;
 }
 
-@keyframes l21{
-  100%{background-position: left}
+.loader3::before {
+  content: "Generating SAC...";
+}
+
+.loader3::after {
+  content: "▋"; /* retro block cursor */
+  margin-left: 5px;
+  animation: blinkCursor 1s steps(1) infinite;
+  color: $orange;
+}
+
+@keyframes moveGradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes blinkCursor {
+  50% {
+    opacity: 0;
+  }
 }

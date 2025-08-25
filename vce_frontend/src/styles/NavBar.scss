@@ -2,11 +2,15 @@ $black: #2A363B;
 $gray: #2E2E2E;
 $dark-gray: #1F1F1F;
 $orange: hsl(19, 78%, 61%);
+$orange-alt: #C14F1D;
 $dark-orange: hsl(19, 59%, 50%);
 $white: #FFF;
 $royal-blue: #102542;
 $vibrant-blue: #3D5A80;
 $light-blue: #4FC3F7;
+$retro-yellow: #FFB74D;
+$retro-orange: #FF7043;
+$retro-red: #e43a3a;
 
 
 .navbar {
@@ -16,8 +20,9 @@ $light-blue: #4FC3F7;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  font-family: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Courier New', monospace;
+  border-bottom: 3px solid $retro-orange;
+  box-shadow: 0 4px 0 $retro-orange;
 
   &-left {
     display: flex;
@@ -25,16 +30,18 @@ $light-blue: #4FC3F7;
     gap: 2rem;
 
     .navbar-logo {
-      height: 60px;
+      display:block;
+      width: 60px;
+      height: auto;
       cursor: pointer;
       transition: transform 0.5s ease;
       transform-origin: center;
 
       &:hover {
-        transform: rotate(-30deg);
+        transform: rotate(-15deg) scale(1.1);
       }
     }
-    
+
     .navbar-menu {
       list-style-type: none;
       display: flex;
@@ -45,13 +52,15 @@ $light-blue: #4FC3F7;
       .navbar-item {
         position: relative;
         padding: 0.75rem 0;
-        color: $white;
+        color: #fff;
         text-align: center;
         cursor: pointer;
-        transition: background-color 0.5s ease;
+        font-weight: 600;
+        font-size: 1.15rem;
+        transition: color 0.3s ease;
 
         &:hover {
-          background: #424242;
+          color: #FFAB91;
         }
 
         &:after {
@@ -62,15 +71,13 @@ $light-blue: #4FC3F7;
           border-radius: 50%;
           bottom: 5px;
           left: calc(50% - 2px);
-          background: $white;
-          will-change: transform;
+          background: #FF8A65;
           transform: scale(0);
-          transition: transform 0.5s ease;
+          transition: transform 0.3s ease;
         }
 
         &:hover:after {
-          transform: scale(1);
-          transform: scale(1.55);
+          transform: scale(1.6);
         }
 
         .navbar-submenu {
@@ -78,15 +85,14 @@ $light-blue: #4FC3F7;
           top: 100%;
           left: 50%;
           transform: translateX(-50%);
-          background: #424242;
+          background: #2e2e2e;
+          border: 2px solid $retro-orange;
           border-radius: 6px;
-          padding: 0.5rem 0;
+          padding: 0;
           list-style: none;
-          min-width: 150px;
-          z-index: 1;
-          opacity: 1;
-          text-align: center;
-          animation: dropdownEnter 0.2s ease forwards;
+          min-width: 160px;
+          z-index: 2;
+          box-shadow: 3px 3px 0 $retro-orange;
 
           .navbar-subitem {
             opacity: 0;
@@ -94,20 +100,20 @@ $light-blue: #4FC3F7;
             animation: enter 0.3s ease forwards;
             animation-fill-mode: forwards;
 
-            // Ripple delays
             &:nth-child(1) { animation-delay: 0.1s; }
             &:nth-child(2) { animation-delay: 0.2s; }
             &:nth-child(3) { animation-delay: 0.3s; }
 
-            padding: 0.75rem 1rem;
-            color: $white;
+            padding: 1.0rem 1rem;
+            color: #fff;
+            font-family: 'Courier New', monospace;
             cursor: pointer;
             text-align: center;
-            transition: background 0.2s ease;
+            transition: background 0.2s ease, color 0.2s ease;
 
             &:hover {
-              background: #333333;
-              color: $orange;
+              background: #1f1f1f;
+              color: #FFAB91;
             }
           }
         }
@@ -117,19 +123,23 @@ $light-blue: #4FC3F7;
 
   &-right {
     .navbar-button {
-      font-family: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
-      background: $orange;
-      color: $white;
-      border: none;
-      border-radius: 6px;
-      padding: 0.4rem 1.1rem;
-      font-weight: 500;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      background: #FFE0B2;
+      color: #2b2b2b;
+      font-family: 'Courier New', monospace;
+      border: 2px solid $retro-orange;
+      border-radius: 0;
+      box-shadow: 3px 3px 0 $retro-orange;
+      padding: 0.6rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
 
       &:hover {
-        background: hsl(19, 78%, 50%);
+        background: #FFCCBC;
+        transform: translateY(-2px);
+        box-shadow: 5px 5px 0 $retro-orange;
+        cursor: pointer;
       }
     }
   }
@@ -149,18 +159,33 @@ $light-blue: #4FC3F7;
 
 @media (max-width: 700px) {
   .navbar {
-    padding: 0 1rem; // optional: reduces padding on mobile
+    padding: 0 1rem; 
 
     &-left {
       gap: 1rem;
 
       .navbar-menu {
-        gap: 1rem;
+        gap: 1.5rem;
 
         .navbar-item {
           font-size: 0.9rem;
           padding: 0.5rem 0;
+
+          .navbar-submenu {
+            min-width: 140px; // narrower than default
+            .navbar-subitem {
+              font-size: 0.9rem;
+              padding: 0.8rem 0.8rem;
+            }
+          }
         }
+      }
+    }
+
+    &-right {
+      .navbar-button {
+        padding: 0.5rem 1.0rem; 
+        font-size: 0.95rem;
       }
     }
   }
@@ -168,28 +193,37 @@ $light-blue: #4FC3F7;
 
 @media (max-width: 600px) {
   .navbar {
-    padding: 0 1rem; // optional: reduces padding on mobile
+    padding: 0 1rem; 
 
     &-left {
-      gap: 1rem;
+      gap: 1.0rem;
 
       .navbar-logo {
-        height: 50px; // ✅ logo smaller
+        height: 50px; 
+        width: 50px;
       }
 
       .navbar-menu {
-        gap: 1rem;
+        gap: 2.0rem;
 
         .navbar-item {
           font-size: 0.9rem;
           padding: 0.5rem 0;
+
+          .navbar-submenu {
+            min-width: 120px; // smaller
+            .navbar-subitem {
+              font-size: 0.8rem;
+              padding: 0.7rem 0.7rem;
+            }
+          }
         }
       }
     }
 
     &-right {
       .navbar-button {
-        padding: 0.5rem 1.0rem; // ✅ smaller button
+        padding: 0.5rem 1.0rem; 
         font-size: 0.9rem;
       }
     }
@@ -198,11 +232,27 @@ $light-blue: #4FC3F7;
 
 @media (max-width: 400px) {
   .navbar {
-  &-right {
+    &-left {
+      .navbar-menu {
+        gap: 1.3rem;
+
+        .navbar-item {
+          .navbar-submenu {
+            min-width: 100px; // smallest
+            .navbar-subitem {
+              font-size: 0.7rem;
+              padding: 0.6rem 0.6rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
       .navbar-button {
-        padding: 0.4rem 0.8rem; // ✅ smaller button
+        padding: 0.4rem 0.8rem; 
         font-size: 0.75rem;
       }
     }
   }
-} 
+}

@@ -26,36 +26,25 @@ const PasswordResetRequest = () => {
   });
 
   const submission = (data) => {
+    setTimeout(() => {
+      setShowMessage(true);
+    }, 500);
+
     AxiosInstance.post('api/password_reset/', {
       email: data.email,
     })
-
-    .then((response) => {
-      setShowMessage(true)
-    })
-
-  }
+    .catch((error) => {
+      console.error(error);
+    });
+  };
     return (
-        <div style={{ position: 'relative', 
-                      minHeight: '100vh', 
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#2E2E2E',
-                      overflow: 'hidden',
-                    }}>
+        <div className="passwordResetRequestPage">
           {ShowMessage ? <Message text={"If this email address was used to create an account, instructions to reset your password will be sent to your email."}/> : null}
           <div className="gradient-bg-blue" />
           <div className="gradient-bg-orange" />
-          <div style={{
-            position: 'relative',
-            zIndex: 1,
-            color: 'white',
-            padding: '2rem',
-            textAlign: 'center'
-          }}>
+          <div className="passwordResetRequestContainer">
             <form onSubmit={handleSubmit(submission)}>
-              <Box className ={"formBox"}>
+              <Box className ="passwordFormBox">
               <Box
                 sx={{
                     width: 70,
@@ -92,7 +81,7 @@ const PasswordResetRequest = () => {
                       <FormTextField name={"email"} control={control} id="email" label="Email"/>
                   </Box>
                   <Box className={"itemBox"}>
-                      <button className="regButton" type={"submit"}>Reset Password</button>
+                      <button className="passwordRegButton" type={"submit"}>Reset Password</button>
                   </Box>
                   <Box className={"itemBox"} sx={{ alignItems: 'center', marginTop: '2rem' }}>
                     <Link to="/login" className="back-login">

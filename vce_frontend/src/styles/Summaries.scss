@@ -16,16 +16,24 @@ $soft-yellow: #FFD180;
 .summaries-page {
     background-color: $gray;
     padding: 2rem 0 ;
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
+    min-height: auto;
+    overflow: visible;
     
   .summaries-page-container {
-    max-width: 60%;
+    max-width: 70%;
     padding: 2rem 3rem;
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 0;                
     background-color: #fff;
+    border: 2px solid #FFB74D;         
+    box-shadow: 4px 4px 0 #FF7043;      
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    height: auto;       
+    max-height: none;   
+    overflow: visible;  
   }
 
   img {
@@ -43,15 +51,16 @@ $soft-yellow: #FFD180;
 
    h1 {
     color: $royal-blue;
-    font-size: 2.7rem;
+    font-size: 3.0rem;
     padding-bottom: 1.3rem;
-    font-family: Cursive;
+    font-family: "Caveat", Cursive;
    } 
 
    h2 {
       color: $royal-blue; 
       font-size: 2.0rem;
       padding: 1rem 0 1rem;
+      font-weight: 600;
    } 
    h3 {
       color: $vibrant-blue; 
@@ -77,7 +86,7 @@ $soft-yellow: #FFD180;
     font-size: 1.2em; 
   }
 
-  .katex, .katex-html, .long-text {
+  .katex, .long-text {
     font-family: 'KaTeX_Main';
     font-size: 1.30rem; 
     line-height: 1.4rem;
@@ -92,9 +101,9 @@ $soft-yellow: #FFD180;
     
 
   .summary-link {
-    font-family: Cursive;
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-family: "Caveat", Cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: $vibrant-blue;
     cursor: pointer;
     transition: color 0.2s ease;
@@ -118,7 +127,6 @@ $soft-yellow: #FFD180;
       display: inline;
     }
 
-
     &:hover {
       color: $royal-blue;
     }
@@ -130,16 +138,15 @@ $soft-yellow: #FFD180;
     text-align:end;
   }
   .practice-link {
-    font-family: Cursive;
+    font-family: "Caveat", Cursive;
     max-width: 40%;
     text-align: center;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
   }
   .link-label-full, .link-label-short {
-    font-family: Cursive;
-    font-size: 1.15rem;
+    font-family: "Caveat", Cursive;
+    font-size: 1.4rem;
   }
-
 }
 
   @keyframes spin {
@@ -148,18 +155,9 @@ $soft-yellow: #FFD180;
   }
 
   @media (max-width: 1200px) {
-     .summaries-page-container {
-        max-width: 65%;
-        padding: 2rem 3rem;
-      }
-      .summary-navigation {
-
-        .summary-link {
-          font-size: 1.0rem;
-          .link-label-full, .link-label-short {
-            font-size: 1.0rem;
-          }
-        }
+    .summaries-page-container {
+      max-width: 80%;
+      padding: 2rem 3rem;
     }
   }
 
@@ -176,18 +174,18 @@ $soft-yellow: #FFD180;
         font-size: 0.90rem;
       }
 
-      .katex, .katex-html, .long-text {
+      .katex, .long-text {
         font-size: 1.05rem;
       }
 
       .summaries-page-container {
-        max-width: 75%;
-        padding: 2rem 3rem;
+        max-width: 80%;
+        padding: 2rem 2rem;
       }
 
       .summary-navigation {
         .summary-link {
-          font-size: 1rem;
+          font-size: 1.2rem;
 
           .link-label-short {
             display: inline;
@@ -217,24 +215,26 @@ $soft-yellow: #FFD180;
       font-size: 1.2rem; 
     }
 
-    .katex, .katex-html, .long-text {
+    .katex, .long-text {
       font-size: 1.0rem;
     }
 
     .summaries-page-container {
-        max-width: 90%;
+        max-width: 95%;
       }
 
     .summary-navigation {
 
       .summary-link {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
         .link-label-short {
           display: inline;
+          font-size: 1.2rem;
         }
 
         .link-label-full {
           display: none;
+          font-size: 1.2rem;
         }
       }
     }
@@ -269,10 +269,10 @@ $soft-yellow: #FFD180;
       }
       .summary-navigation {
         .summary-link {
-          font-size: 0.75rem;
+          font-size: 1.0rem;
 
           .link-label-full, .link-label-short {
-            font-size: 0.75rem;
+            font-size: 1.0rem;
           }
 
           .link-label-short {

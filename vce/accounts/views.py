@@ -5,6 +5,8 @@ from .models import *
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model, authenticate
 from knox.models import AuthToken
+from django.utils.timezone import now
+from knox.settings import knox_settings
 
 User = get_user_model()
 
@@ -22,14 +24,16 @@ class LoginViewSet(viewsets.ViewSet):
 
             if user:
                 _, token = AuthToken.objects.create(user)
+                expiry = now() + knox_settings.TOKEN_TTL
                 return Response(
                     {
                         "user": self.serializer_class(user).data,
-                        "token": token
+                        "token": token,
+                        "expiry": expiry
                     }
                 )
             else:
-                return Response({"error:""Invalid credentials"}, status=401)
+                return Response({"error":"Invalid credentials"}, status=401)
         else:
             return Response(serializer.errors, status=400)
         
@@ -49,7 +53,7 @@ class RegisterViewset(viewsets.ViewSet):
 
         
 class UserViewset(viewsets.ViewSet):
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAdminUser]
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
 

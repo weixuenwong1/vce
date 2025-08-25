@@ -5,7 +5,7 @@ const Message = ({text, color}) => {
         <Box
         sx={{
             backgroundColor: color,
-            fontFamily: 'Poppins',
+            fontFamily: 'Courier New',
             color: '#ffffff',
             width: '100%',
             padding: '10px 20px',

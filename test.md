@@ -1,218 +1,462 @@
 > ⚠️ **Note:** This explanation is meant to support your understanding, but it is **not a substitute for your official textbook or prescribed course materials**. Always refer to your school resources for complete and accurate coverage of the syllabus.
 
 
-# **Generators and Alternators**
-
-In power plants — like **coal, gas, nuclear, hydro**, and **wind** — turbines spin coils inside magnetic fields, producing electricity. This process of **converting mechanical motion into electrical energy** is exactly what a **generator** does.
 
 
-## **Alternators**
-Alternators look quite similar to the **DC motors** we've studied, but they work **in reverse**.
+# **Light as a Wave**
 
-Instead of **using electrical energy** to make the coil spin, **alternators** convert **rotational energy** (e.g. from a spinning turbine or crankshaft) into **electrical energy**.
 
-- A coil is **rotated** within a magnetic field.
-- A changing flux through the coil induces an **emf**, producing current.
-- The output is connected to a device like an **oscilloscope**, which displays an **emf vs. time graph**.
 
----
 
-#### ***Why Alternating Current (AC) is Produced***
+In Unit 4, we dive into the topic of light. One of the central debates we examine is the nature of light—**what is light, really?** Is it a wave, a particle, or something else entirely?
 
-As the coil spins within the magnetic field:
-- The **magnetic flux** through the coil changes continuously.
-- Using **Lenz’s Law**, we see that the **induced current** must continuously adjust to oppose the changing flux.
-- This results in an **alternating current**, as the **direction of current reverses** every **180°** of rotation.
 
->To maintain a connection with the rotating coil:
-> - **Slip rings** are used — each one attached to a different end of the coil.
-> - Unlike the split-ring commutator in DC motors, slip rings **don't** switch the direction of current **manually.**
-> - This ensures the **emf reverses polarity** each half-turn, generating a continuous **AC output.**
+We begin by investigating the idea of **light as a wave** but we'll first need to build a solid understanding of **waves and their key properties**, as well as the various **phenomena** associated with wave behaviour.
+
+
+
 
 ---
 
 
-## **DC Generators**
-**DC generators** operate almost identically to **alternators**, with **one key difference:**
-They use a **split-ring commutator** instead of **slip rings**.
+### ***Displacement–Time Graphs***
 
-The **split-ring commutator** reverses the connection to the external circuit **every 180°** and ensures that the **current direction in the external circuit remains the same**
+
+This type of graph provides information about the **period (T)** of a wave. 
+Imagine focusing on a single point on a slinky. As the wave passes through the slinky, that particle moves **up and down repeatedly** when the slinky is shaken at regular intervals.
+
+![Displacement-Time Graphs](https://vceproblems.s3.amazonaws.com/question_media/Displacement-Time+Graph.png)
+
+
+The graph above shows how that particle’s **displacement changes over time**. 
+From this, we can determine the **time it takes to complete one full cycle**—the **period (s)**.
+
+
+---
+
+
+### ***Displacement–Distance Graphs***
+
+
+This graph provides information about the **wavelength (λ)** of a wave. 
+It’s like taking a snapshot of the entire slinky at one moment in time, showing the **position of all particles** along its length. Some particles are at peaks, others at troughs and some centered. 
+
+
+![Displacement-Time Graphs](https://vceproblems.s3.amazonaws.com/question_media/Displacement-Distance+Graph.png)
+
+
+By measuring the **distance between successive points** in the same phase (e.g. peak to peak), we find the **wavelength (m)**.
+
+
+
+By combining information from both graphs:
+
+
+- **Wavelength (λ)** is the **distance** between repeating points
+- **Period (T)** is the **time** between repeating motion at one point
+
+
+We can calculate the **speed** of the wave using:
+
+
+$$
+\boldsymbol{\text{v} = \frac{\lambda \; (\text{distance})}{T \; (\text{time})} = f\lambda }
+$$
+
+
+as $ f = \frac{1}{T} $ where **$ f $** is the **frequency** of the wave (Hz) .
+
+
+---
+
 
 <br>
 
-This is the key distinction between:
->- **Alternators** (with slip rings) → produce **AC**
->- **DC generators** (with split-ring commutators) → produce **DC**
 
----
+Let's consider the problem below.
 
-#### ***Comparing Outputs: Alternator vs. DC Generator***
-
-Using the same **flux vs. time graph**:
-
-![Flux-Time Graph](https://vceproblems.s3.amazonaws.com/question_media/FluxTime.png)
-
-The diagrams below show the resulting **emf outputs** for an **alternator** and a **DC generator**:
-
-![Outputs](https://vceproblems.s3.amazonaws.com/question_media/AlternatorVsGenerator.png)
-
-- When the **flux starts at a maximum**, the **emf starts at zero**.  
-- When the **flux starts at zero**, the **emf starts at a maximum**.  
-  ➤ This is because emf is the **gradient** of the flux-time graph
-
----
-
-Let's consider alternator and DC generator problems below.
-
-**e.g 1. Figure A below illustrates a simple DC generator with a magnetic field of 0.40 T. The loop has 100 turns and the area of the loop is 0.060 m². The rate of rotation is 50 Hz.**
-
-![DC Generator Problem](https://vceproblems.s3.amazonaws.com/question_media/DCGen2.2.png)
-**a) Determine the period of the loop's rotation. (1 mark)**
-
-$$ T = \frac{1}{f} $$
-$$ T = \frac{1}{50} $$
-$$ T = 0.02 \; s $$
-
----
-
-🎯 Period is the **time taken to complete one full rotation (s)**, while frequency is the **number of rotations per second (Hz).**
-
----
 
 <br>
 
-**b) Calculate the magnitude of the average EMF induced as the loop completes a quarter of one revolution. Show your working. (2 marks)**
 
-$$\mathcal{E}= N\frac{\Delta \Phi}{\Delta t} $$
+**e.g 1. A sinusoidal wave of wavelength 0.80 m is travelling along a string with a constant speed 80 m s⁻¹ as shown in Figure A below. Find the time taken for point P to move to P`. Show your working. (2 marks)**
 
-$$\Delta \Phi = \Phi_f - \Phi_i $$
-$$\Delta \Phi = B_{\perp}A - 0 $$
-$$\Delta \Phi = 0.40 \cdot 0.060 - 0 $$
-$$\Delta \Phi = 0.024 $$
 
-$$\Delta t = \frac{1}{4} \cdot 0.02 $$
-$$\Delta t = 0.005 $$
+![Wave Problem](https://vceproblems.s3.amazonaws.com/question_media/Interference14.2.png)
 
-$$\mathcal{E} = 100 \cdot \frac{0.024}{0.005} $$
-$$\mathcal{E} = 480 \; V $$
+$$ v = \frac{\lambda}{T} $$
+
+
+$$ T = \frac{\lambda}{v} $$
+
+
+$$T = \frac{0.80}{80} $$
+
+
+$$T = 0.01 $$
+
+
+$$ \text{time taken } = \frac{1}{2} \times 0.01 = 0.005 \; \text{s} $$
+
+
+
 
 ---
 
-We apply **Faraday’s Law** here
 
-***(You can ignore the negative sign cause we're mostly interested in the magnitude)***
+Point **P to P′** represents **half the time** it takes for one complete wave cycle (**T**). 
+To find this duration, we must first calculate the **period** using the wave equation, and then **divide it by two**.
 
-**Calculate the change in flux**  
+
+>⚠️ **Important:** The point **P** does **not move horizontally**. The question is asking for the **time it takes for the *same point***—starting at **zero displacement**—to move **up** and then come **back down** again.`
+
+
+
+
+---
+
+
+## Wave phenomenons
+
+
+### ***Interference***
+
+
+**Interference** describes what happens when two waves approach or meet each other. 
+Unlike particles, which might collide or bounce off each other, **waves undergo superposition**—this means their **amplitudes are added together** when they overlap.
+
+
+This leads to two possible outcomes:
+
+
+### 🔹 Constructive Interference
+
+Occurs when two wave pulses are **in phase** (peaks align with peaks, troughs with troughs), resulting in a **larger wave pulse** with greater amplitude.
+
+### 🔹 Destructive Interference
+
+Occurs when two wave pulses are **out of phase** (a peak overlaps with a trough), resulting in **partial or complete cancellation**.
+
+
+<div align="center">
+  <img src="https://vceproblems.s3.ap-southeast-2.amazonaws.com/question_media/Interference.png" alt="Interference diagram" width="350" />
+</div>
+
+
+---
+
+
+### ***Standing Waves***
+
+
+Imagine you're holding one end of a rope or slinky, and your friend is holding the other. You start shaking your end up and down, experimenting with different speeds. At certain frequencies, something interesting happens, the wave seems to "settle" into a steady pattern that **just feels right**. The rope looks like it's standing still in some parts and waving in others.
+
+
+What you’re seeing is a **standing wave**:
+> A stable wave pattern created when two waves of the same frequency and amplitude travel in **opposite directions** and **interfere** with each other. 
+
+
+When a string is plucked, it doesn’t just vibrate at a single frequency — instead, it vibrates at **multiple frequencies** at the same time. These frequencies are called **harmonics**, and they all combine to produce the **rich sound** you hear.
+
+
+![Harmonics](https://vceproblems.s3.amazonaws.com/question_media/Harmonics.png)
+
+
+
+In general, for the $ \text{n}^\text{th} $ harmonic:
+
+
+- The wavelength is given by: 
+ $$
+   \boldsymbol{\lambda_n = \frac{2L}{n}}
+ $$
+- The frequency is: 
+ $$
+   \boldsymbol{f_n = \frac{nv}{2L}}
+ $$
+
+
+
+
+---
+
+
+### ***Resonance***
+> **Resonance** occurs when an **external vibrating force** causes another system nearby to **vibrate with a much greater amplitude**. 
+> This happens when the frequency of the external force **matches the natural frequency** of the object being affected.
+
+
+A famous example is:
+- **Breaking a wine glass with your voice** — if you sing a note that perfectly matches the glass’s natural frequency, it **shatters** due to large amplitude oscillations.
+
+
+---
+
+
+<br>
+
+
+Let's consider a problem below
+
+
+<br>
+
+
+**e.g 2. An experiment is conducted to observe standing waves on a string that is 8.0 meters long and fixed at both ends. Wave pulses travel along the string at a constant speed of 30 m s⁻¹.**
+
+
+![Standing Wave Problem](https://vceproblems.s3.amazonaws.com/question_media/Interference11.1.png)
+
+
+**a) In one experiment, a continuous transverse wave with a frequency of 8 Hz is generated. Will a standing wave be formed? Justify your answer with calculations. (3 marks)**
+
+
+$$v = f \lambda $$ \
+$$30 = 8 \lambda $$ \
+$$\lambda = 3.75 $$
+
+
+$$\text{Standing waves form when } L = \frac{n\lambda}{2} \; \text{where n is an integer.} $$
+
+
+$$8.0 = \frac{n \times 3.75}{2} $$ \
+$$\therefore \; n = 4.26... \; \text{and a standing wave will not form.} $$
+
+
+---
+
+
+**Standing waves** only form at certain **frequencies** and **wavelengths** — specifically, when an **integer number of half-wavelengths** can fit perfectly within the length of the string. Hence, a wave with a wavelength of **3.75 m** will **clearly not** form a standing wave on a string that is **8.0 m** long as it doesn't perfectly fit within it.
+
+
+>⚠️ **Note :** The **wave speed** remains **the same for all harmonics** on a string
+
+
+
+
+What changes between harmonics is:
+- The **wavelength** (shorter for higher harmonics)
+- The **frequency** (higher for higher harmonics)
+
+
+But the speed $ v = f \lambda $ remains constant.
+
+
+
+
+
+
+---
+
+
+<br>
+
+
+**b) Determine which harmonic would be formed if the string is driven at a frequency of 1.875 Hz. Then, on Figure A above, sketch the standing wave pattern that would be produced on the string. (2 marks)**
+
+
+$$v = f \lambda $$ \
+$$30 = 1.875 \lambda$$ \
+$$\lambda = 16 $$
+
+
+$$8.0 = \frac{n \times 16}{2} $$ \
+$$\therefore \; n = 1$$
+
+
+![Standing Wave Problem](https://vceproblems.s3.amazonaws.com/solution_media/Interference11.1A.png)
+
+
+
+
+---
+
+
+We determine the harmonic by checking whether the wave of **wavelength 16 m** fits perfectly within the **8 m** string. 
+Since **half of the wavelength** matches the string length exactly, this configuration corresponds to the **first harmonic**.
+
+
+---
+
+
+### ***Diffraction***
+> **Diffraction** is the phenomenon where waves **spread out** as they pass through a **gap** or move **around an obstacle**. 
+> The extent of diffraction depends on the **wavelength of the wave** and the **size of the gap or object**.
+
+
+Significant diffraction occurs when the ratio:
+
+
 $$
-\Delta \Phi = \Phi_{\text{final}} - \Phi_{\text{initial}}
+\boldsymbol{\frac{\lambda}{\text{w}} > 1}
 $$
 
-- **Initial flux** is **zero** (coil is parallel to the field lines).  
-- **Final flux** is **maximum** (coil is perpendicular), so use:  
-  $$
-  \Phi = BA
-  $$
 
-2. **Determine the time taken for the change**  
-If the coil rotates a **quarter turn**, the time is:  
+That is, when the **wavelength is comparable to or larger than the gap**, the wave spreads out more noticeably.
+
+
+In a **single-slit experiment**, you might expect to see just **one central bright band** on the screen. However, what is actually observed is a **distinct pattern of alternating bright and dark regions** — a **diffraction pattern**.
+
+
+This pattern can **only be explained if light behaves like a wave**. As light passes through the narrow slit, it **spreads out** (diffracts), and the wavelets **interfere** with each other.
+
+This provides strong evidence for the **wave-like nature of light**.
+
+
+---
+
+
+
+
+## Young's Double Slit Experiment
+
+
+In a **double-slit experiment**, the **particle model** predicts that light travels straight through the two slits, producing **two bright bands** on the screen. However, what we actually observe is a **pattern of alternating bright and dark fringes** — an **interference pattern**.
+
+
+This provides strong evidence for the **wave nature of light**, as it can only be explained by the principle of **interference**:
+
+
+- **Bright fringes** occur when the **path difference** between the two waves is: 
+ $$
+   \boldsymbol{\text{p.d} = n\lambda}
+ $$
+- **Dark fringes** occur when the path difference is: 
+ $$
+   \boldsymbol{\text{p.d} = \left(n + \frac{1}{2}\right)\lambda}
+ $$
+ where **$ n $ is the band from the centre integer (0, 1, 2, 3...)** and **path difference = $ |S_1P - S_2P| $**
+
+
+---
+
+
+###  Fringe Spacing
+
+
+The spacing between consecutive bright fringes, denoted as $ \Delta x $, depends on:
+
+
 $$
-\Delta t = \frac{T}{4}
+\boldsymbol{\Delta x = \frac{\lambda L}{d}}
 $$
 
-> Note: If your answer for emf comes out **negative**, you can just use the **positive value**
 
----
-
-![EMF-Time Axis](https://vceproblems.s3.amazonaws.com/question_media/DCGen5.3.png)
-
-**c) On the given axis, sketch the voltage output of the DC generator for two complete revolutions. Label only time intervals on the T-axis. (3 marks)**
-
-![EMF-Time Graph](https://vceproblems.s3.amazonaws.com/solution_media/DCGen2.2ANS.png)
-
----
-
-The induced emf starts at a maximum value. Current is **rectified** every 180° by the split-ring commutator, the emf and current alternate direction, and **only one side of the T-axis is observed**. **One complete revolution takes 0.02 s.**
-
----
-
-**e.g 2. A rotating coil alternator consists of a rectangular loop measuring 5.0 × 10⁻³ m × 2.0 × 10⁻³ m with 100 turns positioned within a uniform 8.0 × 10⁻³ T magnetic field. The coil completes one full rotation every 0.02 s.**
-
-![Alternator](https://vceproblems.s3.amazonaws.com/question_media/Alternator2.1.png)
-
-**a) If the coil JKLM rotates anti-clockwise as viewed from the side of the slip rings, determine whether the current in side KL flows from K to L or L to K during the first quarter turn. Provide your reasoning. (3 marks)**
-
-***The direction of the induced current through side KL is from L to K. As the coil rotates in an anticlockwise direction, the flux through the loop directed to the right increases. According to Lenz’s Law, to oppose this change, a current is induced such that its magnetic flux through the loop is directed to the left, resulting in current flowing from L to K.***
-
----
-**Note:** The question specifically asked for the current during a **quarter turn** of the coil.  
-
-Beyond this point, the **direction of the induced current will reverse**, since an **alternator naturally produces alternating current (AC)** as the coil continues to rotate.
-
----
-
-![Flux Time Graph](https://vceproblems.s3.amazonaws.com/question_media/DCGen5.2.png)
-
-**b) On the grid provided above, sketch the flux versus time output of the graph for two complete revolutions as the coil begins to rotate. Label the horizontal axis with scales and mark the peaks on the flux axis. (3 marks)**
-
-![Flux Time Graph Answer](https://vceproblems.s3.amazonaws.com/question_media/FluxTimeAnswer.png)
-
----
-
-To find the **maximum magnetic flux** through the coil, use the formula, $$\Phi = BA$$. The period is given as **0.02 s**, and as shown in **Figure A**, the flux starts from **0 Wb**.
+Where:
+- $ \lambda $ = wavelength of light (m)
+- $ L $ = distance from the slits to the screen (m)
+- $ d $ = distance between the two slits (m)
 
 
 ---
 
-![EMF Time Graph](https://vceproblems.s3.amazonaws.com/question_media/Flux5.3.png)
 
-**c) The graph above displays the EMF output versus time for two complete revolutions.**
+<br>
 
-**The following changes were made to the configuration of the alternator.**
 
-**- Frequency of rotation is doubled**
-**- Strength of the magnetic field is halved.**
+Let's consider the problem below.
 
-**Sketch, on the same set of axis, the resulting flux versus time graph after these changes are made for two complete revolutions with a dotted line. (3 marks)**
 
-![EMF Time Graph](https://vceproblems.s3.amazonaws.com/question_media/EMFTimeAnswer.png)
+<br>
+
+
+**Physics students studying the phenomenon of interference set up a Young's double slit experiment using a red light source as shown in Figure A below.**
+
+
+![Young's Experiment](https://vceproblems.s3.amazonaws.com/question_media/Interference4.2.png)
+
+
+**a) Explain why the point C directly at the centre is a bright band rather than a dark band. (2 marks)**
+
+
+***Point C is a bright band because the path difference is 0, resulting in constructive interference where p.d = $n\lambda$. Dark bands, which result from destructive interference occur when their path difference is an odd multiple of half the wavelength.***
 
 
 ---
 
-Doubling the **frequency** means the **period is halved**, so the coil completes one rotation in **half the original time**. This also results in the **emf doubling**, since emf is proportional to the **rate of change of flux**.
-However, **halving the magnetic field strength** also **halves the emf**. So, doubling the frequency and halving the field strength **cancel each other out** — the overall **magnitude of the emf remains unchanged**.
+
+<br>
+
+
+**b) Determine the wavelength of the red light source. Show your working.(3 marks)**
+
+
+$$\Delta x = \frac{\lambda L}{d} $$ \
+$$\lambda = \frac{\Delta x d}{L} $$
+
+
+$$\Delta x = \frac{1.40\times 10^{-2}}{3} $$ \
+$$\Delta x = 0.0046... $$
+
+
+$$\lambda = \frac{0.0046... \times 20.0 \times 10^{-6}}{0.15} $$ \
+$$\lambda = 6.2 \times 10^{-7} \; \text{m} $$
+
 
 ---
 
-## **Peak and RMS Values**
 
-The output of an alternator (EMF vs time) follows a **sinusoidal waveform**. While the waveform reaches **peak values** (maximum amplitude), it's often more practical to refer to its **RMS (Root Mean Square) value**, which represents an **effective or average voltage.**
-
-![Australia AC mains power](https://vceproblems.s3.amazonaws.com/question_media/AustraliaAC.png)
+Here, we use the **fringe spacing formula.**  However, instead of directly using the total distance to the third bright fringe (B₃), remember that **Δx** represents the distance between **consecutive bright fringes**.
 
 
-- The **RMS value** is calculated by:
-  
-  $$
-  V_{\text{RMS}} = \frac{V_{\text{peak}}}{\sqrt{2}}
-  $$
+So, if the total distance from the central maximum (C) to the **third bright fringe (B₃)** is 1.40 $\times $ 10$^{-2} $, then the value of $ \Delta x $ is $ \frac{1.40 \times 10^{-2}}{3} $.
 
-- The **Peak-to-Peak value** is:
-
-  $$
-  V_{\text{peak-peak}} = 2 \cdot V_{\text{peak}}
-  $$
-
-- In **Australia**, the standard mains power supply is **230 V RMS at 50 Hz**.
-
-> An RMS voltage is equivalent to a **constant DC voltage** that would produce the **same power output.**
 
 ---
 
-##  **Conclusion for Generators and Alternators**
 
-Both **generators** and **alternators** rely on the principle of **electromagnetic induction**, converting **mechanical (rotational) energy** into **electrical energy** by rotating a coil within a magnetic field.
+<br>
 
-- In an **alternator**, the use of **slip rings** allows the induced emf to **alternate naturally**, producing an **alternating current (AC)** that reverses direction every half-turn.
-  
-- In contrast, a **DC generator** uses a **split-ring commutator** to reverse the coil's connections every 180°, ensuring that the current in the **external circuit always flows in one direction**, resulting in a **direct current (DC)** output.
+
+**c) Determine the distance S₁B₂ if the distance S₂B₂ = 3.0 × 10⁻⁶ m. Show your working. (2 marks)**
+
+
+$$ p.d = S_2B_2 - S_1B_2 $$
+
+
+$$ 2 \lambda = S_2B_2 - S_1B_2 $$
+
+
+$$ 2 \times 6.2... \times 10^{-7} = 3.0 \times 10^{-6} - S_1B_2 $$
+
+
+$$ S_1B_2 = 1.76 \times 10^{-6} \; \text{m} $$
+
+
+---
+Since B₂ corresponds to the **second bright fringe** from the centre, we have p.d $= 2\lambda $
+
+
+$ \lambda $ is the wavelength **calculated in part b)**, so we substitute that value into the equation to find $S_1B_2$.
+
+
+---
+
+
+
+
+## Conclusion for Light as a Wave
+
+
+To understand light as a wave, we first needed to grasp the basic properties of waves. Waves are described using key terms such as **wavelength (λ)**, **frequency (f)**, and **period (T)**, providing the **wave equation**: 
+$$
+v = f\lambda
+$$
+
+
+From this foundation, we observe several important **wave phenomena**:
+
+
+- **Interference**
+  - **Constructive interference** (amplitudes reinforce each other)
+  - **Destructive interference** (amplitudes cancel out)
+ - **Standing waves** (waves of the same frequency travel in opposite directions and interfere)
+
+
+- **Resonance** (external force vibrating a system at its natural frequency)
+
+
+- **Diffraction** (spreading of waves)
+
+
+The **wave model of light** is strongly supported by **Yong's double-slit experiment**. If light were purely a stream of particles, we would expect only two bright spots behind the slits. However, what is observed is a pattern of alternating **bright and dark fringes** where it can only be explained by constructive interference (p.d = $ n\lambda$) and destructive interference (p.d = $ \left(n + \frac{1}{2}\right)\lambda$) respectively.

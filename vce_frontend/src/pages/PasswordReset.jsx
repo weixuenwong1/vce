@@ -48,30 +48,17 @@ const PasswordReset = () => {
 
   }
     return (
-        <div style={{ position: 'relative', 
-                      minHeight: '100vh', 
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#2E2E2E',
-                      overflow: 'hidden',
-                    }}>
+        <div className="passwordResetRequestPage">
           {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."} color={"black"}/> : null}
           <div className="gradient-bg-blue" />
           <div className="gradient-bg-orange" />
-          <div style={{
-            position: 'relative',
-            zIndex: 1,
-            color: 'white',
-            padding: '2rem',
-            textAlign: 'center'
-          }}>
+          <div className="passwordResetRequestContainer">
             <form onSubmit={handleSubmit(submission)}>
-              <Box className ={"formBox"}>
+              <Box className ={"passwordFormBox"}>
                   <Box className={"itemBox"}>
                     <Box className="key-circle">
                       <KeyRound size={50} color="white" />
-                    </Box>
+                    </Box> 
                       <Box className={"reset-password-title"}> Reset Password </Box>
                   </Box>
                   <p className="instruction-text">Enter a new password</p>
@@ -84,7 +71,7 @@ const PasswordReset = () => {
                     <FormPassField name={"password2"} control={control} label="Confirm Password" />
                   </Box>
                   <Box className={"itemBox"}>
-                      <button className="regButton"  type={"submit"}>Reset Password</button>
+                      <button className="passwordRegButton"  type={"submit"}>Reset Password</button>
                   </Box>
                   <Box className={"itemBox"}>
                   </Box>

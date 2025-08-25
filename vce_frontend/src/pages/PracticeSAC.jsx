@@ -66,7 +66,7 @@ const PracticeSAC = () => {
 
               {loading ? (
                 <div className="loader-wrapper">
-                    <div className="loader"></div>
+                    <div className="loader2"></div>
                 </div>
             ) : (
                 <div className="chapter-section">
@@ -84,9 +84,16 @@ const PracticeSAC = () => {
                                 <h4 className="sac-chapter-heading">{item.chapter_name}</h4>
                                 <p className="sac-chapter-description">{item.chapter_description}</p>
                                 </div>
-                                <div
-                                className="sac-right"
-                                onClick={() => handleChapterClick(item.slug)}
+                                <div className="sac-right"
+                                    role="button"
+                                    tabIndex="0"
+                                    aria-label={`Generate Practice SAC for ${item.chapter_name}`}
+                                    onClick={() => handleChapterClick(item.slug)}
+                                    onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        handleChapterClick(item.slug);
+                                    }
+                                    }}
                                 >
                                 <div className="generate-tab">
                                     <h2>Generate Practice SAC</h2>
