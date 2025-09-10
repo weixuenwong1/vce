@@ -13,11 +13,11 @@ import 'react-toastify/dist/ReactToastify.css'
 const Summaries = lazy(() => import('./pages/Summaries'))         
 const Problems = lazy(() => import('./pages/Problems'))
 const SAC = lazy(() => import('./pages/SAC'))
-const PracticeSAC = lazy(() => import('./pages/PracticeSAC'))
 
 // medium / general
 const Practice = lazy(() => import('./pages/Practice'))
 const Chapters = lazy(() => import('./pages/Chapters'))
+const PracticeSAC = lazy(() => import('./pages/PracticeSAC'))
 const SubmitQuestion = lazy(() => import('./pages/SubmitQuestion'))
 
 // light 

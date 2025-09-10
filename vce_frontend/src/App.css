@@ -136,13 +136,13 @@ body {
 
 .passwordRegButton {
   font-family: 'Courier New', monospace;
-  margin-top: 30px;
+  margin-top: 0.5rem;
   width: 100%;
   background-color: #ffffff;
   color: #080710;
   padding: 10px 10px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 0;
   border: 2px solid #64b5f6;
   box-shadow: 2px 2px 0 #2196f3; 
@@ -331,7 +331,7 @@ form *{
   color: #080710;
   padding: 10px 10px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 0;
   border: 2px solid #FFB74D;
   box-shadow: 2px 2px 0 #FF7043;
@@ -786,6 +786,7 @@ select:-webkit-autofill:focus {
   .auth-text-logo-login {
     font-size: 2.2rem;
     margin-bottom: 12px;
+    margin-top: -5px;
   }
 }
 

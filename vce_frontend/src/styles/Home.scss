@@ -64,13 +64,13 @@ $soft-yellow: #FFD180;
   }
 
   @media (max-width: 900px) {
-    h1 { font-size: 2.5rem; }
+    h1 { font-size: 2.8rem; }
     h2 { font-size: 1.2rem; }
     p { font-size: 0.85rem; }
   }
 
   @media (max-width: 600px) {
-    h1 { font-size: 2.0rem; }
+    h1 { font-size: 2.5rem; }
     h2 { font-size: 1.0rem; }
     p { font-size: 0.8rem; }
   }
@@ -93,12 +93,12 @@ $soft-yellow: #FFD180;
 
 @media (max-width: 1200px) {
   .hero-right { align-self: stretch; }
-  .hero-right img { aspect-ratio: auto; }
+  .hero-right img { aspect-ratio: auto; margin-top: 2rem; }
 }
 
 
 @media (max-width: 500px) {
-  .hero-right img { max-height: 350px; } 
+  .hero-right img { max-height: 350px; margin-top: 5rem; } 
 }
 
 .features-section {
@@ -144,25 +144,18 @@ $soft-yellow: #FFD180;
       border-radius: 999px;
       font-size: 1.1rem;
       white-space: nowrap;
-      border: 2px solid transparent;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
 
       &:nth-child(1) {
         background: #3D5AFE;
-        border-color: #3D5AFE;
-        box-shadow: 4px 4px 0 0 #0e27b3;
       }
 
       &:nth-child(2) {
         background: #00838F;
-        border-color: #00838F;
-        box-shadow: 4px 4px 0 0 #00515a;
+
       }
 
       &:nth-child(3) {
         background: #9C27B0;
-        border-color: #9C27B0;
-        box-shadow: 4px 4px 0 0 #570266;
       }
     }
   }
@@ -179,7 +172,7 @@ $soft-yellow: #FFD180;
   }
 
   @media (max-width: 600px) {
-    margin: 3rem 0;
+    margin: 6rem 0 4rem;
     padding: 2rem 1rem;
     h3 { font-size: 1.4rem; }
     .why-chuba {
@@ -304,7 +297,7 @@ $soft-yellow: #FFD180;
   .homepage-container .card-section {
     .subject-heading {
       font-size: 2.0rem;
-      margin: 10rem 0 4rem;
+      margin: 5rem 0 4rem;
     }
 
     .card-container {
@@ -601,7 +594,7 @@ $soft-yellow: #FFD180;
     }
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
 
     p {
@@ -652,4 +645,10 @@ $soft-yellow: #FFD180;
 .card:focus {
   outline: 3px solid $vibrant-blue;
   outline-offset: 4px;
+}
+
+.twemoji {
+  height: 1em;
+  width: 1em;
+  vertical-align: -0.12em; 
 }

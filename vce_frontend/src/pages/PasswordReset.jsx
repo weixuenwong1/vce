@@ -39,47 +39,47 @@ const PasswordReset = () => {
       token: token,
     })
 
-    .then((response) => {
-      setShowMessage(true)
+    .then(() => {
+      setShowMessage(true);
       setTimeout(() => {
-        navigate('/login')
-      }, 2500)
-    })
-
+        navigate('/login');
+      }, 2500);
+    });
   }
-    return (
-        <div className="passwordResetRequestPage">
-          {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."} color={"black"}/> : null}
-          <div className="gradient-bg-blue" />
-          <div className="gradient-bg-orange" />
-          <div className="passwordResetRequestContainer">
-            <form onSubmit={handleSubmit(submission)}>
-              <Box className ={"passwordFormBox"}>
-                  <Box className={"itemBox"}>
-                    <Box className="key-circle">
-                      <KeyRound size={50} color="white" />
-                    </Box> 
-                      <Box className={"reset-password-title"}> Reset Password </Box>
-                  </Box>
-                  <p className="instruction-text">Enter a new password</p>
-                  <Box className={"itemBox"}>
-                    <label htmlFor="password" className="customLabel">Password</label>
-                    <FormPassField name={"password"} control={control} label="Password" />
-                  </Box>
-                  <Box className={"itemBox"}>
-                    <label htmlFor="confirmPassword" className="customLabel">Confirm Password</label>
-                    <FormPassField name={"password2"} control={control} label="Confirm Password" />
-                  </Box>
-                  <Box className={"itemBox"}>
-                      <button className="passwordRegButton"  type={"submit"}>Reset Password</button>
-                  </Box>
-                  <Box className={"itemBox"}>
-                  </Box>
+
+  return (
+    <div className="passwordResetRequestPage">
+      {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."} color={"black"}/> : null}
+      <div className="gradient-bg-blue" />
+      <div className="gradient-bg-orange" />
+      <div className="passwordResetRequestContainer">
+        <form onSubmit={handleSubmit(submission)}>
+          <Box className ={"passwordFormBox"}>
+              <Box className={"itemBox"}>
+                <Box className="key-circle">
+                  <KeyRound size={50} color="white" />
+                </Box> 
+                  <Box className={"reset-password-title"}> Reset Password </Box>
               </Box>
-            </form>
-          </div>
-        </div>
-    );
+              <p className="instruction-text">Enter a new password</p>
+              <Box className={"itemBox"}>
+                <label htmlFor="password" className="customLabel">Password</label>
+                <FormPassField name={"password"} control={control} label="Password" />
+              </Box>
+              <Box className={"itemBox"}>
+                <label htmlFor="confirmPassword" className="customLabel">Confirm Password</label>
+                <FormPassField name={"password2"} control={control} label="Confirm Password" />
+              </Box>
+              <Box className={"itemBox"}>
+                  <button className="passwordRegButton"  type={"submit"}>Reset Password</button>
+              </Box>
+              <Box className={"itemBox"}>
+              </Box>
+          </Box>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default PasswordReset

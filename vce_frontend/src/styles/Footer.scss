@@ -16,8 +16,6 @@
     gap: 2rem 2.5rem;
     align-items: start;
     justify-items: start;
-
-    /* ✅ reserve consistent spacing to prevent jumps */
     min-height: 200px;
 
     div {
@@ -43,8 +41,11 @@
         text-decoration: none;
         transition: color .2s;
         padding: .2rem 0;
-        /* reserve underline thickness to avoid link shifting */
         text-decoration-thickness: from-font;
+
+        &:hover {
+          color: #3D5A80;   
+        }
       }
 
       p {
@@ -59,7 +60,7 @@
       font-size: .9rem;
       color: #4FC3F7;
       margin-left: .5rem;
-      white-space: nowrap;  /* ✅ stops wrap jump */
+      white-space: nowrap; 
     }
   }
 
@@ -68,7 +69,6 @@
     margin-top: 3rem;
     font-size: .9rem;
     color: #888;
-    /* ✅ reserve space even before text renders */
     min-height: 1.2em;
   }
 
@@ -82,11 +82,13 @@
     padding: 2rem 1rem;
 
     .footer-grid {
-      gap: 1.25rem 1rem;
-
-      h4 { font-size: 1.2rem; }
-      ul li { margin-bottom: .4rem; }
-      p { font-size: .95rem; }
+      gap: 2.25rem 3rem;
+      div {
+        h4 { font-size: 1.15rem; }
+        ul li { margin-bottom: .4rem; }
+        p { font-size: .90rem; }
+        a {font-size: .90rem; }
+      }
     }
 
     .footer-bottom {

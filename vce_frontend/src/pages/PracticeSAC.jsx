@@ -18,7 +18,7 @@ const PracticeSAC = () => {
 
     const getChapters = async () => {
         try {
-            const res = await AxiosInstance.get(`api/chapters`);
+            const res = await AxiosInstance.get(`api/chapters/`);
             const filtered = res.data.filter(item =>
                 item.subject?.toLowerCase() === subject.toLowerCase()
             );
@@ -65,7 +65,7 @@ const PracticeSAC = () => {
               <hr className="dividerMenu"/>
 
               {loading ? (
-                <div className="loader-wrapper">
+                <div className="loader-overlay">
                     <div className="loader2"></div>
                 </div>
             ) : (

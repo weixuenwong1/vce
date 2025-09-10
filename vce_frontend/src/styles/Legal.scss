@@ -61,7 +61,6 @@ $soft-yellow: #FFD180;
     }
   }
 
-  // Tablet: Medium screens
   @media (max-width: 768px) {
     padding: 2rem 1.5rem;
 
@@ -88,7 +87,6 @@ $soft-yellow: #FFD180;
     }
   }
 
-  // Mobile: Small screens
   @media (max-width: 500px) {
     padding: 1.5rem 1rem;
 
@@ -115,7 +113,6 @@ $soft-yellow: #FFD180;
     }
   }
 
-  // Extra Small: Narrow mobile devices
   @media (max-width: 375px) {
     h1 {
       font-size: 1.5rem;

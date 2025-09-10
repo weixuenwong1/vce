@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AxiosInstance from '../utils/AxiosInstance'
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -20,6 +19,8 @@ const Summaries = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [prevTopic, setPrevTopic] = useState(null);
   const [nextTopic, setNextTopic] = useState(null);
+  const supportsLookbehind = (() => { try { new RegExp('(?<=a)b'); return true; } catch { return false; } })();
+  const supportsNamedGroups = (() => { try { new RegExp('(?<n>a)');  return true; } catch { return false; } })();
 
   const slugify = (str) =>
     str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -54,6 +55,23 @@ const Summaries = () => {
   }, [subject, chapter_slug, topic_slug]);
 
 
+  function useRemarkPlugins() {
+    const [plugins, setPlugins] = useState([remarkMath]);   // start minimal
+    useEffect(() => {
+      (async () => {
+        if (supportsLookbehind && supportsNamedGroups) {
+          const { default: remarkGfm } = await import('remark-gfm'); // ✅ load only on capable engines
+          setPlugins([remarkMath, remarkGfm]);
+        } else {
+          setPlugins([remarkMath]); // fallback, still renders content
+        }
+      })();
+    }, []);
+    return plugins;
+  }
+
+  const remarkPlugins = useRemarkPlugins();
+
   const renderers = {
     blockquote: ({ children }) => (
       <blockquote style={{
@@ -68,7 +86,7 @@ const Summaries = () => {
     p: ({ children }) => (
       <p style={{ marginBottom: '1rem' }}>{children}</p>
     ),
-    img: ({ ...props }) => (
+    img: ({ node, ...props }) => (
       <img {...props} style={{ display: 'block', margin: '1.5rem auto', maxWidth: '100%' }} />
     ),
     hr: () => (
@@ -79,7 +97,7 @@ const Summaries = () => {
 
   if (!dataLoaded) {
     return (
-      <div className="loader-wrapper">
+      <div className="loader-overlay">
         <div className="loader2"></div>
       </div>
     );
@@ -91,7 +109,7 @@ const Summaries = () => {
       <div className="summaries-page-container">
         <ReactMarkdown
           children={content}
-          remarkPlugins={[remarkGfm, remarkMath]}
+          remarkPlugins={remarkPlugins}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={renderers}
         />

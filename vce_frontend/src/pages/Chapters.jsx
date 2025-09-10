@@ -18,13 +18,14 @@ const Chapters = () => {
         biology: "🧬"
     };
 
-    const GetChapter = async () => {
+    const getChapter = async () => {
         try {
-            const res = await AxiosInstance.get(`api/chapters`);
+            const res = await AxiosInstance.get(`api/chapters/`);
             const filtered = res.data.filter(item =>
                 item.subject && item.subject.toLowerCase() === subject.toLowerCase()
             );
-
+            
+             // Filter chapters so only those matching the current subject remain
             const sorted = filtered.sort((a, b) => {
                 const order = chapterOrders[subject.toLowerCase()] || [];
                 return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
@@ -34,6 +35,7 @@ const Chapters = () => {
             setLoading(false);
         } catch (err) {
             console.error("Failed to load chapters for", subject, err);
+            setLoading(false)
         }
     };
 
@@ -51,6 +53,7 @@ const Chapters = () => {
             setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
         } catch (err) {
             console.error("Failed to load topics for", slug, err);
+            setLoading(false)
         }
     };
 
@@ -59,9 +62,10 @@ const Chapters = () => {
         if (!validSubjects.includes(subject?.toLowerCase())) {
             navigate('/404');
         } else {
-            GetChapter();
+            getChapter();
         }
     }, [subject]);
+
 
     useEffect(() => {
         chapter.forEach(item => fetchTopics(item.slug));
@@ -83,7 +87,7 @@ const Chapters = () => {
                  <hr className="dividerMenu"/>
                  
                 {loading ? (
-                    <div className="loader-wrapper">
+                    <div className="loader-overlay">
                         <div className="loader2"></div>
                     </div>
                 ) : (

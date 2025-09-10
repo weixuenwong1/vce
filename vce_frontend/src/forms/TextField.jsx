@@ -25,9 +25,9 @@ export default function FormTextField(props) {
             sx={{
               color: 'black',
               fontFamily: 'Courier New',
-              fontWeight: 600,
+              fontWeight: 700,
               letterSpacing: '0.2px',
-              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+              fontSize: { xs: '1rem', sm: '1rem', md: '1.1rem' },
 
               '& .MuiOutlinedInput-input': {
                 padding: { xs: '12px 12px', sm: '12px 14px', md: '14px 16px' },

@@ -13,3 +13,16 @@ __pycache__/
 test.md
 test2.md
 vce/problems/data/
+
+db.sqlite3
+db.sqlite3-journal
+*.log
+
+build/
+dist/
+*.egg-info/
+
+.pytest_cache/
+.coverage
+htmlcov/
+tests

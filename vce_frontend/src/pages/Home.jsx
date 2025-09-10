@@ -71,7 +71,7 @@ const Home = () => {
           <SubjectSection
             key={index}
             emoji={subject.emoji}
-            title={subject.title}
+            title={subject.title} 
             cards={subject.cards}
           />
         ))}

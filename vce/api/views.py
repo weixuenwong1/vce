@@ -21,20 +21,27 @@ from contents.models import Subject, Chapter, Topic
 from submission.models import QuestionSubmission
 
 
-from django.db import IntegrityError, transaction
+from django.db import transaction
 
+
+# ------------------------
+# SUBJECT & CHAPTER VIEWS
+# ------------------------
 
 class SubjectListView(ListAPIView):
+    """GET: List all subjects, ordered alphabetically."""
     queryset = Subject.objects.all().order_by("name")
     serializer_class = SubjectSerializer
     permission_classes = [AllowAny]
 
 class ChapterListView(generics.ListAPIView):
+    """GET: List all chapters (unsorted)."""
     queryset = Chapter.objects.all()
     serializer_class = ChapterSerializer
 
 
 class TopicsByChapterSlugView(generics.ListAPIView):
+    """GET: List all topics for a given chapter slug."""
     serializer_class = TopicSerializer
 
     def get_queryset(self):
@@ -42,6 +49,7 @@ class TopicsByChapterSlugView(generics.ListAPIView):
 
 
 class ChapterBySlugView(APIView):
+    """GET: Retrieve a chapter name by its slug."""
     def get(self, request, slug):
         chapter = get_object_or_404(Chapter, slug=slug)
         return Response({
@@ -49,13 +57,19 @@ class ChapterBySlugView(APIView):
         })
     
 class SubjectChaptersView(APIView):
+    """GET: Retrieve all chapters belonging to a subject (by subject_id)."""
     def get(self, request, subject_id):
         qs = Chapter.objects.filter(subject_id=subject_id).order_by("chapter_name")
         data = ChapterSerializer(qs, many=True).data
         return Response(data)
 
+# ------------------------
+# TOPIC SUMMARIES
+# ------------------------
+
 
 class TopicSummaryView(APIView):
+    """GET: Retrieve the summary for a specific topic inside a chapter."""
     def get(self, request, *args, **kwargs):
         subject = kwargs.get('subject')
         chapter_slug = kwargs.get('chapter_slug')
@@ -65,84 +79,77 @@ class TopicSummaryView(APIView):
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
         serializer = TopicSummarySerializer(topic)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
 
-class QuestionInChapterDetailView(APIView):
+
+# ------------------------
+# QUESTION FETCHING
+# ------------------------
+
+
+class NextQuestionView(APIView):
+    """
+    POST: Fetch the next unseen question for a user in a given topic.
+    - Keeps track of which questions the user has already seen.
+    - Resets seen list once all questions are exhausted.
+    """
+
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, subject, chapter_slug, topic_slug):
+    @transaction.atomic
+    def post(self, request, subject, chapter_slug, topic_slug):
         user = request.user
-        chapter = get_object_or_404(Chapter, slug=chapter_slug, subject__name__iexact=subject)
+        chapter = get_object_or_404(
+            Chapter, slug=chapter_slug, subject__name__iexact=subject
+        )
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
 
-        all_questions = Question.objects.filter(topic=topic)
-        total_questions = all_questions.count()
-
-        seen_ids = SeenQuestion.objects.filter(
-            user=user, topic=topic
-        ).values_list('question__question_uid', flat=True)
-
-        print(f"[{user.email}] Total questions for topic '{topic.slug}': {total_questions}")
-        print(f"[{user.email}] Seen questions: {len(seen_ids)}")
+        all_qs = Question.objects.filter(topic=topic).order_by('pk')
+        total = all_qs.count()
+        if total == 0:
+            return Response({"detail": "No questions in this topic."}, status=404)
 
 
-        if len(seen_ids) >= total_questions:
+        seen_pks = set(
+            SeenQuestion.objects
+                .filter(user=user, topic=topic)
+                .values_list('question_id', flat=True)  
+        )
+
+        unseen_qs = all_qs.exclude(pk__in=seen_pks)
+
+        if not unseen_qs.exists():
             SeenQuestion.objects.filter(user=user, topic=topic).delete()
-            seen_ids = []
+            unseen_qs = all_qs
+
+        print(
+            f"User={user.id}, Topic={topic.pk}, "
+            f"seen={len(seen_pks)}, unseen={unseen_qs.count()}, total={total}"
+        )
+
+        count = unseen_qs.count()
+        idx = random.randrange(count)
+        q = unseen_qs[idx:idx+1].first()
 
 
-        unseen_questions = all_questions.exclude(question_uid__in=seen_ids)
-        unseen_count = unseen_questions.count()
-        print(f"[{user.email}] Unseen questions remaining: {unseen_count}")
-    
-        if not unseen_questions.exists():
-            return Response({
-                "message": "No unseen questions available (even after reset)",
-                "total_available": total_questions
-            }, status=status.HTTP_200_OK)
+        SeenQuestion.objects.get_or_create(user=user, topic=topic, question=q)
 
-        serializer = QuestionSerializer(unseen_questions, many=True)
-
-        return Response({
-            "questions": serializer.data,
-            "total_available": total_questions
-        }, status=status.HTTP_200_OK)
-    
-
-############################################################################################
-
-
-class MarkQuestionSeenView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request):
-        question_uid = request.data.get("question_uid")
-        if not question_uid:
-            return Response({"detail": "question_uid missing"}, status=400)
-
-        question = get_object_or_404(Question, question_uid=question_uid)
-
-        results = []
-        for topic in question.topic.all():
-            try:
-                with transaction.atomic():
-                    obj, created = SeenQuestion.objects.get_or_create(
-                        user=request.user,
-                        question=question,
-                        topic=topic,
-                    )
-            except IntegrityError:
-                created = False
-
-            results.append({
-                "topic_id": getattr(topic, "id", None),
-                "created": created,
-            })
-
-        return Response({"status": "ok", "results": results}, status=200)
+        data = QuestionSerializer(q).data  
+        return Response(
+            {
+                "question": data,
+                "meta": {
+                    "total_available": total,
+                    "topic_id": topic.pk,  
+                },
+            },
+            status=status.HTTP_200_OK,
+        )
 
 
 class ResetSeenQuestionsView(APIView):
+    """
+    DELETE: Reset (clear) all seen questions for a user in a given topic.
+    """
     permission_classes = [IsAuthenticated]
 
     def delete(self, request, topic_id):
@@ -151,10 +158,17 @@ class ResetSeenQuestionsView(APIView):
         return Response({"message": "Seen questions reset.", "deleted": deleted}, status=status.HTTP_200_OK)
 
 
-############################################################################################
-
+# ------------------------
+# RANDOM SAC GENERATION
+# ------------------------
 
 class RandomSACQuestionsView(APIView):
+    """
+    GET: Generate a set of random SAC-style questions for a given chapter.
+    - Chemistry: 7 MCQ + 6 SA (Exam-Level).
+    - Physics: 10 SA (default).
+    - Other subjects: evenly distributed across topics.
+    """
     def get(self, request, subject, chapter_slug):
         chapter = get_object_or_404(
             Chapter, subject__name__iexact=subject, slug=chapter_slug
@@ -242,10 +256,11 @@ class RandomSACQuestionsView(APIView):
 
         serializer = QuestionSerializer(final_questions, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
 
-############################################################################################
 
+# ------------------------
+# QUESTION SUBMISSION INBOX
+# ------------------------
 
 
 class QuestionSubmissionListCreateView(generics.ListCreateAPIView):
@@ -276,7 +291,7 @@ class QuestionSubmissionListCreateView(generics.ListCreateAPIView):
             .order_by('-created_at')
         )
         s = self.request.query_params.get("subject")
-        c = self.request.query_params.get("chapter")  # can be id or slug
+        c = self.request.query_params.get("chapter")  
         t = self.request.query_params.get("topic")
 
         if s:
@@ -294,7 +309,6 @@ class QuestionSubmissionListCreateView(generics.ListCreateAPIView):
         return qs
 
     def create(self, request, *args, **kwargs):
-        # Ensure serializer gets request in context for CurrentUserDefault
         serializer = self.get_serializer(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)

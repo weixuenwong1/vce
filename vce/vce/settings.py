@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from datetime import timedelta
+from corsheaders.defaults import default_headers, default_methods
 
 load_dotenv()
 
@@ -30,7 +31,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "192.168.1.82"]
+ALLOWED_HOSTS = ["127.0.0.1","192.168.1.43"]
 
 
 # Application definition
@@ -56,7 +57,6 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
-    #'accounts.auth_backend.EmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
@@ -65,7 +65,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,10 +74,16 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'http://192.168.1.82:4173',
-    'http://192.168.1.82:5173',
+    'http://192.168.1.43:5173'
 ]
 
+CORS_ALLOW_CREDENTIALS = False 
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "authorization",   
+]
+
+CORS_ALLOW_METHODS = list(default_methods)
 
 
 ROOT_URLCONF = 'vce.urls'

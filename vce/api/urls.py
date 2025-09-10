@@ -2,12 +2,11 @@ from django.urls import path
 from .views import (
     ChapterListView,
     TopicsByChapterSlugView,
-    QuestionInChapterDetailView,
+    NextQuestionView,
     TopicSummaryView,
     RandomSACQuestionsView,
     ChapterBySlugView,
     ResetSeenQuestionsView,
-    MarkQuestionSeenView,
     SubjectListView,
     SubjectChaptersView,
     QuestionSubmissionListCreateView,
@@ -19,10 +18,9 @@ urlpatterns = [
     path('chapters/', ChapterListView.as_view(), name='chapter-list'),
     path('chapters/<slug:slug>/', ChapterBySlugView.as_view(), name='chapter-by-slug'),
     path('chapters/<slug:slug>/topics/', TopicsByChapterSlugView.as_view(), name='chapter-topics'),
-    path('problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/', QuestionInChapterDetailView.as_view(), name='topic-in-chapter-detail'),
+    path('problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/', NextQuestionView.as_view(), name='next-question'),
 
     path("reset-seen/<int:topic_id>/", ResetSeenQuestionsView.as_view()),
-    path("mark-seen/", MarkQuestionSeenView.as_view(), name="mark-question-seen"),
 
     path('summary/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/', TopicSummaryView.as_view(), name='topic-summary'),
     

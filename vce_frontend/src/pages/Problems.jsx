@@ -3,215 +3,141 @@ import AxiosInstance from '../utils/AxiosInstance'
 import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
-import '../styles/Problems.scss'
+import '../styles/Loader.scss';
+import '../styles/Problems.scss';
+import '../components/LoaderOverlay';
 
 
 const QuestionsForTopic = () => {
     const { subject, chapter_slug, topic_slug } = useParams();
-    const [allQuestions, setAllQuestions] = useState([]);
-    const [questionCycle, setQuestionCycle] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const [current, setCurrent] = useState(null);
+    const [history, setHistory] = useState([]);   
+    const [cursor, setCursor] = useState(-1);   
     const [showSolutions, setShowSolutions] = useState(false);
     const [loading, setLoading] = useState(true);
     const [contentVisible, setContentVisible] = useState(false);
     const [totalAvailable, setTotalAvailable] = useState(0);
-
-
-    const [topicId, setTopicId] = useState(null);
-
-    const [seenQuestions, setSeenQuestions] = useState(new Set());
-    const seenRef = useRef(new Set());
-    const inFlight = useRef(new Set());
     const [navLock, setNavLock] = useState(false);
 
     const navigate = useNavigate();
 
-    const shuffleArray = (arr) => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+    const nextUrl = `api/problems/${subject}/${chapter_slug}/${topic_slug}/`; 
+
+    const prevDisabled = cursor <= 0 || navLock;
+    const nextDisabled = navLock;
+
+    async function fetchNextQuestion() {
+        const res = await AxiosInstance.post(nextUrl); 
+        return res.data; 
     }
-    return a;
-    };
-
-    const goTo = (i) => {
-        const len = questionCycle.length;
-        if (!len) return;
-        const idx = Math.max(0, Math.min(i, len - 1));
-        setCurrentIndex(idx);
-    };
-
-    const fetchQuestions = async () => {
-        const MIN_SPINNER_MS = 1200;
-        const spin = new Promise((res) => setTimeout(res, MIN_SPINNER_MS));
-        try {
-            const res = await AxiosInstance.get(`api/problems/${subject}/${chapter_slug}/${topic_slug}`);
-            const data = res.data;
-
-            if (!data?.questions?.length) {
-            navigate('/404');
-            return;
-            }
-
-            setTopicId(data.topic_id ?? null);
-
-            setTotalAvailable(data.total_available || data.questions.length || 0);
-            setAllQuestions(data.questions);
-            setQuestionCycle(shuffleArray(data.questions));
-            setCurrentIndex(0);
-
-
-            seenRef.current = new Set();
-            setSeenQuestions(new Set());
-
-            await spin;
-            setLoading(false);
-            setContentVisible(true);
-        } catch (err) {
-            console.error("Failed to load questions", err);
-            navigate('/500');
-        }
-    };
 
     useEffect(() => {
-        setLoading(true);
-        setContentVisible(false);
-        fetchQuestions();
+        let cancelled = false;
+        (async () => {
+            setLoading(true);
+            setContentVisible(false);
+            setShowSolutions(false);
+            setHistory([]);         
+            setCursor(-1);
+            setCurrent(null);
+
+            try {
+                const MIN_SPINNER_MS = 600;
+                const spin = new Promise(r => setTimeout(r, MIN_SPINNER_MS));
+
+                const { question, meta } = await fetchNextQuestion();
+                if (cancelled) return;
+
+                setTotalAvailable(meta?.total_available ?? 0);
+                setHistory([question]);
+                setCursor(0);
+                setCurrent(question);
+
+                await spin;
+                setContentVisible(true);
+            } catch (e) {
+                console.error("Failed to load first question", e);
+                navigate('/500');
+            } finally {
+                if (!cancelled) setLoading(false);
+            }
+        })();
+        return () => { cancelled = true; };
     }, [subject, chapter_slug, topic_slug]);
 
-    const markSeen = async (questionUid) => {
-        if (!questionUid) return;
-
-        if (seenRef.current.has(questionUid) || inFlight.current.has(questionUid)) return;
-
-        inFlight.current.add(questionUid);
-        try {
-            await AxiosInstance.post(`/api/mark-seen/`, { question_uid: questionUid });
-            seenRef.current.add(questionUid);
-            setSeenQuestions(new Set(seenRef.current));
-        } catch (err) {
-            console.error("Failed to mark question as seen", err);
-        } finally {
-            inFlight.current.delete(questionUid);
-        }
-    };
-
-    const resetOnServerAndRefetch = async () => {
-        if (!topicId) {
-            const fullList = allQuestions.length ? allQuestions : questionCycle;
-            setQuestionCycle(prev => [...prev, ...shuffleArray(fullList)]);
-            return;
-        }
-
-        try {
-            await AxiosInstance.delete(`/api/reset-seen/${topicId}/`);
-            seenRef.current = new Set();
-            setSeenQuestions(new Set());
-            await fetchQuestions();
-        } catch (err) {
-            console.error("Failed to reset seen on server", err);
-            const fullList = allQuestions.length ? allQuestions : questionCycle;
-            setQuestionCycle(prev => [...prev, ...shuffleArray(fullList)]);
-        }
-    };
-
     const handleNextQuestion = async () => {
-    if (!questionCycle.length || navLock) return;
-    setNavLock(true);
-    setShowSolutions(false);
-    setContentVisible(false);
+        if (navLock) return;
+        setNavLock(true);
+        setShowSolutions(false);
+        setContentVisible(false);
 
-    const currentUid = questionCycle[currentIndex]?.question_uid;
+        const MIN_SPINNER_MS = 800;
+        const spin = new Promise(r => setTimeout(r, MIN_SPINNER_MS));
 
-    try { await markSeen(currentUid); } catch {}
-
-    setTimeout(async () => {
-        window.scrollTo(0, 0);
-
-        const nextIndex = currentIndex + 1;
-        if (nextIndex < questionCycle.length) {
-            setCurrentIndex(nextIndex);
+        if (cursor < history.length - 1) {
+            const newCursor = cursor + 1;
+            setCursor(newCursor);
+            setCurrent(history[newCursor]);
+            await spin;
             setContentVisible(true);
             setNavLock(false);
-            return;
-        }
-
-        if (totalAvailable > 0 && seenRef.current.size >= totalAvailable) {
-            await resetOnServerAndRefetch();
-            setNavLock(false);
+            window.scrollTo(0, 0);
             return;
         }
 
         try {
-            const res = await AxiosInstance.get(`api/problems/${subject}/${chapter_slug}/${topic_slug}`);
-            const data = res.data;
+            const { question, meta } = await fetchNextQuestion();
+            setTotalAvailable(meta?.total_available ?? totalAvailable);
 
-            if (!data?.questions?.length) {
-                navigate('/404');
-                return;
-            }
+            setHistory(prev => [...prev, question]);
+            setCursor(prev => prev + 1);
+            setCurrent(question);
 
-            const cycleIds = new Set(questionCycle.map(q => q.question_uid));
-            const newOnes = data.questions.filter(q => !cycleIds.has(q.question_uid));
-            if (newOnes.length === 0) {
-                const fullList = allQuestions.length ? allQuestions : data.questions;
-                setQuestionCycle(prev => [...prev, ...shuffleArray(fullList)]);
-                setCurrentIndex(prev => prev + 1);
-                setContentVisible(true);
-                setNavLock(false);
-                return;
-            }
-
-            setTopicId(data.topic_id ?? topicId);
-            setTotalAvailable(data.total_available || totalAvailable);
-            setAllQuestions(prev => [...prev, ...newOnes]);
-            setQuestionCycle(prev => [...prev, ...shuffleArray(newOnes)]);
-            setCurrentIndex(prev => prev + 1);
+            await spin;
             setContentVisible(true);
-        } catch (err) {
-            console.error("Failed to fetch", err);
+            window.scrollTo(0, 0);
+        } catch (e) {
+            console.error("Failed to fetch next", e);
             navigate('/500');
         } finally {
             setNavLock(false);
         }
-    }, 800);
     };
 
     const handlePreviousQuestion = () => {
-        if (currentIndex === 0 || navLock) return;
+        if (navLock) return;
+        if (cursor <= 0) return;             
         setShowSolutions(false);
         setContentVisible(false);
+
+        const newCursor = cursor - 1;
+        setCursor(newCursor);
+        setCurrent(history[newCursor]);
+
         setTimeout(() => {
-            goTo(currentIndex - 1);
             setContentVisible(true);
             window.scrollTo(0, 0);
-        }, 800);
+        }, 250);
     };
 
-
-    const toggleShowSolutions = () => {
-        setShowSolutions(prev => !prev);
-    };
-
+    const toggleShowSolutions = () => setShowSolutions(v => !v);
 
     useEffect(() => {
         if (window.MathJax?.typesetPromise) {
-            window.MathJax.typesetPromise()
-            .catch(err => console.error("MathJax rendering error:", err));
+            window.MathJax.typesetPromise().catch(err => console.error("MathJax error:", err));
         }
-    }, [questionCycle, currentIndex, showSolutions]);
+    }, [current, showSolutions]);
 
-    if (loading || !contentVisible) {
+    if (loading || !contentVisible || !current) {
         return (
-            <div className="loader-wrapper">
+            <div className="loader-overlay">
                 <div className="loader2"></div>
             </div>
         );
     }
 
-
-    const currentQuestion = questionCycle[currentIndex];
+    const currentQuestion = current;
 
     const mathJaxConfig = {
         chtml: {
@@ -351,12 +277,17 @@ const QuestionsForTopic = () => {
 
             <div className="question-nav">
                 <span
-                    className={`question-link left ${currentIndex === 0 ? 'disabled' : ''}`}
+                    className={`question-link left ${prevDisabled ? 'disabled' : ''}`}
                     role="button"
-                    tabIndex={currentIndex === 0 ? -1 : 0}
-                    onClick={currentIndex === 0 ? undefined : handlePreviousQuestion}
-                    aria-disabled={currentIndex === 0}
-                    title={currentIndex === 0 ? '' : 'Previous Question'}
+                    tabIndex={prevDisabled ? -1 : 0}
+                    onClick={!prevDisabled ? handlePreviousQuestion : undefined}
+                    onKeyDown={
+                    !prevDisabled
+                        ? (e) => { if (e.key === 'Enter' || e.key === ' ') handlePreviousQuestion(); }
+                        : undefined
+                    }
+                    aria-disabled={prevDisabled}
+                    title={prevDisabled ? '' : 'Previous Question'}
                 >
                     <ChevronLeft />
                     <span className="link-label-full">Previous Question</span>
@@ -364,13 +295,16 @@ const QuestionsForTopic = () => {
                 </span>
 
                 <span
-                    className="question-link right"
+                    className={`question-link right ${nextDisabled ? 'disabled' : ''}`}
                     role="button"
-                    tabIndex={0}
-                    onClick={handleNextQuestion}
-                    onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') handleNextQuestion();
-                    }}
+                    tabIndex={nextDisabled ? -1 : 0}
+                    onClick={!nextDisabled ? handleNextQuestion : undefined}
+                    onKeyDown={
+                    !nextDisabled
+                        ? (e) => { if (e.key === 'Enter' || e.key === ' ') handleNextQuestion(); }
+                        : undefined
+                    }
+                    aria-disabled={nextDisabled}
                     title="Next Question"
                 >
                     <span className="link-label-short">Next</span>

@@ -14,13 +14,13 @@ $soft-yellow: #FFD180;
 
 
 .summaries-page {
-    background-color: $gray;
-    padding: 2rem 0 ;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    min-height: auto;
-    overflow: visible;
+  background-color: $gray;
+  padding: 2rem 0 ;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: auto;
+  overflow: visible;
     
   .summaries-page-container {
     max-width: 70%;
@@ -156,7 +156,7 @@ $soft-yellow: #FFD180;
 
   @media (max-width: 1200px) {
     .summaries-page-container {
-      max-width: 80%;
+      max-width: 85%;
       padding: 2rem 3rem;
     }
   }
@@ -179,7 +179,7 @@ $soft-yellow: #FFD180;
       }
 
       .summaries-page-container {
-        max-width: 80%;
+        max-width: 90%;
         padding: 2rem 2rem;
       }
 

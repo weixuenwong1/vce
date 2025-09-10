@@ -154,7 +154,7 @@ export default function SubmitQuestion() {
           if (attached) return;
         }
 
-        toast.error('Failed to submit. Please try again.');
+        toast.error('Failed to submit. Please try again later.');
       }
   };
 

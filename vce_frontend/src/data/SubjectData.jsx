@@ -1,7 +1,7 @@
 import subjectImages from "./SubjectImages";
 
 const subjectsData = [
-  {
+  { 
     emoji: "🚀",
     title: "Physics 3/4",
     cards: [

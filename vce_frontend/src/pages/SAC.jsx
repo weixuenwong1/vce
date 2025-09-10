@@ -130,7 +130,7 @@ const SAC = () => {
 
   if (loading) {
     return (
-      <div className="loader-wrapper">
+      <div className="loader-overlay">
         <div className="loader3"></div>
       </div>
     );

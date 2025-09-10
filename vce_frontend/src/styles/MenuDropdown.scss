@@ -204,7 +204,7 @@ $white: #FFF;
   font-family:'Courier New', monospace;
   align-items: center; 
   text-align: center;
-  font-size: 5.0rem;
+  font-size: 3.0rem;
   font-weight: 700;
   color: $white;
   margin: 8rem 0;
@@ -301,9 +301,15 @@ $white: #FFF;
             font-size: 0.95rem;
         }
     }
+
     span {
         font-size: 1.05rem;
     }
+
+    .flipping-hourglass {
+        font-size: 2.0rem;
+    }
+
     .subtitle {
       font-size: 1.2rem;
     }
@@ -344,6 +350,11 @@ $white: #FFF;
       font-size: 1rem;
       padding: 1rem;
     }
+
+    .coming-soon {
+      font-size: 2.0rem;
+      margin: 6rem 0;
+    }
   }
 }
 
@@ -362,6 +373,10 @@ $white: #FFF;
     
     span {
         font-size: 0.90rem;
+    }
+
+    .flipping-hourglass {
+        font-size: 1.8rem;
     }
 
     .subtitle {
@@ -404,7 +419,7 @@ $white: #FFF;
     }
 
     .coming-soon {
-      font-size: 2.2rem;
+      font-size: 1.5rem;
       margin: 6rem 0;
     }
   }

@@ -20,7 +20,7 @@ const Practice = () => {
 
   const getChapters = async () => {
     try {
-      const res = await AxiosInstance.get(`api/chapters`);
+      const res = await AxiosInstance.get(`api/chapters/`);
       const filtered = res.data.filter(item =>
         item.subject?.toLowerCase() === subject.toLowerCase()
       );
@@ -52,6 +52,7 @@ const Practice = () => {
       setTopics(prev => ({ ...prev, [slug]: sortedTopics }));
     } catch (err) {
       console.error("Error fetching topics:", err);
+      setLoading(false)
     }
   };
 
@@ -94,7 +95,7 @@ const Practice = () => {
         <hr className="dividerMenu" />
 
         {loading ? (
-          <div className="loader-wrapper">
+          <div className="loader-overlay">
             <div className="loader2"></div>
           </div>
         ) : (
