@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 import AxiosInstance from '../utils/AxiosInstance'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
+import { topicOrders } from '../data/ListOrders';
 import '../styles/Loader.scss';
 import '../styles/SAC.scss';
 
@@ -12,7 +12,7 @@ const SAC = () => {
   const [loading, setLoading] = useState(true);
   const [chapterName, setChapterName] = useState('');
   const [showSolutions, setShowSolutions] = useState(false);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
   const mathJaxConfig = {
     chtml: {
@@ -36,8 +36,18 @@ const SAC = () => {
     let cancelled = false;
     const ctrl = new AbortController();
 
+    if (!subject || !chapter_slug) {
+      navigate('/404');
+      return;
+    }
+
+    const chapterMap = topicOrders?.[subject];
+    if (!chapterMap || !chapterMap[chapter_slug]) {
+      navigate('/404');
+      return;
+    }
+
     setLoading(true);
-    setError(null);
 
     const MIN_SPINNER_MS = 3000;
     const minDelay = new Promise(res => setTimeout(res, MIN_SPINNER_MS));
@@ -80,11 +90,11 @@ const SAC = () => {
         } else {
           const status = sacRes.reason?.response?.status;
           if (status === 404) {
-            setError("No SAC found for this chapter.");
-            toast.info("No SAC questions available for this chapter yet.");
+            navigate("/404");
+            return;
           } else {
-            setError("We couldn’t load your SAC. Please try again.");
-            toast.error("Failed to load SAC. Check your connection and retry.");
+            navigate("/500");
+            return;
           }
         }
 
@@ -95,9 +105,12 @@ const SAC = () => {
         }
       } catch (err) {
         if (cancelled) return;
-          console.error("Unexpected load error:", err);
-          setError("Something went wrong. Please refresh and try again.");
-          toast.error("Network error loading SAC.");
+        const status = err?.response?.status;
+        if (status === 404) {
+          navigate("/404");
+        } else {
+          navigate("/500");
+        }
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -160,7 +173,9 @@ const SAC = () => {
       <div className="inner-container">
       <div className="header-row">
         <h1>Practice SAC – {chapterName}</h1>
+      </div>
 
+      <div className="button-row">
         <button className="button-sac" onClick={() => setShowSolutions(!showSolutions)}>
           {showSolutions ? '🙈 Hide Solutions' : '🧠 Show Solutions'}
         </button>

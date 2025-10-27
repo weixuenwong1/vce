@@ -25,7 +25,6 @@ const Chapters = () => {
                 item.subject && item.subject.toLowerCase() === subject.toLowerCase()
             );
             
-             // Filter chapters so only those matching the current subject remain
             const sorted = filtered.sort((a, b) => {
                 const order = chapterOrders[subject.toLowerCase()] || [];
                 return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
@@ -81,7 +80,10 @@ const Chapters = () => {
                     This section provides chapter and topic summaries, helping you understand key concepts efficiently and see how they are applied in assessments.
                 </p>
                 <p className="side-note">
-                    Summaries are designed to complement your textbook — focus on understanding, not memorising.
+                    Summaries are designed to complement your textbook — try to focus on understanding the content, not memorising.
+                </p>
+                <p className="contact-question">
+                    <strong>Do let us know if you have any questions about the content.</strong>
                 </p>
 
                  <hr className="dividerMenu"/>

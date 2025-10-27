@@ -58,8 +58,8 @@ const PracticeSAC = () => {
               <p className="practice-description">
                   This section allows you to practice content by chapter in a SAC-style format — several questions on one page with total marks to gauge your performance.
               </p>
-              <p className="side-note">
-                  SAC structures vary by school in question count, difficulty, and format. Use this as a preparation tool, not a replica of your school's SAC.
+              <p className="side-note-sac">
+                  SAC structures vary by school in question count, difficulty and format. Use it as a preparation tool, not a replica of your school's SAC.
               </p>
 
               <hr className="dividerMenu"/>

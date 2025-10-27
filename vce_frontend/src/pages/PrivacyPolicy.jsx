@@ -76,7 +76,7 @@ const PrivacyPolicy = () => (
 
       <h2>11. Contact Us</h2>
       <p>
-        If you have questions or concerns about this policy, please contact us at <strong>chubabusiness@gmail.com</strong>.
+        If you have questions or concerns about this policy, please contact us at <strong>support@chuba.io</strong>.
       </p>
     </div>
   </div>

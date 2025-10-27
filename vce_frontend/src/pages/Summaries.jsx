@@ -26,6 +26,23 @@ const Summaries = () => {
     str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
   useEffect(() => {
+    if (!subject || !chapter_slug || !topic_slug) {
+      navigate('/404');
+      return;
+    }
+    const chapterMap = topicOrders[subject];
+    if (!chapterMap) {
+      navigate('/404');
+      return;
+    }
+    const topicList = chapterMap[chapter_slug];
+    if (!topicList) {
+      navigate('/404');
+      return;
+    }
+  }, [subject, chapter_slug, topic_slug, navigate]);
+
+  useEffect(() => {
     const topicList = topicOrders[subject]?.[chapter_slug];
     if (!topicList) return;
 
@@ -44,8 +61,14 @@ const Summaries = () => {
         setContent(res.data.content || '');
         setTopicName(res.data.topic_name || '');
       })
-      .catch(() => {
-        setContent('Failed to load content.');
+      .catch((e) => {
+        const status = e?.response?.status;
+        if (status === 404) {
+          navigate('/404');
+          return;
+        }
+        console.error('Failed to load summary', e);
+        navigate('/500');
       })
       .finally(() => {
         setDataLoaded(true);
@@ -56,14 +79,14 @@ const Summaries = () => {
 
 
   function useRemarkPlugins() {
-    const [plugins, setPlugins] = useState([remarkMath]);   // start minimal
+    const [plugins, setPlugins] = useState([remarkMath]);
     useEffect(() => {
       (async () => {
         if (supportsLookbehind && supportsNamedGroups) {
-          const { default: remarkGfm } = await import('remark-gfm'); // ✅ load only on capable engines
+          const { default: remarkGfm } = await import('remark-gfm'); 
           setPlugins([remarkMath, remarkGfm]);
         } else {
-          setPlugins([remarkMath]); // fallback, still renders content
+          setPlugins([remarkMath]);
         }
       })();
     }, []);
@@ -94,6 +117,7 @@ const Summaries = () => {
     )
   };
 
+  const isEmptySummary = !content || content.trim().length === 0;
 
   if (!dataLoaded) {
     return (
@@ -107,12 +131,21 @@ const Summaries = () => {
   return (
     <div className="summaries-page">
       <div className="summaries-page-container">
+        {isEmptySummary ? (
+        <div className="summary-empty" role="status" aria-live="polite">
+          <p>🚧 Summary coming soon! Sumary for this topic is not yet available.</p>
+        </div>
+      ) : (
         <ReactMarkdown
           children={content}
           remarkPlugins={remarkPlugins}
-          rehypePlugins={[rehypeRaw, rehypeKatex]}
+          rehypePlugins={[
+            rehypeRaw,
+            [rehypeKatex, { strict: "ignore", throwOnError: false }]
+          ]}
           components={renderers}
         />
+      )}
         <div className="summary-navigation">
           {prevTopic && (
             <span

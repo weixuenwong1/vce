@@ -41,19 +41,20 @@ $retro-red: #e43a3a;
 
         .question-meta {
             h3 {
-            font-family: 'Poppins', sans-serif;
+            font-family: Trebuchet MS, sans-serif;
             white-space: pre-line;
             margin: 0 0 0.5rem;
+            font-size: 1.15rem;
             }
 
             p {
-            font-family: 'Poppins', sans-serif;
+            font-family: Trebuchet MS, sans-serif;
             font-size: 0.9rem;
             margin: 0;
             }
 
             .difficulty {
-              font-size: 1.20rem;
+              font-size: 1.15rem;
               margin: 0.55rem 0 0;
 
               span {
@@ -70,14 +71,14 @@ $retro-red: #e43a3a;
                 background-color: #e0fce0;
                 color: #228b22;
                 border: 2px solid #228b22;
-                box-shadow: #228b22 3px 3px 0 0; 
+                box-shadow: #228b22 2px 2px 0 0; 
               }
 
               .exam {
                 background-color: #fde6e6;
                 color: #b22222;
                 border: 2px solid #b22222;
-                box-shadow: #b22222 3px 3px 0 0; 
+                box-shadow: #b22222 2px 2px 0 0; 
               }
             }
         }
@@ -91,13 +92,13 @@ $retro-red: #e43a3a;
               background-color: #fbeee0;
               border: 2px solid $dark-brown;
               border-radius: 30px;
-              box-shadow: $dark-brown 4px 4px 0 0;
+              box-shadow: $dark-brown 3px 3px 0 0;
               color: $dark-brown;
               cursor: pointer;
               display: inline-block;
               font-weight: 700;
-              font-size: 1.05rem;
-              padding: 0 18px;
+              font-size: 1.0rem;
+              padding: 0 16px;
               line-height: 44px;
               text-align: center;
               text-decoration: none;
@@ -131,9 +132,9 @@ $retro-red: #e43a3a;
           margin-bottom: 5rem; 
         
           p {
-            font-family: 'Poppins', sans-serif;
+            font-family: Trebuchet MS, sans-serif;
             font-weight:600;
-            font-size: 1.1rem;
+            font-size: 1.05em;
             white-space: pre-line;
             margin: 0; 
             flex: 1;
@@ -142,7 +143,7 @@ $retro-red: #e43a3a;
           .marks {
             text-align: right;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin: 0 0 0 1rem; 
             white-space: nowrap;
           }
@@ -284,7 +285,7 @@ $retro-red: #e43a3a;
       }
     }
     mjx-container {
-        font-size: 1.2rem !important;
+        font-size: 1.15rem !important;
     }
 }
     

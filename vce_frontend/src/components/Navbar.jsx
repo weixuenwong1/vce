@@ -5,6 +5,7 @@ import '../styles/NavBar.scss';
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation(); 
   const isLoggedIn = Boolean(localStorage.getItem('Token'));
 
   const [openMenu, setOpenMenu] = useState(null);
@@ -12,15 +13,12 @@ function Navbar() {
 
   const navbarRef = useRef(null);
 
-  
-
   const logoutUser = () => {
     AxiosInstance.post(`logout/`).then(() => {
       localStorage.removeItem('Token');
       navigate('/login');
     });
   };
-
 
 
   useEffect(() => {
@@ -54,6 +52,8 @@ function Navbar() {
   const subjects = ['physics', 'chemistry', 'biology'];
 
 
+  const isInSection = (section) => location.pathname.includes(section);
+
   return (
     <nav className="navbar" ref={navbarRef}>
       <div className="navbar-left">
@@ -67,7 +67,7 @@ function Navbar() {
 
         <ul className="navbar-menu">
           <li 
-            className="navbar-item"
+            className={`navbar-item ${isInSection('/summaries') ? 'active' : ''}`}
             onClick={() =>
               setOpenMenu(openMenu === 'summary' ? null : 'summary')
             }
@@ -92,7 +92,7 @@ function Navbar() {
           </li>
 
           <li 
-            className="navbar-item"
+            className={`navbar-item ${isInSection('/practice/') ? 'active' : ''}`}
             onClick={() =>
               setOpenMenu(openMenu === 'practice' ? null : 'practice')
             }
@@ -117,7 +117,7 @@ function Navbar() {
           </li>
 
           <li 
-            className="navbar-item"
+            className={`navbar-item ${isInSection('/practice-sac') ? 'active' : ''}`}
             onClick={() =>
               setOpenMenu(openMenu === 'practice-sac' ? null : 'practice-sac')
             }

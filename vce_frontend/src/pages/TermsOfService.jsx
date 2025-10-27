@@ -32,7 +32,7 @@ const TermsOfService = () => (
         Chuba.io allows users to submit original educational questions for inclusion in our database. Submitted content is subject to manual review and validation before being published. By submitting content, you grant Chuba.io the right to display, edit, or reject the content at our discretion. Submissions must not infringe on copyright or contain inappropriate material.
       </p>
       <p>
-        If you believe any content on Chuba.io infringes on your copyright, please contact us immediately at <strong>chubabusiness@gmail.com</strong>. We will review and remove the content as appropriate.
+        If you believe any content on Chuba.io infringes on your copyright, please contact us immediately at <strong>support@chuba.io</strong>. We will review and remove the content as appropriate.
       </p>
 
       <h2>Copyright Notice</h2>
@@ -72,7 +72,7 @@ const TermsOfService = () => (
 
       <h2>Contact</h2>
       <p>
-        If you have questions about these terms, please contact us at <strong>chubabusiness@gmail.com</strong>.
+        If you have questions about these terms, please contact us at <strong>support@chuba.io</strong>.
       </p>
     </div>
   </div>

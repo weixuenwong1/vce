@@ -15,7 +15,7 @@ const Home = () => {
         <div className="hero-left">
           <h1>Chuba</h1>
           <h2>Simplify your SAC and exam preparation</h2>
-          <p>Your all-in-one platform for VCE success.</p>
+          <p>The ultimate resource-platform for VCE success.</p>
         </div>
 
         <div className="hero-right">
@@ -23,25 +23,25 @@ const Home = () => {
             <source
               type="image/webp"
               srcSet="
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-320.webp 320w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-640.webp 640w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-960.webp 960w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-1280.webp 1280w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-1920.webp 1920w
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-320.webp 320w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-640.webp 640w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-960.webp 960w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-1280.webp 1280w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-1920.webp 1920w
               "
               sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 50vw"
             />
             <img
-              src="https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-640.png"
+              src="https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-640.png"
               srcSet="
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-320.png 320w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-640.png 640w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-960.png 960w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-1280.png 1280w,
-                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaNormalDistCurve-1920.png 1920w
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-320.png 320w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-640.png 640w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-960.png 960w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-1280.png 1280w,
+                https://vceproblems.s3.ap-southeast-2.amazonaws.com/chuba_static_images/ChubaHeroImage-1920.png 1920w
               "
               sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 50vw"
-              alt="Normal distribution visual"
+              alt="Chuba Normal Distribution"
               width="1920"
               height="1080"
               loading="eager"
@@ -56,12 +56,12 @@ const Home = () => {
         <h3>Everything You Need to Succeed</h3>
         <div className="why-chuba">
           <h4>
-            Access thousands of exam-style questions with realistic mark allocations and detailed solutions.
+            Thousands of exam-style questions with visuals and detailed solutions.
           </h4>
           <div className="pill-container">
-            <span className="pill">Visual Explanations</span>
-            <span className="pill">Curated Summaries</span>
-            <span className="pill">All in One Place</span>
+            <span className="pill">Concise Summaries</span>
+            <span className="pill">Practice Questions</span>
+            <span className="pill">Practice SACs</span>
           </div>
         </div>
       </section>
@@ -107,7 +107,7 @@ const Home = () => {
         </span>
         <h3>About Chuba</h3>
         <p>
-          Chuba's mission is to help all students master their subjects by providing the best resources in one place — making studying easier, more structured and more effective.
+          Chuba's mission is to help all students master their subjects by providing the best resources all in one place.
         </p>
         <p>
           I started Chuba to make <strong>high-quality resources free and accessible</strong> for all students. With rising costs of tutoring and study materials, I wanted to bridge that gap and help everyone succeed.
@@ -116,6 +116,7 @@ const Home = () => {
 
       <section className="domain-section">
         <p className="decorative-domains">Inspired by vcetextbooks.xyz &nbsp;|&nbsp; vce.rocks</p>
+        <p>Thank you for providing amazing resources over the years.</p>
       </section>
     </div>
   );

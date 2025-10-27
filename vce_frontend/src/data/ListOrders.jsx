@@ -63,7 +63,7 @@ export const topicOrders = {
       "Electrolysis"
     ],
     'fundamentals-of-organic-compounds': [
-      "Organic Compound Structure and Properties",
+      "Organic Compounds Structure and Properties",
       "Reactions of Organic Compounds"
     ],
     'analysis-of-organic-compounds': [

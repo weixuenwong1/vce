@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from .serializers import *
 from .models import *
 from rest_framework.response import Response
@@ -46,10 +46,20 @@ class RegisterViewset(viewsets.ViewSet):
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors,status=400)
+            user = serializer.save()
+
+            _, token = AuthToken.objects.create(user)
+            expiry = now() + knox_settings.TOKEN_TTL
+
+            return Response(
+                {
+                    "user": UserPublicSerializer(user).data,
+                    "token": token,
+                    "expiry": expiry
+                },
+                status=status.HTTP_201_CREATED
+            )
+        return Response(serializer.errors, status=400)
 
         
 class UserViewset(viewsets.ViewSet):

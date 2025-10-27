@@ -30,30 +30,37 @@ const Register = () => {
 
   const { handleSubmit, control } = useForm({ resolver: yupResolver(schema) })
 
-  const submission = (data) => {
-    AxiosInstance.post('register/', {
-      email: data.email,
-      password: data.password,
-      school: data.school,
-    })
-      .then(() => {
-        navigate(`/login`)
-      })
-      .catch((error) => {
-        if (error.response?.status === 400) {
-          const errData = error.response.data;
-          if (errData.email?.[0]?.includes("already exists")) {
-            setErrorMessage("An account with this email already exists.");
-          } else {
-            setErrorMessage("Please ensure all fields are filled correctly.");
-          }
-        } else {
-          setErrorMessage("Something went wrong. Please try again later.");
-        }
-        setShowMessage(true);
-        console.error('Error during register', error);
+  const submission = async (data) => {
+    try {
+      const res = await AxiosInstance.post('register/', {
+        email: data.email,
+        password: data.password,
+        school: data.school,
       });
-  }
+
+      localStorage.removeItem('Token');
+      localStorage.removeItem('TokenExpiry');
+
+      localStorage.setItem('Token', res.data.token);
+      localStorage.setItem('TokenExpiry', res.data.expiry);
+
+      const from = location.state?.from?.pathname || '/';
+      navigate(from, { replace: true });
+    } catch (error) {
+      if (error.response?.status === 400) {
+        const errData = error.response.data;
+        if (errData.email?.[0]?.includes("already exists")) {
+          setErrorMessage("An account with this email already exists.");
+        } else {
+          setErrorMessage("Please ensure all fields are filled correctly.");
+        }
+      } else {
+        setErrorMessage("Something went wrong. Please try again later.");
+      }
+      setShowMessage(true);
+      console.error('Error during register', error);
+    }
+  };
 
   return (
     <div className="registerPage">

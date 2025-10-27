@@ -57,8 +57,11 @@ const QuestionsForTopic = () => {
                 await spin;
                 setContentVisible(true);
             } catch (e) {
-                console.error("Failed to load first question", e);
-                navigate('/500');
+                if (e.response?.status === 404) {
+                    navigate('/404');
+                } else {
+                    navigate('/500');
+                }
             } finally {
                 if (!cancelled) setLoading(false);
             }
