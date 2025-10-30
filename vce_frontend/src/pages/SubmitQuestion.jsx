@@ -71,54 +71,6 @@ export default function SubmitQuestion() {
     AxiosInstance.get(`/api/chapters/${chapter}/topics/`).then(r => setTopics(r.data));
   }, [chapter, setValue]);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext("2d");
-    const dpr = window.devicePixelRatio || 1;
-
-    let particles = [];
-
-    const generateParticles = () => {
-      particles = [];
-      const count = Math.floor((canvas.clientWidth * canvas.clientHeight) / 56000);
-      for (let i = 0; i < count; i++) {
-        const size = 8 + Math.random() * 4; 
-        const x = Math.random() * canvas.clientWidth;
-        const y = Math.random() * canvas.clientHeight;
-        const palette = ['#f59505ff','#FF7043','#e43a3a','#4FC3F7'];
-        const color = palette[(Math.random() * palette.length) | 0];
-
-        particles.push({ x, y, size, color });
-      }
-    };
-
-    const draw = () => {
-      canvas.width = canvas.clientWidth * dpr;
-      canvas.height = canvas.clientHeight * dpr;
-      ctx.scale(dpr, dpr);
-
-      ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-
-      for (const p of particles) {
-        ctx.fillStyle = p.color;
-        ctx.fillRect(p.x, p.y, p.size, p.size);
-      }
-    };
-
-    generateParticles();
-    draw();
-
-    const onResize = () => {
-      generateParticles(); 
-      draw();
-    };
-
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
   const onSubmit = async (data) => {
     const payload = {
       subject: data.subject,
@@ -160,8 +112,6 @@ export default function SubmitQuestion() {
 
   return (
     <div className="SQPage" ref={topRef}>
-      <canvas ref={canvasRef} className="bgSquaresCanvas" />
-
       <div className="SQContainer">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Box className="SQFormBox">
