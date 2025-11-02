@@ -23,8 +23,9 @@ MIDDLEWARE = [
 ]
 
 
-#CORS_ALLOWED_ORIGINS = [
-#]
+CORS_ALLOWED_ORIGINS = [
+    'https://polite-bay-0000d3900.3.azurestaticapps.net'
+]
 
 STORAGES = {
     "default": {
