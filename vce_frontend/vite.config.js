@@ -35,7 +35,7 @@ export default defineConfig({
           // FORMS & VALIDATION
           forms: ['react-hook-form', '@hookform/resolvers', 'yup'],
 
-          // MARKDOWN PIPELINE (big – isolate it!)
+          // MARKDOWN PIPELINE 
           markdown: [
             'react-markdown',
             'remark-gfm',
@@ -43,7 +43,7 @@ export default defineConfig({
             'rehype-raw',
           ],
 
-          // MATH RENDERING (very big – only load when needed)
+          // MATH RENDERING 
           math: [
             'katex',
             'better-react-mathjax',
@@ -62,7 +62,6 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    // speed up dev: pre-bundle the biggies
     include: [
       'react',
       'react-dom',
