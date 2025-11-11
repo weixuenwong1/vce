@@ -18,6 +18,55 @@ $sac-highlight: hsl(12, 85%, 62%);
   100% { background-position: 0% 50%; }
 }
 
+.practice-page { 
+    background: $gray;
+    min-height: 100vh;
+}
+
+.practice-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    font-family: 'Poppins', sans-serif;
+
+    h1 {
+        font-size: 3.8rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .practice-description {
+      max-width: 900px;
+      margin: 0 auto 1rem auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: center;
+      font-weight: 500;
+      padding: 0 1rem;
+      color: #fff;
+    }
+
+    .side-note-sac {
+      max-width: 1000px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: center;
+      font-weight: 400;
+      padding: 0 1rem;
+      color: $orange;
+      font-family: 'Courier New';
+      margin: 1.5rem auto 3rem auto;
+    }
+
+    .chapter-section {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
 .sac-chapter-wrapper {
   display: flex;
   background: $dark-gray;

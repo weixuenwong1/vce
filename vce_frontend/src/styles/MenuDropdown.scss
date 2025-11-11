@@ -8,6 +8,7 @@ $white: #FFF;
 
 .practice-page { 
     background: $gray;
+    min-height: 100vh;
 }
 
 .practice-container {
@@ -42,8 +43,7 @@ $white: #FFF;
     }
 
     .side-note-practice,
-    .side-note,
-    .side-note-sac {
+    .side-note {
       max-width: 1000px;
       font-size: 1.1rem;
       line-height: 1.8;
@@ -52,6 +52,7 @@ $white: #FFF;
       padding: 0 1rem;
       color: $orange;
       font-family: 'Courier New';
+      margin: 0 auto 0 auto;
     }
     .contact-question,
     .contact-question-practice {
@@ -65,13 +66,6 @@ $white: #FFF;
       font-family: 'Courier New';
     }
     
-    .side-note-practice,
-    .side-note {
-      margin: 0 auto 0 auto;
-    }
-    .side-note-sac {
-      margin: 3rem auto 3rem auto;
-    }
     .contact-question {
       margin: 1.5rem auto 3rem auto;
     }
