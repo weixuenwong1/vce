@@ -91,6 +91,9 @@ const QuestionsForTopic = () => {
 
         try {
             const { question, meta } = await fetchNextQuestion();
+            console.log(
+                `Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
+            );
             setTotalAvailable(meta?.total_available ?? totalAvailable);
 
             setHistory(prev => [...prev, question]);
@@ -141,6 +144,7 @@ const QuestionsForTopic = () => {
     }
 
     const currentQuestion = current;
+    console.log("ID:", currentQuestion?.question_uid);
 
     const mathJaxConfig = {
         chtml: {
@@ -163,7 +167,6 @@ const QuestionsForTopic = () => {
             <div className="question-header">
                 <div className="question-meta">
                     <h3>{currentQuestion.question_text}</h3>
-                    <p><strong>Question ID:</strong> {currentQuestion.question_uid}</p>
                     <h4 className="difficulty">
                         <strong className="difficulty-label">Difficulty:</strong>{' '}
                         <span className={currentQuestion.difficulty === 'Easy' ? 'easy' : 'exam'}>

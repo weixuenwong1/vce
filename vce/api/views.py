@@ -121,11 +121,6 @@ class NextQuestionView(APIView):
             SeenQuestion.objects.filter(user=user, topic=topic).delete()
             unseen_qs = all_qs
 
-        print(
-            f"User={user.id}, Topic={topic.pk}, "
-            f"seen={len(seen_pks)}, unseen={unseen_qs.count()}, total={total}"
-        )
-
         count = unseen_qs.count()
         idx = random.randrange(count)
         q = unseen_qs[idx:idx+1].first()
@@ -138,8 +133,11 @@ class NextQuestionView(APIView):
             {
                 "question": data,
                 "meta": {
-                    "total_available": total,
-                    "topic_id": topic.pk,  
+                    "topic": topic.slug,
+                    "topic_id": topic.pk,
+                    "seen": len(seen_pks),
+                    "unseen": count,
+                    "total_available": total, 
                 },
             },
             status=status.HTTP_200_OK,
