@@ -449,14 +449,14 @@ $retro-red: #e43a3a;
   .question-display-container {
 
     .inner-container {
-      padding: 1.25rem;
+      padding: 1.0rem 0.8rem;
       width: 95%;   
       max-width: none;
 
     .question-header {
         .question-meta {
           h3 {
-            font-size: 0.90rem;
+            font-size: 0.80rem;
           }
 
           .difficulty {
@@ -481,11 +481,11 @@ $retro-red: #e43a3a;
       .text-order {
         .text-flex {
           p {
-            font-size: 0.9rem;
+            font-size: 0.80rem;
           }
 
           .marks {
-            font-size: 0.90rem;
+            font-size: 0.80rem;
           }
         }
       }
