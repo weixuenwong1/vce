@@ -255,17 +255,26 @@ $retro-red: #e43a3a;
 }
 
 @media (max-width: 1250px) {
-  .header-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .practice-sac-container {
+    .inner-container {
+      .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-    .button-sac {
-      width: 100%;
-      padding: 0 1rem;
-      font-size: 1rem;
-      line-height: 45px;
-      margin: 2rem 0;
+      .button-row {
+        .button-sac {
+          line-height: 43px;
+        }
+      }
     }
+  }
+  
+  .button-sac {
+    padding: 0 1rem;
+    font-size: 1rem;
+    line-height: 45px;
+    margin: 0 0 2rem 0;
   }
 }
 
@@ -276,37 +285,39 @@ $retro-red: #e43a3a;
       padding: 1.5rem;
 
       .header-row {
+        h1 {
+          font-size: 2.2rem;
+          margin-bottom: 0.7rem;
+        }
+      }
+
+      .button-row {
         .button-sac {
           width: 100%;
           padding: 0 1rem;
-          font-size: 1rem;
-          line-height: 45px;
-          margin: 2rem 0;
-        }
-
-        h1 {
-          font-size: 2.2rem;
-          margin-bottom: 2.5rem;
+          font-size: 1.0rem;
+          line-height: 40px;
         }
       }
 
       .question-block {
         h3 {
-          font-size: 1.25rem;
+          font-size: 0.90rem;
         }
 
         h4 {
-          font-size: 0.95rem;
+          font-size: 0.85rem;
         }
 
-        .text-order {
-          flex-direction: column;
-
+        .text-order-sac {
           p,
           .marks {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             text-align: left;
             margin: 0 0 1rem;
+          }
+          p {
+            padding-right: 12px;
           }
         }
 
@@ -335,37 +346,36 @@ $retro-red: #e43a3a;
       padding: 1.3rem;
 
       .header-row {
-        .button-sac {
-          width: 100%;
-          padding: 0 1rem;
-          font-size: 1rem;
-          line-height: 45px;
-          margin: 0.5rem 0 1rem;
-        }
-
         h1 {
           font-size: 1.8rem;
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .button-row {
+        .button-sac {
+          font-size: 0.9rem;
+          margin: 0.5rem 0 1rem;
+          line-height: 30px;
         }
       }
 
       .question-block {
         h3 {
-          font-size: 1.10rem;
+          font-size: 0.8rem;
         }
 
         h4 {
-          font-size: 0.85rem;
+          font-size: 0.75rem;
         }
 
-        .text-order {
-          flex-direction: column;
-
+        .text-order-sac {
           p,
           .marks {
-            font-size: 0.85rem;
-            text-align: left;
-            margin: 0 0 1rem;
+            font-size: 0.75rem;
+          }
+          p {
+            padding-right: 8px;
           }
         }
 

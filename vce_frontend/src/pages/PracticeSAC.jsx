@@ -50,12 +50,12 @@ const PracticeSAC = () => {
     }, [subject]);
 
     return (
-        <div className="practice-page">
-          <div className="practice-container">
+        <div className="practice-page-sac">
+          <div className="practice-container-sac">
               <h1>
                   {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice SAC {subjectEmojis[subject.toLowerCase()] || "📚"}
               </h1>
-              <p className="practice-description">
+              <p className="practice-description-sac">
                   This section allows you to practice content by chapter in a SAC-style format — several questions on one page with total marks to gauge your performance.
               </p>
               <p className="side-note-sac">

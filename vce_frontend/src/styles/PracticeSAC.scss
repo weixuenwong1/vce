@@ -18,12 +18,12 @@ $sac-highlight: hsl(12, 85%, 62%);
   100% { background-position: 0% 50%; }
 }
 
-.practice-page { 
+.practice-page-sac { 
     background: $gray;
     min-height: 100vh;
 }
 
-.practice-container {
+.practice-container-sac {
     max-width: 1300px;
     margin: 0 auto;
     padding: 3rem 2rem;
@@ -37,7 +37,7 @@ $sac-highlight: hsl(12, 85%, 62%);
         color: #fff;
     }
 
-    .practice-description {
+    .practice-description-sac {
       max-width: 900px;
       margin: 0 auto 1rem auto;
       font-size: 1.1rem;
@@ -207,6 +207,20 @@ $sac-highlight: hsl(12, 85%, 62%);
 }
 
 @media (max-width: 768px) {
+  .practice-container-sac {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 2.7rem;
+    }
+
+    .practice-description-sac,
+    .side-note-sac {
+      font-size: 1rem;
+      padding: 0;
+    }
+  }
+
   .sac-chapter-wrapper {
     margin: 1.5rem 0;
 
@@ -237,7 +251,22 @@ $sac-highlight: hsl(12, 85%, 62%);
   }
 }
 
+
 @media (max-width: 480px) {
+  .practice-container-sac {
+    padding: 1.5rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .practice-description-sac,
+    .side-note-sac {
+      font-size: 0.8rem;
+    }
+  }
+
   .sac-chapter-wrapper {
     margin: 1rem 0;
 

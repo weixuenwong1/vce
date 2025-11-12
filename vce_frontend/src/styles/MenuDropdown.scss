@@ -306,7 +306,7 @@ $white: #FFF;
     padding: 2rem 1rem;
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.7rem;
     }
 
     .chapter-left-box {
@@ -332,13 +332,19 @@ $white: #FFF;
       font-size: 1rem;
       padding: 0;
     }
+
+    .contact-question-practice,
+    .contact-question {
+      font-size: 0.9rem;
+    }
+
     .side-note {
       font-size: 1rem;
     }
 
     .contribute-box {
       max-width: 55%;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       padding: 0.8rem 1rem;
 
       .pencil-icon {
@@ -377,6 +383,7 @@ $white: #FFF;
 
     h1 {
       font-size: 2rem;
+      margin-bottom: 2rem;
     }
     .chapter-left-box {
         .chapter-description {
@@ -399,22 +406,27 @@ $white: #FFF;
     .practice-description,
     .side-note-practice,
     .side-note {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .contact-question-practice,
+    .contact-question {
+      font-size: 0.8rem;
     }
 
     .contribute-box {
       margin: 1.5rem auto;
       max-width: 70%;
-      font-size: 0.9rem;
-      padding: 0.8rem 1rem;
+      font-size: 0.75rem;
+      padding: 0.4rem 1rem;
 
       .pencil-icon {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
       }
 
       .pencil-icon-text {
         gap: 0.6rem;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
       }
     }
 

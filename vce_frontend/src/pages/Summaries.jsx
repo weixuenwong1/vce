@@ -133,7 +133,7 @@ const Summaries = () => {
       <div className="summaries-page-container">
         {isEmptySummary ? (
         <div className="summary-empty" role="status" aria-live="polite">
-          <p>🚧 Summary coming soon! Sumary for this topic is not yet available.</p>
+          <p>🚧 Summary coming soon! Summary for this topic is not yet available.</p>
         </div>
       ) : (
         <ReactMarkdown
