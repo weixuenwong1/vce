@@ -38,7 +38,7 @@ const HowToUseChuba = () => {
         <span className="use-chuba-pill chemistry">🧪 Chemistry</span>
         <ul>
         <li>
-          Build a strong mental model of how particles behave, how reactions shift, and how structure influences properties. Many questions require more than just knowing content — they want your reasoning. The summaries help you develop that.
+          Unlike Physics, where a cheat sheet is allowed, Chemistry 3/4 requires a fair amount of memorisation like the processes, definitions, and tiny little details. The examinable content is also much broader than Physics, so while some concepts naturally stick through practice, you won’t always have the luxury of reinforcing everything through repeated questions. So, you’ll need a balance of both understanding and memorising.
         </li>
         </ul>
 
@@ -62,6 +62,16 @@ const HowToUseChuba = () => {
           Use your calculator efficiently and double-check brackets and signs. 
           If you're confident you've entered everything correctly but still get the wrong answer, ask your teacher to help identify where it went wrong.
           </li>
+        </ul>
+        <span className="use-chuba-pill chemistry">🧪 Chemistry</span>
+        <ul>
+        <li>
+          Calculation questions are generally a bit simpler than written explanation questions. They can get a little tedious at times, but focus on pulling out key ideas from sample responses that help build the components of your own response.
+        </li>
+
+        <li>
+          Make sure you’re comfortable with the data book, know what information is provided, what isn’t and which details you’ll need to memorise.
+        </li>
         </ul>
 
         <div className="use-chuba-section-heading">
@@ -88,6 +98,15 @@ const HowToUseChuba = () => {
           <li>
             This is also a good time to practice using your cheat-sheet. 
           </li>
+        </ul>
+        <span className="use-chuba-pill chemistry">🧪 Chemistry</span>
+        <ul>
+        <li>
+          Although most SACs will contain questions that will test main ideas of the topic, many of them will also include some niche questions which can be approached by generalising similar / simpler problems that you've seen before.
+        </li>
+        <li>
+          So although there can be a few questions very specific to the context, you should try and generalise the observation / processes of pervious problems instead of trying to remember every single individual component as being separate and independent. 
+        </li>
         </ul>
       </div>
     </div>

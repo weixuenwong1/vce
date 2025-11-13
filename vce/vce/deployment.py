@@ -60,15 +60,3 @@ DATABASES = {
 }
 
 STATIC_ROOT = BASE_DIR/'staticfiles'
-
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-
-# # HSTS (safe once you’re sure you’ll stay on HTTPS)
-# SECURE_HSTS_SECONDS = 31536000
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-
-# # Behind Azure’s proxy so Django sees HTTPS correctly
-# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

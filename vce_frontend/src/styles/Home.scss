@@ -281,6 +281,11 @@ $soft-yellow: #FFD180;
 
 @media (max-width: 1000px) {
   .homepage-container .card-section {
+
+    .coming-soon {
+      font-size: 1.9rem;
+    }
+
     .subject-heading {
       font-size: 2.9rem;
       margin: 5rem 0;
@@ -303,6 +308,11 @@ $soft-yellow: #FFD180;
 
 @media (max-width: 600px) {
   .homepage-container .card-section {
+
+    .coming-soon {
+      font-size: 1.7rem;
+    }
+
     .subject-heading {
       font-size: 2.0rem;
       margin: 5rem 0 4rem;
@@ -326,6 +336,11 @@ $soft-yellow: #FFD180;
 
 @media (max-width: 400px) {
   .homepage-container .card-section {
+
+    .coming-soon {
+      font-size: 1.5rem;
+    }
+
     .card-container {
       gap: 0.8rem;
       margin: 1rem 0;
@@ -638,6 +653,9 @@ $soft-yellow: #FFD180;
     .decorative-domains {
       font-size: 1.5rem;
     }
+    p {
+      font-size: 1.0rem;
+    }
   }
 }
 
@@ -646,13 +664,19 @@ $soft-yellow: #FFD180;
     .decorative-domains {
       font-size: 1.2rem;
     }
+    p {
+      font-size: 0.95rem;
+    }
   }
 }
 
 @media (max-width: 400px) {
   .domain-section {
     .decorative-domains {
-      font-size: 0.85rem;
+      font-size: 1.2rem;
+    }
+    p {
+      font-size: 0.90rem;
     }
   }
 }

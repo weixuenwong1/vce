@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
       </div>
       </div>
-      <p className="footer-bottom">© 2025 chuba.io. All rights reserved.</p>
+      <p className="footer-bottom">© {new Date().getFullYear()} chuba.io. All rights reserved.</p>
     </footer>
   );
 };

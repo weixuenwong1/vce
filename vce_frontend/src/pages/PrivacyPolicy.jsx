@@ -44,7 +44,7 @@ const PrivacyPolicy = () => (
 
       <h2>5. Cookies</h2>
       <p>
-        Chuba.io uses essential cookies for login and session continuity. You can manage cookies through your browser settings, but disabling them may impact site functionality.
+        Chuba.io does not use cookies for authentication. However, your browser may store small essential cookies required for basic site functionality, such as remembering display preferences or enabling secure connections. You can manage cookies through your browser settings.     
       </p>
 
       <h2>6. Data Storage and Security</h2>
