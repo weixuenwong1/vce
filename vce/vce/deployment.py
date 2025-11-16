@@ -15,7 +15,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware', 
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -32,6 +32,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
+    "https://chuba.io",
+    "https://www.chuba.io",
     'https://polite-bay-0000d3900.3.azurestaticapps.net'
 ]
 
@@ -60,3 +62,12 @@ DATABASES = {
 }
 
 STATIC_ROOT = BASE_DIR/'staticfiles'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = os.environ.get('ZOHO_EMAIL_USER')
+EMAIL_HOST_USER = os.environ.get('ZOHO_EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('ZOHO_EMAIL_PASS')
