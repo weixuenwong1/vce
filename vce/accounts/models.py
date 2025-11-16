@@ -59,7 +59,7 @@ def password_reset_token_created(reset_password_token, *args, **kwargs):
     msg = EmailMultiAlternatives(
         subject = "Reset your password",
         body=plain_message,
-        from_email = "no-reply@chuba.io",
+        from_email = "noreply@chuba.io",
         to=[reset_password_token.user.email]
 
     )
