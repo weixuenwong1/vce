@@ -20,6 +20,8 @@ const links = [
   { url: '/practice-sac/physics', changefreq: 'weekly', priority: 0.7 },
   { url: '/practice-sac/chemistry', changefreq: 'weekly', priority: 0.7 },
 //   { url: '/practice-sac/biology', changefreq: 'weekly', priority: 0.7 },
+
+  { url: '/how-to-use-chuba', changefreq: 'monthly', priority: 0.6 }
 ]
 
 // ------------------------------------
