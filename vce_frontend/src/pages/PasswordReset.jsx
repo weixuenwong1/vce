@@ -15,7 +15,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 const PasswordReset = () => {
   const navigate = useNavigate()
   const {token} = useParams()
-  const [ShowMessage, setShowMessage] = useState(false)
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const resetPasswordSchema = yup.object({
     password: yup.string()
@@ -38,18 +40,51 @@ const PasswordReset = () => {
       password: data.password,
       token: token,
     })
+      .then(() => {
+        setShowError(false);
+        setErrorMessage('');
 
-    .then(() => {
-      setShowMessage(true);
-      setTimeout(() => {
-        navigate('/login');
-      }, 2500);
-    });
-  }
+        setShowSuccess(true);
+
+        setTimeout(() => {
+          navigate('/login');
+        }, 2500);
+      })
+      .catch((error) => {
+        console.log(error);
+
+        let msg = 'Something went wrong. Please try again.';
+
+        if (error.response && error.response.data) {
+          const data = error.response.data;
+
+          if (Array.isArray(data.password) && data.password.length > 0) {
+            msg = data.password[0]; 
+          } else if (Array.isArray(data.token) && data.token.length > 0) {
+            msg = "This reset link has expired or is no longer valid. Please request a new one.";
+          } else if (typeof data.detail === 'string') {
+            msg = "An unexpected error occurred. Please try again, and contact us if the issue continues.";
+          }
+        } else if (error.message === 'Network Error') {
+          msg = 'Network error. Please check your connection and try again.';
+        }
+
+        setErrorMessage(msg);
+        setShowError(true);
+        setShowSuccess(false);
+      });
+  };
 
   return (
     <div className="passwordResetRequestPage">
-      {ShowMessage ? <Message text={"Your password has been successfully reset. You can now log in with your new password."} color={"black"}/> : null}
+      {showError && (
+        <div id="topErrorBar" className="globalAlert" role="alert" aria-live="polite">
+          <Message text={<span className="message-text">{errorMessage}</span>} color="#FF5555"/>
+        </div>
+      )}
+      {showSuccess && (
+        <Message text={'Your password has been successfully reset. You can now log in with your new password.'} color="black"/>
+      )}
       <div className="gradient-bg-blue" />
       <div className="gradient-bg-orange" />
       <div className="passwordResetRequestContainer">
