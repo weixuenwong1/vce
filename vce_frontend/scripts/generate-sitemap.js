@@ -3,13 +3,12 @@ import { createWriteStream } from 'fs'
 
 const hostname = 'https://chuba.io'
 
-// ---- Add your app’s routes here ----
+
 const links = [
   { url: '/', changefreq: 'weekly', priority: 1.0 },
   { url: '/login', changefreq: 'monthly', priority: 0.5 },
   { url: '/register', changefreq: 'monthly', priority: 0.5 },
 
-  // core Chuba pages:
   { url: '/summaries/physics', changefreq: 'weekly', priority: 0.8 },
   { url: '/summaries/chemistry', changefreq: 'weekly', priority: 0.8 },
 //   { url: '/summaries/biology', changefreq: 'weekly', priority: 0.8 },
@@ -25,11 +24,20 @@ const links = [
 
 // ------------------------------------
 
-const sitemap = new SitemapStream({ hostname })
+async function generate() {
+  const sitemapStream = new SitemapStream({ hostname })
+  const writeStream = createWriteStream('./dist/sitemap.xml')
 
-streamToPromise(
-  sitemap.pipe(createWriteStream('./dist/sitemap.xml'))
-).then(() => console.log('✅ Sitemap created at dist/sitemap.xml'))
+  sitemapStream.pipe(writeStream)
 
-links.forEach(link => sitemap.write(link))
-sitemap.end()
+  links.forEach(link => sitemapStream.write(link))
+  sitemapStream.end()
+
+  await streamToPromise(sitemapStream)
+  console.log('✅ Sitemap created at dist/sitemap.xml')
+}
+
+generate().catch(err => {
+  console.error('❌ Failed to generate sitemap:', err)
+  process.exit(1)
+})
