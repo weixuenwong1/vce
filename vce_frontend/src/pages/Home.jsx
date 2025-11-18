@@ -44,8 +44,7 @@ const Home = () => {
               alt="Chuba Normal Distribution"
               width="1920"
               height="1080"
-              loading="eager"
-              fetchPriority="high"
+              loading="lazy"
               decoding="async"
             />
           </picture>

@@ -38,6 +38,7 @@
     "remark-math": "^6.0.0",
     "sass": "^1.89.2",
     "twemoji": "^14.0.2",
+    "vite-plugin-purgecss": "^0.2.13",
     "yup": "^1.6.1"
   },
   "devDependencies": {

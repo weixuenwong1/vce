@@ -3,13 +3,26 @@ import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
+import purgeCss from 'vite-plugin-purgecss'
 
 export default defineConfig({
   plugins: [
     react(),
+
+    purgeCss({
+      content: ['./index.html', './src/**/*.{js,jsx,ts,tsx,html}'],
+      safelist: [
+        /^Mui/,        
+        /^Toastify/,   
+        /^MathJax/,     
+        /^katex/,        
+      ],
+    }),purgeCss(),
+
     legacy({
       targets: ['defaults', 'iOS >= 12', 'Safari >= 12'], 
     }),
+
     viteCompression({ algorithm: 'gzip'}),
     viteCompression({ algorithm: 'brotliCompress', ext: '.br'}),
     visualizer({ filename: 'stats.html', open: false, gzipSize: true, brotliSize: true }),

@@ -10,10 +10,12 @@
   "responseOverrides": {
     "404": {
       "rewrite": "/index.html"
+    },
+    "index.html": {
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      }
     }
-  },
-  "globalHeaders": {
-    "cache-control": "no-cache"
   },
   "navigationFallback": {
     "rewrite": "/index.html",
