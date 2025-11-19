@@ -9,16 +9,6 @@ export default defineConfig({
   plugins: [
     react(),
 
-    purgeCss({
-      content: ['./index.html', './src/**/*.{js,jsx,ts,tsx,html}'],
-      safelist: [
-        /^Mui/,        
-        /^Toastify/,   
-        /^MathJax/,     
-        /^katex/,        
-      ],
-    }),purgeCss(),
-
     legacy({
       targets: ['defaults', 'iOS >= 12', 'Safari >= 12'], 
     }),
