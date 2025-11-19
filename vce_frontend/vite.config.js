@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
-import purgeCss from 'vite-plugin-purgecss'
 
 export default defineConfig({
   plugins: [
