@@ -1,0 +1,1657 @@
+{
+  "topic_id": 45,
+  "topic_name": "Medicinal Chemistry",
+  "questions": [
+    {
+      "question_uuid": "66ed14e6-6645-42b7-86ec-2772924758db",
+      "question_uid": 1047,
+      "question_text": "Amino acids are the fundamental units of proteins. Which statement about the 20 amino acids used in the body is true?",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "d7e76423-e817-4fca-9a35-c5dd1a0f1a50",
+          "order_uid": 3440,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "A. They all contain both an amino group and a carboxyl group\r\nB. They all have polar side chains (R groups)\r\nC. They all can be synthesised by the human body\r\nD. When dissolved in water, they always produce a neutral solution (pH 7)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "be4f7720-4973-455c-87fb-da986754284c",
+          "solution_uid": 2756,
+          "solution_text": "\\\\(\\\\text{A. All amino acids share a common structure with an amino group (–NH₂) and a carboxyl group (–COOH). Not all have}\\\\)\r\n\\\\(\\\\text{polar R groups, not all can be made by the body (9 are essential), and their solutions aren’t necessarily neutral.}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "5709a8f7-e743-4cc0-ae92-103ea56c6887",
+      "question_uid": 1048,
+      "question_text": "The semi-structural formula of glycine in a low pH (acidic) solution is:",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "abafb710-69a9-4634-988a-4fd87d41373d",
+          "order_uid": 3435,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "A. H₂NCH₂COOH\r\nB. H₃N⁺CH₂COO⁻\r\nC. H₃N⁺CH₂COOH\r\nD. H₂NCH₂COO⁻",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "a88cff14-ab4c-4559-ad24-99a0e5a4ed9e",
+          "solution_uid": 2755,
+          "solution_text": "\\\\(\\\\text{C. In acidic conditions, the amino group is protonated (NH₃⁺), while the carboxyl group remains in its –COOH form.}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "b4966cf2-1e44-43ec-9354-9059a1413341",
+      "question_uid": 1050,
+      "question_text": "Which option best describes the secondary structure of proteins?",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "cb573003-af53-4e56-aaab-1216fd311e81",
+          "order_uid": 3438,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "A. The sequence, type, and number of amino acids in the chain\r\nB. The hydrogen bonding between amide groups at different points along the chain\r\nC. The overall three-dimensional folding of the protein\r\nD. The association of separate protein molecules into a specific spatial arrangement",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "abacb75f-4d8e-45df-8f74-7929934c9e8d",
+          "solution_uid": 2758,
+          "solution_text": "\\\\(\\\\text{B. Secondary structure arises from hydrogen bonding between amide links, forming α-helices and β-pleated sheets.}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "b388ed61-b68e-4874-b6dc-79a7faa05941",
+      "question_uid": 1051,
+      "question_text": "Which statement about enzymes is false?",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "c6a12c1a-04fd-4b8f-acb1-4501c1d08834",
+          "order_uid": 3434,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "A. They can catalyse only specific biochemical reactions\r\nB. They typically function under mild conditions\r\nC. They are permanently denatured at low temperatures\r\nD. They can increase reaction rates by millions of times",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "5dde4e6b-f6e7-4de7-92cd-f6af80d36f7f",
+          "solution_uid": 2759,
+          "solution_text": "\\\\(\\\\text{C. Low temperatures slow enzyme activity but do not denature them, denaturation generally occurs at high}\\\\)\r\n\\\\(\\\\text{temperatures or extreme pH.}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "c835fd17-8cb2-454a-9631-8a1af954cddd",
+      "question_uid": 1052,
+      "question_text": "For proteins to be properly digested in the body:",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "79d791a4-6463-43c6-a7ba-e1c140eecf84",
+          "order_uid": 3439,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "A. Their peptide bonds must undergo hydrolysis with water molecules\r\nB. The hydrogen bonds of the secondary and tertiary structures must be broken\r\nC. They must combine into larger polypeptides that can be absorbed in the small intestine\r\nD. Digestion requires the digestive juices to be strongly alkaline (pH > 7)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "d5875e78-aed6-4224-a930-6ca3b6188b73",
+          "solution_uid": 2760,
+          "solution_text": "\\\\(\\\\text{A. Protein digestion involves hydrolysis of peptide bonds into smaller peptides and amino acids that can be absorbed.}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "1b337858-407a-4e3d-b9a2-8d9f61208aa1",
+      "question_uid": 1053,
+      "question_text": "The diagram below shows a section of a protein made up of monomer units.",
+      "difficulty": "Easy",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "506e3712-d553-4683-8a41-f5da517f1913",
+          "order_uid": 3020,
+          "section_order": 1,
+          "content_type": "IMAGE",
+          "text_content": "",
+          "image_content": "question_media/MedChem1.0.webp"
+        },
+        {
+          "order_uuid": "c8a0b1b0-bfb4-4ff8-b7a0-4242e132c667",
+          "order_uid": 3021,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "a) Identify the amino acids that make up this section of the protein. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "f6f766b5-bf5e-4cf6-9e2c-e183daddc28b",
+          "order_uid": 3022,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "b) State the type of reaction that occurs when\r\ni) amino acids join together to form proteins   (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "6ade664f-1d86-4ca8-88be-e204ebbae7ec",
+          "order_uid": 3023,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "ii) proteins break down into amino acids.  (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "0a082df8-4f35-45f9-b2c6-e3d3fb4778ba",
+          "order_uid": 3024,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "c) Name two additional molecules involved in both processes described in (b)(i) and (b)(ii).  (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "37557f72-d346-4f93-84f2-8ff430188bef",
+          "solution_uid": 2761,
+          "solution_text": "\\\\(\\\\text{Alanine, Aspartic acid, Serine}\\\\)",
+          "solution_image": null,
+          "order_uuid": "c8a0b1b0-bfb4-4ff8-b7a0-4242e132c667"
+        },
+        {
+          "solution_uuid": "a0bb23ed-ac2c-4148-956c-40bb712b144c",
+          "solution_uid": 2762,
+          "solution_text": "\\\\(\\\\text{Condensation reaction.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "f6f766b5-bf5e-4cf6-9e2c-e183daddc28b"
+        },
+        {
+          "solution_uuid": "c29476dc-519a-4391-a04a-72920dcdd9ea",
+          "solution_uid": 2763,
+          "solution_text": "\\\\(\\\\text{Hydrolysis reaction}\\\\)",
+          "solution_image": null,
+          "order_uuid": "6ade664f-1d86-4ca8-88be-e204ebbae7ec"
+        },
+        {
+          "solution_uuid": "39e235e6-52b2-46be-8703-afd64eb32e4a",
+          "solution_uid": 2764,
+          "solution_text": "\\\\(\\\\text{Water and enzymes}\\\\)",
+          "solution_image": null,
+          "order_uuid": "0a082df8-4f35-45f9-b2c6-e3d3fb4778ba"
+        }
+      ]
+    },
+    {
+      "question_uuid": "07bf63eb-ab5a-4e8c-980f-d3928f04602b",
+      "question_uid": 1054,
+      "question_text": "Use a semi - structural formula to show the structure of methionine in an aqueous solution with a pH = 10.",
+      "difficulty": "Easy",
+      "multiple_choice": false,
+      "orders": [],
+      "solutions": [
+        {
+          "solution_uuid": "94015852-77ed-4ad0-87fe-0068adbf599c",
+          "solution_uid": 2765,
+          "solution_text": "\\\\(\\\\text{H₂NCH(CH₂CH₂SCH₃)COO⁻}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "ae77293f-ca10-46f1-a126-0a53c571d92b",
+      "question_uid": 1055,
+      "question_text": "Use a semi - structural formula to show the zwitterionic form of glutamic acid.",
+      "difficulty": "Easy",
+      "multiple_choice": false,
+      "orders": [],
+      "solutions": [
+        {
+          "solution_uuid": "3cf19555-2ea8-4ae7-a15c-22cbd9e7c9ba",
+          "solution_uid": 2766,
+          "solution_text": "\\\\(\\\\text{H₃N⁺CH(CH₂CH₂COOH)COO⁻}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "519ed914-775d-485e-9f3f-f82f705edc06",
+      "question_uid": 1067,
+      "question_text": "The chiral carbon in the following molecule is",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "f2525bad-1a03-490c-8f60-7fec6c57afae",
+          "order_uid": 3043,
+          "section_order": 1,
+          "content_type": "IMAGE",
+          "text_content": "",
+          "image_content": "question_media/2-chlorobutaneMC.webp"
+        },
+        {
+          "order_uuid": "514a8a67-a143-4d7a-873c-e1a70b2f4dab",
+          "order_uid": 3044,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "A. A\r\nB. B\r\nC. C\r\nD. D",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "48cac2ec-f25e-4ef7-928a-6fd4ee4c2851",
+          "solution_uid": 2784,
+          "solution_text": "\\\\(\\\\text{B}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "63cd293d-c1fa-4fde-88f4-01a3760a24b4",
+      "question_uid": 1068,
+      "question_text": "The chiral carbon in the following molecule is",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "0adc9d4b-806c-442e-9cc3-e985c1d57580",
+          "order_uid": 3045,
+          "section_order": 1,
+          "content_type": "IMAGE",
+          "text_content": "",
+          "image_content": "question_media/3-hydroxybutanalMC.webp"
+        },
+        {
+          "order_uuid": "33168b64-583d-4fb7-b1f0-909290ff23e2",
+          "order_uid": 3046,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "A. A\r\nB. B\r\nC. C\r\nD. D",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "ec1b293a-c53b-4750-b43b-d9cd8dc20cb3",
+          "solution_uid": 2785,
+          "solution_text": "\\\\(\\\\text{B}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "185df1aa-e069-4b66-bc28-1aaa08b99689",
+      "question_uid": 1079,
+      "question_text": "Which of the following compounds can exist as optical isomers?",
+      "difficulty": "Exam-Level",
+      "multiple_choice": true,
+      "orders": [
+        {
+          "order_uuid": "264462ea-a84d-445e-bad8-67e1940a1363",
+          "order_uid": 3436,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "A. butane\r\nB. 2-butanol\r\nC. but-2-ene\r\nD. propanoic acid",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "c35f5586-cb89-4594-bc45-2b2fb0bcae09",
+          "solution_uid": 2796,
+          "solution_text": "\\\\(\\\\text{B}\\\\)\r\n\\\\(\\\\text{Only B has a chiral carbon.}\\\\)",
+          "solution_image": null,
+          "order_uuid": null
+        }
+      ]
+    },
+    {
+      "question_uuid": "f0372cb3-5f94-4cbd-ba09-ab42a2f42014",
+      "question_uid": 1109,
+      "question_text": "Scientists are investigating the extraction of bioactive compounds from mint leaves that may have antibacterial properties. Two techniques are considered: solvent extraction and steam distillation.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "32a42357-eff3-492b-bd42-c968ebb620e9",
+          "order_uid": 3148,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Describe the process of solvent extraction and explain why the choice of solvent polarity is crucial in this technique. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "77cb3c17-fe59-4bd5-adfd-da988012daae",
+          "order_uid": 3149,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Grinding or blending the mint leaves before extraction is recommended. Explain how this step improves extraction efficiency. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "9a820417-f115-4897-b50f-d367fe8da5d5",
+          "order_uid": 3150,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Compare solvent extraction and steam distillation in terms of efficiency, purity and suitability for extracting plant oils.  (3 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "4827afdb-113f-48ab-bb99-6f8aeeffa863",
+          "solution_uid": 2896,
+          "solution_text": "\\\\(\\\\text{Solvent extraction is a separation technique where plant material is brought into contact with a liquid solvent. The}\\\\)\r\n\\\\(\\\\text{target molecules dissolve into the solvent, leaving behind the bulk of the plant matter. This produces a liquid}\\\\)\r\n\\\\(\\\\text{extract containing the compounds of interest.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "32a42357-eff3-492b-bd42-c968ebb620e9"
+        },
+        {
+          "solution_uuid": "47ea56b3-4682-451b-b5dd-87dc46c4ee63",
+          "solution_uid": 2897,
+          "solution_text": "\\\\(\\\\text{Grinding or blending disrupts plant cell walls and increases the total surface area exposed to the solvent. This improves}\\\\)\r\n\\\\(\\\\text{diffusion and ensures more efficient transfer of compounds into the solvent.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "77cb3c17-fe59-4bd5-adfd-da988012daae"
+        },
+        {
+          "solution_uuid": "6b3fbbc2-5c03-4a1a-96f2-9383a00eb398",
+          "solution_uid": 2898,
+          "solution_text": "\\\\(\\\\text{Solvent extraction is versatile because it can recover a broad range of compounds (polar, non-polar, or both if blends}\\\\)\r\n\\\\(\\\\text{are used). However, it may also co-extract impurities. Steam distillation, in contrast, is limited to volatile, heat-stable}\\\\)\r\n\\\\(\\\\text{components like essential oils but tends to produce cleaner extracts since non-volatile compounds remain behind.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "9a820417-f115-4897-b50f-d367fe8da5d5"
+        }
+      ]
+    },
+    {
+      "question_uuid": "f0b833af-4499-496a-b063-2bea6f6ac82d",
+      "question_uid": 1110,
+      "question_text": "A newly discovered plant peptide is being investigated as a potential therapeutic agent. Understanding its structure is important for stability and activity inside the body.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "a885d8b0-1b73-4d90-88b7-12fba257a304",
+          "order_uid": 3151,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) The tertiary structure of proteins is maintained by several interactions. Identify three types of bonds or interactions between R groups that influence the tertiary structure of a protein. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "95538595-0dea-434d-965e-e16d29872e3d",
+          "order_uid": 3152,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Draw the skeletal structure of glycine at pH 1.  (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "b8d36384-79c1-4023-99aa-0d3ea4decc60",
+          "order_uid": 3153,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) At very high pH, the dipeptide Cys–Asp becomes fully deprotonated. Draw the structure of this dipeptide under strongly basic conditions. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "74993ad2-40b2-4372-9943-740c17e0ef70",
+          "solution_uid": 2899,
+          "solution_text": "\\\\(\\\\text{Hydrogen bonds (between polar groups such as –OH, –NH).}\\\\)\r\n\\\\(\\\\text{Ionic interactions (between charged side chains like Asp⁻ and Lys⁺).}\\\\)\r\n\\\\(\\\\text{attraction.}\\\\)\r\n\\\\(\\\\text{Covalent disulfide bonds (between cysteine residues).}\\\\)",
+          "solution_image": null,
+          "order_uuid": "a885d8b0-1b73-4d90-88b7-12fba257a304"
+        },
+        {
+          "solution_uuid": "8b310fbb-0e5e-4fb5-9acf-4b216b091bbd",
+          "solution_uid": 2900,
+          "solution_text": "\\\\(\\\\text{At pH 1, glycine exists in a protonated form: the amino group is –NH₃⁺, and the carboxyl group is –COOH}\\\\)",
+          "solution_image": "solution_media/Glycine.webp",
+          "order_uuid": "95538595-0dea-434d-965e-e16d29872e3d"
+        },
+        {
+          "solution_uuid": "e9f589f7-73b1-4dbd-8d13-6c0fcdb8eb4d",
+          "solution_uid": 2901,
+          "solution_text": "\\\\(\\\\text{At high pH, the dipeptide Cys–Asp is fully deprotonated. Both side chains (–SH of cysteine, –COOH of aspartate) and}\\\\)\r\n\\\\(\\\\text{the terminal –COOH group lose protons.}\\\\)",
+          "solution_image": "solution_media/Cys-Asp.webp",
+          "order_uuid": "b8d36384-79c1-4023-99aa-0d3ea4decc60"
+        }
+      ]
+    },
+    {
+      "question_uuid": "056a4273-f026-4009-ad95-063a814722b4",
+      "question_uid": 1111,
+      "question_text": "Researchers are testing a natural extract for its effect on digestive enzymes. Preliminary studies suggest that the extract contains a compound that slows down enzyme activity.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "7de46fca-e1d0-4fda-975f-b696768cb8c5",
+          "order_uid": 3154,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain the mechanism of action of a competitive enzyme inhibitor. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "f77857ff-253c-473e-9c13-2b7be3196fa0",
+          "order_uid": 3155,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) How does a competitive enzyme inhibitor differ from a non-competitive inhibitor in terms of its binding to enzymes? (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "8a563bad-4859-4e63-b15f-55c89bdd7fcb",
+          "order_uid": 3156,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Discuss why increasing substrate concentration reduces the effect of a competitive inhibitor but does not affect a non-competitive inhibitor. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "01c958e9-88d4-4603-8131-6eb4518f58a4",
+          "solution_uid": 2902,
+          "solution_text": "\\\\(\\\\text{A competitive inhibitor binds to the active site of an enzyme. By occupying this site, it prevents the substrate from }\\\\)\r\n\\\\(\\\\text{binding and slows the reaction rate.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "7de46fca-e1d0-4fda-975f-b696768cb8c5"
+        },
+        {
+          "solution_uuid": "9ea493c2-b3fc-4c8b-b336-73841d490353",
+          "solution_uid": 2903,
+          "solution_text": "\\\\(\\\\text{Competitive enzyme inhibitors bind to the active site of the enzyme, directly competing with the substrate for binding.}\\\\)\r\n\\\\(\\\\text{Non-competitive inhibitors, however, bind to a different site on the enzyme, causing a change that affects the active}\\\\)\r\n\\\\(\\\\text{site's shape.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "f77857ff-253c-473e-9c13-2b7be3196fa0"
+        },
+        {
+          "solution_uuid": "bf7ca6d0-72aa-4d8a-b7db-65dd9118e391",
+          "solution_uid": 2904,
+          "solution_text": "\\\\(\\\\text{For a competitive inhibitor, increasing substrate concentration increases the chance of substrate outcompeting the}\\\\)\r\n\\\\(\\\\text{inhibitor, so inhibition decreases. For a non-competitive inhibitor, substrate concentration has no effect because the}\\\\)\r\n\\\\(\\\\text{inhibitor acts independently of substrate binding.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "8a563bad-4859-4e63-b15f-55c89bdd7fcb"
+        }
+      ]
+    },
+    {
+      "question_uuid": "749b5767-450d-4506-8937-b6007a4eeed7",
+      "question_uid": 1143,
+      "question_text": "Plant materials contain many bioactive components that can be isolated using various physical and chemical separation techniques.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "9eda8ef3-28b9-41d4-8d5d-aa4d54aded71",
+          "order_uid": 3444,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain the process of solvent extraction in separation techniques.  (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "bc33e7da-a125-49fd-afe0-714c8278df98",
+          "order_uid": 3445,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Compare and contrast polar and non-polar solvents in the context of solvent extraction.  (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "921727db-22a1-4e98-9a4b-1e3f4bc3a0fb",
+          "order_uid": 3446,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Describe how grinding or blending of leaves enhances the efficiency of solvent extraction. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "f8a7baee-2e60-456f-9f61-ca8319ceef5b",
+          "solution_uid": 3028,
+          "solution_text": "\\\\(\\\\text{Solvent extraction is a technique in which a solid material (such as a plant) is brought into contact with a liquid solvent.}\\\\)\r\n\\\\(\\\\text{The desired compounds within the solid dissolve into the solvent, allowing them to be separated from the rest of the}\\\\)\r\n\\\\(\\\\text{solid material.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "9eda8ef3-28b9-41d4-8d5d-aa4d54aded71"
+        },
+        {
+          "solution_uuid": "31654764-9531-407a-a213-862674c6297e",
+          "solution_uid": 3029,
+          "solution_text": "\\\\(\\\\text{Polar solvents, such as water, are effective at extracting polar compounds because they can form strong interactions}\\\\)\r\n\\\\(\\\\text{with polar functional groups. In contrast, non-polar solvents are more suitable for dissolving and extracting non-polar}\\\\)\r\n\\\\(\\\\text{substances.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "bc33e7da-a125-49fd-afe0-714c8278df98"
+        },
+        {
+          "solution_uuid": "e48b8ba6-88cc-49d4-92c0-936232d8891f",
+          "solution_uid": 3030,
+          "solution_text": "\\\\(\\\\text{Grinding or blending the leaves breaks down the plant’s structure, increasing the surface area available to the solvent.}\\\\)\r\n\\\\(\\\\text{This improves the efficiency of solvent extraction by maximising contact between the solvent and plant material, allowing}\\\\)\r\n\\\\(\\\\text{the desired components to dissolve more effectively.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "921727db-22a1-4e98-9a4b-1e3f4bc3a0fb"
+        }
+      ]
+    },
+    {
+      "question_uuid": "ed507b9b-19f3-45fc-927c-3d28b91cb378",
+      "question_uid": 1144,
+      "question_text": "Enzyme activity can be altered by different types of inhibitors, which are important in biochemical regulation and drug design.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "3d978212-5903-4a7c-a62a-b6e7b102507e",
+          "order_uid": 3447,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Describe the mechanism of action of a competitive enzyme inhibitor. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "fb3215d7-ed06-4d67-9ebe-573ef2a92e1b",
+          "order_uid": 3448,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Explain how a competitive enzyme inhibitor differs from a non-competitive inhibitor in terms of binding to enzymes. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "291803d8-5cd0-407a-8a54-524b3230fada",
+          "order_uid": 3449,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Discuss the factors that influence the effectiveness of competitive enzyme inhibition. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "ba6cc734-ae1d-4097-a17f-d9de2fbc03c3",
+          "order_uid": 3450,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) Explain why the concentration of substrate does not impact the effectiveness of non-competitive enzyme inhibition. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "f11b926c-54ef-45d8-8a2e-1b7d696d3b46",
+          "solution_uid": 3031,
+          "solution_text": "\\\\(\\\\text{A competitive enzyme inhibitor attaches to the enzyme’s active site, forming an enzyme–inhibitor complex. By occupying}\\\\)\r\n\\\\(\\\\text{this site, it prevents the substrate from binding, thereby reducing or blocking the enzyme’s catalytic activity.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "3d978212-5903-4a7c-a62a-b6e7b102507e"
+        },
+        {
+          "solution_uuid": "05b6111d-5b52-4147-9959-44e51e506b80",
+          "solution_uid": 3032,
+          "solution_text": "\\\\(\\\\text{Competitive enzyme inhibitors attach to the enzyme’s active site, directly competing with the substrate for access.}\\\\)\r\n\\\\(\\\\text{In contrast, non-competitive inhibitors bind to a separate site on the enzyme, inducing a structural change that}\\\\)\r\n\\\\(\\\\text{alters the shape of the active site and reduces enzyme activity.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "fb3215d7-ed06-4d67-9ebe-573ef2a92e1b"
+        },
+        {
+          "solution_uuid": "8aaac0a4-74ac-45ad-bb91-40f5dac0f382",
+          "solution_uid": 3033,
+          "solution_text": "\\\\(\\\\text{The effectiveness of competitive enzyme inhibition depends on the relative concentrations of the inhibitor and the}\\\\)\r\n\\\\(\\\\text{substrate. When the inhibitor concentration is high, more enzyme active sites are occupied by inhibitors, leading}\\\\)\r\n\\\\(\\\\text{to greater inhibition. Conversely, increasing substrate concentration can reduce inhibition by outcompeting the}\\\\)\r\n\\\\(\\\\text{inhibitor for binding to the active site.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "291803d8-5cd0-407a-8a54-524b3230fada"
+        },
+        {
+          "solution_uuid": "ceaa2196-1e24-44bb-955a-3c5a2edeab15",
+          "solution_uid": 3034,
+          "solution_text": "\\\\(\\\\text{Non-competitive enzyme inhibition remains unaffected by changes in substrate concentration because the inhibitor}\\\\)\r\n\\\\(\\\\text{binds to a site other than the active site. This binding alters the enzyme’s shape (conformation), reducing its activity}\\\\)\r\n\\\\(\\\\text{regardless of how much substrate is present.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "ba6cc734-ae1d-4097-a17f-d9de2fbc03c3"
+        }
+      ]
+    },
+    {
+      "question_uuid": "45da8a46-b9a4-4bed-879c-a7c09a489add",
+      "question_uid": 1145,
+      "question_text": "Essential oils and volatile plant compounds are often extracted using distillation methods rather than solvent extraction.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "e03fc36c-597e-4139-8fe1-e6a5d1c288b6",
+          "order_uid": 3451,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain the principle behind steam distillation and its application in extracting plant oils.  (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "1f147723-715f-4cc8-be25-dafb6f0a0b4e",
+          "order_uid": 3452,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Compare the efficiency of solvent extraction and steam distillation in extracting plant components. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "73bff483-68b8-4d32-ac20-e55363c1956c",
+          "solution_uid": 3035,
+          "solution_text": "\\\\(\\\\text{Steam distillation works by passing steam through plant material to extract volatile compounds, such as essential oils.}\\\\)\r\n\\\\(\\\\text{The heat from the steam ruptures plant cells, releasing these oils, which are then carried along with the steam. Upon}\\\\)\r\n\\\\(\\\\text{condensation, the mixture of water and oil separates into distinct layers that can be easily collected and isolated.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "e03fc36c-597e-4139-8fe1-e6a5d1c288b6"
+        },
+        {
+          "solution_uuid": "33410c88-1f3c-4814-87ac-6c3e1d7e9d51",
+          "solution_uid": 3036,
+          "solution_text": "\\\\(\\\\text{Solvent extraction, on the other hand, is a more versatile technique capable of extracting a broader range of}\\\\)\r\n\\\\(\\\\text{compounds, including both polar and non-polar substances. In contrast, steam distillation is mainly used for}\\\\)\r\n\\\\(\\\\text{extracting volatile, heat-stable compounds from plants.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "1f147723-715f-4cc8-be25-dafb6f0a0b4e"
+        }
+      ]
+    },
+    {
+      "question_uuid": "55ed801d-9484-418d-a793-73e7ecaacf98",
+      "question_uid": 1146,
+      "question_text": "The three-dimensional structure and ionisation state of amino acids play crucial roles in protein stability and biochemical behaviour.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "971a8e90-3cf9-4843-a797-1daaf0353542",
+          "order_uid": 3453,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) State two types of bonds or interactions that maintain the tertiary structure of proteins. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "40109b56-7d43-43dd-b5d4-3ba070756d14",
+          "order_uid": 3454,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Draw the structural formula of glycine at pH 1. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "6dc5402c-fc43-4ae0-a3fe-dce4a62c3af2",
+          "order_uid": 3455,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Draw the structure of the dipeptide Cys–Asp at high pH, indicating ionised groups appropriately. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "d5d1873a-17a0-4288-965b-02e78b762095",
+          "solution_uid": 3037,
+          "solution_text": "\\\\(\\\\text{Any two of the following:}\\\\)\r\n\\\\(\\\\text{Hydrogen bonds}\\\\)\r\n\\\\(\\\\text{Dipole-dipole}\\\\)\r\n\\\\(\\\\text{Ionic bonds}\\\\)\r\n\\\\(\\\\text{Disulfide bridges}\\\\)\r\n\\\\(\\\\text{Dispersion forces}\\\\)",
+          "solution_image": null,
+          "order_uuid": "971a8e90-3cf9-4843-a797-1daaf0353542"
+        },
+        {
+          "solution_uuid": "1ff4f8ad-6418-41e5-a0a8-6ac8581f7fb0",
+          "solution_uid": 3038,
+          "solution_text": "\\\\(\\\\text{Excess protons}\\\\)",
+          "solution_image": "solution_media/GlycinepH1.webp",
+          "order_uuid": "40109b56-7d43-43dd-b5d4-3ba070756d14"
+        },
+        {
+          "solution_uuid": "ac3d23b6-aa64-45a6-a962-8701cfebe417",
+          "solution_uid": 3039,
+          "solution_text": "\\\\(\\text{Loss of protons at high pH}\\\\)",
+          "solution_image": "solution_media/Cys-AspHighpH.webp",
+          "order_uuid": "6dc5402c-fc43-4ae0-a3fe-dce4a62c3af2"
+        }
+      ]
+    },
+    {
+      "question_uuid": "d26c3ccf-59ce-44d8-8e15-13f817a72a28",
+      "question_uid": 1195,
+      "question_text": "Ryan wants to separate components in a mixture and thinks of the fractional distillation process he learnt in class.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "d9ec30b0-67ec-4977-b38d-924da65550a1",
+          "order_uid": 3575,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain when fractional distillation will be used and how it works to separate components in a mixture. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "414b6a5e-8d5a-4bc3-913f-9ba56a6465a2",
+          "order_uid": 3576,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) A mixture contains 2 organic compounds. Compound A is CH₃(CH₂)₆CH₃ with a boiling point of 126 °C, and Compound B is CH₃CH₂CH₂CH₃ with a boiling point of 97 °C. During fractional distillation, which compound (A or B) will be distilled first? Justify your answer. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "bbe40b74-f68d-4138-9aed-8dd60ae9c4d4",
+          "order_uid": 3577,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Using your knowledge of organic chemistry and intermolecular forces, explain why Compound A has a higher boiling point than Compound B, despite both being alkanes. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "08c59593-d7c5-47d9-80fd-31c99f546656",
+          "solution_uid": 3138,
+          "solution_text": "\\\\(\\\\text{Fractional distillation is used to separate components in a mixture based on differences in boiling points, when these}\\\\)\r\n\\\\(\\\\text{different boiling points are close enough that simple distillation cannot separate them effectively. During fractional}\\\\)\r\n\\\\(\\\\text{distillation, the mixture is heated and each component vaporises at its own boiling point. The vapours rise through a}\\\\)\r\n\\\\(\\\\text{fractioning column which has a temperature gradient (hot at the bottom, cooler at the top). As vapours rise, repeated}\\\\)\r\n\\\\(\\\\text{condensation and vaporisation occur on the surfaces within the column, allowing the component with the lowest}\\\\)\r\n\\\\(\\\\text{boiling point to reach the top and be collected first, while components with higher boiling points condense lower in}\\\\)\r\n\\\\(\\\\text{the column.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "d9ec30b0-67ec-4977-b38d-924da65550a1"
+        },
+        {
+          "solution_uuid": "15de9839-8111-4ce1-9e25-9311a7c189fe",
+          "solution_uid": 3139,
+          "solution_text": "\\\\(\\\\text{Compound B will be distilled first as it has a lower boiling point, so it vaporises at a lower temperature and reaches}\\\\)\r\n\\\\(\\\\text{the top of the column before Compound A.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "414b6a5e-8d5a-4bc3-913f-9ba56a6465a2"
+        },
+        {
+          "solution_uuid": "f66ea9de-8e46-4700-866d-0f4a6a24ae99",
+          "solution_uid": 3140,
+          "solution_text": "\\\\(\\\\text{Compound A has a longer hydrocarbon chain, a higher molar mass, and therefore stronger dispersion forces compared}\\\\)\r\n\\\\(\\\\text{to Compound B. Compound B has a shorter chain, lower mass and weaker dispersion forces, hence it has a lower boiling}\\\\)\r\n\\\\(\\\\text{point.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "bbe40b74-f68d-4138-9aed-8dd60ae9c4d4"
+        }
+      ]
+    },
+    {
+      "question_uuid": "111b3a2b-17da-48b7-8e92-da4fe3c7292e",
+      "question_uid": 1196,
+      "question_text": "A chemist wants to extract caffeine (a moderately polar organic molecule) from ground coffee beans using a two-stage process.\r\n\r\n1. Solid-liquid extraction: hot water is poured over finely ground coffee to dissolve caffeine and other water-soluble components. \r\n2. Liquid-liquid extraction: the aqueous coffee extract is shaken with an organic solvent in a separating funnel, allowing caffeine to transfer into the organic layer. \r\n\r\nThree organic solvents are available: \r\nSolvent A: non-polar, density 1.30 g/mL, immiscible with water\r\nSolvent B: moderately polar, density 0.90 g/mL, immiscible with water\r\nSolvent C: highly polar, density 1.05 g/mL, partially miscible with water",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "ebff06b4-bc86-4328-ad0f-a6baeddc9ad1",
+          "order_uid": 3578,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain the purpose of grinding the coffee beans before the solid-liquid extraction is carried out. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "eb1405e2-d16a-4b9d-9d93-91a448ada575",
+          "order_uid": 3579,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Describe the process of solid-liquid solvent extraction as used to extract caffeine from coffee grounds. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "44cbd754-c143-4890-a7be-f96b611b14ef",
+          "order_uid": 3580,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Identify the most suitable solvent (A, B, or C) for extracting caffeine. Justify your answer. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "82394810-5871-40ec-a93b-0f005e006fd9",
+          "order_uid": 3581,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) Explain why two distinct liquid layers form when the aqueous extract and organic solvent are added to the separating funnel. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "e79541cc-3a04-4864-999b-db3b79c90875",
+          "order_uid": 3582,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "e) State which layer (organic or aqueous) will form the top player when Solvent A is used. Justify your answer. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "7a4f76d5-778f-4723-80c8-408a6bd944c5",
+          "order_uid": 3583,
+          "section_order": 6,
+          "content_type": "TEXT",
+          "text_content": "f) State 1 factor that affects the efficiency of either the solid-liquid or liquid-liquid extraction step. Briefly explain why it affects the extraction. (1 mark)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "9b9cbe18-7074-4bcd-87df-c4ebda333819",
+          "solution_uid": 3141,
+          "solution_text": "\\\\(\\\\text{Grinding increases the surface area of the coffee beans, allowing the solvent to com into contact with more molecules.}\\\\)\r\n\\\\(\\\\text{This increases the rate and extent of caffeine dissolution.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "ebff06b4-bc86-4328-ad0f-a6baeddc9ad1"
+        },
+        {
+          "solution_uuid": "68fa336f-28aa-45c3-a648-c720028a1f43",
+          "solution_uid": 3142,
+          "solution_text": "\\\\(\\\\text{The most suitable solvent is Solvent B. Caffeine is moderately polar, so a moderately polar solvent dissolves it effectively}\\\\)\r\n\\\\(\\\\text{(like dissolves like).}\\\\)",
+          "solution_image": null,
+          "order_uuid": "44cbd754-c143-4890-a7be-f96b611b14ef"
+        },
+        {
+          "solution_uuid": "e9181055-d5a2-46ea-be25-72de20a3ada0",
+          "solution_uid": 3143,
+          "solution_text": "\\\\(\\\\text{Hot water is added to the finely ground coffee. The solvent (water) penetrates the solid matrix, then the solute}\\\\)\r\n\\\\(\\\\text{(caffeine) dissolves in the water. Caffeine is diffused out of the solid matrix, and the extracted caffeine is collected.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "eb1405e2-d16a-4b9d-9d93-91a448ada575"
+        },
+        {
+          "solution_uuid": "7278953f-0b74-4294-9e6e-2eca98ec23ed",
+          "solution_uid": 3144,
+          "solution_text": "\\\\(\\\\text{Two layers form because the organic solvent and water are immiscible. Their differences in polarity and functional}\\\\)\r\n\\\\(\\\\text{groups prevent them from forming hydrogen bonds with each other, so they separate into distinct phases.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "82394810-5871-40ec-a93b-0f005e006fd9"
+        },
+        {
+          "solution_uuid": "513a1044-34d9-4510-bbcc-7ad0cbab8886",
+          "solution_uid": 3145,
+          "solution_text": "\\\\(\\\\text{When Solvent A (density 1.30 g/mL) is used, the organic solvent forms the bottom layer, because it is denser than}\\\\)\r\n\\\\(\\\\text{water.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "e79541cc-3a04-4864-999b-db3b79c90875"
+        },
+        {
+          "solution_uuid": "f759b63d-3763-4132-9525-e7c7718c8e56",
+          "solution_uid": 3146,
+          "solution_text": "\\\\(\\\\text{Temperature (solid-liquid stage): increasing temperature increases the solubility and diffusion rate of caffeine, improving}\\\\)\r\n\\\\(\\\\text{extraction.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "7a4f76d5-778f-4723-80c8-408a6bd944c5"
+        }
+      ]
+    },
+    {
+      "question_uuid": "515d300e-6496-4c28-8275-2230f47b6e92",
+      "question_uid": 1197,
+      "question_text": "Ibuprofen, a common pain-relief medication, is shown below:",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "99ba4519-75d7-48fe-831b-58af8e5f24b5",
+          "order_uid": 3584,
+          "section_order": 1,
+          "content_type": "IMAGE",
+          "text_content": "",
+          "image_content": "question_media/MedicinalChem12.0.webp"
+        },
+        {
+          "order_uuid": "9a424c90-4e22-41b2-8843-99b0f370d441",
+          "order_uid": 3585,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "a) On the structure of ibuprofen provided above, circle and label all functional group(s) present. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "6611aca1-821c-4df5-9947-27d4c826d547",
+          "order_uid": 3586,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "b) Explain what is meant by a chiral molecule. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "4f403d40-afde-4229-8fac-c94a55ffa7a9",
+          "order_uid": 3587,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "c) Identify the chiral centre(s) in ibuprofen on the diagram above with an asterisk (*). (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "04d5bf47-8be0-4a0f-859a-8d035be8a5c8",
+          "order_uid": 3588,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "d) Explain what enantiomers are and describe the relationship between the two enantiomers of ibuprofen. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "3a79d7e8-8993-4790-9638-4205f5b00f50",
+          "order_uid": 3589,
+          "section_order": 6,
+          "content_type": "TEXT",
+          "text_content": "e) One enantiomer of ibuprofen, S-ibuprofen, is the biologically active form responsible for pain relief, while R-ibuprofen is significantly less active. Explain why different enantiomers of the same drug can have different effects in the human body. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "92638a8c-567e-4225-9beb-ee5eccde7fbd",
+          "order_uid": 3590,
+          "section_order": 7,
+          "content_type": "TEXT",
+          "text_content": "f) Some pharmaceutical companies market single-enantiomer formulations (containing only S-ibuprofen). State one advantage and one disadvantage of producing drugs as single-enantiomer preparations rather than racemic mixtures. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "d2b3cd60-e2e5-4006-9294-4592750210ea",
+          "solution_uid": 3147,
+          "solution_text": "\\\\( \\\\)",
+          "solution_image": "solution_media/MedicinalChem12.0ANS.webp",
+          "order_uuid": "9a424c90-4e22-41b2-8843-99b0f370d441"
+        },
+        {
+          "solution_uuid": "80811672-e614-4a92-a718-3cac3b71c43b",
+          "solution_uid": 3148,
+          "solution_text": "\\\\(\\\\text{A chiral molecule is a molecule with a carbon atom bonded to 4 different groups, and is non-superimposable on its}\\\\)\r\n\\\\(\\\\text{mirror image.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "6611aca1-821c-4df5-9947-27d4c826d547"
+        },
+        {
+          "solution_uuid": "314baeee-97cd-4c66-9037-673fa5e5366a",
+          "solution_uid": 3149,
+          "solution_text": "\\\\( \\\\)",
+          "solution_image": "solution_media/MedicinalChem12.0ANS2.webp",
+          "order_uuid": "4f403d40-afde-4229-8fac-c94a55ffa7a9"
+        },
+        {
+          "solution_uuid": "b8092d94-c90f-4d81-9600-f5e454c56f5a",
+          "solution_uid": 3150,
+          "solution_text": "\\\\(\\\\text{Enantiomers are isomers which are non-superimposable mirror images of each other. The two enantiomers of ibuprofen}\\\\)\r\n\\\\(\\\\text{have the same molecular formula and functional groups, but a different arrangement of particles in space.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "04d5bf47-8be0-4a0f-859a-8d035be8a5c8"
+        },
+        {
+          "solution_uuid": "ae9c9e35-1a4b-421b-983c-e5a0bf00d103",
+          "solution_uid": 3151,
+          "solution_text": "\\\\(\\\\text{Advantage: }\\\\)\r\n\\\\(\\\\text{Increased effectiveness because only the active enantiomer is used. }\\\\)\r\n\\\\(\\\\text{Reduced side effects from inactive/harmful enantiomers. }\\\\)\r\n\\\\( \\\\)\r\n\\\\(\\\\text{Disadvantage:}\\\\)\r\n\\\\(\\\\text{More expensive/difficult to separate enantiomers.}\\\\)\r\n\\\\(\\\\text{May require more complex purification or chiral catalysts.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "92638a8c-567e-4225-9beb-ee5eccde7fbd"
+        },
+        {
+          "solution_uuid": "bee1c6ba-8680-4e5e-9bcf-e1cc380560ea",
+          "solution_uid": 3152,
+          "solution_text": "\\\\(\\\\text{Enantiomers can have different effects in the body because many biological molecules such as enzymes and receptors}\\\\)\r\n\\\\(\\\\text{in the body are chiral, so they interact differently with each enantiomer. Thus, one enantiomer (S-ibuprofen) may bind}\\\\)\r\n\\\\(\\\\text{more effectively to the biological target and produce the desired therapeutic effect, while the other enantiomer}\\\\)\r\n\\\\(\\\\text{(R-ibuprofen) is less active, or sometimes produce different or unwanted effects.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "3a79d7e8-8993-4790-9638-4205f5b00f50"
+        }
+      ]
+    },
+    {
+      "question_uuid": "565adcb6-f8e2-44d3-9cbe-508d355cbf81",
+      "question_uid": 1198,
+      "question_text": "Amino acids are small organic molecules that serve as the building blocks of proteins and they are essential because their different side chains (R groups) give proteins the chemical diversity needed to carry out different roles.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "e1e51078-5299-4148-a247-d112e8d5eecd",
+          "order_uid": 3591,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Identify and name the groups present in an amino acid. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "d3e73298-0674-4d6e-bcc6-1f666a4234c8",
+          "order_uid": 3592,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Draw asparagine in a strongly acidic solution (pH < 2). (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "cdd91e92-8f87-4cb6-ab37-cd7d49f711af",
+          "order_uid": 3593,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "At physiological pH (around pH 7), amino acids exist primarily as zwitterions. \r\nc) Define the term zwitterion. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "bea21e32-a5fd-45ac-a6c5-5d96afe8a70e",
+          "order_uid": 3594,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) Draw asparagine as a zwitterion. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "6883de4b-ed58-4cb0-b1a6-44ff2baaf202",
+          "order_uid": 3595,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "e) Draw the structure of asparagine under basic conditions (pH > 10) and explain which functional group(s) are deprotonated at high pH. (2 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "59936ff9-d56c-400f-8bcf-4ab183f8d803",
+          "order_uid": 3596,
+          "section_order": 6,
+          "content_type": "TEXT",
+          "text_content": "A dipeptide is shown below:",
+          "image_content": null
+        },
+        {
+          "order_uuid": "40a786ac-5a21-4074-a7e6-bad5aced895f",
+          "order_uid": 3597,
+          "section_order": 7,
+          "content_type": "IMAGE",
+          "text_content": "",
+          "image_content": "question_media/Cys-Glu.webp"
+        },
+        {
+          "order_uuid": "677661b6-40f4-457e-a6ce-c41bf93c090c",
+          "order_uid": 3598,
+          "section_order": 8,
+          "content_type": "TEXT",
+          "text_content": "f) Identify the amino acid residue shown. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "b2de5a32-e8ad-4681-9d1c-714d8d3ba369",
+          "order_uid": 3599,
+          "section_order": 9,
+          "content_type": "TEXT",
+          "text_content": "g) Circle the peptide bond in the diagram above. (1 mark)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "24ce69b6-06c2-45ee-84c1-ec6f3ee3317a",
+          "solution_uid": 3153,
+          "solution_text": "\\\\(\\\\text{Central carbon, amino group, carboxyl group, lone hydrogen atom, R group.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "e1e51078-5299-4148-a247-d112e8d5eecd"
+        },
+        {
+          "solution_uuid": "6484f902-7feb-4e32-934e-4be27aa9b946",
+          "solution_uid": 3154,
+          "solution_text": "\\\\(\\\\text{Amino group becomes protonated because of the high concentration of hydrogen ions in acidic solution.}\\\\)",
+          "solution_image": "solution_media/Asparagine1.0.webp",
+          "order_uuid": "d3e73298-0674-4d6e-bcc6-1f666a4234c8"
+        },
+        {
+          "solution_uuid": "5d5aa988-fd60-4322-86cc-be8451573248",
+          "solution_uid": 3155,
+          "solution_text": "\\\\(\\\\text{Zwitterions have both a positive and negative charge and the overall net charge is zero.}\\\\)",
+          "solution_image": "solution_media/Asparagine1.1.webp",
+          "order_uuid": "bea21e32-a5fd-45ac-a6c5-5d96afe8a70e"
+        },
+        {
+          "solution_uuid": "99639466-bdb4-4e08-b02f-b8caa54a39ac",
+          "solution_uid": 3156,
+          "solution_text": "\\\\(\\\\text{Cys-Glu}\\\\)",
+          "solution_image": null,
+          "order_uuid": "677661b6-40f4-457e-a6ce-c41bf93c090c"
+        },
+        {
+          "solution_uuid": "0f46a2ea-ea71-44b1-bd28-55a2224f32a1",
+          "solution_uid": 3157,
+          "solution_text": "\\\\( \\\\)",
+          "solution_image": "solution_media/Cys-GluANS.webp",
+          "order_uuid": "b2de5a32-e8ad-4681-9d1c-714d8d3ba369"
+        },
+        {
+          "solution_uuid": "08b6bfbe-e23e-4d2d-afdb-9461c5c57a1f",
+          "solution_uid": 3158,
+          "solution_text": "\\\\(\\\\text{The carboxyl group is deprotonated.}\\\\)",
+          "solution_image": "solution_media/Asparagine1.2.webp",
+          "order_uuid": "6883de4b-ed58-4cb0-b1a6-44ff2baaf202"
+        },
+        {
+          "solution_uuid": "aca8aba4-0402-4238-9ec1-8745c91bcf98",
+          "solution_uid": 3159,
+          "solution_text": "\\\\(\\\\text{A zwitterion is a molecule with both positive and negative charges but an overall net charge of zero.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "cdd91e92-8f87-4cb6-ab37-cd7d49f711af"
+        }
+      ]
+    },
+    {
+      "question_uuid": "b6164cc8-89c4-4e53-98bc-ea6c21eff4b9",
+      "question_uid": 1199,
+      "question_text": "Proteins are large, complex molecules made from amino acids, and they are essential because their unique three-dimensional structures allow them to perform a range of biological functions.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "950e176d-e6be-46b3-918e-2d94d2106240",
+          "order_uid": 3600,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain what is meant by the quaternary structure of a protein. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "d2691575-7b77-4797-acc2-2dad38b14145",
+          "order_uid": 3601,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Draw the structural formula of the reaction in which glycine reacts with alanine to form a dipeptide. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "901c77cf-001e-4b6e-9205-e746836bed15",
+          "order_uid": 3602,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Name the type of reaction that forms the dipeptide. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "83500d6a-cf93-42ee-b950-9694c638065e",
+          "order_uid": 3603,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) Name the functional group formed in the reaction between the two amino acids. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "1f698c6e-1358-415a-b18f-e4b299be253b",
+          "order_uid": 3604,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "e) Identify the type of intermolecular bonding most likely to occur between the side chains of two cysteine amino acids in a protein. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "a906b06c-418a-4197-b256-bbc6cfc3c6da",
+          "order_uid": 3605,
+          "section_order": 6,
+          "content_type": "TEXT",
+          "text_content": "f) Identify the most likely intermolecular bonding between the side chains of cysteine and serine. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "80354626-4c5f-489e-a6c0-468c243a821e",
+          "order_uid": 3606,
+          "section_order": 7,
+          "content_type": "TEXT",
+          "text_content": "Enzymes are protein catalysts that speed up biochemical reactions. \r\ng) Explain the lock and key model of enzyme action. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "c3d66b26-317f-46ad-8cef-78b06c36ac5b",
+          "order_uid": 3607,
+          "section_order": 8,
+          "content_type": "TEXT",
+          "text_content": "h) State one factor that can cause protein denaturation, explain how denaturation affects enzyme activity. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "b4edb979-ee63-430b-a011-c8874401c22b",
+          "solution_uid": 3160,
+          "solution_text": "\\\\(\\\\text{A fixed 3D structure formed by the bonding between R groups of amino acids in different polypeptide chains}\\\\)\r\n\\\\(\\\\text{to form one giant molecule.}\\\\)\r\n\\\\(\\\\text{By dispersion forces between nonpolar R groups, e.g. alanine and leucine.}\\\\)\r\n\\\\(\\\\text{By hydrogen bonds forming between polar R groups, e.g. between asparagine and serine.}\\\\)\r\n\\\\(\\\\text{By ionic bonds between ionised acid and alkaline R groups.}\\\\)\r\n\\\\(\\\\text{By covalent bonds between S atoms in R groups, e.g. between cysteine a.a R groups.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "950e176d-e6be-46b3-918e-2d94d2106240"
+        },
+        {
+          "solution_uuid": "63028cd1-531f-4056-9dee-b3ddf271a941",
+          "solution_uid": 3161,
+          "solution_text": "\\\\(\\\\text{Condensation reaction}\\\\)",
+          "solution_image": null,
+          "order_uuid": "901c77cf-001e-4b6e-9205-e746836bed15"
+        },
+        {
+          "solution_uuid": "ab61aed8-5de5-4420-b2f3-80e350eccc00",
+          "solution_uid": 3162,
+          "solution_text": "\\\\(\\\\text{Disulfide bonds}\\\\)",
+          "solution_image": null,
+          "order_uuid": "1f698c6e-1358-415a-b18f-e4b299be253b"
+        },
+        {
+          "solution_uuid": "a96570f4-158b-4989-a52b-12e30e993d7a",
+          "solution_uid": 3163,
+          "solution_text": "\\\\(\\\\text{The lock and key model explains how enzymes bind to their substrates. The model proposes that the active site}\\\\)\r\n\\\\(\\\\text{of an enzyme has a specific shape which fits the substrate like a key fits a lock. This specific fit allows the enzyme}\\\\)\r\n\\\\(\\\\text{to lower the activation energy of a reaction, allowing it to happen faster. }\\\\)\r\n\\\\( \\\\)\r\n\\\\(\\\\text{Step 1: the substrate manoeuvres into the active site of the enzyme, where its shape is complementary to the}\\\\)\r\n\\\\(\\\\text{active site’s shape.}\\\\)\r\n\\\\(\\\\text{Step 2: the (R groups on the) substrate forms intermolecular forces (with R groups on the active site) e.g. hydrogen}\\\\)\r\n\\\\(\\\\text{bonds, ionic bonds, ion-dipole bonds, dispersion forces, fixing the substrate to the enzyme.}\\\\) \r\n\\\\(\\\\text{Step 3: the enzyme’s active site changes shape slightly, bringing the substrate into the correct position for the reaction}\\\\)\r\n\\\\(\\\\text{to occur.}\\\\)\r\n\\\\(\\\\text{Step 4: reaction occurs, products are released.}\\\\)\r\n\\\\(\\\\text{Step 5: the enzyme is released, returns to its original shape, and can be reused by binding to another substrate.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "80354626-4c5f-489e-a6c0-468c243a821e"
+        },
+        {
+          "solution_uuid": "ffffdb38-2fa9-4b4a-9d9c-b9c6ba8452d8",
+          "solution_uid": 3164,
+          "solution_text": "\\\\( \\\\)",
+          "solution_image": "solution_media/GlyAnaReaction.webp",
+          "order_uuid": "d2691575-7b77-4797-acc2-2dad38b14145"
+        },
+        {
+          "solution_uuid": "cbc3529b-ad90-4201-bbf0-c2e7d61daab6",
+          "solution_uid": 3165,
+          "solution_text": "\\\\(\\\\text{Amide functional group.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "83500d6a-cf93-42ee-b950-9694c638065e"
+        },
+        {
+          "solution_uuid": "a95cb610-ad6e-4f84-889a-5e43adbe0e75",
+          "solution_uid": 3166,
+          "solution_text": "\\\\(\\\\text{Hydrogen bonds.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "a906b06c-418a-4197-b256-bbc6cfc3c6da"
+        },
+        {
+          "solution_uuid": "bafa1985-3184-4180-bd36-0e5e980395c8",
+          "solution_uid": 3167,
+          "solution_text": "\\\\(\\\\text{A change in pH above or below optimal will cause the acid or alkaline groups to ionise or become polar, therefore}\\\\)\r\n\\\\(\\\\text{ hydrogen, ion-dipole and ionic bonds in tertiary structure will break, therefore enzyme will unravel and the 3D shape}\\\\)\r\n\\\\(\\\\text{will change, therefore the shape of active site changes and cannot bind with substrate therefore denatured.}\\\\)\r\n\\\\(\\\\text{or}\\\\) \r\n\\\\(\\\\text{Increasing temperature above optimal (increases kinetic energy of the protein) and causes the hydrogen bonds between}\\\\)\r\n\\\\(\\\\text{amide links in secondary structure to break and hydrogen, polar, ionic and dispersion forces between R groups in tertiary}\\\\)\r\n\\\\(\\\\text{structure to break. Therefore the enzymes unravel, the shape of the active site changes, new bonds form within enzyme,}\\\\)\r\n\\\\(\\\\text{therefore substrate can no longer bind with active site, therefore enzyme denatured.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "c3d66b26-317f-46ad-8cef-78b06c36ac5b"
+        }
+      ]
+    },
+    {
+      "question_uuid": "4017f51b-bd0b-4eea-a4db-cc063c380a0b",
+      "question_uid": 1200,
+      "question_text": "A pharmaceutical company is isolating a new chiral drug from a plant extract. The drug contains a benzene ring, a carboxyl group, and one chiral centre. Proteins later metabolise the drug in the body.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "faa2f152-2b30-492e-9f05-04569a9fd80c",
+          "order_uid": 3614,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) The crude plant extract contains several organic compounds with boiling points 95℃, 104℃, and 132℃. Explain why fractional distillation must be used and identify which compound would distill first. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "c2452755-a588-4125-b0b9-9d31702b7d9c",
+          "order_uid": 3615,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Define chirality and explain why the isolated drug could exist as two enantiomers. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "092eb53d-47fb-497f-9937-5e54e1002212",
+          "order_uid": 3616,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) In the human body, the drug is metabolised by an enzyme that recognises only the S-enantiomer. Using the lock and key model, explain why the R-enantiomer does not bind effectively. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "09f1eb13-75d6-446c-b6d4-68615bae5677",
+          "order_uid": 3617,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) The enzyme that metabolises the drug begins to denature at high temperatures. Explain how increased temperature disrupts the protein’s structure. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "d5b14970-bc11-4782-afae-b04b85a460c3",
+          "solution_uid": 3172,
+          "solution_text": "\\\\(\\\\text{Fractional distillation must be used because the components have close boiling points (95℃, 104℃, and 132℃).}\\\\)\r\n\\\\(\\\\text{The compound with the lowest boiling point (95℃) distils first because it has weaker intermolecular forces}\\\\)\r\n\\\\(\\\\text{and therefore requires less energy to vapourise.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "faa2f152-2b30-492e-9f05-04569a9fd80c"
+        },
+        {
+          "solution_uuid": "1c1cb44b-1bce-436e-9042-09f955e1ebc4",
+          "solution_uid": 3173,
+          "solution_text": "\\\\(\\\\text{A molecule is chiral if it contains a carbon atom bonded to 4 different groups, and is non-superimposable on its}\\\\)\r\n\\\\(\\\\text{mirror image. As the drug contains a chiral carbon, it can exist as 2 enantiomers.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "c2452755-a588-4125-b0b9-9d31702b7d9c"
+        },
+        {
+          "solution_uuid": "0e8ae2bf-28e6-48ce-a925-f33e5833b095",
+          "solution_uid": 3174,
+          "solution_text": "\\\\(\\\\text{The lock and key model proposes that the active site of an enzyme has a specific shape that’s only complementary to}\\\\)\r\n\\\\(\\\\text{the S-enantiomer, fitting the substrate like a key fits a lock. This specific fit allows the enzyme to lower the activation energy}\\\\)\r\n\\\\(\\\\text{of a reaction, allowing it to happen faster. However the R-enantiomer has a different arrangement of particles in space, thus}\\\\)\r\n\\\\(\\\\text{it does not have a complimentary shape to the active site, and therefore cannot bind or be metabolised effectively.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "092eb53d-47fb-497f-9937-5e54e1002212"
+        },
+        {
+          "solution_uuid": "82b6e099-4c13-4c4f-9df3-6373e522cb1c",
+          "solution_uid": 3175,
+          "solution_text": "\\\\(\\\\text{High temperatures above optimal (increases kinetic energy of the protein and) causes the hydrogen bonds}\\\\)\r\n\\\\(\\\\text{between amide links in secondary structure to break and hydrogen, polar, ionic and dispersion forces between R}\\\\)\r\n\\\\(\\\\text{groups in tertiary structure to break. Therefore the enzymes unravel, the shape of the active site changes, new bonds}\\\\)\r\n\\\\(\\\\text{form within enzyme, therefore substrate can no longer bind with active site, therefore enzyme denatured.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "09f1eb13-75d6-446c-b6d4-68615bae5677"
+        }
+      ]
+    },
+    {
+      "question_uuid": "026ef156-2758-4a86-8b5e-09b26e8fbba8",
+      "question_uid": 1201,
+      "question_text": "A scientist wants to separate two amino acids asparagine and leucine from a protein residue. The mixture is dissolved in water and shaken with a non-polar organic solvent.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "8144830a-f9a6-4fde-bb79-078b5d77384f",
+          "order_uid": 3618,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain why two distinct layers form when water and a leucine are mixed. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "a9cadcbe-611a-424e-8b99-6054a25e271f",
+          "order_uid": 3619,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Predict which amino acid (asparagine or leucine) is more likely to migrate into the organic layer. justify  your answer. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "409daf3f-87a5-4475-8f32-62ae72ebdcff",
+          "order_uid": 3620,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Draw cysteine in a highly acidic solution (pH < 2). (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "9c674091-cfba-4bf6-8da2-5a29bec662a6",
+          "order_uid": 3621,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) Draw cysteine as a zwitterion. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "d13f92ea-789f-4980-a866-a467a6b1e71a",
+          "order_uid": 3622,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "e) Asparagine and leucine are both found in a protein. Explain how differences in polarity between their side chains influence where each amino acid is likely to be located within the protein’s tertiary structure. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "70946433-0fbc-422c-bd18-0c41d492cedc",
+          "solution_uid": 3176,
+          "solution_text": "\\\\(\\\\text{Water is polar and forms strong hydrogen bonds, however leucine which is non-polar cannot form hydrogen bonds}\\\\)\r\n\\\\(\\\\text{with water, so the two liquids are immiscible. This difference in polarity causes 2 distinct layers to form.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "8144830a-f9a6-4fde-bb79-078b5d77384f"
+        },
+        {
+          "solution_uuid": "10de4076-6e61-47a0-ba23-62256696d40e",
+          "solution_uid": 3177,
+          "solution_text": "\\\\(\\\\text{Leucine is more non-polar due to its non-polar R group, so it’s more likely to migrate into the non-polar organic}\\\\)\r\n\\\\(\\\\text{layer, as like dissolves like. Whereas asparagine is polar and can form hydrogen bonds with water, so it stays mainly in}\\\\)\r\n\\\\(\\\\text{the aqueous layer.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "a9cadcbe-611a-424e-8b99-6054a25e271f"
+        },
+        {
+          "solution_uuid": "47ac703a-9bbb-48c5-8ec8-a941dff7cc1e",
+          "solution_uid": 3178,
+          "solution_text": "\\\\(\\\\text{Amino group becomes protonated in an acidic solution because the high concentration of hydrogen ions (H⁺)}\\\\)\r\n\\\\(\\\\text{in the solution}\\\\)",
+          "solution_image": "solution_media/Proteins2.2.webp",
+          "order_uuid": "409daf3f-87a5-4475-8f32-62ae72ebdcff"
+        },
+        {
+          "solution_uuid": "b0cc3f99-d513-4147-8fe6-ae74ff3e5744",
+          "solution_uid": 3179,
+          "solution_text": "\\\\(\\\\text{Zwitterion has both a positive and a negative charge, but the overall net charge is zero}\\\\)",
+          "solution_image": "solution_media/Proteins2.3.webp",
+          "order_uuid": "9c674091-cfba-4bf6-8da2-5a29bec662a6"
+        },
+        {
+          "solution_uuid": "06cd4785-0364-47c8-865c-c4a5656f4b85",
+          "solution_uid": 3180,
+          "solution_text": "\\\\(\\\\text{Asparagine has a polar amide in its R group, allowing it to form hydrogen bonds with water, and thus it is typically}\\\\)\r\n\\\\(\\\\text{found on the outer surface of the protein’s tertiary structure as it can form hydrogen bonds with the aqueous}\\\\)\r\n\\\\(\\\\text{environment. Whereas leucine has a non-polar hydrocarbon in its R group which can only form dispersion forces,}\\\\)\r\n\\\\(\\\\text{and cannot form hydrogen bonds with water. Thus leucine is usually found on the inside (inner surfaces) of the}\\\\)\r\n\\\\(\\\\text{protein’s tertiary structure.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "d13f92ea-789f-4980-a866-a467a6b1e71a"
+        }
+      ]
+    },
+    {
+      "question_uuid": "e4d5bc17-5aae-4409-8d5e-0233bb72cee6",
+      "question_uid": 1202,
+      "question_text": "A chemist synthesises a chiral drug by reacting alanine with glycine to form a dipeptide intermediate. After production, purification and testing, the chemist analyses the drug’s interaction with the enzyme.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "11f8c812-0c96-445a-8e9e-4e0c802d2487",
+          "order_uid": 3623,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Draw the structural formula for the dipeptide gly-ala and name the type of reaction that forms it. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "c83566f1-e975-4d0f-b3ac-eb98d244df75",
+          "order_uid": 3624,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) Explain what an enantiomer is and how two enantiomers can have different biological effects even though they contain the same functional groups. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "d588164e-df68-435f-83ac-69c5409bf260",
+          "order_uid": 3625,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) The dipeptide intermediate binds only to the active site of one specific enzyme. Describe the steps in the lock-and-key model of enzyme action. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "604cbe65-347c-409c-af06-ecc2cd671681",
+          "order_uid": 3626,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) Does denaturation affect the amino acid sequence in a protein? Explain your answer. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "de6e3bf6-f9d0-4f63-ba1e-6e3047752811",
+          "solution_uid": 3181,
+          "solution_text": "\\\\(\\\\text{Condensation reaction}\\\\)",
+          "solution_image": "solution_media/Proteins2.4.webp",
+          "order_uuid": "11f8c812-0c96-445a-8e9e-4e0c802d2487"
+        },
+        {
+          "solution_uuid": "3702acbb-8395-44a9-815b-aa00fc154bd5",
+          "solution_uid": 3182,
+          "solution_text": "\\\\(\\\\text{Enantiomers are optical isomers which contain a chiral carbon and are non-superimposable mirror-images of each}\\\\)\r\n\\\\(\\\\text{other. Enantiomers have a different arrangement of particles in space and they interact differently with other chiral}\\\\)\r\n\\\\(\\\\text{molecules in the body, such as enzymes or other biological receptors, so one enantiomer may be active whilst the}\\\\)\r\n\\\\(\\\\text{other may be inactive or have an adverse effect.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "c83566f1-e975-4d0f-b3ac-eb98d244df75"
+        },
+        {
+          "solution_uuid": "249b0960-4a35-41e5-9a70-dcdf7d085852",
+          "solution_uid": 3183,
+          "solution_text": "\\\\(\\\\text{The lock and key model explains how enzymes bind to their substrates. The model proposes that the active site}\\\\)\r\n\\\\(\\\\text{of an enzyme has a specific shape which fits the substrate (dipeptide) like a key fits a lock. This specific fit allows the}\\\\)\r\n\\\\(\\\\text{enzyme to lower the activation energy of a reaction, allowing it to happen faster.}\\\\)\r\n\\\\(\\\\text{Step 1: the dipeptide manoeuvres into the active site of the enzyme, where its shape is complementary to the}\\\\)\r\n\\\\(\\\\text{active site’s shape.}\\\\)\r\n\\\\(\\\\text{Step 2: the (R groups on the) dipeptide forms intermolecular forces (with R groups on the active site) e.g. dispersion}\\\\)\r\n\\\\(\\\\text{forces, fixing the substrate to the enzyme.}\\\\)\r\n\\\\(\\\\text{Step 3: the enzyme’s active site changes shape slightly, bringing the dipeptide into the correct position for the reaction}\\\\)\r\n\\\\(\\\\text{to occur.}\\\\) \r\n\\\\(\\\\text{Step 4: reaction occurs, products are released.}\\\\)\r\n\\\\(\\\\text{Step 5: the enzyme is released, returns to its original shape, and can be reused by binding to another substrate.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "d588164e-df68-435f-83ac-69c5409bf260"
+        },
+        {
+          "solution_uuid": "305e758b-08b9-4309-b2f2-3c529c4a05ca",
+          "solution_uid": 3184,
+          "solution_text": "\\\\(\\\\text{No, denaturation does not affect the amino acid sequence in a protein. Denaturation breaks the intermolecular forces}\\\\)\r\n\\\\(\\\\text{(e.g. hydrogen bonds and dispersion forces) between amino acid R groups in a protein’s secondary, tertiary or}\\\\)\r\n\\\\(\\\\text{quaternary structures, causing it to unfold. However, the amino acid sequence in the amino acid’s primary structure is}\\\\)\r\n\\\\(\\\\text{joined by strong covalent peptide bonds, which are not broken by denaturation.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "604cbe65-347c-409c-af06-ecc2cd671681"
+        }
+      ]
+    },
+    {
+      "question_uuid": "2e3f1ed0-3d52-4427-a44b-96d90ad18603",
+      "question_uid": 1203,
+      "question_text": "A research team is isolating an organic chiral molecule that later acts as a substrate for an enzyme. The compound contains both polar and non-polar regions and must be extracted from plant material before analysis.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "1f55cad3-e6c7-4cc6-97a2-c6879d78a913",
+          "order_uid": 3627,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain why the plant material must be finely ground before solid-liquid extraction. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "80cc2cfc-e1a4-42f6-9d43-132e8be72999",
+          "order_uid": 3628,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "b) The crude extract is shaken with two possible organic solvents:\r\nSolvent A: non-polar, dense\r\nSolvent B: moderately polar, low density\r\nWhich solvent should be used to extract a moderately polar chiral compound? Justify your answer. (1 mark)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "b08bdad1-8069-42e4-9013-0120a2240b39",
+          "order_uid": 3629,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "c) Define the primary and secondary structures of a protein. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "9df0e50b-ca92-480e-82a0-1a1481911d8a",
+          "order_uid": 3630,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "d) The isolated chiral compound binds strongly to the active site of an enzyme. Using the lock and key model, explain how chirality and active site complementary influence binding. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "7014aad9-c152-4d6c-8665-72d8d2319f1d",
+          "order_uid": 3631,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "e) If the enzyme is exposed to very low temperatures, explain what happens to its structure. (2 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "21c072f3-7595-44fe-b053-89ffb775b2ef",
+          "solution_uid": 3185,
+          "solution_text": "\\\\(\\\\text{Finer particle size allows for better extraction because this enhances penetration of solvents and diffusion of solutes.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "1f55cad3-e6c7-4cc6-97a2-c6879d78a913"
+        },
+        {
+          "solution_uuid": "d929a0c4-c6ea-4a72-b33e-711f0cb77f43",
+          "solution_uid": 3186,
+          "solution_text": "\\\\(\\\\text{Solvent B, a moderately polar solvent, should be used to extract a moderately polar chiral compound, as like}\\\\)\r\n\\\\(\\\\text{dissolves like.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "80cc2cfc-e1a4-42f6-9d43-132e8be72999"
+        },
+        {
+          "solution_uuid": "7a233ca1-cf53-4a75-80be-edae66a98349",
+          "solution_uid": 3187,
+          "solution_text": "\\\\(\\\\text{Primary structure of a protein: The sequence and type of amino acids covalently bonded together with amide links to}\\\\)\r\n\\\\(\\\\text{form a condensation polymer chain.}\\\\)\r\n\\\\( \\\\)\r\n\\\\(\\\\text{Secondary structure of a protein: The alpha helix and beta pleated sheets formed due to hydrogen bonding}\\\\)\r\n\\\\(\\\\text{between non-adjacent amide links, where hydrogen bonds are formed between the O of one amide link and the}\\\\)\r\n\\\\(\\\\text{H of another amide link.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "b08bdad1-8069-42e4-9013-0120a2240b39"
+        },
+        {
+          "solution_uuid": "a1b43327-0d96-4746-ae2c-0a5883c511ad",
+          "solution_uid": 3188,
+          "solution_text": "\\\\(\\\\text{Chirality affects enzyme-substrate binding because the enzyme and substrate are both chiral, and chiral molecules interact}\\\\)\r\n\\\\(\\\\text{differently with other chiral molecules. As enantiomers have a different arrangement of particles in space, only one}\\\\)\r\n\\\\(\\\\text{enantiomer has a complementary shape to the enzyme’s active site like a key fits a lock, and can bind to the active}\\\\)\r\n\\\\(\\\\text{site. Whereas the other enantiomer does not have a complementary shape to the enzyme’s active site and binds poorly}\\\\)\r\n\\\\(\\\\text{or doesn’t bind at all.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "9df0e50b-ca92-480e-82a0-1a1481911d8a"
+        },
+        {
+          "solution_uuid": "094b8754-4eb9-439c-8c69-83ba520f30f3",
+          "solution_uid": 3189,
+          "solution_text": "\\\\(\\\\text{At very low temperatures, the structure of the enzyme is not affected (no denaturation), as the intermolecular forces}\\\\)\r\n\\\\(\\\\text{in the protein’s secondary and tertiary structures aren’t affected. Rather the molecule moves with less kinetic energy,}\\\\)\r\n\\\\(\\\\text{thus reducing the rate of reaction}\\\\)",
+          "solution_image": null,
+          "order_uuid": "7014aad9-c152-4d6c-8665-72d8d2319f1d"
+        }
+      ]
+    },
+    {
+      "question_uuid": "83128cc3-1a6c-4225-9f9f-8684e40b360f",
+      "question_uid": 1204,
+      "question_text": "A chemist is analysing a mixture containing four organic compounds:\r\nCompound A: ethanol\r\nCompound B: propanone\r\nCompound C: butan-1-ol\r\nCompound D: a chiral amino acid \r\nA chemist performs several tests to determine the physical properties of the compounds before purifying them.",
+      "difficulty": "Exam-Level",
+      "multiple_choice": false,
+      "orders": [
+        {
+          "order_uuid": "6f6802ba-6c4e-413e-a801-77744c83fdb4",
+          "order_uid": 3632,
+          "section_order": 1,
+          "content_type": "TEXT",
+          "text_content": "a) Explain why butan-1-ol has a significantly higher boiling point than both ethanol and propanone. (3 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "1e251aef-dc65-4479-bcaf-29de43477ae9",
+          "order_uid": 3633,
+          "section_order": 2,
+          "content_type": "TEXT",
+          "text_content": "Compound D contains a single chiral centre and a carboxylic acid functional group.",
+          "image_content": null
+        },
+        {
+          "order_uuid": "9628d9d0-9e77-45e8-b6f3-91436edd6526",
+          "order_uid": 3634,
+          "section_order": 3,
+          "content_type": "TEXT",
+          "text_content": "b) Explain what a chiral centre is and describe one way chirality may affect the biological behaviour of Compound D. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "883478ee-e87b-4644-93c2-85ff6f31d0ac",
+          "order_uid": 3635,
+          "section_order": 4,
+          "content_type": "TEXT",
+          "text_content": "c) A chemist predicts that Compound D will have a much higher melting and boiling point than the other three compounds. Explain why. (2 marks)",
+          "image_content": null
+        },
+        {
+          "order_uuid": "e893e0a8-0911-4f00-9083-baa18adf10f7",
+          "order_uid": 3636,
+          "section_order": 5,
+          "content_type": "TEXT",
+          "text_content": "d) A chemist compares the infrared spectra of Compound C and Compound D. Explain three key differences you would expect to observe between their IR spectra. (3 marks)",
+          "image_content": null
+        }
+      ],
+      "solutions": [
+        {
+          "solution_uuid": "0d91a182-d005-4a3f-94f3-c658e550781d",
+          "solution_uid": 3190,
+          "solution_text": "\\\\(\\\\text{Butan-1-ol has a significantly higher boiling point than both ethanol and propanone because, although all alcohols can}\\\\)\r\n\\\\(\\\\text{form strong hydrogen bonds due to their polar hydroxyl groups, butan-1-ol has a longer hydrocarbon chain than}\\\\)\r\n\\\\(\\\\text{ethanol and therefore stronger dispersion forces, and hydrogen bonding in butan-1-ol is also stronger overall than the}\\\\)\r\n\\\\(\\\\text{dipole-dipole interactions between propanone molecules, so more energy is required to break the intermolecular forces}\\\\)\r\n\\\\(\\\\text{in butan-1-ol.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "6f6802ba-6c4e-413e-a801-77744c83fdb4"
+        },
+        {
+          "solution_uuid": "e9ade895-b55e-4128-9583-b47c595713e2",
+          "solution_uid": 3191,
+          "solution_text": "\\\\(\\\\text{A chiral centre refers to a carbon atom that is bonded to 4 different groups. Chiral molecules interact differently}\\\\)\r\n\\\\(\\\\text{with other chiral molecules in the body such as enzymes, thus causing different biological activity to take place.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "9628d9d0-9e77-45e8-b6f3-91436edd6526"
+        },
+        {
+          "solution_uuid": "fdfc4759-ceb9-4dee-8a6a-10c5342842c3",
+          "solution_uid": 3192,
+          "solution_text": "\\\\(\\\\text{Compound D is an amino acid derivative, so it contains both an amino group and a carboxyl group, thus it can}\\\\)\r\n\\\\(\\\\text{form multiple hydrogen bonds, including a strong dimer structure between carboxyl groups. As dimers are stronger}\\\\)\r\n\\\\(\\\\text{than single hydrogen bonds, Compound D has a much higher melting and boiling point.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "883478ee-e87b-4644-93c2-85ff6f31d0ac"
+        },
+        {
+          "solution_uuid": "59205d72-39ea-44f9-b9b3-296324f1a6f8",
+          "solution_uid": 3193,
+          "solution_text": "\\\\(\\\\text{Butan-1-ol would show a broad strong O-H (alcohol) peak around 3200-3600 cm⁻¹, whereas Compound D would}\\\\)\r\n\\\\(\\\\text{display a broad strong O-H (acid) peak around 2500-3500 cm⁻¹. Compound D also has a weak broad peak around}\\\\)\r\n\\\\(\\\\text{3300-3500 cm⁻¹ for N-H (amine), whereas this peak is absent for butan-1-ol as it does not have an amino group.}\\\\)\r\n\\\\(\\\\text{Compound D shows a strong narrow C=O (acid) peak around 1680-1740 cm⁻¹ due to its carboxyl group, whereas}\\\\)\r\n\\\\(\\\\text{butan-1-ol does not have a peak in this region as it does not have a carbonyl group.}\\\\)",
+          "solution_image": null,
+          "order_uuid": "e893e0a8-0911-4f00-9083-baa18adf10f7"
+        }
+      ]
+    }
+  ]
+}
