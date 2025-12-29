@@ -9,6 +9,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import Message from '../components/Message';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
+import '../styles/Loader.scss'
 
 
 const PasswordResetRequest = () => {
@@ -19,23 +20,23 @@ const PasswordResetRequest = () => {
       .required("Email can't be blank"),
   });
 
-  const [ShowMessage, setShowMessage] = useState(false)
+  const [ShowMessage, setShowMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { handleSubmit, control } = useForm({
     resolver: yupResolver(forgotPasswordSchema)
   });
 
-  const submission = (data) => {
-    setTimeout(() => {
-      setShowMessage(true);
-    }, 500);
+  const submission = async (data) => {
+    setLoading(true);
+    setShowMessage(false);
 
-    AxiosInstance.post('api/password_reset/', {
-      email: data.email,
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    try {
+      await AxiosInstance.post('api/password_reset/', { email: data.email });
+    } finally {
+    setShowMessage(true)
+    setLoading(false);
+  }
   };
 
   return (
@@ -82,7 +83,13 @@ const PasswordResetRequest = () => {
                   <FormTextField name={"email"} control={control} id="email" label="Email"/>
               </Box>
               <Box className={"itemBox"}>
-                  <button className="passwordRegButton" type={"submit"}>Reset Password</button>
+                <button
+                  className="passwordRegButton"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? <span className="loader2 loader2--btn loader2--btn-blue" /> : "Reset Password"}
+                </button>
               </Box>
               <Box className={"itemBox"} sx={{ alignItems: 'center', marginTop: '2rem' }}>
                 <Link to="/login" className="back-login">

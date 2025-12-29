@@ -135,6 +135,7 @@ body {
 }
 
 .passwordRegButton {
+  height: 43px;
   font-family: 'Courier New', monospace;
   margin-top: 0.5rem;
   width: 100%;
@@ -324,6 +325,10 @@ form *{
 }
 
 .regButton {
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'Courier New', monospace;
   margin-top: 0.5rem;
   width: 100%;

@@ -10,6 +10,7 @@ import { KeyRound } from 'lucide-react';
 import Message from '../components/Message';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import '../styles/Loader.scss'
 
 
 const PasswordReset = () => {
@@ -18,6 +19,7 @@ const PasswordReset = () => {
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const resetPasswordSchema = yup.object({
     password: yup.string()
@@ -35,45 +37,50 @@ const PasswordReset = () => {
     resolver: yupResolver(resetPasswordSchema),
   });
 
-  const submission = (data) => {
-    AxiosInstance.post('api/password_reset/confirm/', {
-      password: data.password,
-      token: token,
-    })
-      .then(() => {
-        setShowError(false);
-        setErrorMessage('');
+  const submission = async (data) => {
+    setLoading(true);
 
-        setShowSuccess(true);
-
-        setTimeout(() => {
-          navigate('/login');
-        }, 2500);
-      })
-      .catch((error) => {
-        console.log(error);
-
-        let msg = 'Something went wrong. Please try again.';
-
-        if (error.response && error.response.data) {
-          const data = error.response.data;
-
-          if (Array.isArray(data.password) && data.password.length > 0) {
-            msg = data.password[0]; 
-          } else if (Array.isArray(data.token) && data.token.length > 0) {
-            msg = "This reset link has expired or is no longer valid. Please request a new one.";
-          } else if (typeof data.detail === 'string') {
-            msg = "An unexpected error occurred. Please try again, and contact us if the issue continues.";
-          }
-        } else if (error.message === 'Network Error') {
-          msg = 'Network error. Please check your connection and try again.';
-        }
-
-        setErrorMessage(msg);
-        setShowError(true);
-        setShowSuccess(false);
+    try {
+      await AxiosInstance.post('api/password_reset/confirm/', {
+        password: data.password,
+        token: token,
       });
+
+      setShowError(false);
+      setErrorMessage('');
+      setShowSuccess(true);
+
+      setTimeout(() => {
+        navigate('/login');
+      }, 2500);
+
+    } catch (error) {
+      // console.log(error);
+
+      let msg = 'Something went wrong. Please try again.';
+
+      if (error.response && error.response.data) {
+        const data = error.response.data;
+
+        if (Array.isArray(data.password) && data.password.length > 0) {
+          msg = data.password[0];
+        } else if (Array.isArray(data.token) && data.token.length > 0) {
+          msg = "This reset link has expired or is no longer valid. Please request a new one.";
+        } else if (typeof data.detail === 'string') {
+          msg = "An unexpected error occurred. Please try again, and contact us if the issue continues.";
+        }
+      } else if (error.message === 'Network Error') {
+        msg = 'Network error. Please check your connection and try again.';
+      }
+
+      setErrorMessage(msg);
+      setShowError(true);
+      setShowSuccess(false);
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return (
     <div className="passwordResetRequestPage">
@@ -106,7 +113,13 @@ const PasswordReset = () => {
                 <FormPassField name={"password2"} control={control} label="Confirm Password" />
               </Box>
               <Box className={"itemBox"}>
-                  <button className="passwordRegButton"  type={"submit"}>Reset Password</button>
+                <button
+                  className="passwordRegButton"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? <span className="loader2 loader2--btn loader2--btn-blue" /> : "Reset Password"}
+                </button>
               </Box>
               <Box className={"itemBox"}>
               </Box>

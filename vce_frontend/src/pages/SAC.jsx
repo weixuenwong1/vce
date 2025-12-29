@@ -100,20 +100,18 @@ const SAC = () => {
 
         if (chapterRes.status === "fulfilled") {
           setChapterName(chapterRes.value.data?.chapter_name ?? "");
-        } else {
-          console.warn("Chapter name fetch failed:", chapterRes.reason);
+        } 
+        } catch (err) {
+          if (cancelled) return;
+          const status = err?.response?.status;
+          if (status === 404) {
+            navigate("/404");
+          } else {
+            navigate("/500");
+          }
+        } finally {
+          if (!cancelled) setLoading(false);
         }
-      } catch (err) {
-        if (cancelled) return;
-        const status = err?.response?.status;
-        if (status === 404) {
-          navigate("/404");
-        } else {
-          navigate("/500");
-        }
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
     };
 
     run();

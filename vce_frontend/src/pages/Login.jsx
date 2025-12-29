@@ -10,12 +10,14 @@ import { useNavigate } from 'react-router-dom'
 import Message from '../components/Message'
 import { toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+import '../styles/Loader.scss'
 
 const Login = () => {
   const navigate = useNavigate()
   const {handleSubmit, control} = useForm()
   const [ShowMessage, setShowMessage] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [loading, setLoading] = useState(false);
 
   const location = useLocation();
 
@@ -29,6 +31,9 @@ const Login = () => {
 
 
   const submission = async (data) => {
+    setLoading(true);
+    setShowMessage(false);
+
     try {
       const res = await AxiosInstance.post('login/', {
         email: data.email,
@@ -52,8 +57,10 @@ const Login = () => {
         setErrorMessage("Something went wrong. Please try again later.");
       }
       setShowMessage(true);
-      console.error('Error during login', error);
-    }
+      // console.error('Error during login', error);
+    } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -88,7 +95,13 @@ const Login = () => {
               </Link>
             </Box>
             <Box className={"itemBox"}>
-              <button className="regButton" type={"submit"}>Log In</button>
+              <button
+                className="regButton"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? <span className="loader2 loader2--btn" /> : "Log In"}
+              </button>
             </Box>
             <Box className={"itemBox"}>
               <p>

@@ -33,7 +33,7 @@ const Chapters = () => {
             setChapter(sorted);
             setLoading(false);
         } catch (err) {
-            console.error("Failed to load chapters for", subject, err);
+            // console.error("Failed to load chapters for", subject, err);
             setLoading(false)
         }
     };
@@ -51,7 +51,7 @@ const Chapters = () => {
 
             setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
         } catch (err) {
-            console.error("Failed to load topics for", slug, err);
+            // console.error("Failed to load topics for", slug, err);
             setLoading(false)
         }
     };

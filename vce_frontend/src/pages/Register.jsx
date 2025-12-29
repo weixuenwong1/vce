@@ -10,12 +10,15 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from "yup"
 import { useState } from 'react';
 import Message from '../components/Message';
+import { useLocation } from 'react-router-dom';
 
 const Register = () => {
 
   const navigate = useNavigate()
+  const location = useLocation();
   const [ShowMessage, setShowMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const schema = yup
     .object({
@@ -31,6 +34,9 @@ const Register = () => {
   const { handleSubmit, control } = useForm({ resolver: yupResolver(schema) })
 
   const submission = async (data) => {
+    setLoading(true);
+    setShowMessage(false);
+
     try {
       const res = await AxiosInstance.post('register/', {
         email: data.email,
@@ -58,8 +64,10 @@ const Register = () => {
         setErrorMessage("Something went wrong. Please try again later.");
       }
       setShowMessage(true);
-      console.error('Error during register', error);
-    }
+      // console.error('Error during register', error);
+    } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -94,7 +102,13 @@ const Register = () => {
               </p>
             </Box>
             <Box className={"regItemBox"}>
-              <button className="regButton" type={"submit"}>Sign Up</button>
+               <button
+                className="regButton"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? <span className="loader2 loader2--btn" /> : "Sign Up"}
+              </button>
             </Box>
             <Box className={"itemBox"}>
               <p className="have-account">

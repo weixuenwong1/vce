@@ -104,7 +104,7 @@ const QuestionsForTopic = () => {
             setContentVisible(true);
             window.scrollTo(0, 0);
         } catch (e) {
-            console.error("Failed to fetch next", e);
+            // console.error("Failed to fetch next", e);
             navigate('/500');
         } finally {
             setNavLock(false);
