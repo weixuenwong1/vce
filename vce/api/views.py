@@ -180,12 +180,17 @@ class RandomSACQuestionsView(APIView):
         subject_lc = (subject or "").strip().lower()
 
         if subject_lc == "chemistry":
+            target_mcq, target_sa = 7, 4
+
+        elif subject_lc == "biology":
             target_mcq, target_sa = 7, 6
+
+        if subject_lc in {"chemistry", "biology"}:
             total_needed = target_mcq + target_sa
 
             mcq_qs = (
                 Question.objects
-                .filter(topic__in=topics, difficulty="Exam-Level", multiple_choice=True)
+                .filter(topic__in=topics, multiple_choice=True)
                 .distinct()
             )
             sa_qs = (

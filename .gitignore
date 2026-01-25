@@ -75,3 +75,5 @@ tests/
 test.md
 test2.md
 vce/problems/data/
+vce/fixtures/
+vce/problems/management/commands/

@@ -93,6 +93,7 @@ class QuestionSerializer(serializers.ModelSerializer):
             'question_uid',
             'question_text',
             'difficulty',
+            'multiple_choice',
             'orders',
             'general_solution'
         ]
