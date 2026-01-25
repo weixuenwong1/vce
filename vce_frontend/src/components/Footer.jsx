@@ -24,12 +24,12 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h4>Biology <span className="coming-soon1">(Coming Soon!)</span></h4>
-          {/* <ul>
-            <li><Link to="/chapters/biology/">Topic Summary</Link></li>
+          <h4>Biology</h4>
+          <ul>
+            <li><Link to="/summaries/biology/">Topic Summary</Link></li>
             <li><Link to="/practice/biology/">Practice Questions</Link></li>
             <li><Link to="/practice-sac/biology/">Practice SAC</Link></li>
-          </ul> */}
+          </ul>
         </div>
         <div>
           <h4>Contact</h4>

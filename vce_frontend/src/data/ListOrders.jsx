@@ -12,6 +12,12 @@ export const chapterOrders = {
     "Rate and Yield of Chemical Reactions",
     "Fundamentals of Organic Compounds",
     "Analysis and Applications of Organic Compounds"
+  ],
+  biology: [
+    "Proteins and Nucleic Acids",
+    "Biochemical Pathways",
+    "Pathogens",
+    "Evolutionary Relationships"
   ]
 };
 
@@ -70,6 +76,26 @@ export const topicOrders = {
       "Lab Analysis of Organic Compounds",
       "Instrumental Analysis of Organic Compounds",
       "Medicinal Chemistry"
+    ]
+  },
+  biology: {
+    'proteins-and-nucleic-acids': [
+      "Nucleic Acids and Proteins",
+      "Enzymes",
+      "DNA Manipulation",
+    ],
+    'biochemical-pathways': [
+      "Photosynthesis",
+      "Cellular Respiration",
+    ],
+    'pathogens': [
+      "Dealing with Disease",
+      "Immunity"
+    ],
+    'evolutionary-relationships': [
+      "Mechanisms of Evolution",
+      "Common Ancestry and Relatedness",
+      "Hominin Evolution"
     ]
   }
 };

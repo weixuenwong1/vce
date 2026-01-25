@@ -74,11 +74,6 @@ const Home = () => {
             cards={subject.cards}
           />
         ))}
-
-        <div className="card-section">
-          <h3 className="subject-heading">🧬 Biology 3/4 </h3>
-          <p className="coming-soon">Great things take time ⏳ Coming soon!</p>
-        </div>
       </section>
 
       <section className="features">

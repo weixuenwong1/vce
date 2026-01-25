@@ -67,7 +67,7 @@ const Summaries = () => {
           navigate('/404');
           return;
         }
-        // console.error('Failed to load summary', e);
+        console.error('Failed to load summary', e);
         navigate('/500');
       })
       .finally(() => {

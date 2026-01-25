@@ -54,6 +54,33 @@ const subjectsData = [
         link: "/practice-sac/chemistry",
       },
     ],
+  },
+  {
+    emoji: "🧬 ",
+    title: "Biology 3/4",
+    cards: [
+      {
+        image: subjectImages.biology.summary,
+        title: "Biology Summaries",
+        description:
+          "Concise topic summaries and step-by-step explanations of exam-style questions.",
+        link: "/summaries/biology",
+      },
+      {
+        image: subjectImages.biology.practice,
+        title: "Biology Practice",
+        description:
+          "Practice beginner-friendly questions to exam-style problems with solutions.",
+        link: "/practice/biology",
+      },
+      {
+        image: subjectImages.biology.sac,
+        title: "Biology SACs",
+        description:
+          "Practice SACs to test your understanding under exam and SAC-like conditions.",
+        link: "/practice-sac/biology",
+      },
+    ],
   }
 ];
 

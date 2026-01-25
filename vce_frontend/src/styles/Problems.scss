@@ -23,7 +23,7 @@ $retro-red: #e43a3a;
   
   .inner-container {
     max-width: 1300px;
-    width: 85%;
+    width: 80%;
     background-color: #fff;
     border: 2px solid $retro-yellow;             
     box-shadow: 4px 4px 0 $retro-orange;         
@@ -37,14 +37,14 @@ $retro-red: #e43a3a;
     .question-header {
         display: flex;
         flex-direction: column;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
 
         .question-meta {
             h3 {
             font-family: Trebuchet MS, sans-serif;
             white-space: pre-line;
             margin: 0 0 0.5rem;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             }
 
             p {
@@ -97,9 +97,9 @@ $retro-red: #e43a3a;
               cursor: pointer;
               display: inline-block;
               font-weight: 700;
-              font-size: 1.0rem;
+              font-size: 0.95rem;
               padding: 0 16px;
-              line-height: 44px;
+              line-height: 36px;
               text-align: center;
               text-decoration: none;
               user-select: none;
@@ -120,7 +120,7 @@ $retro-red: #e43a3a;
       }
 
     .order-block {
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
 
       .text-order {
         margin-bottom: 1rem;
@@ -129,12 +129,12 @@ $retro-red: #e43a3a;
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          margin-bottom: 5rem; 
+          margin-bottom: 3.5rem; 
         
           p {
             font-family: Trebuchet MS, sans-serif;
             font-weight:600;
-            font-size: 1.05em;
+            font-size: 1.0rem;
             white-space: pre-line;
             margin: 0; 
             flex: 1;
@@ -143,7 +143,7 @@ $retro-red: #e43a3a;
           .marks {
             text-align: right;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.0rem;
             margin: 0 0 0 1rem; 
             white-space: nowrap;
           }
@@ -154,7 +154,6 @@ $retro-red: #e43a3a;
       }
 
       .image-order {
-        margin-bottom: 1rem;
         display: flex;
         justify-content: center;
 
@@ -285,7 +284,7 @@ $retro-red: #e43a3a;
       }
     }
     mjx-container {
-        font-size: 1.1rem !important;
+        font-size: 1.0rem !important;
     }
 }
     
@@ -366,11 +365,11 @@ $retro-red: #e43a3a;
       .question-header {
         .question-meta {
           h3 {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
           }
 
           .difficulty {
-            font-size: 1.0rem;
+            font-size: 0.95rem;
             .difficulty-label {
               display: none;
             }
@@ -385,8 +384,8 @@ $retro-red: #e43a3a;
           margin: 1rem 0 0;
 
           .toggle-button {
-            font-size: 0.95rem;
-            line-height: 2.5rem;
+            font-size: 0.9rem;
+            line-height: 2.2rem;
             padding: 0 0.8rem;
           }
         }
@@ -396,11 +395,11 @@ $retro-red: #e43a3a;
         .text-order {
           .text-flex {
             p {
-              font-size: 1.0rem;
+              font-size: 0.9rem;
             }
 
             .marks {
-              font-size: 1.0rem;
+              font-size: 0.9rem;
             }
           }
         }

@@ -21,8 +21,8 @@ $retro-red: #e43a3a;
   justify-content: center;
 
   .inner-container {
-    max-width: 1250px;
-    width: 100%;
+    max-width: 1300px;
+    width: 80%;
     background-color: white;
     border: 2px solid #FFB74D;            
     border-radius: 0;                       
@@ -63,9 +63,9 @@ $retro-red: #e43a3a;
         cursor: pointer;
         display: inline-block;
         font-weight: 600;
-        font-size: 18px;
-        padding: 0 18px;
-        line-height: 50px;
+        font-size: 1.0rem;
+        padding: 0 16px;
+        line-height: 42px;
         text-align: center;
         text-decoration: none;
         user-select: none;
@@ -93,7 +93,7 @@ $retro-red: #e43a3a;
       h3 {
         font-family: 'Poppins', sans-serif;
         white-space: pre-line;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         margin-bottom: 0.5rem;
       }
 
@@ -112,7 +112,7 @@ $retro-red: #e43a3a;
         p {
           font-family: 'Poppins', sans-serif;
           font-weight: 500;
-          font-size: 1.0rem;
+          font-size: 0.95rem;
           white-space: pre-line;
           margin: 0 0 2rem;
           flex: 1;
@@ -249,7 +249,7 @@ $retro-red: #e43a3a;
     }
 
     mjx-container {
-        font-size: 1.1rem !important;
+        font-size: 1.0rem !important;
     }
   }
 }
@@ -264,7 +264,7 @@ $retro-red: #e43a3a;
 
       .button-row {
         .button-sac {
-          line-height: 43px;
+          line-height: 39px;
         }
       }
     }
@@ -296,7 +296,7 @@ $retro-red: #e43a3a;
           width: 100%;
           padding: 0 1rem;
           font-size: 1.0rem;
-          line-height: 40px;
+          line-height: 34px;
         }
       }
 
@@ -333,7 +333,7 @@ $retro-red: #e43a3a;
       }
 
       mjx-container {
-        font-size: 1.0rem !important;
+        font-size: 0.95rem !important;
       }
     }
   }

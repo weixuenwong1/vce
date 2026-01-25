@@ -21,13 +21,15 @@ const SAC = () => {
     },
   };
 
-  const arrangeChemistryMcqFirst = (arr, subject) => {
+  const arrangeMcqFirst = (arr, subject) => {
     if (!Array.isArray(arr)) return [];
-    if ((subject || '').toLowerCase() !== 'chemistry') return arr; 
+    const subj = (subject || "").toLowerCase();
+    if (subj !== "chemistry" && subj !== "biology") return arr;
+
     const mcq = [];
     const sa  = [];
     for (const q of arr) {
-      (q?.multiple_choice ? mcq : sa).push(q);
+      (q?.multiple_choice === true ? mcq : sa).push(q);
     }
     return [...mcq, ...sa]; 
   };
@@ -86,7 +88,7 @@ const SAC = () => {
 
         if (sacRes.status === "fulfilled") {
           const data = sacRes.value?.data || [];
-          setQuestions(arrangeChemistryMcqFirst(data, subject));
+          setQuestions(arrangeMcqFirst(data, subject));
         } else {
           const status = sacRes.reason?.response?.status;
           if (status === 404) {
@@ -158,9 +160,11 @@ const SAC = () => {
     });
   });
 
-  if ((subject || "").toLowerCase() === "chemistry") {
+  const subj = (subject || "").toLowerCase();
+
+  if (subj === "chemistry" || subj === "biology") {
     const MCQ_MARKS = 1; 
-    const isMcq = (q) => q?.multiple_choice === true || q?.multiple_choice === "true";
+    const isMcq = (q) => q?.multiple_choice === true;
     const mcqCount = questions.reduce((n, q) => n + (isMcq(q) ? 1 : 0), 0);
     totalMarks += mcqCount * MCQ_MARKS;
   }
