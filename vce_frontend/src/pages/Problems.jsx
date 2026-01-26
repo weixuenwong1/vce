@@ -91,9 +91,11 @@ const QuestionsForTopic = () => {
 
         try {
             const { question, meta } = await fetchNextQuestion();
-            console.log(
-                `Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
-            );
+            if (import.meta.env.DEV) {
+                console.log(
+                    `Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
+                );
+            }
             setTotalAvailable(meta?.total_available ?? totalAvailable);
 
             setHistory(prev => [...prev, question]);
@@ -104,7 +106,9 @@ const QuestionsForTopic = () => {
             setContentVisible(true);
             window.scrollTo(0, 0);
         } catch (e) {
-            // console.error("Failed to fetch next", e);
+            if (import.meta.env.DEV) {
+                console.error("Failed to fetch next", e);
+            }
             navigate('/500');
         } finally {
             setNavLock(false);
@@ -144,7 +148,6 @@ const QuestionsForTopic = () => {
     }
 
     const currentQuestion = current;
-    console.log("ID:", currentQuestion?.question_uid);
 
     const mathJaxConfig = {
         chtml: {

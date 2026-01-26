@@ -16,7 +16,7 @@ $soft-yellow: #FFD180;
 
   .use-chuba-container {
     background-color: $dark-gray;
-    max-width: 1000px;
+    max-width: 950px;
     padding: 2rem 3rem;
     margin: 0 auto;
     border-radius: 12px;
@@ -60,7 +60,7 @@ $soft-yellow: #FFD180;
 
   p,
   li {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 1rem;
     color: #e0e0e0;
@@ -71,7 +71,7 @@ $soft-yellow: #FFD180;
     font-weight: 600;
     padding: 0.6rem 1.4rem;
     border-radius: 999px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     white-space: nowrap;
     display: inline-block;
     margin-top: 1.2rem;
@@ -111,7 +111,7 @@ $soft-yellow: #FFD180;
 
     p,
     li {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 

@@ -124,8 +124,8 @@ $soft-yellow: #FFD180;
       max-width: 700px;
       margin: 0 auto 2rem;
       font-size: 1.3rem;
-      line-height: 1.7;
-      min-height: 2rem;
+      line-height: 1.5;
+      min-height: 1.5rem;
     }
 
     .pill-container {
@@ -230,7 +230,7 @@ $soft-yellow: #FFD180;
       background: $dark-gray;
       border-radius: 0;
       overflow: hidden;
-      width: 420px;
+      width: 380px;
       color: $white;
       text-decoration: none;
       cursor: pointer;
@@ -296,7 +296,7 @@ $soft-yellow: #FFD180;
     }
 
     .card {
-      width: 400px;
+      width: 350px;
 
       .card-content {
         h3 { font-size: 1.9rem; }
@@ -368,7 +368,7 @@ $soft-yellow: #FFD180;
 }
 
 .features {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 2rem;
   background: #1F1F1F;
   text-align: center;
   border-radius: 18px;
@@ -385,13 +385,13 @@ $soft-yellow: #FFD180;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
   .feature-card {
     background: #2E2E2E;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 0; 
     border: 2px solid #4FC3F7; 
     box-shadow:
@@ -412,12 +412,13 @@ $soft-yellow: #FFD180;
       font-family: 'Courier New', monospace;
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 0.6rem;
+      margin-top: 1.0rem;
+      margin-bottom: 0.3rem;
       color: $light-blue;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.0rem;
       line-height: 1.6;
       color: $white;
     }
@@ -431,7 +432,7 @@ $soft-yellow: #FFD180;
     border-radius: 0;
     box-shadow: 3px 3px 0 #1976D2;
     padding: 1rem 2rem;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: bold;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin-top:3rem;
@@ -448,7 +449,7 @@ $soft-yellow: #FFD180;
 
 @media (max-width: 1000px) {
   .features {
-    padding: 3rem 1.5rem;
+    padding: 1rem 1.5rem 3rem;
 
     h3 {
       font-size: 2.6rem;
@@ -460,7 +461,7 @@ $soft-yellow: #FFD180;
     }
 
     .feature-card {
-      padding: 1.8rem;
+      padding: 1rem;
 
       svg {
         width: 4rem;
@@ -473,7 +474,7 @@ $soft-yellow: #FFD180;
       }
 
       p {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
     }
 
