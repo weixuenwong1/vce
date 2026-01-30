@@ -42,6 +42,21 @@ const HowToUseChuba = () => {
         </li>
         </ul>
 
+        <span className="use-chuba-pill biology">🧬 Biology</span>
+        <ul>
+        <li>
+          When using summaries, avoid just rereading. Convert dot points into simple diagrams (even rough sketches). Then redraw them later without looking. If you can recreate a diagram from memory, you understand the idea rather than just memorising it.
+
+          Use colour with a purpose. Assign colours to specific structures, molecules, or components and keep that colour-coding consistent across topics.
+        </li>
+
+        <li>
+          If two things interact (for example receptor–ligand, enzyme–substrate, antigen–antibody), make them visually match using similar colours, shapes, or lock-and-key style drawings. This makes relationships clearer at a glance.
+
+          Sometimes learning slightly beyond the VCE level can make ideas feel more logical, as long as you can still translate that understanding back into VCE-style wording for exams.
+        </li>
+        </ul>
+
         <div className="use-chuba-section-heading">
           <div className="emoji-circle">✍️</div>
           <h2>2. Practice Questions</h2>
