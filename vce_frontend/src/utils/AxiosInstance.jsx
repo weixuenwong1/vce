@@ -15,8 +15,14 @@ const AxiosInstance = axios.create({
   withCredentials: true, 
 });
 
-
 AxiosInstance.interceptors.request.use((config) => {
+  let trialId = localStorage.getItem("trial_id");
+  if (!trialId) {
+    trialId = crypto.randomUUID();
+    localStorage.setItem("trial_id", trialId);
+  }
+  config.headers["X-Trial-Id"] = trialId;
+
   const token = localStorage.getItem("Token");
   if (token) {
     config.headers.Authorization = `Token ${token}`;
