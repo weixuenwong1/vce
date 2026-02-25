@@ -16,3 +16,4 @@ class TrialAccess(models.Model):
     def mark_summary(self, key: str):
         if key not in self.summaries_viewed:
             self.summaries_viewed.append(key)
+            self.save(update_fields=["summaries_viewed", "last_seen_at"])

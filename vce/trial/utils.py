@@ -9,14 +9,19 @@ PROBLEM_LIMIT = 4
 
 def get_trial(request):
     raw = request.COOKIES.get(TRIAL_COOKIE_NAME)
+
+    if not raw:
+        raw = getattr(request, "trial_id_generated", None)
+
     if not raw:
         return None
     try:
-        trial_uuid = uuid.UUID(raw) 
-        obj, _ = TrialAccess.objects.get_or_create(trial_id=trial_uuid)
-        return obj
-    except Exception:
+        trial_uuid = uuid.UUID(str(raw))
+    except (ValueError, TypeError):
         return None
+
+    obj, _ = TrialAccess.objects.get_or_create(trial_id=trial_uuid)
+    return obj
 
 def trial_blocked_response(kind: str):
     return Response(
