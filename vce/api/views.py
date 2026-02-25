@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.generics import  ListAPIView
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.shortcuts import get_object_or_404
+from trial.utils import get_trial, trial_blocked_response, SUMMARY_LIMIT, PROBLEM_LIMIT
 
 from rest_framework.response import Response
 import random
@@ -70,10 +71,24 @@ class SubjectChaptersView(APIView):
 
 class TopicSummaryView(APIView):
     """GET: Retrieve the summary for a specific topic inside a chapter."""
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         subject = kwargs.get('subject')
         chapter_slug = kwargs.get('chapter_slug')
         topic_slug = kwargs.get('topic_slug')
+
+        if not request.user.is_authenticated:
+            trial = get_trial(request)
+            key = f"{subject}:{chapter_slug}:{topic_slug}"
+
+            if (trial is None) or (not trial.can_view_summary(key, limit=SUMMARY_LIMIT)):
+                return trial_blocked_response("summary")
+
+            trial.mark_summary(key)
+            trial.save()
+            trial.refresh_from_db()
+
 
         chapter = get_object_or_404(Chapter, slug=chapter_slug, subject__name__iexact=subject)
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
@@ -92,54 +107,49 @@ class NextQuestionView(APIView):
     - Keeps track of which questions the user has already seen.
     - Resets seen list once all questions are exhausted.
     """
-
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     @transaction.atomic
     def post(self, request, subject, chapter_slug, topic_slug):
-        user = request.user
-        chapter = get_object_or_404(
-            Chapter, slug=chapter_slug, subject__name__iexact=subject
-        )
+        chapter = get_object_or_404(Chapter, slug=chapter_slug, subject__name__iexact=subject)
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
 
-        all_qs = Question.objects.filter(topic=topic).order_by('pk')
+        all_qs = Question.objects.filter(topic=topic).order_by("pk")
         total = all_qs.count()
         if total == 0:
             return Response({"detail": "No questions in this topic."}, status=404)
 
+        if not request.user.is_authenticated:
+            trial = get_trial(request)
+            if trial is None or trial.problems_used >= PROBLEM_LIMIT:
+                return trial_blocked_response("problem")
 
+            trial.problems_used += 1
+            trial.save()
+
+            q = all_qs.order_by("?").first()
+            return Response(
+                {"question": QuestionSerializer(q).data, "meta": {"topic": topic.slug, "total_available": total}},
+                status=status.HTTP_200_OK,
+            )
+
+        user = request.user
         seen_pks = set(
-            SeenQuestion.objects
-                .filter(user=user, topic=topic)
-                .values_list('question_id', flat=True)  
+            SeenQuestion.objects.filter(user=user, topic=topic).values_list("question_id", flat=True)
         )
-
         unseen_qs = all_qs.exclude(pk__in=seen_pks)
 
         if not unseen_qs.exists():
             SeenQuestion.objects.filter(user=user, topic=topic).delete()
             unseen_qs = all_qs
 
-        count = unseen_qs.count()
-        idx = random.randrange(count)
-        q = unseen_qs[idx:idx+1].first()
-
-
+        q = unseen_qs[random.randrange(unseen_qs.count()):][:1].first()
         SeenQuestion.objects.get_or_create(user=user, topic=topic, question=q)
 
-        data = QuestionSerializer(q).data  
         return Response(
-            {
-                "question": data,
-                "meta": {
-                    "topic": topic.slug,
-                    "topic_id": topic.pk,
-                    "seen": len(seen_pks),
-                    "unseen": count,
-                    "total_available": total, 
-                },
-            },
+            {"question": QuestionSerializer(q).data,
+             "meta": {"topic": topic.slug, "topic_id": topic.pk, "seen": len(seen_pks),
+                      "unseen": unseen_qs.count(), "total_available": total}},
             status=status.HTTP_200_OK,
         )
 

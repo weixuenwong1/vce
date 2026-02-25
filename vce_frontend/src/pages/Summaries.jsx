@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import AxiosInstance from '../utils/AxiosInstance'
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -21,6 +21,8 @@ const Summaries = () => {
   const [nextTopic, setNextTopic] = useState(null);
   const supportsLookbehind = (() => { try { new RegExp('(?<=a)b'); return true; } catch { return false; } })();
   const supportsNamedGroups = (() => { try { new RegExp('(?<n>a)');  return true; } catch { return false; } })();
+
+  const location = useLocation();
 
   const slugify = (str) =>
     str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -63,19 +65,31 @@ const Summaries = () => {
       })
       .catch((e) => {
         const status = e?.response?.status;
-        if (status === 404) {
-          navigate('/404');
+        const code = e?.response?.data?.code;
+
+        if (status === 403 && code === "trial_limit_reached") {
+          navigate("/login", {
+            state: { reason: "trial-limit", from: location.pathname },
+            replace: true,
+          });
           return;
         }
-        console.error('Failed to load summary', e);
-        navigate('/500');
+
+        if (status === 404) {
+          navigate("/404");
+          return;
+        }
+        if (import.meta.env.DEV) {
+            console.error("Failed to load summary", e);
+        }
+        navigate("/500");
       })
       .finally(() => {
         setDataLoaded(true);
       });
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [subject, chapter_slug, topic_slug]);
+  }, [subject, chapter_slug, topic_slug, navigate, location.pathname]);
 
 
   function useRemarkPlugins() {

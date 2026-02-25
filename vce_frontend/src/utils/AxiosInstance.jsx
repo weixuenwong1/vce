@@ -12,7 +12,7 @@ const AxiosInstance = axios.create({
   headers: {
     Accept: "application/json",
   },
-  withCredentials: false, 
+  withCredentials: true, 
 });
 
 

@@ -22,12 +22,20 @@ const Login = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.reason === "auth-required") {
-      toast.error("Please log in to continue", { toastId: "auth-required-login" });
+    const reason = location.state?.reason;
 
-      window.history.replaceState({}, document.title, location.pathname);
+    if (reason === "auth-required") {
+      toast.error("Please log in to continue", { toastId: "auth-required-login" });
     }
-  }, [location]);
+
+    if (reason === "trial-limit") {
+      toast.error("Please log in to continue", { toastId: "trial-limit-login" });
+    }
+
+    if (reason) {
+      navigate(location.pathname, { replace: true, state: null });
+    }
+  }, [location.state, location.pathname, navigate]);
 
 
   const submission = async (data) => {
@@ -46,7 +54,13 @@ const Login = () => {
       localStorage.setItem('Token', res.data.token);
       localStorage.setItem('TokenExpiry', res.data.expiry); 
 
-      const from = location.state?.from?.pathname || '/';
+      const fromState = location.state?.from;
+      const from =
+        typeof fromState === "string"
+          ? fromState
+          : fromState?.pathname || "/";
+
+      navigate(from, { replace: true });
       navigate(from, { replace: true });
     } catch (error) {
       if (error.response?.status === 401) {

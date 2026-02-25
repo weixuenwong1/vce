@@ -71,6 +71,10 @@ export default function App() {
             <Route path="/summaries/:subject" element={<Chapters />} />
             <Route path="/practice/:subject" element={<Practice />} />
             <Route path="/practice-sac/:subject" element={<PracticeSAC />} />
+
+            <Route path="/summaries/:subject/:chapter_slug/:topic_slug" element={<Summaries />} />
+            <Route path="/practice/:subject/:chapter_slug/:topic_slug" element={<Problems />} />
+
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/how-to-use-chuba" element={<HowToUseChuba />} />
@@ -78,8 +82,6 @@ export default function App() {
             <Route path="/500" element={<Fallback />} />
 
             <Route element={<ProtectedRoute />}>
-              <Route path="/summaries/:subject/:chapter_slug/:topic_slug" element={<Summaries />} />
-              <Route path="/practice/:subject/:chapter_slug/:topic_slug" element={<Problems />} />
               <Route path="/practice-sac/:subject/:chapter_slug" element={<SAC />} />
               <Route path="/submit-question" element={<SubmitQuestion />} />
             </Route>

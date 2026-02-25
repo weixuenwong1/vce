@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import AxiosInstance from '../utils/AxiosInstance'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import '../styles/Loader.scss';
@@ -22,14 +22,31 @@ const QuestionsForTopic = () => {
 
     const navigate = useNavigate();
 
+    const location = useLocation();
+
     const nextUrl = `api/problems/${subject}/${chapter_slug}/${topic_slug}/`; 
 
     const prevDisabled = cursor <= 0 || navLock;
     const nextDisabled = navLock;
 
     async function fetchNextQuestion() {
-        const res = await AxiosInstance.post(nextUrl); 
-        return res.data; 
+        try {
+            const res = await AxiosInstance.post(nextUrl);
+            return res.data;
+        } catch (e) {
+            const status = e?.response?.status;
+            const code = e?.response?.data?.code;
+
+            if (status === 403 && code === "trial_limit_reached") {
+            navigate("/login", {
+                state: { reason: "trial-limit", from: location.pathname },
+                replace: true,
+            });
+            return null; 
+            }
+
+            throw e;
+        }
     }
 
     useEffect(() => {
@@ -46,7 +63,10 @@ const QuestionsForTopic = () => {
                 const MIN_SPINNER_MS = 600;
                 const spin = new Promise(r => setTimeout(r, MIN_SPINNER_MS));
 
-                const { question, meta } = await fetchNextQuestion();
+                const data = await fetchNextQuestion();
+                if (!data || cancelled) return;
+
+                const { question, meta } = data;
                 if (cancelled) return;
 
                 setTotalAvailable(meta?.total_available ?? 0);
@@ -69,6 +89,7 @@ const QuestionsForTopic = () => {
         return () => { cancelled = true; };
     }, [subject, chapter_slug, topic_slug]);
 
+
     const handleNextQuestion = async () => {
         if (navLock) return;
         setNavLock(true);
@@ -90,10 +111,13 @@ const QuestionsForTopic = () => {
         }
 
         try {
-            const { question, meta } = await fetchNextQuestion();
+            const data = await fetchNextQuestion();
+            if (!data) return;
+
+            const { question, meta } = data;
             if (import.meta.env.DEV) {
                 console.log(
-                    `Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
+                    `UID=${question.question_uid}, Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
                 );
             }
             setTotalAvailable(meta?.total_available ?? totalAvailable);
