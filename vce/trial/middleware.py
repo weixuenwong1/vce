@@ -10,8 +10,7 @@ class TrialIdMiddleware:
     def __call__(self, request):
         if not request.COOKIES.get(TRIAL_COOKIE_NAME):
             request.trial_id_generated = str(uuid.uuid4())
-            request.COOKIES[TRIAL_COOKIE_NAME] = request.trial_id_generated
-
+            
         response = self.get_response(request)
 
         if getattr(request, "user", None) and request.user.is_authenticated:
