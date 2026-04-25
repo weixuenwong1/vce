@@ -18,74 +18,57 @@ const Chapters = () => {
         biology: "🧬"
     };
 
+    const getChapter = async () => {
+        try {
+            const res = await AxiosInstance.get(`api/chapters/`);
+            const filtered = res.data.filter(item =>
+                item.subject && item.subject.toLowerCase() === subject.toLowerCase()
+            );
+            
+            const sorted = filtered.sort((a, b) => {
+                const order = chapterOrders[subject.toLowerCase()] || [];
+                return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
+            });
+
+            setChapter(sorted);
+            setLoading(false);
+        } catch (err) {
+            // console.error("Failed to load chapters for", subject, err);
+            setLoading(false)
+        }
+    };
+
+    const fetchTopics = async (slug) => {
+        if (topics[slug]) return;
+
+        try {
+            const res = await AxiosInstance.get(`api/chapters/${slug}/topics/`);
+            const desiredOrder = topicOrders[subject?.toLowerCase()]?.[slug] || [];
+
+            const sortedTopics = res.data.sort((a, b) => {
+            return desiredOrder.indexOf(a.topic_name) - desiredOrder.indexOf(b.topic_name);
+            });
+
+            setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
+        } catch (err) {
+            // console.error("Failed to load topics for", slug, err);
+            setLoading(false)
+        }
+    };
+
     useEffect(() => {
         const validSubjects = ['physics', 'chemistry', 'biology'];
-
-        if (!subject || !validSubjects.includes(subject.toLowerCase())) {
+        if (!validSubjects.includes(subject?.toLowerCase())) {
             navigate('/404');
-            return;
+        } else {
+            getChapter();
         }
+    }, [subject]);
 
-        const loadPageData = async () => {
-            try {
-                setLoading(true);
-                setChapter([]);
-                setTopics({});
 
-                const chapterRes = await AxiosInstance.get(`api/chapters/`);
-
-                const filtered = chapterRes.data.filter(item =>
-                    item.subject &&
-                    item.subject.toLowerCase() === subject.toLowerCase()
-                );
-
-                const sortedChapters = filtered.sort((a, b) => {
-                    const order = chapterOrders[subject.toLowerCase()] || [];
-                    return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
-                });
-
-                const topicResults = await Promise.all(
-                    sortedChapters.map(async (chapterItem) => {
-                        const topicRes = await AxiosInstance.get(
-                            `api/chapters/${chapterItem.slug}/topics/`
-                        );
-
-                        const desiredOrder =
-                            topicOrders[subject.toLowerCase()]?.[chapterItem.slug] || [];
-
-                        const sortedTopics = topicRes.data.sort((a, b) => {
-                            return (
-                                desiredOrder.indexOf(a.topic_name) -
-                                desiredOrder.indexOf(b.topic_name)
-                            );
-                        });
-
-                        return {
-                            slug: chapterItem.slug,
-                            topics: sortedTopics
-                        };
-                    })
-                );
-
-                const topicsObject = {};
-                topicResults.forEach(item => {
-                    topicsObject[item.slug] = item.topics;
-                });
-
-                setChapter(sortedChapters);
-                setTopics(topicsObject);
-
-            } catch (err) {
-                console.error("Failed to load page data", err);
-                setChapter([]);
-                setTopics({});
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadPageData();
-    }, [subject, navigate]);
+    useEffect(() => {
+        chapter.forEach(item => fetchTopics(item.slug));
+    }, [chapter]);
 
     return (
         <div className="practice-page">
@@ -157,7 +140,7 @@ const Chapters = () => {
                     </div>
                 )}
 
-                {!loading  && chapter.length === 0 && (
+                {chapter.length === 0 && !loading && (
                     <div className="coming-soon">
                         <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries Coming Soon!
                     </div>   
