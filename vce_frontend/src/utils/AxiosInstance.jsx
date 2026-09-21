@@ -1,5 +1,6 @@
 // utils/AxiosInstance.js
 import axios from "axios";
+import { clearSession, getSessionToken } from './session';
 
 
 const isDevelopment = import.meta.env.MODE === 'development' 
@@ -17,7 +18,8 @@ const AxiosInstance = axios.create({
 
 
 AxiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("Token");
+  const token = getSessionToken();
+  if (!token && localStorage.getItem('Token')) clearSession();
   if (token) {
     config.headers.Authorization = `Token ${token}`;
   } else {
@@ -31,9 +33,16 @@ AxiosInstance.interceptors.response.use(
   (error) => {
     const status = error?.response?.status;
 
-    if (status === 401) {
-      localStorage.removeItem("Token");
-      localStorage.removeItem("TokenExpiry");
+    const config = error.config;
+    const sentToken = config?.headers?.Authorization;
+    if (status === 401 && sentToken) {
+      // A late response from an old session must not clear a newer login.
+      if (sentToken === `Token ${localStorage.getItem('Token')}`) clearSession();
+      const publicCatalogue = /^\/?api\/chapters\/(?:[^/]+\/(?:topics\/)?)?$/.test(config.url);
+      if (config.method === 'get' && publicCatalogue && !config.sessionRetried) {
+        config.sessionRetried = true;
+        return AxiosInstance(config);
+      }
     }
     if (status >= 500) {
       window.location.href = "/500";

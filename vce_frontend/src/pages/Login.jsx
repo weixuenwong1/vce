@@ -6,6 +6,7 @@ import FormPassField from '../forms/PassField'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import AxiosInstance from '../utils/AxiosInstance'
+import { setSession } from '../utils/session';
 import { useNavigate } from 'react-router-dom'
 import Message from '../components/Message'
 import { toast } from 'react-toastify';
@@ -40,11 +41,7 @@ const Login = () => {
         password: data.password,
       });
 
-      localStorage.removeItem('Token');
-      localStorage.removeItem('TokenExpiry');
-
-      localStorage.setItem('Token', res.data.token);
-      localStorage.setItem('TokenExpiry', res.data.expiry); 
+      setSession(res.data.token, res.data.expiry);
 
       const from = location.state?.from?.pathname || '/';
       navigate(from, { replace: true });

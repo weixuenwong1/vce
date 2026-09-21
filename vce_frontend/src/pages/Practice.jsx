@@ -10,6 +10,7 @@ const Practice = () => {
   const [chapters, setChapters] = useState([]);
   const [topics, setTopics] = useState({});
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
   const navigate = useNavigate();
 
   const subjectEmojis = {
@@ -18,7 +19,9 @@ const Practice = () => {
     biology: "🧬"
   };
 
-  const getChapters = async () => {
+    const getChapters = async () => {
+        setLoading(true);
+        setLoadError(false);
     try {
       const res = await AxiosInstance.get(`api/chapters/`);
       const filtered = res.data.filter(item =>
@@ -32,7 +35,8 @@ const Practice = () => {
 
       setChapters(sorted);
       setLoading(false);
-    } catch (err) {
+        } catch (err) {
+            setLoadError(true);
       console.error("Error fetching chapters:", err);
       setLoading(false);
     }
@@ -143,7 +147,13 @@ const Practice = () => {
           </div>
         )}
 
-        {!loading && chapters.length === 0 && (
+        {!loading && loadError && (
+          <div role="alert">
+            <p>Unable to load resources. Please try again.</p>
+            <button type="button" onClick={getChapters}>Try again</button>
+          </div>
+        )}
+        {!loading && !loadError && chapters.length === 0 && (
           <div className="coming-soon">
             <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice Questions Coming Soon!
           </div>

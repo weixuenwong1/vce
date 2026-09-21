@@ -1,28 +1,13 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useSession } from '../utils/session';
 
-function isTokenValid() {
-  const token = localStorage.getItem("Token");
-  const expiry = localStorage.getItem("TokenExpiry");
-  if (!token || !expiry) return false;
-
-  const now = Date.now();
-  const expMs = Date.parse(expiry);
-  const LEEWAY_MS = 30_000;
-  const valid = Number.isFinite(expMs) && (now + LEEWAY_MS) < expMs;
-
-  if (!valid) {
-    localStorage.removeItem("Token");
-    localStorage.removeItem("TokenExpiry");
-  }
-  return valid;
-}
 
 export default function ProtectedRoute() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const authed = isTokenValid();
+  const authed = useSession();
 
   useEffect(() => {
     if (!authed) {

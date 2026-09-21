@@ -2,11 +2,12 @@ import { useState, useEffect, useRef, React} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import AxiosInstance from '../utils/AxiosInstance'
 import '../styles/NavBar.scss';
+import { clearSession, useSession } from '../utils/session';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation(); 
-  const isLoggedIn = Boolean(localStorage.getItem('Token'));
+  const isLoggedIn = useSession();
 
   const [openMenu, setOpenMenu] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
@@ -15,7 +16,7 @@ function Navbar() {
 
   const logoutUser = () => {
     AxiosInstance.post(`logout/`).then(() => {
-      localStorage.removeItem('Token');
+      clearSession();
       navigate('/login');
     });
   };
