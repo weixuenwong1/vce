@@ -8,7 +8,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FormHelperText } from '@mui/material';
 import { Controller } from 'react-hook-form';
 
-export default function FormPassField({ label, name, control, className }) {
+export default function FormPassField({ label, name, control, className, autoComplete: autoCompleteOverride }) {
   const [showPassword, setShowPassword] = React.useState(false);
   const toggleShow = () => setShowPassword(s => !s);
 
@@ -31,7 +31,7 @@ export default function FormPassField({ label, name, control, className }) {
             value={value}
             type={showPassword ? 'text' : 'password'}
             error={!!error}
-            autoComplete={autoComplete}
+            autoComplete={autoCompleteOverride || autoComplete}
             placeholder={label}
             inputProps={{
               autoCapitalize: 'none',

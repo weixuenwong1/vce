@@ -18,8 +18,10 @@ const AxiosInstance = axios.create({
 
 
 AxiosInstance.interceptors.request.use((config) => {
-  const token = getSessionToken();
-  if (!token && localStorage.getItem('Token')) clearSession();
+  const sessionToken = getSessionToken();
+  if (!sessionToken && localStorage.getItem('Token')) clearSession();
+  const publicAuth = /^\/?(?:login|register|api\/password_reset(?:\/confirm|\/validate_token)?)\/?$/.test(config.url);
+  const token = publicAuth ? null : sessionToken;
   if (token) {
     config.headers.Authorization = `Token ${token}`;
   } else {

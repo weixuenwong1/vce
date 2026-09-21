@@ -1,4 +1,5 @@
 import '../App.css';
+import { prefetchAuth } from '../utils/prefetchAuth';
 import { Box } from '@mui/material'
 import {React, useState, useEffect} from 'react'
 import FormTextField from '../forms/TextField'
@@ -84,10 +85,10 @@ const Login = () => {
             </Box> 
             <Box className={"itemBox"}>
               <label htmlFor="password" className="customLabel">Password</label>
-              <FormPassField name={"password"} control={control} id="password" label="Password" />
+              <FormPassField name={"password"} control={control} id="password" label="Password" autoComplete="current-password" />
             </Box>
             <Box className={"itemBox"} style={{ height: 'auto', marginTop: '10px' }}>
-              <Link to="/request/password_reset" className="forgotPasswordLink">
+              <Link to="/request/password_reset" className="forgotPasswordLink" onMouseEnter={() => prefetchAuth('reset')} onFocus={() => prefetchAuth('reset')} onTouchStart={() => prefetchAuth('reset')}>
                 Forgot password?
               </Link>
             </Box>
@@ -102,7 +103,7 @@ const Login = () => {
             </Box>
             <Box className={"itemBox"}>
               <p>
-                Need a Chuba account? <Link to="/register">Create account!</Link>
+                Need a Chuba account? <Link to="/register" onMouseEnter={() => prefetchAuth('register')} onFocus={() => prefetchAuth('register')} onTouchStart={() => prefetchAuth('register')}>Create account!</Link>
               </p>
             </Box>
           </Box>

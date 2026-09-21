@@ -1,4 +1,5 @@
 import '../App.css';
+import { prefetchAuth } from '../utils/prefetchAuth';
 import { Box } from '@mui/material'
 import FormTextField from '../forms/TextField'
 import FormPassField from '../forms/PassField'
@@ -109,7 +110,7 @@ const Register = () => {
             </Box>
             <Box className={"itemBox"}>
               <p className="have-account">
-                Already have a Chuba account? <Link to="/login">Log in!</Link>
+                Already have a Chuba account? <Link to="/login" onMouseEnter={() => prefetchAuth('login')} onFocus={() => prefetchAuth('login')} onTouchStart={() => prefetchAuth('login')}>Log in!</Link>
               </p>
             </Box>
           </Box>

@@ -19,6 +19,9 @@ export default function FormTextField(props) {
         >
           <OutlinedInput
             id={name}
+            name={name}
+            type={name === 'email' ? 'email' : 'text'}
+            autoComplete={name === 'email' ? 'email' : undefined}
             value={value}
             onChange={onChange}
             placeholder={label}

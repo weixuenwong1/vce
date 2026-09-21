@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, React} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import AxiosInstance from '../utils/AxiosInstance'
 import '../styles/NavBar.scss';
+import { prefetchAuth } from '../utils/prefetchAuth';
 import { clearSession, useSession } from '../utils/session';
 
 function Navbar() {
@@ -149,6 +150,9 @@ function Navbar() {
           <button
             className="navbar-button"
             onClick={() => navigate('/login')}
+            onMouseEnter={() => prefetchAuth('login')}
+            onFocus={() => prefetchAuth('login')}
+            onTouchStart={() => prefetchAuth('login')}
           >
             Sign in
           </button>
