@@ -1,28 +1,12 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { createWriteStream } from 'fs'
+import process from 'node:process'
+import { publicRouteEntries } from './public-routes.js'
 
 const hostname = 'https://chuba.io'
 
 
-const links = [
-  { url: '/', changefreq: 'weekly', priority: 1.0 },
-  { url: '/login', changefreq: 'monthly', priority: 0.5 },
-  { url: '/register', changefreq: 'monthly', priority: 0.5 },
-
-  { url: '/summaries/physics', changefreq: 'weekly', priority: 0.8 },
-  { url: '/summaries/chemistry', changefreq: 'weekly', priority: 0.8 },
-//   { url: '/summaries/biology', changefreq: 'weekly', priority: 0.8 },
-
-  { url: '/practice/physics', changefreq: 'weekly', priority: 0.9 },
-  { url: '/practice/chemistry', changefreq: 'weekly', priority: 0.9 },
-//   { url: '/practice/biology', changefreq: 'weekly', priority: 0.9 },
-
-  { url: '/practice-sac/physics', changefreq: 'weekly', priority: 0.7 },
-  { url: '/practice-sac/chemistry', changefreq: 'weekly', priority: 0.7 },
-//   { url: '/practice-sac/biology', changefreq: 'weekly', priority: 0.7 },
-
-  { url: '/how-to-use-chuba', changefreq: 'monthly', priority: 0.6 }
-]
+const links = publicRouteEntries.map(({ path, ...options }) => ({ url: path, ...options }))
 
 // ------------------------------------
 

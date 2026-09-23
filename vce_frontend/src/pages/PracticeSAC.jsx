@@ -2,6 +2,7 @@ import AxiosInstance from '../utils/AxiosInstance'
 import { React, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { chapterOrders } from "../data/ListOrders";
+import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import '../styles/PracticeSAC.scss';
 
 const PracticeSAC = () => {
@@ -57,10 +58,10 @@ const PracticeSAC = () => {
         <div className="practice-page-sac">
           <div className="practice-container-sac">
               <h1>
-                  {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice SAC {subjectEmojis[subject.toLowerCase()] || "📚"}
+                  VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice SACs {subjectEmojis[subject.toLowerCase()] || "📚"}
               </h1>
               <p className="practice-description-sac">
-                  This section allows you to practice content by chapter in a SAC-style format — several questions on one page with total marks to gauge your performance.
+                  Prepare for VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 SACs with chapter-based practice questions, total marks and worked solutions.
               </p>
               <p className="side-note-sac">
                   SAC structures vary by school in question count, difficulty and format. Use it as a preparation tool, not a replica of your school's SAC.
@@ -119,6 +120,7 @@ const PracticeSAC = () => {
                     <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice SAC Coming Soon!
                 </div>  
             )}
+            <ResourceGuideFooter />
           </div>
       </div>
     );

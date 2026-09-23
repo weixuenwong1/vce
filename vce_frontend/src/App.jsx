@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route, useLocation, matchPath, Navigate } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
+import PageMetadata from './components/PageMetadata'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -55,6 +56,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <PageMetadata />
       <ScrollToTop />
       {!noNavbar && <Navbar />}
 
@@ -69,7 +71,9 @@ export default function App() {
             <Route path="/password-reset/:token" element={<PasswordReset />} />
 
             <Route path="/summaries/:subject" element={<Chapters />} />
+            <Route path="/summaries/:subject/:chapter_slug/:topic_slug" element={<Summaries />} />
             <Route path="/practice/:subject" element={<Practice />} />
+            <Route path="/practice/:subject/:chapter_slug/:topic_slug" element={<Problems />} />
             <Route path="/practice-sac/:subject" element={<PracticeSAC />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -78,8 +82,6 @@ export default function App() {
             <Route path="/500" element={<Fallback />} />
 
             <Route element={<ProtectedRoute />}>
-              <Route path="/summaries/:subject/:chapter_slug/:topic_slug" element={<Summaries />} />
-              <Route path="/practice/:subject/:chapter_slug/:topic_slug" element={<Problems />} />
               <Route path="/practice-sac/:subject/:chapter_slug" element={<SAC />} />
               <Route path="/submit-question" element={<SubmitQuestion />} />
             </Route>

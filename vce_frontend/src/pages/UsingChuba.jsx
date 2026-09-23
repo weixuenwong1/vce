@@ -1,20 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/UsingChuba.scss';
 
 const HowToUseChuba = () => {
   return (
     <div className="how-to-use-chuba" style={{ padding: '1.5rem' }}>
       <div className="use-chuba-container">
-        <h1>🚀 How to Use Chuba Effectively</h1>
+        <h1>How to Use Chuba's VCE Resources</h1>
 
         <p className="use-chuba-description">
-          Chuba is built to help you study smarter. Each subject is divided into three sections:
+          Explore Chuba's VCE science resources for Physics, Chemistry and Biology Units 3 and 4.
+          Use topic summaries to review a concept, practice questions to apply it, and practice SACs
+          to bring your revision together before an assessment.
+        </p>
+        <p>
+          Start with the topic you are studying at school. Work through the resources below alongside
+          your textbook and your teacher's guidance, then return to any ideas you find difficult.
         </p>
 
         <div className="use-chuba-section-heading">
           <div className="emoji-circle">📚</div>
-          <h2>1. Summaries</h2>
+          <h2>1. Review with VCE Subject Summaries</h2>
         </div>
+        <p className="resource-links">
+          Choose your subject: <Link to="/summaries/physics">VCE Physics summaries</Link>,{' '}
+          <Link to="/summaries/chemistry">VCE Chemistry summaries</Link> or{' '}
+          <Link to="/summaries/biology">VCE Biology summaries</Link>.
+          {' '}Find the chapter you are revising and use its topic explanations to check your understanding.
+        </p>
         <p>
           These are your go-to guides when you’re not feeling confident with a concept. They’re intentionally concise and designed to just explain the key ideas that actually matter in exams and the best approach to common exam-style questions.
         </p>
@@ -59,8 +72,14 @@ const HowToUseChuba = () => {
 
         <div className="use-chuba-section-heading">
           <div className="emoji-circle">✍️</div>
-          <h2>2. Practice Questions</h2>
+          <h2>2. Apply Your Knowledge with VCE Practice Questions</h2>
         </div>
+        <p className="resource-links">
+          Put your revision into practice with <Link to="/practice/physics">VCE Physics practice questions</Link>,{' '}
+          <Link to="/practice/chemistry">VCE Chemistry practice questions</Link> or{' '}
+          <Link to="/practice/biology">VCE Biology practice questions</Link>.
+          {' '}Attempt each question before reading the solution, then compare your reasoning and working.
+        </p>
         
         <p>
           Once you’ve reviewed a topic, jump into practice questions and don’t just check if your final answer is right, look at the full working out.
@@ -91,16 +110,25 @@ const HowToUseChuba = () => {
 
         <div className="use-chuba-section-heading">
           <div className="emoji-circle">📝</div>
-        <h2>3. Practice SACs</h2>
+        <h2>3. Prepare with VCE Practice SACs</h2>
         </div>
-        <p>
-          When getting closer to SAC time, have a go at full Practice SACs. It covers a full area of study with a mix of question styles, giving you a realistic feel of the exam.
+        <p className="resource-links">
+          Ready to combine several ideas? Browse <Link to="/practice-sac/physics">VCE Physics practice SACs</Link>,{' '}
+          <Link to="/practice-sac/chemistry">VCE Chemistry practice SACs</Link> or{' '}
+          <Link to="/practice-sac/biology">VCE Biology practice SACs</Link>.
+          {' '}Choose a chapter that matches your current revision and review your answers afterwards.
         </p>
         <p>
-          ⌛ We recommend timing yourself — aim for 1.25 minutes per mark as a rough guide. It helps build pressure tolerance and exam focus.
+          When getting closer to SAC time, try a chapter-based practice SAC with a mix of questions.
+          Use it to identify which concepts you can apply independently and which need more revision.
         </p>
         <p>
-          Note that your school structures SACs may be different, however, these are still great to test your understanding under real conditions.
+          Try a timed attempt using the duration and mark allocation your teacher recommends for your assessment.
+          Leave time to check calculations and written explanations.
+        </p>
+        <p>
+          Your school's SAC structure may differ. Chuba's practice SACs are revision resources,
+          not replicas of your school's assessments or official VCAA papers.
         </p>
         <span className="use-chuba-pill physics">🧲 Physics</span>
         <ul>

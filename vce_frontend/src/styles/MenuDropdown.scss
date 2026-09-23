@@ -184,6 +184,18 @@ $white: #FFF;
           }
         }
 
+        .topic-row {
+          display: block;
+          color: inherit;
+          text-decoration: none;
+
+          &:focus-visible .topic-text {
+            color: #00B4D8;
+            outline: 2px solid #00B4D8;
+            outline-offset: 4px;
+          }
+        }
+
         tr:last-child td {
           border-bottom: none;
         }

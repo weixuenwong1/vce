@@ -1,0 +1,75 @@
+.sign-in-gate {
+  margin: 2.5rem 0 1rem;
+  padding: 1.75rem;
+  border: 2px solid #ffb74d;
+  border-left: 6px solid #ff7043;
+  background: #fff8ef;
+  color: #2e2e2e;
+  text-align: center;
+
+  h2 {
+    margin: 0.2rem 0 0.65rem;
+    padding: 0;
+    color: #102542;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.45rem;
+  }
+
+  p {
+    margin: 0 auto 1rem;
+    max-width: 650px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .sign-in-gate__eyebrow {
+    margin-bottom: 0;
+    color: #b44726;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .sign-in-gate__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.55rem 1.2rem;
+    border: 2px solid #422800;
+    background: #ffb74d;
+    box-shadow: 3px 3px 0 #ff7043;
+    color: #2e2e2e;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background: #ffd180;
+    }
+  }
+
+  .sign-in-gate__register {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+
+    a {
+      color: #8d351b;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .sign-in-gate {
+    padding: 1.35rem 1rem;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}

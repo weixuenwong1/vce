@@ -1,6 +1,7 @@
 import AxiosInstance from '../utils/AxiosInstance'
+import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import { React, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { chapterOrders, topicOrders } from "../data/ListOrders";
 import '../styles/MenuDropdown.scss'
 import { PencilLine } from 'lucide-react';
@@ -77,10 +78,11 @@ const Practice = () => {
     <div className="practice-page">
       <div className="practice-container">
         <h1>
-          {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice {subjectEmojis[subject.toLowerCase()] || "📚"}
+          VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice Questions {subjectEmojis[subject.toLowerCase()] || "📚"}
         </h1>
         <p className="practice-description">
-          This section provides a range of practice questions, from easy to exam-level and occasionally beyond, to test your understanding of the topic.
+          Revise VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 with topic-based practice questions and worked solutions.
+          Choose a chapter below, work from foundational questions towards exam-style problems, and use the solutions to check your reasoning before SACs and exams.
         </p>
         <p className="side-note-practice">
           There isn’t always just one way to solve a problem.
@@ -121,20 +123,13 @@ const Practice = () => {
                         {topics[item.slug]?.map((topic, index) => (
                           <tr key={index}>
                             <td>
-                              <div
+                              <Link
                                 className="topic-row"
-                                tabIndex="0"
-                                role="link"
+                                to={`/practice/${subject}/${item.slug}/${topic.slug}/`}
                                 aria-label={`Go to ${topic.topic_name} practice`}
-                                onClick={() => navigate(`/practice/${subject}/${item.slug}/${topic.slug}/`)}
-                                onKeyDown={(e) => {
-                                  if (e.key === 'Enter') {
-                                    navigate(`/practice/${subject}/${item.slug}/${topic.slug}/`);
-                                  }
-                                }}
                               >
                                 <span className="topic-text">{topic.topic_name}</span>
-                              </div>
+                              </Link>
                             </td>
                           </tr>
                         ))}
@@ -158,6 +153,7 @@ const Practice = () => {
             <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice Questions Coming Soon!
           </div>
         )}
+        <ResourceGuideFooter />
       </div>
     </div>
   )

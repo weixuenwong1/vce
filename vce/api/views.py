@@ -24,6 +24,22 @@ from submission.models import QuestionSubmission
 from django.db import transaction
 
 
+SUMMARY_PREVIEW_CHARACTERS = 1600
+QUESTION_PREVIEW_LIMIT = 3
+
+
+def summary_preview(content):
+    """Return a readable Markdown excerpt without cutting a paragraph in half."""
+    content = content or ""
+    if len(content) <= SUMMARY_PREVIEW_CHARACTERS:
+        return content, False
+
+    boundary = content.rfind("\n\n", 800, SUMMARY_PREVIEW_CHARACTERS)
+    if boundary == -1:
+        boundary = SUMMARY_PREVIEW_CHARACTERS
+    return content[:boundary].rstrip(), True
+
+
 # ------------------------
 # SUBJECT & CHAPTER VIEWS
 # ------------------------
@@ -70,6 +86,8 @@ class SubjectChaptersView(APIView):
 
 class TopicSummaryView(APIView):
     """GET: Retrieve the summary for a specific topic inside a chapter."""
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         subject = kwargs.get('subject')
         chapter_slug = kwargs.get('chapter_slug')
@@ -77,8 +95,14 @@ class TopicSummaryView(APIView):
 
         chapter = get_object_or_404(Chapter, slug=chapter_slug, subject__name__iexact=subject)
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
-        serializer = TopicSummarySerializer(topic)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        data = dict(TopicSummarySerializer(topic).data)
+
+        if not request.user.is_authenticated:
+            data["content"], data["is_preview"] = summary_preview(data.get("content"))
+        else:
+            data["is_preview"] = False
+
+        return Response(data, status=status.HTTP_200_OK)
 
 
 # ------------------------
@@ -93,20 +117,50 @@ class NextQuestionView(APIView):
     - Resets seen list once all questions are exhausted.
     """
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     @transaction.atomic
     def post(self, request, subject, chapter_slug, topic_slug):
-        user = request.user
         chapter = get_object_or_404(
             Chapter, slug=chapter_slug, subject__name__iexact=subject
         )
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
 
-        all_qs = Question.objects.filter(topic=topic).order_by('pk')
+        all_qs = Question.objects.filter(topic=topic).distinct().order_by('pk')
         total = all_qs.count()
         if total == 0:
             return Response({"detail": "No questions in this topic."}, status=404)
+
+        if not request.user.is_authenticated:
+            try:
+                preview_index = int(request.data.get("preview_index", 0))
+            except (TypeError, ValueError):
+                preview_index = 0
+
+            preview_limit = min(QUESTION_PREVIEW_LIMIT, total)
+            if preview_index < 0 or preview_index >= preview_limit:
+                return Response(
+                    {"detail": "Sign in to continue with more questions."},
+                    status=status.HTTP_401_UNAUTHORIZED,
+                )
+
+            question = all_qs[preview_index]
+            return Response(
+                {
+                    "question": QuestionSerializer(question).data,
+                    "meta": {
+                        "topic": topic.slug,
+                        "topic_id": topic.pk,
+                        "preview": True,
+                        "preview_index": preview_index,
+                        "preview_limit": preview_limit,
+                        "total_available": total,
+                    },
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        user = request.user
 
 
         seen_pks = set(

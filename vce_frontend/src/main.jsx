@@ -4,7 +4,11 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root')
+rootElement.replaceChildren()
+document.getElementById('prerender-styles')?.remove()
+
+createRoot(rootElement).render(
   <StrictMode>
     <Router>
         <App />

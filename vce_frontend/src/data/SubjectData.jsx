@@ -3,7 +3,7 @@ import subjectImages from "./SubjectImages";
 const subjectsData = [
   { 
     emoji: "🚀",
-    title: "Physics 3/4",
+    title: "VCE Physics Resources - Units 3/4",
     cards: [
       {
         image: subjectImages.physics.summary,
@@ -30,7 +30,7 @@ const subjectsData = [
   },
   {
     emoji: "🧪 ",
-    title: "Chemistry 3/4",
+    title: "VCE Chemistry Resources - Units 3/4",
     cards: [
       {
         image: subjectImages.chemistry.summary,
@@ -57,7 +57,7 @@ const subjectsData = [
   },
   {
     emoji: "🧬 ",
-    title: "Biology 3/4",
+    title: "VCE Biology Resources - Units 3/4",
     cards: [
       {
         image: subjectImages.biology.summary,

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import AxiosInstance from '../utils/AxiosInstance'
+import SignInGate from '../components/SignInGate';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import { topicOrders } from '../data/ListOrders';
+import { slugifyResourceName, topicOrders } from '../data/ListOrders';
 import 'katex/dist/katex.min.css';
 import '../styles/Summaries.scss';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
@@ -17,13 +18,11 @@ const Summaries = () => {
   const [content, setContent] = useState('');
   const [topicName, setTopicName] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [isPreview, setIsPreview] = useState(false);
   const [prevTopic, setPrevTopic] = useState(null);
   const [nextTopic, setNextTopic] = useState(null);
   const supportsLookbehind = (() => { try { new RegExp('(?<=a)b'); return true; } catch { return false; } })();
   const supportsNamedGroups = (() => { try { new RegExp('(?<n>a)');  return true; } catch { return false; } })();
-
-  const slugify = (str) =>
-    str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
   useEffect(() => {
     if (!subject || !chapter_slug || !topic_slug) {
@@ -60,6 +59,7 @@ const Summaries = () => {
       .then(res => {
         setContent(res.data.content || '');
         setTopicName(res.data.topic_name || '');
+        setIsPreview(Boolean(res.data.is_preview));
       })
       .catch((e) => {
         const status = e?.response?.status;
@@ -109,9 +109,11 @@ const Summaries = () => {
     p: ({ children }) => (
       <p style={{ marginBottom: '1rem' }}>{children}</p>
     ),
-    img: ({ node, ...props }) => (
-      <img {...props} style={{ display: 'block', margin: '1.5rem auto', maxWidth: '100%' }} />
-    ),
+    img: (props) => {
+      const imageProps = { ...props };
+      delete imageProps.node;
+      return <img {...imageProps} style={{ display: 'block', margin: '1.5rem auto', maxWidth: '100%' }} />;
+    },
     hr: () => (
       <hr style={{ borderTop: '3px solid #666', margin: '2rem 0' }} />
     )
@@ -146,36 +148,37 @@ const Summaries = () => {
           components={renderers}
         />
       )}
+        {isPreview && <SignInGate resource={`the ${topicName} summary`} />}
         <div className="summary-navigation">
           {prevTopic && (
-            <span
+            <Link
               className="summary-link left"
-              onClick={() => navigate(`/summaries/${subject}/${chapter_slug}/${slugify(prevTopic)}`)}
+              to={`/summaries/${subject}/${chapter_slug}/${slugifyResourceName(prevTopic)}`}
               title={prevTopic} 
             >
                 <ChevronLeft />
                 <span className="link-label-full">{prevTopic}</span>
                 <span className="link-label-short">Previous</span>
-              </span>
+              </Link>
           )}
           
-          <span
+          <Link
             className="summary-link practice-link"
-            onClick={() => navigate(`/practice/${subject}/${chapter_slug}/${topic_slug}`)}
+            to={`/practice/${subject}/${chapter_slug}/${topic_slug}`}
           >
             🎯 Practice Questions
-          </span>
+          </Link>
 
           {nextTopic && (
-            <span
+            <Link
               className="summary-link right"
-              onClick={() => navigate(`/summaries/${subject}/${chapter_slug}/${slugify(nextTopic)}`)}
+              to={`/summaries/${subject}/${chapter_slug}/${slugifyResourceName(nextTopic)}`}
               title={nextTopic}
             >
                 <span className="link-label-short">Next</span>
                 <span className="link-label-full">{nextTopic}</span>
                 <ChevronRight />
-              </span>
+              </Link>
           )}
         </div>
       </div>

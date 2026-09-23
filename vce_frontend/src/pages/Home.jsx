@@ -14,8 +14,8 @@ const Home = () => {
       <div className="hero-section">
         <div className="hero-left">
           <h1>Chuba</h1>
-          <h2>Simplify your SAC and exam preparation</h2>
-          <p>The ultimate resource-platform for VCE success.</p>
+          <h2>VCE Science Resources</h2>
+          <p>Physics, Chemistry and Biology Units 3 and 4 summaries, practice questions and practice SACs for your exam preparation.</p>
         </div>
 
         <div className="hero-right">

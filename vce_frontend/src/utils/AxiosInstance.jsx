@@ -41,7 +41,8 @@ AxiosInstance.interceptors.response.use(
       // A late response from an old session must not clear a newer login.
       if (sentToken === `Token ${localStorage.getItem('Token')}`) clearSession();
       const publicCatalogue = /^\/?api\/chapters\/(?:[^/]+\/(?:topics\/)?)?$/.test(config.url);
-      if (config.method === 'get' && publicCatalogue && !config.sessionRetried) {
+      const publicPreview = /^\/?api\/(?:summary|problems)\/[^/]+\/[^/]+\/[^/]+\/?$/.test(config.url);
+      if (config.method === 'get' && (publicCatalogue || publicPreview) && !config.sessionRetried) {
         config.sessionRetried = true;
         return AxiosInstance(config);
       }

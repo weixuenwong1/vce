@@ -1,6 +1,7 @@
 import AxiosInstance from '../utils/AxiosInstance'
+import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import { React, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { chapterOrders, topicOrders } from "../data/ListOrders";
 import '../styles/MenuDropdown.scss';
 
@@ -35,7 +36,7 @@ const Chapters = () => {
 
             setChapter(sorted);
             setLoading(false);
-        } catch (err) {
+        } catch {
             setLoadError(true);
             // console.error("Failed to load chapters for", subject, err);
             setLoading(false)
@@ -54,7 +55,7 @@ const Chapters = () => {
             });
 
             setTopics((prev) => ({ ...prev, [slug]: sortedTopics }));
-        } catch (err) {
+        } catch {
             // console.error("Failed to load topics for", slug, err);
             setLoading(false)
         }
@@ -78,10 +79,11 @@ const Chapters = () => {
         <div className="practice-page">
             <div className="practice-container">
                 <h1>
-                    {subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}
+                    VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}
                 </h1>
                 <p className="practice-description">
-                    This section provides chapter and topic summaries, helping you understand key concepts efficiently and see how they are applied in assessments.
+                    Review VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 with chapter and topic summaries.
+                    Choose a topic below to revisit key concepts and explanations, then apply your understanding in practice questions as you prepare for SACs and exams.
                 </p>
                 <p className="side-note">
                     Summaries are designed to complement your textbook — try to focus on understanding the content, not memorising.
@@ -118,20 +120,13 @@ const Chapters = () => {
                                                     {topics[item.slug]?.map((topic, index) => (
                                                         <tr key={index}>
                                                             <td>
-                                                                <div
+                                                                <Link
                                                                 className="topic-row"
-                                                                tabIndex="0"
-                                                                role="link"
+                                                                to={`/summaries/${subject}/${item.slug}/${topic.slug}`}
                                                                 aria-label={`Go to ${topic.topic_name} summary`}
-                                                                onClick={() => navigate(`/summaries/${subject}/${item.slug}/${topic.slug}`)}
-                                                                onKeyDown={(e) => {
-                                                                    if (e.key === 'Enter') {
-                                                                    navigate(`/summaries/${subject}/${item.slug}/${topic.slug}`);
-                                                                    }
-                                                                }}
                                                                 >
                                                                 <span className="topic-text">{topic.topic_name}</span>
-                                                                </div>
+                                                                </Link>
                                                             </td>
                                                         </tr>
                                                     ))}
@@ -155,6 +150,7 @@ const Chapters = () => {
                         <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Summaries Coming Soon!
                     </div>   
                 )}
+                <ResourceGuideFooter />
             </div>
         </div>
     );

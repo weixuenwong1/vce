@@ -1,0 +1,34 @@
+.resource-guide-footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0 0.5rem;
+  border-top: 1px solid #666;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  h2 {
+    font-family: inherit;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: #fff;
+    margin: 0 0 0.6rem;
+    letter-spacing: 0;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin: 0 auto 0.75rem;
+    max-width: 38rem;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.6rem 0;
+    color: #ffd180;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    &:hover { color: #fff; }
+    &:focus-visible { outline: 2px solid #ffd180; outline-offset: 4px; }
+  }
+}

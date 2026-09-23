@@ -1,8 +1,11 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import AxiosInstance from '../utils/AxiosInstance'
 import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import SignInGate from '../components/SignInGate';
+import { getTopicName } from '../data/ListOrders';
+import { useSession } from '../utils/session';
 import '../styles/Loader.scss';
 import '../styles/Problems.scss';
 import '../components/LoaderOverlay';
@@ -18,17 +21,24 @@ const QuestionsForTopic = () => {
     const [loading, setLoading] = useState(true);
     const [contentVisible, setContentVisible] = useState(false);
     const [totalAvailable, setTotalAvailable] = useState(0);
+    const [previewLimit, setPreviewLimit] = useState(0);
     const [navLock, setNavLock] = useState(false);
 
     const navigate = useNavigate();
+    const authed = useSession();
+    const topicName = getTopicName(subject, chapter_slug, topic_slug) || topic_slug.replace(/-/g, ' ');
 
     const nextUrl = `api/problems/${subject}/${chapter_slug}/${topic_slug}/`; 
 
     const prevDisabled = cursor <= 0 || navLock;
-    const nextDisabled = navLock;
+    const previewComplete = !authed && previewLimit > 0 && cursor + 1 >= previewLimit;
+    const nextDisabled = navLock || previewComplete;
 
-    async function fetchNextQuestion() {
-        const res = await AxiosInstance.post(nextUrl); 
+    async function fetchNextQuestion(previewIndex = 0) {
+        const res = await AxiosInstance.post(
+            nextUrl,
+            authed ? {} : { preview_index: previewIndex },
+        );
         return res.data; 
     }
 
@@ -50,6 +60,7 @@ const QuestionsForTopic = () => {
                 if (cancelled) return;
 
                 setTotalAvailable(meta?.total_available ?? 0);
+                setPreviewLimit(meta?.preview_limit ?? 0);
                 setHistory([question]);
                 setCursor(0);
                 setCurrent(question);
@@ -67,7 +78,7 @@ const QuestionsForTopic = () => {
             }
         })();
         return () => { cancelled = true; };
-    }, [subject, chapter_slug, topic_slug]);
+    }, [subject, chapter_slug, topic_slug, authed]);
 
     const handleNextQuestion = async () => {
         if (navLock) return;
@@ -90,13 +101,14 @@ const QuestionsForTopic = () => {
         }
 
         try {
-            const { question, meta } = await fetchNextQuestion();
+            const { question, meta } = await fetchNextQuestion(history.length);
             if (import.meta.env.DEV) {
                 console.log(
                     `Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
                 );
             }
             setTotalAvailable(meta?.total_available ?? totalAvailable);
+            setPreviewLimit(meta?.preview_limit ?? previewLimit);
 
             setHistory(prev => [...prev, question]);
             setCursor(prev => prev + 1);
@@ -167,6 +179,13 @@ const QuestionsForTopic = () => {
     return (
        <main className="question-display-container">
         <div className= "inner-container">
+            <header className="resource-topic-heading">
+                <h1>VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} {topicName} Practice Questions</h1>
+                <p>
+                    Practise this VCE Units 3 and 4 topic with worked solutions.
+                    {!authed && ' Preview three questions, then sign in to continue.'}
+                </p>
+            </header>
             <div className="question-header">
                 <div className="question-meta">
                     <h3>{currentQuestion.question_text}</h3>
@@ -284,6 +303,8 @@ const QuestionsForTopic = () => {
                 </div>
                 )}
 
+            {previewComplete && <SignInGate resource={`${topicName} practice questions`} />}
+
             <div className="question-nav">
                 <span
                     className={`question-link left ${prevDisabled ? 'disabled' : ''}`}
@@ -303,7 +324,7 @@ const QuestionsForTopic = () => {
                     <span className="link-label-short">Previous</span>
                 </span>
 
-                <span
+                {!previewComplete && <span
                     className={`question-link right ${nextDisabled ? 'disabled' : ''}`}
                     role="button"
                     tabIndex={nextDisabled ? -1 : 0}
@@ -319,7 +340,7 @@ const QuestionsForTopic = () => {
                     <span className="link-label-short">Next</span>
                     <span className="link-label-full">Next Question</span>
                     <ChevronRight />
-                </span>
+                </span>}
                 </div>
             </div>
         </div>

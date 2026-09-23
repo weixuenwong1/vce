@@ -89,6 +89,22 @@ $soft-yellow: #FFD180;
     }
   }
 
+  .resource-links a {
+    color: $soft-yellow;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $soft-yellow;
+      outline-offset: 3px;
+    }
+  }
+
   // Tablet
   @media (max-width: 900px) {
     .use-chuba-container {
@@ -154,4 +170,3 @@ $soft-yellow: #FFD180;
     }
   }
 }
-

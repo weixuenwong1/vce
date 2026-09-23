@@ -1,26 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/Home.scss';
 
 const Card = ({ image, title, description, link }) => {
   const toVariant = (url, w, ext = 'webp') => url.replace(/\.png$/i, `-${w}.${ext}`);
 
-  const navigate = useNavigate();
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      navigate(link);
-    }
-  };
-
   return (
-    <div 
+    <Link
       className="card"
-      tabIndex="0"
-      role="link"
+      to={link}
+      style={{ color: 'inherit', textDecoration: 'none' }}
       aria-label={`Go to ${title}`}
-      onClick={() => navigate(link)}
-      onKeyDown={handleKeyDown}
     >
       <picture>
       <source
@@ -46,7 +36,7 @@ const Card = ({ image, title, description, link }) => {
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
