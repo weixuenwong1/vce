@@ -33,6 +33,20 @@ class TopicSerializer(serializers.ModelSerializer):
         fields = ['topic_uid', 'topic_name', 'slug', 'chapter']
 
 
+class CatalogueTopicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Topic
+        fields = ['topic_uid', 'topic_name', 'slug']
+
+
+class ChapterCatalogueSerializer(serializers.ModelSerializer):
+    topics = CatalogueTopicSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Chapter
+        fields = ['chapter_uid', 'chapter_name', 'slug', 'chapter_description', 'topics']
+
+
 class TopicSummarySerializer(serializers.ModelSerializer):
     """Lightweight serializer for topic summaries (used in summaries page)."""
     class Meta:

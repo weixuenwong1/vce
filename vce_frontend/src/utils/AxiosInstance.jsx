@@ -40,7 +40,7 @@ AxiosInstance.interceptors.response.use(
     if (status === 401 && sentToken) {
       // A late response from an old session must not clear a newer login.
       if (sentToken === `Token ${localStorage.getItem('Token')}`) clearSession();
-      const publicCatalogue = /^\/?api\/chapters\/(?:[^/]+\/(?:topics\/)?)?$/.test(config.url);
+      const publicCatalogue = /^\/?api\/(?:chapters\/(?:[^/]+\/(?:topics\/)?)?|catalogue\/[^/]+\/?)$/.test(config.url);
       const publicPreview = /^\/?api\/(?:summary|problems)\/[^/]+\/[^/]+\/[^/]+\/?$/.test(config.url);
       if (config.method === 'get' && (publicCatalogue || publicPreview) && !config.sessionRetried) {
         config.sessionRetried = true;

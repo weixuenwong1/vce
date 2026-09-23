@@ -33,6 +33,17 @@ class PublicResourcePreviewTests(TestCase):
 
         self.summary_url = "/api/summary/physics/motion-and-energy/projectile-motion/"
         self.problems_url = "/api/problems/physics/motion-and-energy/projectile-motion/"
+        self.catalogue_url = "/api/catalogue/physics/"
+
+    def test_subject_catalogue_returns_chapters_and_topics_together(self):
+        with self.assertNumQueries(2):
+            response = self.client.get(self.catalogue_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]["chapter_name"], "Motion and Energy")
+        self.assertEqual(response.data[0]["topics"][0]["topic_name"], "Projectile Motion")
+        self.assertIn("max-age=300", response["Cache-Control"])
 
     def test_anonymous_summary_is_truncated(self):
         response = self.client.get(self.summary_url)

@@ -9,12 +9,14 @@ from .views import (
     ResetSeenQuestionsView,
     SubjectListView,
     SubjectChaptersView,
+    ResourceCatalogueView,
     QuestionSubmissionListCreateView,
 )
 
 urlpatterns = [
     path("subjects/", SubjectListView.as_view(), name="subject-list"),
     path("subjects/<int:subject_id>/chapters/", SubjectChaptersView.as_view(), name="subject-chapters"),
+    path('catalogue/<slug:subject>/', ResourceCatalogueView.as_view(), name='resource-catalogue'),
     path('chapters/', ChapterListView.as_view(), name='chapter-list'),
     path('chapters/<slug:slug>/', ChapterBySlugView.as_view(), name='chapter-by-slug'),
     path('chapters/<slug:slug>/topics/', TopicsByChapterSlugView.as_view(), name='chapter-topics'),

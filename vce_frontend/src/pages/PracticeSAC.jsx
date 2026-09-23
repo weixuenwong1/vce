@@ -1,8 +1,8 @@
-import AxiosInstance from '../utils/AxiosInstance'
-import { React, useEffect, useState } from 'react';
+import { React, useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { chapterOrders } from "../data/ListOrders";
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
+import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/PracticeSAC.scss';
 
 const PracticeSAC = () => {
@@ -18,28 +18,18 @@ const PracticeSAC = () => {
         biology: "🧬"
     };
 
-    const getChapters = async () => {
+    const getChapters = useCallback(async ({ force = false } = {}) => {
         setLoading(true);
         setLoadError(false);
         try {
-            const res = await AxiosInstance.get(`api/chapters/`);
-            const filtered = res.data.filter(item =>
-                item.subject?.toLowerCase() === subject.toLowerCase()
-            );
-
-            const sorted = filtered.sort((a, b) => {
-                const order = chapterOrders[subject.toLowerCase()] || [];
-                return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
-            });
-
-            setChapters(sorted);
-            setLoading(false);
+            setChapters(await getResourceCatalogue(subject.toLowerCase(), { force }));
         } catch (err) {
             setLoadError(true);
             console.error("Error fetching chapters:", err);
+        } finally {
             setLoading(false);
         }
-    };
+    }, [subject]);
 
     const handleChapterClick = (chapterSlug) => {
         navigate(`/practice-sac/${subject}/${chapterSlug}/`);
@@ -50,9 +40,9 @@ const PracticeSAC = () => {
         if (!validSubjects.includes(subject.toLowerCase())) {
             navigate('/404');
         } else {
-            getChapters();
+            void getChapters();
         }
-    }, [subject]);
+    }, [getChapters, navigate, subject]);
 
     return (
         <div className="practice-page-sac">
@@ -70,20 +60,10 @@ const PracticeSAC = () => {
               <hr className="dividerMenu"/>
 
               {loading ? (
-                <div className="loader-overlay">
-                    <div className="loader2"></div>
-                </div>
+                <ResourceCatalogueLoading label={`Loading ${subject} practice SACs`} />
             ) : (
                 <div className="chapter-section">
-                    {chapters
-                        .slice()
-                        .sort((a, b) => {
-                            const order = chapterOrders[subject.toLowerCase()] || [];
-                            const indexA = order.indexOf(a.chapter_name);
-                            const indexB = order.indexOf(b.chapter_name);
-                            return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
-                        })
-                        .map(item => (
+                    {chapters.map(item => (
                             <div className="sac-chapter-wrapper" key={item.slug}>
                                 <div className="sac-left">
                                 <h4 className="sac-chapter-heading">{item.chapter_name}</h4>
@@ -112,7 +92,7 @@ const PracticeSAC = () => {
         {!loading && loadError && (
           <div role="alert">
             <p>Unable to load resources. Please try again.</p>
-            <button type="button" onClick={getChapters}>Try again</button>
+            <button type="button" onClick={() => getChapters({ force: true })}>Try again</button>
           </div>
         )}
         {!loading && !loadError && chapters.length === 0 && (
@@ -120,7 +100,7 @@ const PracticeSAC = () => {
                     <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice SAC Coming Soon!
                 </div>  
             )}
-            <ResourceGuideFooter />
+            {!loading && !loadError && <ResourceGuideFooter />}
           </div>
       </div>
     );

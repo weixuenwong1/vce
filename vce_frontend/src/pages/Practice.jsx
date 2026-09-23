@@ -1,15 +1,14 @@
-import AxiosInstance from '../utils/AxiosInstance'
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
-import { React, useEffect, useState } from 'react'
+import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import { React, useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { chapterOrders, topicOrders } from "../data/ListOrders";
+import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/MenuDropdown.scss'
 import { PencilLine } from 'lucide-react';
 
 const Practice = () => {
   const { subject } = useParams(); 
   const [chapters, setChapters] = useState([]);
-  const [topics, setTopics] = useState({});
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
   const navigate = useNavigate();
@@ -20,59 +19,27 @@ const Practice = () => {
     biology: "🧬"
   };
 
-    const getChapters = async () => {
-        setLoading(true);
-        setLoadError(false);
+  const getChapters = useCallback(async ({ force = false } = {}) => {
+    setLoading(true);
+    setLoadError(false);
     try {
-      const res = await AxiosInstance.get(`api/chapters/`);
-      const filtered = res.data.filter(item =>
-        item.subject?.toLowerCase() === subject.toLowerCase()
-      );
-
-      const sorted = filtered.sort((a, b) => {
-        const order = chapterOrders[subject.toLowerCase()] || [];
-        return order.indexOf(a.chapter_name) - order.indexOf(b.chapter_name);
-      });
-
-      setChapters(sorted);
-      setLoading(false);
-        } catch (err) {
-            setLoadError(true);
-      console.error("Error fetching chapters:", err);
-      setLoading(false);
-    }
-  };
-
-  const fetchTopics = async (slug) => {
-    if (topics[slug]) return; 
-
-    try {
-      const res = await AxiosInstance.get(`api/chapters/${slug}/topics/`);
-      const desiredOrder = topicOrders[subject?.toLowerCase()]?.[slug] || [];
-
-      const sortedTopics = res.data.sort((a, b) => {
-        return desiredOrder.indexOf(a.topic_name) - desiredOrder.indexOf(b.topic_name);
-      });
-
-      setTopics(prev => ({ ...prev, [slug]: sortedTopics }));
+      setChapters(await getResourceCatalogue(subject.toLowerCase(), { force }));
     } catch (err) {
-      console.error("Error fetching topics:", err);
-      setLoading(false)
+      setLoadError(true);
+      console.error("Error fetching chapters:", err);
+    } finally {
+      setLoading(false);
     }
-  };
+  }, [subject]);
 
   useEffect(() => {
     const validSubjects = ['physics', 'chemistry', 'biology'];
     if (!validSubjects.includes(subject.toLowerCase())) {
       navigate('/404');
     } else {
-      getChapters();
+      void getChapters();
     }
-  }, [subject]);
-
-  useEffect(() => {
-    chapters.forEach(item => fetchTopics(item.slug));
-  }, [chapters]);
+  }, [getChapters, navigate, subject]);
 
   return (
     <div className="practice-page">
@@ -104,9 +71,7 @@ const Practice = () => {
         <hr className="dividerMenu" />
 
         {loading ? (
-          <div className="loader-overlay">
-            <div className="loader2"></div>
-          </div>
+          <ResourceCatalogueLoading label={`Loading ${subject} practice topics`} />
         ) : (
           <div className="chapter-section">
             {chapters.map(item => (
@@ -120,8 +85,8 @@ const Practice = () => {
                   <div className="chapter-right-box">
                     <table className="topics-table">
                       <tbody>
-                        {topics[item.slug]?.map((topic, index) => (
-                          <tr key={index}>
+                        {item.topics.map((topic) => (
+                          <tr key={topic.topic_uid}>
                             <td>
                               <Link
                                 className="topic-row"
@@ -145,7 +110,7 @@ const Practice = () => {
         {!loading && loadError && (
           <div role="alert">
             <p>Unable to load resources. Please try again.</p>
-            <button type="button" onClick={getChapters}>Try again</button>
+            <button type="button" onClick={() => getChapters({ force: true })}>Try again</button>
           </div>
         )}
         {!loading && !loadError && chapters.length === 0 && (
@@ -153,7 +118,7 @@ const Practice = () => {
             <span className="flipping-hourglass">⏳</span> {subject.charAt(0).toUpperCase() + subject.slice(1)} Practice Questions Coming Soon!
           </div>
         )}
-        <ResourceGuideFooter />
+        {!loading && !loadError && <ResourceGuideFooter />}
       </div>
     </div>
   )

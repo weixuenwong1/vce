@@ -14,7 +14,8 @@ from .serializers import (
     TopicSerializer, 
     TopicSummarySerializer, 
     QuestionSubmissionSerializer, 
-    SubjectSerializer
+    SubjectSerializer,
+    ChapterCatalogueSerializer,
 )
 from problems.models import Question, SeenQuestion
 from contents.models import Subject, Chapter, Topic
@@ -54,6 +55,21 @@ class ChapterListView(generics.ListAPIView):
     """GET: List all chapters (unsorted)."""
     queryset = Chapter.objects.all()
     serializer_class = ChapterSerializer
+
+
+class ResourceCatalogueView(APIView):
+    """Return one subject's chapters and topics in a single request."""
+    permission_classes = [AllowAny]
+
+    def get(self, request, subject):
+        chapters = (
+            Chapter.objects
+            .filter(subject__name__iexact=subject)
+            .prefetch_related('topics')
+        )
+        response = Response(ChapterCatalogueSerializer(chapters, many=True).data)
+        response['Cache-Control'] = 'public, max-age=300, stale-while-revalidate=86400'
+        return response
 
 
 class TopicsByChapterSlugView(generics.ListAPIView):
