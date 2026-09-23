@@ -45,6 +45,28 @@ function writeSessionCache(subject, data) {
   }
 }
 
+async function getLegacyCatalogue(subject) {
+  const { data: chapters } = await AxiosInstance.get('api/chapters/');
+  const subjectChapters = chapters.filter(
+    (chapter) => chapter.subject?.toLowerCase() === subject,
+  );
+
+  return Promise.all(subjectChapters.map(async (chapter) => {
+    const { data: topics } = await AxiosInstance.get(`api/chapters/${chapter.slug}/topics/`);
+    return { ...chapter, topics };
+  }));
+}
+
+async function fetchCatalogue(subject) {
+  try {
+    const { data } = await AxiosInstance.get(`api/catalogue/${subject}/`);
+    return data;
+  } catch (error) {
+    if (error.response?.status !== 404) throw error;
+    return getLegacyCatalogue(subject);
+  }
+}
+
 export async function getResourceCatalogue(subject, { force = false } = {}) {
   if (!force) {
     const cached = memoryCache.get(subject) || readSessionCache(subject);
@@ -55,8 +77,8 @@ export async function getResourceCatalogue(subject, { force = false } = {}) {
     if (pendingRequests.has(subject)) return pendingRequests.get(subject);
   }
 
-  const request = AxiosInstance.get(`api/catalogue/${subject}/`)
-    .then(({ data }) => {
+  const request = fetchCatalogue(subject)
+    .then((data) => {
       const catalogue = normaliseCatalogue(subject, data);
       memoryCache.set(subject, catalogue);
       writeSessionCache(subject, catalogue);
