@@ -4,7 +4,7 @@ import SubjectSection from "../components/SubjectSelection";
 import SubjectData from "../data/SubjectData";
 import FeaturesData from "../data/FeaturesData";
 import FeatureCard from "../components/FeatureCard";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -14,8 +14,11 @@ const Home = () => {
       <div className="hero-section">
         <div className="hero-left">
           <h1>Chuba</h1>
-          <h2>VCE Science Resources</h2>
-          <p>Physics, Chemistry and Biology Units 3 and 4 summaries, practice questions and practice SACs for your exam preparation.</p>
+          <h2>Free VCE Science Resources</h2>
+          <p>Free Physics, Chemistry and Biology Units 3 and 4 summaries, practice questions and practice SACs for your exam preparation.</p>
+          <Link className="free-resources-hero-link" to="/free-vce-resources">
+            Browse Free VCE Resources
+          </Link>
         </div>
 
         <div className="hero-right">
@@ -69,6 +72,7 @@ const Home = () => {
         {SubjectData.map((subject, index) => (
           <SubjectSection
             key={index}
+            subject={subject.subject}
             emoji={subject.emoji}
             title={subject.title} 
             cards={subject.cards}

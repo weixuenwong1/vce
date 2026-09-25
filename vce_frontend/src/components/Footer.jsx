@@ -32,6 +32,13 @@ const Footer = () => {
           </ul>
         </div>
         <div>
+          <h4>Study Resources</h4>
+          <ul>
+            <li><Link to="/free-vce-resources">Free VCE Resources</Link></li>
+            <li><Link to="/how-to-use-chuba">How to Use Chuba</Link></li>
+          </ul>
+        </div>
+        <div>
           <h4>Contact</h4>
           <p>support@chuba.io</p>
         </div>

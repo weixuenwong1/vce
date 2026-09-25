@@ -1,8 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.generics import  ListAPIView
-from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.shortcuts import get_object_or_404
 
 from rest_framework.response import Response
@@ -13,13 +12,11 @@ from .serializers import (
     ChapterSerializer, 
     TopicSerializer, 
     TopicSummarySerializer, 
-    QuestionSubmissionSerializer, 
     SubjectSerializer,
     ChapterCatalogueSerializer,
 )
 from problems.models import Question, SeenQuestion
 from contents.models import Subject, Chapter, Topic
-from submission.models import QuestionSubmission
 
 
 from django.db import transaction
@@ -329,61 +326,3 @@ class RandomSACQuestionsView(APIView):
 
         serializer = QuestionSerializer(final_questions, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-# ------------------------
-# QUESTION SUBMISSION INBOX
-# ------------------------
-
-
-class QuestionSubmissionListCreateView(generics.ListCreateAPIView):
-    """
-    POST /api/inbox/submissions/
-      body: {
-        "subject": <subject_id:int>,
-        "chapter": "<chapter_slug:str>",
-        "topic": <topic_id:int>,
-        "question_text": "..."
-      }
-
-    GET  /api/inbox/submissions/?subject=<id>&chapter=<id_or_slug>&topic=<id>
-      - chapter accepts either the numeric chapter id or the slug
-    """
-    serializer_class = QuestionSubmissionSerializer
-    parser_classes = [MultiPartParser, FormParser, JSONParser]
-
-    def get_permissions(self):
-        if self.request.method == "POST":
-            return [IsAuthenticated()]
-        return [IsAdminUser()]
-
-    def get_queryset(self):
-        qs = (
-            QuestionSubmission.objects
-            .select_related('subject', 'chapter', 'topic')
-            .order_by('-created_at')
-        )
-        s = self.request.query_params.get("subject")
-        c = self.request.query_params.get("chapter")  
-        t = self.request.query_params.get("topic")
-
-        if s:
-            qs = qs.filter(subject_id=s)
-
-        if c:
-            try:
-                qs = qs.filter(chapter_id=int(c))
-            except (TypeError, ValueError):
-                qs = qs.filter(chapter__slug=c)
-
-        if t:
-            qs = qs.filter(topic_id=t)
-
-        return qs
-
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data, context={"request": request})
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)

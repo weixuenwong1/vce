@@ -1,5 +1,6 @@
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import SubjectHubGuide from '../components/SubjectHubGuide';
 import { React, useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getResourceCatalogue } from '../utils/resourceCatalogue';
@@ -41,10 +42,10 @@ const Chapters = () => {
     }, [getChapter, navigate, subject]);
 
     return (
-        <div className="practice-page">
+        <div className={`practice-page subject-theme subject-theme--${subject.toLowerCase()}`}>
             <div className="practice-container">
                 <h1>
-                    VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}
+                    Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}
                 </h1>
                 <p className="practice-description">
                     Review VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 with chapter and topic summaries.
@@ -56,6 +57,8 @@ const Chapters = () => {
                 <p className="contact-question">
                     <strong>Do let us know if you have any questions about the content.</strong>
                 </p>
+
+                <SubjectHubGuide subject={subject.toLowerCase()} section="summaries" />
 
                  <hr className="dividerMenu"/>
                  

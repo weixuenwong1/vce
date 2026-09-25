@@ -25,8 +25,8 @@
   grid-template-columns: 1fr 1fr;
   min-height: 220px;
   background: #1f1f1f;
-  border: 2px solid #70523b;
-  box-shadow: 5px 5px 0 #704333;
+  border: 2px solid var(--subject-accent, #70523b);
+  box-shadow: 5px 5px 0 var(--subject-accent-strong, #704333);
 }
 
 .catalogue-loading__description,

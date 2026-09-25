@@ -63,6 +63,27 @@ $soft-yellow: #FFD180;
     font-size:1.05rem;
   }
 
+  .free-resources-hero-link {
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: 0.8rem 1.1rem;
+    background: $orange;
+    border: 2px solid $dark-orange;
+    color: #171717;
+    box-shadow: 4px 4px 0 $dark-orange;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 $dark-orange;
+    }
+  }
+
   @media (max-width: 900px) {
     h1 { font-size: 2.8rem; }
     h2 { font-size: 1.2rem; }
@@ -200,8 +221,13 @@ $soft-yellow: #FFD180;
   padding: 2rem 2rem 0.5rem;
 
   .card-section {
+    --card-hover-accent: #{$orange};
     text-align: center;
     margin-bottom: 10rem;
+
+    &--physics { --card-hover-accent: #7090ff; }
+    &--chemistry { --card-hover-accent: #34b7c3; }
+    &--biology { --card-hover-accent: #70bd72; }
 
     .subject-heading {
       font-family: 'Helvetica', sans-serif;
@@ -243,11 +269,11 @@ $soft-yellow: #FFD180;
 
       &:hover {
         transform: translateY(-8px);
-        border: 2px solid $orange;
+        border: 2px solid var(--card-hover-accent);
         box-shadow:
           0 0 0 2px #1a1a1a,
-          6px 6px 0 0 $orange,
-          -6px -6px 0 0 $orange;
+          6px 6px 0 0 var(--card-hover-accent),
+          -6px -6px 0 0 var(--card-hover-accent);
       }
 
       .card-img {

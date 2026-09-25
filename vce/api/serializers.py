@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from contents.models import Subject, Chapter, Topic
 from problems.models import Question, Order, Solution
-from submission.models import QuestionSubmission
 
 
 # ------------------------
@@ -90,7 +89,6 @@ class OrderSerializer(serializers.ModelSerializer):
             return SolutionSerializer(solution).data
         return None
 
-
 class QuestionSerializer(serializers.ModelSerializer):
     """
     Serialize a Question:
@@ -123,55 +121,3 @@ class QuestionSerializer(serializers.ModelSerializer):
         if solution:
             return SolutionSerializer(solution).data
         return None
-
-
-# ------------------------
-# QUESTION SUBMISSION SERIALIZER
-# ------------------------
-
-class QuestionSubmissionSerializer(serializers.ModelSerializer):
-    """
-    Used for the question submission 'inbox':
-    - Normal users POST submissions
-    - Admins GET and review them
-    """
-    id = serializers.IntegerField(read_only=True, source="pk")
-    subject = serializers.PrimaryKeyRelatedField(queryset=Subject.objects.all())
-    topic   = serializers.PrimaryKeyRelatedField(queryset=Topic.objects.all())
-    chapter = serializers.SlugRelatedField(slug_field="slug", queryset=Chapter.objects.all())
-    submitted_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
-
-    class Meta:
-        model = QuestionSubmission
-        fields = (
-            "id",
-            "subject",
-            "chapter",
-            "topic",
-            "question_text",
-            "submitted_by",
-            "created_at"
-        )
-        read_only_fields = ("created_at",)
-
-    def validate(self, attrs):
-        """
-        Custom validation:
-        - Chapter must belong to the selected subject
-        - Topic must belong to the selected chapter
-        """
-        subject = attrs["subject"]   # Subject instance
-        chapter = attrs["chapter"]   # Chapter instance
-        topic   = attrs["topic"]     # Topic instance
-
-        if chapter.subject_id != subject.pk:
-            raise serializers.ValidationError(
-                "Chapter does not belong to the selected subject."
-            )
-
-        if topic.chapter_id != chapter.pk:
-            raise serializers.ValidationError(
-                "Topic does not belong to the selected chapter."
-            )
-
-        return attrs

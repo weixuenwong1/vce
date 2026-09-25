@@ -23,7 +23,7 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-assert(publicRouteEntries.length === 97, `Expected 97 public routes, found ${publicRouteEntries.length}.`);
+assert(publicRouteEntries.length === 98, `Expected 98 public routes, found ${publicRouteEntries.length}.`);
 
 for (const { path: routePath } of publicRouteEntries) {
   const metadata = getRouteMetadata(routePath);

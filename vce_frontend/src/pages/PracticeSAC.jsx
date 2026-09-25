@@ -2,6 +2,7 @@ import { React, useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import SubjectHubGuide from '../components/SubjectHubGuide';
 import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/PracticeSAC.scss';
 
@@ -45,10 +46,10 @@ const PracticeSAC = () => {
     }, [getChapters, navigate, subject]);
 
     return (
-        <div className="practice-page-sac">
+        <div className={`practice-page-sac subject-theme subject-theme--${subject.toLowerCase()}`}>
           <div className="practice-container-sac">
               <h1>
-                  VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice SACs {subjectEmojis[subject.toLowerCase()] || "📚"}
+                  Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice SACs {subjectEmojis[subject.toLowerCase()] || "📚"}
               </h1>
               <p className="practice-description-sac">
                   Prepare for VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 SACs with chapter-based practice questions, total marks and worked solutions.
@@ -56,6 +57,8 @@ const PracticeSAC = () => {
               <p className="side-note-sac">
                   SAC structures vary by school in question count, difficulty and format. Use it as a preparation tool, not a replica of your school's SAC.
               </p>
+
+              <SubjectHubGuide subject={subject.toLowerCase()} section="practice-sac" />
 
               <hr className="dividerMenu"/>
 

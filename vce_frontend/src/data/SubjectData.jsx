@@ -2,6 +2,7 @@ import subjectImages from "./SubjectImages";
 
 const subjectsData = [
   { 
+    subject: "physics",
     emoji: "🚀",
     title: "VCE Physics Resources - Units 3/4",
     cards: [
@@ -29,6 +30,7 @@ const subjectsData = [
     ],
   },
   {
+    subject: "chemistry",
     emoji: "🧪 ",
     title: "VCE Chemistry Resources - Units 3/4",
     cards: [
@@ -56,6 +58,7 @@ const subjectsData = [
     ],
   },
   {
+    subject: "biology",
     emoji: "🧬 ",
     title: "VCE Biology Resources - Units 3/4",
     cards: [

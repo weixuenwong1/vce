@@ -10,7 +10,6 @@ from .views import (
     SubjectListView,
     SubjectChaptersView,
     ResourceCatalogueView,
-    QuestionSubmissionListCreateView,
 )
 
 urlpatterns = [
@@ -28,6 +27,5 @@ urlpatterns = [
     
     path('sac/<str:subject>/<slug:chapter_slug>/', RandomSACQuestionsView.as_view(), name='sac-questions'),
     
-    path('inbox/submissions/', QuestionSubmissionListCreateView.as_view(), name='question-submissions'),
 ]
 

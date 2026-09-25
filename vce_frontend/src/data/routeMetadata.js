@@ -1,7 +1,7 @@
 import { getTopicName } from './resourceCatalog.js';
 
-export const homeTitle = 'VCE Science Resources | Physics, Chemistry & Biology | Chuba';
-export const homeDescription = 'Explore VCE Physics, Chemistry and Biology Units 3 and 4 resources: topic summaries, practice questions with solutions and practice SACs on Chuba.';
+export const homeTitle = 'Free VCE Resources | Physics, Chemistry & Biology | Chuba';
+export const homeDescription = 'Explore free VCE Physics, Chemistry and Biology Units 3 and 4 resources, including topic summaries, practice questions with solutions and practice SACs.';
 
 export const subjectNames = {
   physics: 'Physics',
@@ -17,6 +17,7 @@ export const sectionNames = {
 
 const namedPages = {
   '/how-to-use-chuba': 'How to Use Chuba',
+  '/free-vce-resources': 'Free VCE Resources',
   '/go-pro': 'Go Pro',
   '/refer-friends': 'Refer Friends',
   '/login': 'Sign In',
@@ -52,16 +53,19 @@ export function getRouteMetadata(pathname) {
       description = `Try free VCE ${subjectNames[subject]} Units 3 and 4 ${topicName} practice questions with worked solutions, then sign in to continue.`;
     }
   } else if (publicSubject) {
-    title = `VCE ${subjectNames[subject]} Units 3/4 ${sectionNames[section]} | Chuba`;
+    title = `Free VCE ${subjectNames[subject]} Units 3/4 ${sectionNames[section]} | Chuba`;
     const descriptions = {
-      summaries: `Revise VCE ${subjectNames[subject]} Units 3 and 4 with chapter and topic summaries. Review key concepts and explanations for your SAC and exam preparation.`,
-      practice: `Explore VCE ${subjectNames[subject]} Units 3 and 4 practice questions with worked solutions. Practise by topic and build your confidence for SACs and exams.`,
-      'practice-sac': `Prepare with VCE ${subjectNames[subject]} Units 3 and 4 practice SACs. Work through chapter-based questions and review your understanding before assessments.`,
+      summaries: `Explore free VCE ${subjectNames[subject]} Units 3 and 4 chapter and topic summaries. Review key concepts and explanations for SAC and exam preparation.`,
+      practice: `Try free VCE ${subjectNames[subject]} Units 3 and 4 practice questions with worked solutions. Practise by topic for SACs and exams.`,
+      'practice-sac': `Prepare with free VCE ${subjectNames[subject]} Units 3 and 4 practice SACs. Work through chapter-based questions and review your understanding.`,
     };
     description = descriptions[section];
   } else if (path === '/how-to-use-chuba') {
     title = 'How to Use Chuba VCE Resources | Science Study Guide';
     description = 'Plan your VCE Physics, Chemistry and Biology revision with Chuba. Explore Units 3 and 4 summaries, practice questions and practice SACs by subject.';
+  } else if (path === '/free-vce-resources') {
+    title = 'Free VCE Resources for Units 3 & 4 | Chuba';
+    description = 'Browse free VCE Physics, Chemistry and Biology Units 3 and 4 summaries, practice questions with worked solutions and practice SACs by subject.';
   } else if (path !== '/') {
     const name = namedPages[path];
     title = `${name || 'Chuba Resources'} | Chuba`;
@@ -71,7 +75,7 @@ export function getRouteMetadata(pathname) {
   const indexable = path === '/'
     || publicSubject
     || publicTopic
-    || ['/how-to-use-chuba', '/privacy-policy', '/terms-of-service'].includes(path);
+    || ['/free-vce-resources', '/how-to-use-chuba', '/privacy-policy', '/terms-of-service'].includes(path);
 
   return {
     path,

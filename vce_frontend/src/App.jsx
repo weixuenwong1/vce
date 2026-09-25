@@ -19,7 +19,6 @@ const SAC = lazy(() => import('./pages/SAC'))
 const Practice = lazy(() => import('./pages/Practice'))
 const Chapters = lazy(() => import('./pages/Chapters'))
 const PracticeSAC = lazy(() => import('./pages/PracticeSAC'))
-const SubmitQuestion = lazy(() => import('./pages/SubmitQuestion'))
 
 // light 
 const Home = lazy(() => import('./pages/Home'))
@@ -30,6 +29,7 @@ const PasswordReset = lazy(() => import('./pages/PasswordReset'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/TermsOfService'))
 const HowToUseChuba = lazy(() => import('./pages/UsingChuba'))
+const FreeVceResources = lazy(() => import('./pages/FreeVceResources'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const Fallback = lazy(() => import('./pages/Fallback'))
 
@@ -78,12 +78,12 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/how-to-use-chuba" element={<HowToUseChuba />} />
+            <Route path="/free-vce-resources" element={<FreeVceResources />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="/500" element={<Fallback />} />
 
             <Route element={<ProtectedRoute />}>
               <Route path="/practice-sac/:subject/:chapter_slug" element={<SAC />} />
-              <Route path="/submit-question" element={<SubmitQuestion />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/404" replace />} />

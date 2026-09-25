@@ -1,10 +1,10 @@
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import SubjectHubGuide from '../components/SubjectHubGuide';
 import { React, useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/MenuDropdown.scss'
-import { PencilLine } from 'lucide-react';
 
 const Practice = () => {
   const { subject } = useParams(); 
@@ -42,10 +42,10 @@ const Practice = () => {
   }, [getChapters, navigate, subject]);
 
   return (
-    <div className="practice-page">
+    <div className={`practice-page subject-theme subject-theme--${subject.toLowerCase()}`}>
       <div className="practice-container">
         <h1>
-          VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice Questions {subjectEmojis[subject.toLowerCase()] || "📚"}
+          Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice Questions {subjectEmojis[subject.toLowerCase()] || "📚"}
         </h1>
         <p className="practice-description">
           Revise VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 with topic-based practice questions and worked solutions.
@@ -58,15 +58,7 @@ const Practice = () => {
           <strong>Do let us know if you had any questions! We'll do our best to help.</strong>
       </p>
 
-        <div 
-          className="contribute-box"
-          onClick={() => navigate("/submit-question")}
-        >
-          <span className="pencil-icon-text">
-            <PencilLine className="pencil-icon" />
-            Got a problem you want to share with others?
-          </span>
-        </div>
+        <SubjectHubGuide subject={subject.toLowerCase()} section="practice" />
 
         <hr className="dividerMenu" />
 
