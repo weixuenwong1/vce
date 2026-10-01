@@ -8,7 +8,11 @@ import {
   sectionNames,
   subjectNames,
 } from '../src/data/routeMetadata.js';
-import { resourceSectionContent, subjectHubContent } from '../src/data/subjectHubContent.js';
+import {
+  getSubjectSectionHeading,
+  resourceSectionContent,
+  subjectHubContent,
+} from '../src/data/subjectHubContent.js';
 
 const subjectSlugs = Object.keys(subjectNames);
 
@@ -91,7 +95,7 @@ function subjectContent(metadata) {
 
   const guide = `
     <section>
-      <h2>${escapeHtml(sectionDetails.heading)}</h2>
+      <h2>${escapeHtml(getSubjectSectionHeading(subject, section))}</h2>
       <p>${escapeHtml(sectionDetails.description)} This collection covers ${escapeHtml(details.coverage)} for VCE ${subjectName} Units 3 and 4.</p>
       <h3>${subjectName} study tip</h3>
       <p>${escapeHtml(details.studyTip)}</p>

@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
-import { resourceSectionContent, subjectHubContent } from '../data/subjectHubContent';
+import {
+  getSubjectSectionHeading,
+  resourceSectionContent,
+  subjectHubContent,
+} from '../data/subjectHubContent';
 import '../styles/SubjectHubGuide.scss';
 
 const resourceLinks = {
@@ -21,7 +25,7 @@ export default function SubjectHubGuide({ subject, section }) {
     <section className={`subject-hub-guide subject-hub-guide--${subject}`}>
       <div className="subject-hub-guide__overview">
         <p className="subject-hub-guide__eyebrow">Free VCE {subjectContent.name} resources</p>
-        <h2>{sectionContent.heading}</h2>
+        <h2>{getSubjectSectionHeading(subject, section)}</h2>
         <p>
           {sectionContent.description} This collection covers {subjectContent.coverage} for
           VCE {subjectContent.name} Units 3 and 4.

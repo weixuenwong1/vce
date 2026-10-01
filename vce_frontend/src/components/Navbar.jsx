@@ -65,6 +65,9 @@ function Navbar() {
           className="navbar-logo"
           onClick={() => navigate('/')}
           width = "100" height="100"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
 
         <ul className="navbar-menu">

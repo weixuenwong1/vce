@@ -19,17 +19,27 @@ export const subjectHubContent = {
 export const resourceSectionContent = {
   summaries: {
     label: 'summaries',
-    heading: 'What these VCE summaries cover',
     description: 'Browse concise explanations organised by chapter and topic. Use them to revisit a concept, identify the examinable relationships and check your understanding before attempting questions.',
   },
   practice: {
     label: 'practice questions',
-    heading: 'How to use these practice questions',
     description: 'Choose the topic currently being covered at school, attempt each question before opening the solution, and compare both your final answer and your reasoning with the worked response.',
   },
   'practice-sac': {
     label: 'practice SACs',
-    heading: 'How to use these practice SACs',
     description: 'Choose a chapter that matches your upcoming assessment and complete a mixed set under timed conditions. Review weak concepts afterwards, remembering that SAC structure varies between schools.',
   },
 };
+
+export function getSubjectSectionHeading(subject, section) {
+  const subjectName = subjectHubContent[subject]?.name;
+  const sectionLabel = resourceSectionContent[section]?.label;
+
+  if (!subjectName || !sectionLabel) return '';
+
+  if (section === 'summaries') {
+    return `What these VCE ${subjectName} 3/4 summaries cover`;
+  }
+
+  return `How to use these VCE ${subjectName} 3/4 ${sectionLabel}`;
+}
