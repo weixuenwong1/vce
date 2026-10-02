@@ -3,6 +3,12 @@ import AxiosInstance from '../utils/AxiosInstance'
 import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { topicOrders } from '../data/ListOrders';
+import {
+  getQuestionImageUrls,
+  getWebpUrl,
+  preloadImages,
+  waitForImages,
+} from '../utils/questionImages';
 import '../styles/Loader.scss';
 import '../styles/SAC.scss';
 
@@ -51,7 +57,7 @@ const SAC = () => {
 
     setLoading(true);
 
-    const MIN_SPINNER_MS = 3000;
+    const MIN_SPINNER_MS = 350;
     const minDelay = new Promise(res => setTimeout(res, MIN_SPINNER_MS));
 
     const fetchWithRetry = async (url, { signal, tries = 2, delayMs = 600 } = {}) => {
@@ -83,12 +89,20 @@ const SAC = () => {
           AxiosInstance.get(chapterUrl, { signal: ctrl.signal, timeout: 10000 }),
         ]);
 
-        await minDelay;
-        if (cancelled) return;
-
         if (sacRes.status === "fulfilled") {
           const data = sacRes.value?.data || [];
-          setQuestions(arrangeMcqFirst(data, subject));
+          const arrangedQuestions = arrangeMcqFirst(data, subject);
+          const firstQuestionImages = getQuestionImageUrls(arrangedQuestions[0]);
+          const remainingImages = arrangedQuestions
+            .flatMap((question) => getQuestionImageUrls(question, { includeSolutions: true }))
+            .filter((url) => !firstQuestionImages.includes(url));
+
+          const firstImagesReady = waitForImages(firstQuestionImages);
+          void preloadImages(remainingImages);
+          await Promise.all([minDelay, firstImagesReady]);
+          if (cancelled) return;
+
+          setQuestions(arrangedQuestions);
         } else {
           const status = sacRes.reason?.response?.status;
           if (status === 404) {
@@ -214,7 +228,16 @@ const SAC = () => {
 
                   {order.content_type === "IMAGE" && order.image_content && (
                     <div className="image-order">
-                      <img src={order.image_content} alt="Question Image"/>
+                      <picture>
+                        <source srcSet={getWebpUrl(order.image_content)} type="image/webp" />
+                        <img
+                          src={order.image_content}
+                          alt="Question Image"
+                          loading={qIndex < 2 ? "eager" : "lazy"}
+                          fetchPriority={qIndex === 0 ? "high" : "auto"}
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                   )}
 
@@ -222,7 +245,15 @@ const SAC = () => {
                     <div className="solution-container">
                       {order.solution.solution_image && (
                         <div className="solution-image">
-                          <img src={order.solution.solution_image} alt="Solution Image"/>
+                          <picture>
+                            <source srcSet={getWebpUrl(order.solution.solution_image)} type="image/webp" />
+                            <img
+                              src={order.solution.solution_image}
+                              alt="Solution Image"
+                              loading="eager"
+                              decoding="async"
+                            />
+                          </picture>
                         </div>
                       )}
                       {order.solution.solution_text && (
@@ -254,10 +285,18 @@ const SAC = () => {
                 )}
                 {question.general_solution.solution_image && (
                   <div className="solution-image">
-                    <img
-                      src={question.general_solution.solution_image}
-                      alt="Solution Image"
-                    />
+                    <picture>
+                      <source
+                        srcSet={getWebpUrl(question.general_solution.solution_image)}
+                        type="image/webp"
+                      />
+                      <img
+                        src={question.general_solution.solution_image}
+                        alt="Solution Image"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </picture>
                   </div>
                 )}
               </div>

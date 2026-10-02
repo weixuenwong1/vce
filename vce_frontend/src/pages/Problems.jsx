@@ -5,6 +5,12 @@ import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import SignInGate from '../components/SignInGate';
 import { getTopicName } from '../data/ListOrders';
+import {
+    getQuestionImageUrls,
+    getWebpUrl,
+    preloadImages,
+    waitForImages,
+} from '../utils/questionImages';
 import { useSession } from '../utils/session';
 import '../styles/Loader.scss';
 import '../styles/Problems.scss';
@@ -53,11 +59,17 @@ const QuestionsForTopic = () => {
             setCurrent(null);
 
             try {
-                const MIN_SPINNER_MS = 600;
+                const MIN_SPINNER_MS = 350;
                 const spin = new Promise(r => setTimeout(r, MIN_SPINNER_MS));
 
                 const { question, meta } = await fetchNextQuestion();
                 if (cancelled) return;
+
+                const questionImages = getQuestionImageUrls(question);
+                const solutionImages = getQuestionImageUrls(question, { includeSolutions: true })
+                    .filter((url) => !questionImages.includes(url));
+                const questionImagesReady = waitForImages(questionImages);
+                void preloadImages(solutionImages);
 
                 setTotalAvailable(meta?.total_available ?? 0);
                 setPreviewLimit(meta?.preview_limit ?? 0);
@@ -65,7 +77,7 @@ const QuestionsForTopic = () => {
                 setCursor(0);
                 setCurrent(question);
 
-                await spin;
+                await Promise.all([spin, questionImagesReady]);
                 setContentVisible(true);
             } catch (e) {
                 if (e.response?.status === 404) {
@@ -86,7 +98,7 @@ const QuestionsForTopic = () => {
         setShowSolutions(false);
         setContentVisible(false);
 
-        const MIN_SPINNER_MS = 800;
+        const MIN_SPINNER_MS = 350;
         const spin = new Promise(r => setTimeout(r, MIN_SPINNER_MS));
 
         if (cursor < history.length - 1) {
@@ -102,6 +114,11 @@ const QuestionsForTopic = () => {
 
         try {
             const { question, meta } = await fetchNextQuestion(history.length);
+            const questionImages = getQuestionImageUrls(question);
+            const solutionImages = getQuestionImageUrls(question, { includeSolutions: true })
+                .filter((url) => !questionImages.includes(url));
+            const questionImagesReady = waitForImages(questionImages);
+            void preloadImages(solutionImages);
             if (import.meta.env.DEV) {
                 console.log(
                     `Topic=${meta.topic}, seen=${meta.seen}, unseen=${meta.unseen}, total=${meta.total_available}`
@@ -114,7 +131,7 @@ const QuestionsForTopic = () => {
             setCursor(prev => prev + 1);
             setCurrent(question);
 
-            await spin;
+            await Promise.all([spin, questionImagesReady]);
             setContentVisible(true);
             window.scrollTo(0, 0);
         } catch (e) {
@@ -225,8 +242,14 @@ const QuestionsForTopic = () => {
                 {order.content_type === "IMAGE" && order.image_content && (
                     <div className="image-order">
                     <picture>
-                        <source srcSet={order.image_content.replace('.png', '.webp')} type="image/webp" />
-                        <img src={order.image_content} alt="Question Image" loading="lazy" />
+                        <source srcSet={getWebpUrl(order.image_content)} type="image/webp" />
+                        <img
+                            src={order.image_content}
+                            alt="Question Image"
+                            loading="eager"
+                            fetchPriority="high"
+                            decoding="async"
+                        />
                     </picture>
                     </div>
                 )}
@@ -237,13 +260,14 @@ const QuestionsForTopic = () => {
                         <div className="solution-image">
                          <picture>
                             <source
-                                srcSet={order.solution.solution_image?.replace(/\.png$/i, '.webp')}
+                                srcSet={getWebpUrl(order.solution.solution_image)}
                                 type="image/webp"
                             />
                             <img
                                 src={order.solution.solution_image}
                                 alt="Solution Image"
-                                loading="lazy"
+                                loading="eager"
+                                decoding="async"
                             />
                         </picture>
                         </div>
@@ -289,13 +313,14 @@ const QuestionsForTopic = () => {
                     <div className="solution-image">
                         <picture>
                         <source
-                            srcSet={currentQuestion.general_solution.solution_image.replace(/\.png$/i, '.webp')}
+                            srcSet={getWebpUrl(currentQuestion.general_solution.solution_image)}
                             type="image/webp"
                         />
                         <img
                             src={currentQuestion.general_solution.solution_image}
                             alt="Solution Image"
-                            loading="lazy"
+                            loading="eager"
+                            decoding="async"
                         />
                         </picture>
                     </div>
