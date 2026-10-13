@@ -40,6 +40,46 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class UserSubjectEngagement(models.Model):
+    user = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name="subject_engagement",
+    )
+    subject = models.ForeignKey(
+        "contents.Subject",
+        on_delete=models.PROTECT,
+        related_name="user_engagement",
+    )
+    questions_viewed = models.PositiveBigIntegerField(default=0)
+    summaries_viewed = models.PositiveBigIntegerField(default=0)
+    practice_sacs_started = models.PositiveBigIntegerField(default=0)
+    first_activity_at = models.DateTimeField(null=True, blank=True)
+    last_activity_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "subject"],
+                name="uq_engagement_user_subject",
+            )
+        ]
+        ordering = ["user__email", "subject__name"]
+        verbose_name = "user subject engagement"
+        verbose_name_plural = "user subject engagement"
+
+    def __str__(self):
+        return f"{self.user.email} - {self.subject.name}"
+
+
+class UserEngagementDashboard(CustomUser):
+    class Meta:
+        proxy = True
+        verbose_name = "engagement dashboard"
+        verbose_name_plural = "engagement dashboard"
     
  
 @receiver(reset_password_token_created)

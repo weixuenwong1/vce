@@ -1,7 +1,7 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
 
-from accounts.models import CustomUser
+from accounts.models import CustomUser, UserSubjectEngagement
 from contents.models import Chapter, Subject, Topic
 from problems.models import Question, SeenQuestion
 
@@ -51,6 +51,7 @@ class PublicResourcePreviewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue(response.data["is_preview"])
         self.assertLess(len(response.data["content"]), len(self.topic.content))
+        self.assertFalse(UserSubjectEngagement.objects.exists())
 
     def test_authenticated_summary_is_complete(self):
         user = CustomUser.objects.create_user(
@@ -65,6 +66,8 @@ class PublicResourcePreviewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.data["is_preview"])
         self.assertEqual(response.data["content"], self.topic.content)
+        engagement = UserSubjectEngagement.objects.get(user=user, subject=self.subject)
+        self.assertEqual(engagement.summaries_viewed, 1)
 
     def test_anonymous_user_can_only_request_three_preview_questions(self):
         for preview_index in range(3):
@@ -97,3 +100,21 @@ class PublicResourcePreviewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertNotIn("preview", response.data["meta"])
         self.assertEqual(SeenQuestion.objects.filter(user=user, topic=self.topic).count(), 1)
+        engagement = UserSubjectEngagement.objects.get(user=user, subject=self.subject)
+        self.assertEqual(engagement.questions_viewed, 1)
+
+    def test_authenticated_sac_request_tracks_subject_engagement(self):
+        user = CustomUser.objects.create_user(
+            email="sac-student@example.com",
+            password="test-password",
+            school="Test School",
+        )
+        self.questions[0].difficulty = "Exam-Level"
+        self.questions[0].save(update_fields=["difficulty"])
+        self.client.force_authenticate(user=user)
+
+        response = self.client.get("/api/sac/physics/motion-and-energy/?count=10")
+
+        self.assertEqual(response.status_code, 200)
+        engagement = UserSubjectEngagement.objects.get(user=user, subject=self.subject)
+        self.assertEqual(engagement.practice_sacs_started, 1)

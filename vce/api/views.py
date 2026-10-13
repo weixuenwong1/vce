@@ -17,6 +17,7 @@ from .serializers import (
 )
 from problems.models import Question, SeenQuestion
 from contents.models import Subject, Chapter, Topic
+from accounts.engagement import record_engagement
 
 
 from django.db import transaction
@@ -114,6 +115,7 @@ class TopicSummaryView(APIView):
             data["content"], data["is_preview"] = summary_preview(data.get("content"))
         else:
             data["is_preview"] = False
+            record_engagement(request.user, chapter.subject, "summaries_viewed")
 
         return Response(data, status=status.HTTP_200_OK)
 
@@ -194,6 +196,7 @@ class NextQuestionView(APIView):
 
 
         SeenQuestion.objects.get_or_create(user=user, topic=topic, question=q)
+        record_engagement(user, chapter.subject, "questions_viewed")
 
         data = QuestionSerializer(q).data  
         return Response(
@@ -284,6 +287,7 @@ class RandomSACQuestionsView(APIView):
             final_questions = mcq_selected + sa_selected
 
             serializer = QuestionSerializer(final_questions, many=True)
+            record_engagement(request.user, chapter.subject, "practice_sacs_started")
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         if subject_lc == "physics":
@@ -295,6 +299,7 @@ class RandomSACQuestionsView(APIView):
             )
             final_questions = random.sample(list(sa_pool), min(total_sa, sa_pool.count()))
             serializer = QuestionSerializer(final_questions, many=True)
+            record_engagement(request.user, chapter.subject, "practice_sacs_started")
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         total_questions = int(request.GET.get('count', 10))
@@ -325,4 +330,5 @@ class RandomSACQuestionsView(APIView):
         final_questions = collected_questions[:total_questions]
 
         serializer = QuestionSerializer(final_questions, many=True)
+        record_engagement(request.user, chapter.subject, "practice_sacs_started")
         return Response(serializer.data, status=status.HTTP_200_OK)
