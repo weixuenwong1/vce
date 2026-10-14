@@ -25,6 +25,34 @@ from django.db import transaction
 
 SUMMARY_PREVIEW_CHARACTERS = 1600
 QUESTION_PREVIEW_LIMIT = 3
+CURATED_QUESTION_PREVIEWS = {
+    ("physics", "motion-and-energy", "newton-s-laws-of-motion"): [73, 84, 2, 9],
+    ("physics", "motion-and-energy", "graphical-analysis-of-motion"): [554, 553],
+    ("physics", "motion-and-energy", "projectile-motion"): [26, 46, 40],
+    ("physics", "motion-and-energy", "uniform-circular-motion"): [107, 98, 95],
+    ("physics", "motion-and-energy", "non-uniform-circular-motion"): [133, 136, 142],
+    ("physics", "motion-and-energy", "momentum-and-impulse"): [109, 130, 125],
+    ("physics", "motion-and-energy", "energy"): [86, 167, 149],
+}
+
+
+def question_preview(subject, chapter_slug, topic_slug, questions):
+    """Return curated preview questions in order, with a safe default fallback."""
+    preview_ids = CURATED_QUESTION_PREVIEWS.get(
+        (subject.casefold(), chapter_slug, topic_slug)
+    )
+    if not preview_ids:
+        return list(questions[:QUESTION_PREVIEW_LIMIT])
+
+    questions_by_id = {
+        question.pk: question for question in questions.filter(pk__in=preview_ids)
+    }
+    curated_questions = [
+        questions_by_id[question_id]
+        for question_id in preview_ids
+        if question_id in questions_by_id
+    ]
+    return curated_questions or list(questions[:QUESTION_PREVIEW_LIMIT])
 
 
 def summary_preview(content):
@@ -152,14 +180,20 @@ class NextQuestionView(APIView):
             except (TypeError, ValueError):
                 preview_index = 0
 
-            preview_limit = min(QUESTION_PREVIEW_LIMIT, total)
+            preview_questions = question_preview(
+                subject,
+                chapter.slug,
+                topic.slug,
+                all_qs,
+            )
+            preview_limit = len(preview_questions)
             if preview_index < 0 or preview_index >= preview_limit:
                 return Response(
                     {"detail": "Sign in to continue with more questions."},
                     status=status.HTTP_401_UNAUTHORIZED,
                 )
 
-            question = all_qs[preview_index]
+            question = preview_questions[preview_index]
             return Response(
                 {
                     "question": QuestionSerializer(question).data,

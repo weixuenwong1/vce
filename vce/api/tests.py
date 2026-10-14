@@ -1,7 +1,10 @@
+from unittest.mock import patch
+
 from django.test import TestCase
 from rest_framework.test import APIClient
 
 from accounts.models import CustomUser, UserSubjectEngagement
+from api.views import CURATED_QUESTION_PREVIEWS
 from contents.models import Chapter, Subject, Topic
 from problems.models import Question, SeenQuestion
 
@@ -86,6 +89,33 @@ class PublicResourcePreviewTests(TestCase):
             format="json",
         )
         self.assertEqual(response.status_code, 401)
+
+    def test_curated_preview_uses_configured_order_and_length(self):
+        preview_key = ("physics", "motion-and-energy", "projectile-motion")
+        preview_ids = [
+            self.questions[3].pk,
+            self.questions[1].pk,
+            self.questions[0].pk,
+            self.questions[2].pk,
+        ]
+
+        with patch.dict(CURATED_QUESTION_PREVIEWS, {preview_key: preview_ids}):
+            for preview_index, expected_id in enumerate(preview_ids):
+                response = self.client.post(
+                    self.problems_url,
+                    {"preview_index": preview_index},
+                    format="json",
+                )
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.data["question"]["question_uid"], expected_id)
+                self.assertEqual(response.data["meta"]["preview_limit"], 4)
+
+            response = self.client.post(
+                self.problems_url,
+                {"preview_index": 4},
+                format="json",
+            )
+            self.assertEqual(response.status_code, 401)
 
     def test_authenticated_question_request_preserves_seen_tracking(self):
         user = CustomUser.objects.create_user(
