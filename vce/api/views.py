@@ -26,7 +26,7 @@ from django.db import transaction
 SUMMARY_PREVIEW_CHARACTERS = 1600
 QUESTION_PREVIEW_LIMIT = 3
 CURATED_QUESTION_PREVIEWS = {
-    ("physics", "motion-and-energy", "newton-s-laws-of-motion"): [73, 84, 2, 9],
+    ("physics", "motion-and-energy", "newton-s-laws-of-motion"): [2, 84, 73, 9],
     ("physics", "motion-and-energy", "graphical-analysis-of-motion"): [554, 553],
     ("physics", "motion-and-energy", "projectile-motion"): [26, 46, 40],
     ("physics", "motion-and-energy", "uniform-circular-motion"): [107, 98, 95],
