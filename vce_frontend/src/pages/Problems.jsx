@@ -168,6 +168,14 @@ const QuestionsForTopic = () => {
         }
     }, [current, showSolutions]);
 
+    useEffect(() => {
+        if (contentVisible && current?.question_uid) {
+            console.log(
+                `[Chuba question] qid=${current.question_uid} | mode=${authed ? 'signed-in' : 'preview'} | subject=${subject} | chapter=${chapter_slug} | topic=${topic_slug}`
+            );
+        }
+    }, [authed, chapter_slug, contentVisible, current?.question_uid, subject, topic_slug]);
+
     if (loading || !contentVisible || !current) {
         return (
             <div className="loader-overlay">
