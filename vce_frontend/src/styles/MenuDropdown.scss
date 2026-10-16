@@ -74,8 +74,7 @@ $white: #FFF;
       font-family: 'Courier New';
       margin: 0 auto 0 auto;
     }
-    .contact-question,
-    .contact-question-practice {
+    .contact-question {
       max-width: 1000px;
       font-size: 1.0rem;
       line-height: 1.8;
@@ -89,10 +88,6 @@ $white: #FFF;
     .contact-question {
       margin: 1.5rem auto 3rem auto;
     }
-    .contact-question-practice {
-      margin: 1rem auto 0rem auto;
-    }
-
     .chapter-section {
         display: flex;
         flex-direction: column;
@@ -316,7 +311,6 @@ $white: #FFF;
       padding: 0;
     }
 
-    .contact-question-practice,
     .contact-question {
       font-size: 0.9rem;
     }
@@ -377,7 +371,6 @@ $white: #FFF;
       font-size: 0.8rem;
     }
 
-    .contact-question-practice,
     .contact-question {
       font-size: 0.8rem;
     }

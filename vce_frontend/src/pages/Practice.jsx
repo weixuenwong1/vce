@@ -54,10 +54,6 @@ const Practice = () => {
         <p className="side-note-practice">
           There isn’t always just one way to solve a problem.
         </p>
-        <p className="contact-question-practice">
-          <strong>Do let us know if you had any questions! We'll do our best to help.</strong>
-      </p>
-
         <SubjectHubGuide subject={subject.toLowerCase()} section="practice" />
 
         <hr className="dividerMenu" />

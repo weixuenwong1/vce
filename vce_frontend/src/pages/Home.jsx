@@ -1,4 +1,4 @@
-import { HelpCircle } from 'lucide-react';
+import { ArrowRight, HelpCircle } from 'lucide-react';
 import '../styles/Home.scss';
 import SubjectSection from "../components/SubjectSelection";
 import SubjectData from "../data/SubjectData";
@@ -14,11 +14,23 @@ const Home = () => {
       <div className="hero-section">
         <div className="hero-left">
           <h1>Chuba</h1>
-          <h2>Free VCE Science Resources</h2>
-          <p>Free Physics, Chemistry and Biology Units 3 and 4 summaries, practice questions and practice SACs for your exam preparation.</p>
-          <Link className="free-resources-hero-link" to="/free-vce-resources">
-            Browse Free VCE Resources
-          </Link>
+          <div className="hero-resource-intro">
+            <span className="hero-resource-kicker">VCE Units 3 &amp; 4</span>
+            <h2>Free VCE Science Resources</h2>
+            <p>
+              Exam-focused summaries, practice questions and practice SACs
+              for Physics, Chemistry and Biology.
+            </p>
+            <div className="hero-resource-subjects" aria-label="Available VCE subjects">
+              <span className="hero-resource-subject hero-resource-subject--physics">Physics</span>
+              <span className="hero-resource-subject hero-resource-subject--chemistry">Chemistry</span>
+              <span className="hero-resource-subject hero-resource-subject--biology">Biology</span>
+            </div>
+            <Link className="free-resources-hero-link" to="/free-vce-resources">
+              Browse free resources
+              <ArrowRight aria-hidden="true" size={20} strokeWidth={2.5} />
+            </Link>
+          </div>
         </div>
 
         <div className="hero-right">

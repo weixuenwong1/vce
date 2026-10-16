@@ -33,6 +33,20 @@ CURATED_QUESTION_PREVIEWS = {
     ("physics", "motion-and-energy", "non-uniform-circular-motion"): [133, 136, 142],
     ("physics", "motion-and-energy", "momentum-and-impulse"): [109, 130, 125],
     ("physics", "motion-and-energy", "energy"): [86, 167, 149],
+    ("physics", "fields", "newton-s-universal-law-of-gravitation"): [189, 173, 374],
+    ("physics", "fields", "motion-and-energy-changes-in-gravitational-fields"): [193, 196],
+    ("physics", "fields", "the-electric-field-model-and-coulomb-s-law"): [207, 205, 213],
+    ("physics", "fields", "uniform-electric-fields"): [223, 238, 243],
+    ("physics", "fields", "magnetic-fields-and-right-hand-rules"): [248, 254, 265, 277],
+    ("physics", "fields", "magnetic-forces"): [287, 306, 299],
+    ("physics", "electricity", "ways-of-generating-emf"): [324, 320, 332],
+    ("physics", "electricity", "generators-and-alternators"): [353, 342, 343],
+    ("physics", "electricity", "transformers-and-power-distribution"): [396, 401, 404],
+    ("physics", "waves-and-particles", "light-as-a-wave-and-wave-phenomena"): [460, 429, 433],
+    ("physics", "waves-and-particles", "light-as-a-particle-and-photoelectric-effect"): [472, 494, 480],
+    ("physics", "waves-and-particles", "similarities-between-light-and-matter"): [546, 513, 517],
+    ("physics", "einsteins-special-relativity", "special-relativity"): [574, 593, 561],
+    ("physics", "einsteins-special-relativity", "einstein-s-relationship-between-mass-and-energy"): [580, 585, 581],
 }
 
 

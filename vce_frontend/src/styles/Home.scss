@@ -42,7 +42,7 @@ $soft-yellow: #FFD180;
 
 .hero-left {
   flex: 1;
-  max-width: 600px;
+  max-width: 650px;
   display: flex;
   flex-direction: column;
 
@@ -57,16 +57,81 @@ $soft-yellow: #FFD180;
     text-align: left;
   }
 
-  p {
-    color: $light-blue;
-    font-family: 'Courier New', 'Poppins', monospace;
-    font-size:1.05rem;
+  .hero-resource-intro {
+    position: relative;
+    margin-top: 1.25rem;
+    padding: 1.35rem 0 0.2rem 1.6rem;
+    border-left: 4px solid $orange;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5.5rem;
+      height: 4px;
+      background: $orange;
+    }
+
+    h2 {
+      margin: 0.55rem 0 0.8rem;
+      color: $white;
+      font-size: clamp(1.75rem, 3vw, 2.6rem);
+      line-height: 1.14;
+    }
+
+    p {
+      max-width: 570px;
+      margin: 0;
+      color: #d9e2e7;
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+
+  .hero-resource-kicker {
+    color: $orange;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .hero-resource-subjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-top: 1.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  .hero-resource-subject {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: '';
+      width: 0.65rem;
+      height: 0.65rem;
+      background: currentColor;
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    &--physics { color: #86a0ff; }
+    &--chemistry { color: #43c4c9; }
+    &--biology { color: #7bc77d; }
   }
 
   .free-resources-hero-link {
-    align-self: flex-start;
-    margin-top: 1rem;
-    padding: 0.8rem 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.65rem;
+    padding: 0.85rem 1.1rem;
     background: $orange;
     border: 2px solid $dark-orange;
     color: #171717;
@@ -75,25 +140,52 @@ $soft-yellow: #FFD180;
     font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+    svg {
+      flex: 0 0 auto;
+      transition: transform 0.2s ease;
+    }
 
     &:hover,
     &:focus-visible {
+      background: #f58a5c;
       transform: translateY(-2px);
       box-shadow: 6px 6px 0 $dark-orange;
+
+      svg {
+        transform: translateX(3px);
+      }
     }
   }
 
   @media (max-width: 900px) {
     h1 { font-size: 2.8rem; }
-    h2 { font-size: 1.2rem; }
-    p { font-size: 0.85rem; }
+
+    .hero-resource-intro {
+      p { font-size: 0.9rem; }
+    }
   }
 
   @media (max-width: 600px) {
     h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.0rem; }
-    p { font-size: 0.8rem; }
+
+    .hero-resource-intro {
+      padding: 1.1rem 0 0 1.1rem;
+
+      h2 { font-size: 1.55rem; }
+      p { font-size: 0.82rem; line-height: 1.6; }
+    }
+
+    .hero-resource-subjects {
+      gap: 0.6rem 0.9rem;
+      font-size: 0.78rem;
+    }
+
+    .free-resources-hero-link {
+      font-size: 0.82rem;
+      padding: 0.75rem 0.9rem;
+    }
   }
 }
 
