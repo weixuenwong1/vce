@@ -15,7 +15,7 @@ from .serializers import (
     SubjectSerializer,
     ChapterCatalogueSerializer,
 )
-from problems.models import Question, SeenQuestion
+from problems.models import Question, QuestionIssueReport, SeenQuestion
 from contents.models import Subject, Chapter, Topic
 from accounts.engagement import record_engagement
 
@@ -259,6 +259,48 @@ class NextQuestionView(APIView):
                 },
             },
             status=status.HTTP_200_OK,
+        )
+
+
+class QuestionIssueReportView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, subject, chapter_slug, topic_slug, question_id):
+        chapter = get_object_or_404(
+            Chapter,
+            slug=chapter_slug,
+            subject__name__iexact=subject,
+        )
+        topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
+        question = get_object_or_404(
+            Question.objects.filter(topic=topic).distinct(),
+            pk=question_id,
+        )
+        description = str(request.data.get("description", "")).strip()
+
+        if not description:
+            return Response(
+                {"description": ["Please describe what seems wrong with the question."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if len(description) > 1500:
+            return Response(
+                {"description": ["Please keep the report under 1,500 characters."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        report = QuestionIssueReport.objects.create(
+            question=question,
+            topic=topic,
+            reported_by=request.user,
+            description=description,
+        )
+        return Response(
+            {
+                "id": report.pk,
+                "message": "Thanks. We'll review this question.",
+            },
+            status=status.HTTP_201_CREATED,
         )
 
 

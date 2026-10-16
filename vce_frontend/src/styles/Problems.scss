@@ -286,6 +286,168 @@ $retro-red: #e43a3a;
       }
     }
 
+    .question-report {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #d8d8d8;
+
+      &__trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.4rem 0;
+        background: transparent;
+        border: 0;
+        color: #6d4b3d;
+        cursor: pointer;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        font-weight: 700;
+
+        &:hover,
+        &:focus-visible {
+          color: #b43d1d;
+        }
+      }
+
+      &__form {
+        padding: 1.25rem;
+        background: #fff8f4;
+        border: 2px solid #d96a45;
+        box-shadow: 4px 4px 0 #7b3f2c;
+        color: #28211f;
+
+        label {
+          display: block;
+          margin: 1rem 0 0.45rem;
+          color: #3f312c;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9rem;
+          font-weight: 700;
+        }
+
+        textarea {
+          box-sizing: border-box;
+          width: 100%;
+          min-height: 7rem;
+          resize: vertical;
+          padding: 0.8rem;
+          border: 2px solid #9a8177;
+          border-radius: 0;
+          background: #fff;
+          color: #222;
+          font-family: 'Poppins', sans-serif;
+          font-size: 0.9rem;
+          line-height: 1.55;
+
+          &:focus {
+            border-color: #d9532c;
+            outline: 2px solid rgba(217, 83, 44, 0.22);
+            outline-offset: 2px;
+          }
+        }
+      }
+
+      &__heading {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+
+        svg {
+          flex: 0 0 auto;
+          margin-top: 0.15rem;
+          color: #b43d1d;
+          stroke: #b43d1d;
+        }
+
+        h3 {
+          margin: 0;
+          color: #78321f;
+          font-family: 'Courier New', monospace;
+          font-size: 1.05rem;
+        }
+
+        p {
+          margin: 0.25rem 0 0;
+          color: #66554f;
+          font-family: 'Poppins', sans-serif;
+          font-size: 0.85rem;
+        }
+      }
+
+      &__examples {
+        margin: 0.65rem 0 0;
+        padding-left: 1.15rem;
+        color: #4f423d;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.82rem;
+        line-height: 1.65;
+
+        li {
+          color: #4f423d;
+        }
+      }
+
+      &__meta {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.3rem;
+        color: #75655f;
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+
+        span {
+          color: #75655f;
+        }
+      }
+
+      &__error,
+      &__success {
+        margin: 0.8rem 0 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      &__error { color: #a32121; }
+      &__success { color: #246b35; }
+
+      &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        margin-top: 1rem;
+
+        button {
+          padding: 0.65rem 0.9rem;
+          border-radius: 0;
+          cursor: pointer;
+          font-family: 'Courier New', monospace;
+          font-size: 0.85rem;
+          font-weight: 700;
+        }
+      }
+
+      &__cancel {
+        border: 2px solid #78665f;
+        background: transparent;
+        color: #4e413c;
+      }
+
+      &__submit {
+        border: 2px solid #7b3f2c;
+        background: #f08058;
+        box-shadow: 3px 3px 0 #7b3f2c;
+        color: #1f1714;
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+          box-shadow: none;
+        }
+      }
+    }
+
     .solution-toggle {
       display: flex;
       justify-content: center;
@@ -433,6 +595,20 @@ $retro-red: #e43a3a;
 
       .solution-toggle button {
         width: 100%;
+      }
+
+      .question-report {
+        &__form {
+          padding: 1rem;
+        }
+
+        &__actions {
+          flex-direction: column-reverse;
+
+          button {
+            width: 100%;
+          }
+        }
       }
 
       .navigation-buttons {

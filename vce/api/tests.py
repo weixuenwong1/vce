@@ -6,7 +6,7 @@ from rest_framework.test import APIClient
 from accounts.models import CustomUser, UserSubjectEngagement
 from api.views import CURATED_QUESTION_PREVIEWS
 from contents.models import Chapter, Subject, Topic
-from problems.models import Question, SeenQuestion
+from problems.models import Question, QuestionIssueReport, SeenQuestion
 
 
 class PublicResourcePreviewTests(TestCase):
@@ -36,6 +36,10 @@ class PublicResourcePreviewTests(TestCase):
 
         self.summary_url = "/api/summary/physics/motion-and-energy/projectile-motion/"
         self.problems_url = "/api/problems/physics/motion-and-energy/projectile-motion/"
+        self.report_url = (
+            f"/api/problems/physics/motion-and-energy/projectile-motion/"
+            f"{self.questions[0].pk}/report/"
+        )
         self.catalogue_url = "/api/catalogue/physics/"
 
     def test_subject_catalogue_returns_chapters_and_topics_together(self):
@@ -148,3 +152,51 @@ class PublicResourcePreviewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         engagement = UserSubjectEngagement.objects.get(user=user, subject=self.subject)
         self.assertEqual(engagement.practice_sacs_started, 1)
+
+    def test_anonymous_user_cannot_report_a_question(self):
+        response = self.client.post(
+            self.report_url,
+            {"description": "The object changes halfway through the question."},
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 401)
+        self.assertFalse(QuestionIssueReport.objects.exists())
+
+    def test_authenticated_user_can_report_a_question(self):
+        user = CustomUser.objects.create_user(
+            email="reporter@example.com",
+            password="test-password",
+            school="Test School",
+        )
+        self.client.force_authenticate(user=user)
+
+        response = self.client.post(
+            self.report_url,
+            {"description": "The object changes from a ball to a car."},
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 201)
+        report = QuestionIssueReport.objects.get()
+        self.assertEqual(report.question, self.questions[0])
+        self.assertEqual(report.topic, self.topic)
+        self.assertEqual(report.reported_by, user)
+        self.assertEqual(report.status, QuestionIssueReport.STATUS_OPEN)
+
+    def test_question_report_description_is_required(self):
+        user = CustomUser.objects.create_user(
+            email="blank-report@example.com",
+            password="test-password",
+            school="Test School",
+        )
+        self.client.force_authenticate(user=user)
+
+        response = self.client.post(
+            self.report_url,
+            {"description": "   "},
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 400)
+        self.assertFalse(QuestionIssueReport.objects.exists())

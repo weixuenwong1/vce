@@ -10,6 +10,7 @@ from .views import (
     SubjectListView,
     SubjectChaptersView,
     ResourceCatalogueView,
+    QuestionIssueReportView,
 )
 
 urlpatterns = [
@@ -20,6 +21,11 @@ urlpatterns = [
     path('chapters/<slug:slug>/', ChapterBySlugView.as_view(), name='chapter-by-slug'),
     path('chapters/<slug:slug>/topics/', TopicsByChapterSlugView.as_view(), name='chapter-topics'),
     path('problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/', NextQuestionView.as_view(), name='next-question'),
+    path(
+        'problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/<int:question_id>/report/',
+        QuestionIssueReportView.as_view(),
+        name='question-issue-report',
+    ),
 
     path("reset-seen/<int:topic_id>/", ResetSeenQuestionsView.as_view()),
 

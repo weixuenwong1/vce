@@ -74,4 +74,53 @@ class SeenQuestion(models.Model):
         return f"{self.user.email} - {self.question.question_uid}"
 
 
+class QuestionIssueReport(models.Model):
+    STATUS_OPEN = "OPEN"
+    STATUS_REVIEWING = "REVIEWING"
+    STATUS_RESOLVED = "RESOLVED"
+    STATUS_DISMISSED = "DISMISSED"
+    STATUS_CHOICES = [
+        (STATUS_OPEN, "Open"),
+        (STATUS_REVIEWING, "Reviewing"),
+        (STATUS_RESOLVED, "Resolved"),
+        (STATUS_DISMISSED, "Dismissed"),
+    ]
+
+    question = models.ForeignKey(
+        Question,
+        on_delete=models.CASCADE,
+        related_name="issue_reports",
+    )
+    topic = models.ForeignKey(
+        Topic,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="question_issue_reports",
+    )
+    reported_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="question_issue_reports",
+    )
+    description = models.TextField(max_length=1500)
+    status = models.CharField(
+        max_length=12,
+        choices=STATUS_CHOICES,
+        default=STATUS_OPEN,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=["status", "created_at"]),
+        ]
+
+    def __str__(self):
+        return f"Question {self.question_id} report by {self.reported_by or 'deleted user'}"
+
+
 

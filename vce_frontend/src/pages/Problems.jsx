@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import AxiosInstance from '../utils/AxiosInstance'
 import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Flag } from 'lucide-react';
 import SignInGate from '../components/SignInGate';
 import { getTopicName } from '../data/ListOrders';
 import {
@@ -29,6 +29,10 @@ const QuestionsForTopic = () => {
     const [totalAvailable, setTotalAvailable] = useState(0);
     const [previewLimit, setPreviewLimit] = useState(0);
     const [navLock, setNavLock] = useState(false);
+    const [reportOpen, setReportOpen] = useState(false);
+    const [reportDescription, setReportDescription] = useState('');
+    const [reportState, setReportState] = useState('idle');
+    const [reportError, setReportError] = useState('');
 
     const navigate = useNavigate();
     const authed = useSession();
@@ -161,6 +165,35 @@ const QuestionsForTopic = () => {
     };
 
     const toggleShowSolutions = () => setShowSolutions(v => !v);
+
+    const handleReportSubmit = async (event) => {
+        event.preventDefault();
+        const description = reportDescription.trim();
+        if (!description || reportState === 'submitting') return;
+
+        setReportState('submitting');
+        setReportError('');
+        try {
+            await AxiosInstance.post(
+                `api/problems/${subject}/${chapter_slug}/${topic_slug}/${current.question_uid}/report/`,
+                { description },
+            );
+            setReportState('success');
+            setReportDescription('');
+        } catch (error) {
+            const message = error.response?.data?.description?.[0]
+                || 'We could not send your report. Please try again.';
+            setReportError(message);
+            setReportState('error');
+        }
+    };
+
+    useEffect(() => {
+        setReportOpen(false);
+        setReportDescription('');
+        setReportState('idle');
+        setReportError('');
+    }, [current?.question_uid]);
 
     useEffect(() => {
         if (window.MathJax?.typesetPromise) {
@@ -335,6 +368,78 @@ const QuestionsForTopic = () => {
                     )}
                 </div>
                 )}
+
+            {authed && (
+                <section className="question-report" aria-label="Report a problem with this question">
+                    {!reportOpen && reportState !== 'success' && (
+                        <button
+                            type="button"
+                            className="question-report__trigger"
+                            onClick={() => setReportOpen(true)}
+                        >
+                            <Flag aria-hidden="true" size={17} />
+                            Report a problem
+                        </button>
+                    )}
+
+                    {reportState === 'success' ? (
+                        <p className="question-report__success" role="status">
+                            Thanks. We’ll review this question.
+                        </p>
+                    ) : reportOpen && (
+                        <form className="question-report__form" onSubmit={handleReportSubmit}>
+                            <div className="question-report__heading">
+                                <Flag aria-hidden="true" size={19} />
+                                <div>
+                                    <h3>Report a problem</h3>
+                                    <p>Tell us what seems incorrect or inconsistent.</p>
+                                    <ul className="question-report__examples">
+                                        <li>The solution appears to be incorrect</li>
+                                        <li>The question is unclear or does not make sense</li>
+                                        <li>There is a typo or formatting issue</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <label htmlFor="question-report-description">What happened?</label>
+                            <textarea
+                                id="question-report-description"
+                                value={reportDescription}
+                                onChange={(event) => setReportDescription(event.target.value)}
+                                maxLength={1500}
+                                rows={4}
+                                required
+                                autoFocus
+                            />
+                            <div className="question-report__meta">
+                                <span>{reportDescription.length}/1500</span>
+                            </div>
+                            {reportError && (
+                                <p className="question-report__error" role="alert">{reportError}</p>
+                            )}
+                            <div className="question-report__actions">
+                                <button
+                                    type="button"
+                                    className="question-report__cancel"
+                                    onClick={() => {
+                                        setReportOpen(false);
+                                        setReportError('');
+                                        setReportState('idle');
+                                    }}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="question-report__submit"
+                                    disabled={!reportDescription.trim() || reportState === 'submitting'}
+                                >
+                                    {reportState === 'submitting' ? 'Sending…' : 'Send report'}
+                                </button>
+                            </div>
+                        </form>
+                    )}
+                </section>
+            )}
 
             {previewComplete && <SignInGate resource={`${topicName} practice questions`} />}
 

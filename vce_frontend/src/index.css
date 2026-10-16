@@ -39,6 +39,13 @@ h1 { line-height: 1.15; }
 h2 { line-height: 1.2; }
 h3, h4, p { line-height: 1.4; }
 
+/* Keep common laptop viewports close to the density of 85-90% browser zoom. */
+@media (min-width: 901px) and (max-width: 1800px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
 
 #root, .app-shell { min-height: 100svh; }
 .app-shell {
