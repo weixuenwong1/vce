@@ -131,30 +131,34 @@ $soft-yellow: #FFD180;
     align-items: center;
     gap: 0.7rem;
     margin-top: 1.65rem;
-    padding: 0.85rem 1.1rem;
-    background: $orange;
-    border: 2px solid $dark-orange;
-    color: #171717;
-    box-shadow: 4px 4px 0 $dark-orange;
+    padding: 0.85rem 1rem;
+    background: transparent;
+    border: 1px solid $orange;
+    color: $white;
+    box-shadow: 3px 3px 0 $orange;
     font-family: 'Courier New', monospace;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease,
+      box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
 
     svg {
       flex: 0 0 auto;
+      color: $orange;
       transition: transform 0.2s ease;
     }
 
     &:hover,
     &:focus-visible {
-      background: #f58a5c;
-      transform: translateY(-2px);
-      box-shadow: 6px 6px 0 $dark-orange;
+      background: rgba(239, 126, 81, 0.08);
+      border-color: #f58a5c;
+      color: $orange;
+      box-shadow: 5px 5px 0 $orange;
+      transform: translateX(3px);
 
       svg {
-        transform: translateX(3px);
+        transform: translateX(5px);
       }
     }
   }
@@ -517,8 +521,22 @@ $soft-yellow: #FFD180;
   text-decoration: underline;
   text-decoration-color: $orange;
   text-underline-offset: 0.35rem;
+  transition: color 0.2s ease, transform 0.2s ease;
 
-  svg { color: $orange; }
+  svg {
+    color: $orange;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $orange;
+    transform: translateX(3px);
+
+    svg {
+      transform: translateX(5px);
+    }
+  }
 }
 
 .text-link {
@@ -526,6 +544,16 @@ $soft-yellow: #FFD180;
   padding: 0.85rem 1rem;
   border: 1px solid $orange;
   text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(239, 126, 81, 0.08);
+    border-color: #f58a5c;
+    color: $orange;
+    transform: translateX(3px);
+  }
 }
 
 .about-chuba {

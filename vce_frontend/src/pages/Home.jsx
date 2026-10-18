@@ -129,7 +129,7 @@ const Home = () => {
       <section className="about-chuba" aria-labelledby="about-chuba-title">
         <div className="about-chuba__copy">
           <span className="section-kicker">Why Chuba exists</span>
-          <h2 id="about-chuba-title">VCE science resources should be easier to access.</h2>
+          <h2 id="about-chuba-title">Good VCE resources should be easier to access.</h2>
           <p>
             Chuba gives VCE students one focused place to revise Physics,
             Chemistry and Biology, with clear explanations, realistic practice
