@@ -1,14 +1,16 @@
-import { ArrowRight, HelpCircle } from 'lucide-react';
+import {
+  ArrowRight,
+  BookOpenCheck,
+  CheckCircle2,
+  ClipboardCheck,
+  PenLine,
+} from 'lucide-react';
 import '../styles/Home.scss';
 import SubjectSection from "../components/SubjectSelection";
 import SubjectData from "../data/SubjectData";
-import FeaturesData from "../data/FeaturesData";
-import FeatureCard from "../components/FeatureCard";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="homepage-container">
       <div className="hero-section">
@@ -67,21 +69,15 @@ const Home = () => {
         </div>
       </div>
 
-      <section className="features-section">
-        <h3>Everything You Need to Succeed</h3>
-        <div className="why-chuba">
-          <h4>
-            Thousands of exam-style questions with visuals and detailed solutions.
-          </h4>
-          <div className="pill-container">
-            <span className="pill">Concise Summaries</span>
-            <span className="pill">Practice Questions</span>
-            <span className="pill">Practice SACs</span>
-          </div>
+      <section className="subject-library" aria-label="VCE science resources by subject">
+        <div className="section-intro">
+          <span className="section-kicker">Choose a subject</span>
+          <h2>Learn at your own pace.</h2>
+          <p>
+            Choose a subject, review a concise summary, then practise with
+            targeted questions and SACs when you are ready.
+          </p>
         </div>
-      </section>
-
-      <section>
         {SubjectData.map((subject, index) => (
           <SubjectSection
             key={index}
@@ -93,41 +89,62 @@ const Home = () => {
         ))}
       </section>
 
-      <section className="features">
-        <h3>The Essentials In One Place</h3>
-        <div className="features-grid">
-          {FeaturesData.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              Icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+      <section className="study-system" aria-labelledby="study-system-title">
+        <div className="study-system__header">
+          <div>
+            <span className="section-kicker">A practical study system</span>
+            <h2 id="study-system-title">Learn it. Apply it. Prepare with confidence.</h2>
+          </div>
+          <p>
+            Move from topic review to SAC-style practice with a clear next step
+            at every stage.
+          </p>
         </div>
-        <button className="using-chuba" onClick={() => navigate('/how-to-use-chuba')}>
-          How to Use Chuba Effectively
-        </button>
+        <div className="study-system__steps">
+          <article className="study-step">
+            <span className="study-step__number">01</span>
+            <BookOpenCheck aria-hidden="true" size={27} />
+            <h3>Review</h3>
+            <p>Build the foundation with concise, topic-by-topic summaries.</p>
+          </article>
+          <article className="study-step">
+            <span className="study-step__number">02</span>
+            <PenLine aria-hidden="true" size={27} />
+            <h3>Practise</h3>
+            <p>Apply each concept with exam-style questions and worked solutions.</p>
+          </article>
+          <article className="study-step">
+            <span className="study-step__number">03</span>
+            <ClipboardCheck aria-hidden="true" size={27} />
+            <h3>Prepare</h3>
+            <p>Bring topics together under realistic practice SAC conditions.</p>
+          </article>
+        </div>
+        <Link className="text-link" to="/how-to-use-chuba">
+          See the recommended study approach
+          <ArrowRight aria-hidden="true" size={18} />
+        </Link>
       </section>
 
-      <hr className="divider" />
-
-      <section className="about-section">
-        <span className="question-circle">
-          <HelpCircle size={24} />
-        </span>
-        <h3>About Chuba</h3>
-        <p>
-          Chuba's mission is to help all students master their subjects by providing the best resources all in one place.
-        </p>
-        <p>
-          I started Chuba to make <strong>high-quality resources free and accessible</strong> for all students. With rising costs of tutoring and study materials, I wanted to bridge that gap and help everyone succeed.
-        </p>
-      </section>
-
-      <section className="domain-section">
-        <p className="decorative-domains">Inspired by vcetextbooks.xyz &nbsp;|&nbsp; vce.rocks</p>
-        <p>Thank you for providing amazing resources over the years.</p>
+      <section className="about-chuba" aria-labelledby="about-chuba-title">
+        <div className="about-chuba__copy">
+          <span className="section-kicker">Why Chuba exists</span>
+          <h2 id="about-chuba-title">VCE science resources should be easier to access.</h2>
+          <p>
+            Chuba gives VCE students one focused place to revise Physics,
+            Chemistry and Biology, with clear explanations, realistic practice
+            and useful worked solutions organised around the course.
+          </p>
+        </div>
+        <div className="about-chuba__facts" aria-label="About Chuba facts">
+          <div><CheckCircle2 aria-hidden="true" /><span>Built for VCE Units 3 &amp; 4</span></div>
+          <div><CheckCircle2 aria-hidden="true" /><span>Physics, Chemistry and Biology</span></div>
+          <div><CheckCircle2 aria-hidden="true" /><span>Organised by chapter and topic</span></div>
+          <Link className="about-chuba__link" to="/free-vce-resources">
+            Browse the full resource library
+            <ArrowRight aria-hidden="true" size={18} />
+          </Link>
+        </div>
       </section>
     </div>
   );

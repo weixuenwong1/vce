@@ -214,97 +214,6 @@ $soft-yellow: #FFD180;
   .hero-right img { max-height: 350px; margin-top: 5rem; } 
 }
 
-.features-section {
-  background: $gray;
-  color: $white;
-  padding: 14rem 2rem 0;
-  text-align: center;
-  min-height: 30rem;
-
-  h3 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0;
-    color: $orange;
-    min-height: 3.6rem;
-  }
-
-  .why-chuba {
-    color: #D0D0D0;
-    padding: 2rem;
-
-    h4 {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      font-size: 1.3rem;
-      line-height: 1.5;
-      min-height: 1.5rem;
-    }
-
-    .pill-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-family: 'Poppins', monospace;
-    }
-
-    .pill {
-      color: $white;
-      font-weight: 600;
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      font-size: 1.1rem;
-      white-space: nowrap;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
-      transition: all 0.2s ease;
-      letter-spacing: 0.5px;
-
-      &:nth-child(1) {
-        background: linear-gradient(135deg, #5c6ef8, #3D5AFE);
-        box-shadow: 0 4px 0 rgba(92, 110, 248, 0.6);
-        }
-
-
-      &:nth-child(2) {
-        background: linear-gradient(135deg, #00acc1, #00838F);
-        box-shadow: 0 4px 0 rgba(0, 172, 193, 0.6);
-      }
-
-
-      &:nth-child(3) {
-        background: linear-gradient(135deg, #af52bf, #9C27B0);
-        box-shadow: 0 4px 0 rgba(175, 82, 191, 0.6);
-      }
-    }
-  }
-
-  @media (max-width: 900px) {
-    margin: 8rem 0;
-    padding: 3rem 1.5rem;
-    h3 { font-size: 2.0rem; }
-    .why-chuba {
-      padding: 1.5rem 1rem;
-      h4 { font-size: 1.0rem; }
-      .pill { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
-    }
-  }
-
-  @media (max-width: 600px) {
-    margin: 6rem 0 4rem;
-    padding: 2rem 1rem;
-    h3 { font-size: 1.4rem; }
-    .why-chuba {
-      padding: 1rem 0.5rem;
-      h4 { font-size: 0.9rem; }
-      .pill { font-size: 0.8rem; padding: 0.45rem 1rem; }
-    }
-  }
-}
-
-
-
 .homepage-container {
   background: $gray;
   color: $white;
@@ -315,17 +224,18 @@ $soft-yellow: #FFD180;
   .card-section {
     --card-hover-accent: #{$orange};
     text-align: center;
-    margin-bottom: 10rem;
+    margin-bottom: clamp(5rem, 8vw, 8rem);
 
     &--physics { --card-hover-accent: #7090ff; }
     &--chemistry { --card-hover-accent: #34b7c3; }
     &--biology { --card-hover-accent: #70bd72; }
 
     .subject-heading {
-      font-family: 'Helvetica', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 1000;
-      margin: 13rem 0 6rem;
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 750;
+      letter-spacing: 0;
+      margin: clamp(5rem, 8vw, 8rem) 0 clamp(2.75rem, 5vw, 4.5rem);
     }
 
     .coming-soon {
@@ -485,318 +395,242 @@ $soft-yellow: #FFD180;
   }
 }
 
-.features {
-  padding: 2rem 2rem 2rem;
-  background: #1F1F1F;
-  text-align: center;
-  border-radius: 18px;
+.subject-library {
+  padding-top: clamp(5rem, 9vw, 9rem);
+}
 
-  h3 {
-    font-family: 'Shadows Into Light', "Caveat", cursive;
-    font-size: 3rem;
-    font-weight: 400;
-    margin-bottom: 3rem;
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    margin: 0.75rem 0 1rem;
     color: $white;
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    font-weight: 750;
+    line-height: 1.12;
   }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
+  p {
+    max-width: 660px;
     margin: 0 auto;
-  }
-
-  .feature-card {
-    background: #2E2E2E;
-    padding: 1rem;
-    border-radius: 0; 
-    border: 2px solid #4FC3F7; 
-    box-shadow:
-      0 0 0 2px #1a1a1a,
-      4px 4px 0 #1976D2;
-
-    svg {
-      background: #383838;
-      border-radius: 50%;
-      padding: 1rem;
-      width: 5.0rem;
-      height: 5.0rem;
-      margin-bottom: 1rem;
-      color: $light-blue;
-    }
-
-    h4 {
-      font-family: 'Courier New', monospace;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 1.0rem;
-      margin-bottom: 0.3rem;
-      color: $light-blue;
-    }
-
-    p {
-      font-size: 1.0rem;
-      line-height: 1.6;
-      color: $white;
-    }
-  }
-
-  button.using-chuba {
-    font-family: 'Courier New', monospace;
-    background: #4FC3F7; // vibrant blue
-    color: #1a1a1a;
-    border: 2px solid #1976D2;
-    border-radius: 0;
-    box-shadow: 3px 3px 0 #1976D2;
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-top:3rem;
-
-    &:hover {
-      background: #03A9F4;
-      transform: translateY(-2px);
-      box-shadow: 4px 4px 0 #1976D2;
-      cursor: pointer;
-    }
+    color: #cbd2d5;
+    font-size: 1.05rem;
+    line-height: 1.75;
   }
 }
 
+.section-kicker {
+  color: $orange;
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
-@media (max-width: 1000px) {
-  .features {
-    padding: 1rem 1.5rem 3rem;
+.study-system {
+  margin: 2rem -2rem clamp(7rem, 11vw, 11rem);
+  padding: clamp(4rem, 7vw, 6rem) max(2rem, calc((100vw - 1240px) / 2));
+  background: #202020;
+  border-top: 4px solid $orange;
+  border-bottom: 1px solid #4f4f4f;
+}
 
-    h3 {
-      font-size: 2.6rem;
-    }
+.study-system__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
 
-    .features-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
+  h2 {
+    max-width: 700px;
+    margin: 0.75rem 0 0;
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    line-height: 1.12;
+  }
 
-    .feature-card {
-      padding: 1rem;
-
-      svg {
-        width: 4rem;
-        height: 4rem;
-        padding: 0.9rem;
-      }
-
-      h4 {
-        font-size: 1.4rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-    }
-
-    button.using-chuba {
-      font-size: 1.3rem;
-      padding: 1.1rem 1.5rem;
-    }
+  p {
+    margin: 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid $orange;
+    color: #cbd2d5;
+    font-size: 1.08rem;
+    line-height: 1.75;
   }
 }
 
-@media (max-width: 600px) {
-  .features {
-    padding: 2.5rem 1.5rem;
-
-    h3 {
-      font-size: 2.0rem;
-    }
-
-    .features-grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    .feature-card {
-      padding: 1.6rem;
-
-      svg {
-        width: 3.5rem;
-        height: 3.5rem;
-        padding: 0.8rem;
-      }
-
-      h4 {
-        font-size: 1.1rem;
-      }
-
-      p {
-        font-size: 0.90rem;
-      }
-    }
-
-    button.using-chuba {
-      font-size: 1.0rem;
-      padding: 0.9rem 1.0rem;
-    }
-  }
+.study-system__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
-
-.divider {
-  border: none;
-  height: 5px;
-  background: #D0D0D0;
-  width: 80%;
-  margin: 5rem auto;
-}
-
-.about-section {
-  background: #1F1F1F;
-  color: #D0D0D0;
-  padding: 5rem 2rem;
-  text-align: center;
-  margin-bottom: 5rem;
-  border-radius: 18px;
-
-  .question-circle {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    color: $orange;
+.study-step {
+  position: relative;
+  min-height: 250px;
+  padding: 2rem clamp(1.25rem, 3vw, 2.5rem);
+  background: #2a2a2a;
+  border: 1px solid #505050;
+  border-top: 3px solid $orange;
 
   svg {
     color: $orange;
-    width: 100px;
-    height: 100px;
+    margin-bottom: 2.8rem;
   }
 
-}
   h3 {
-    font-family:'Courier New', monospace;
-    font-size: 3.0rem;
-    font-weight: 800;
+    margin: 0 0 0.75rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1.35rem;
+    color: $white;
+  }
+
+  p {
+    max-width: 320px;
+    margin: 0;
+    color: #cbd2d5;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+.study-step__number {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: #949494;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+}
+
+.text-link,
+.about-chuba__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: $white;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: $orange;
+  text-underline-offset: 0.35rem;
+
+  svg { color: $orange; }
+}
+
+.text-link {
+  margin-top: 2.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid $orange;
+  text-decoration: none;
+}
+
+.about-chuba {
+  max-width: 1240px;
+  margin: 0 auto clamp(4rem, 8vw, 8rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(3rem, 9vw, 9rem);
+  align-items: start;
+}
+
+.about-chuba__copy {
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+  border-left: 4px solid $orange;
+
+  h2 {
+    max-width: 720px;
+    margin: 0.8rem 0 1.6rem;
+    color: $white;
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    line-height: 1.12;
+  }
+
+  p {
+    max-width: 720px;
+    margin: 0 0 1.1rem;
+    color: #cbd2d5;
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+}
+
+.about-chuba__facts {
+  padding: 1.5rem 2rem 2rem;
+  background: #252525;
+  border-top: 3px solid $orange;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #5e5e5e;
+    color: #e8e8e8;
+    font-size: 0.95rem;
+  }
+
+  svg {
+    flex: 0 0 auto;
+    width: 19px;
+    height: 19px;
     color: $orange;
   }
 
-  p {
-    max-width: 850px;
-    margin: 1.5rem auto;
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.8;
-    color: #CCCCCC;
-
-    strong {
-      color: $light-blue;
-      font-weight: 700;
-    }
+  .about-chuba__link {
+    margin-top: 2rem;
   }
 }
 
-@media (max-width: 900px) {
-  .about-section {
-    padding: 4rem 1.5rem;
+@media (max-width: 800px) {
+  .study-system__header,
+  .about-chuba {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-    .question-circle {
-      width: 80px;
-      height: 80px;
+  .study-system__steps {
+    grid-template-columns: 1fr;
+  }
 
-      svg {
-        width: 80px;
-        height: 80px;
-      }
+  .study-step {
+    min-height: auto;
+
+    & + & {
+      border-left: 1px solid #505050;
+      border-top: 3px solid $orange;
     }
 
-    h3 {
-      font-size: 2.3rem;
-    }
-
-    p {
-      font-size: 1.0rem;
-    }
+    svg { margin-bottom: 1.8rem; }
   }
 }
 
 @media (max-width: 600px) {
-  .about-section {
-    padding: 3rem 1rem;
-    border-radius: 12px;
-
-    .question-circle {
-      width: 65px;
-      height: 65px;
-
-      svg {
-        width: 65px;
-        height: 65px;
-      }
-    }
-
-    h3 {
-      font-size: 1.8rem;
-    }
-
-    p {
-      font-size: 0.85rem;
-      line-height: 1.6;
-    }
-  }
-}
-
-.domain-section {
-  text-align: center;
-  margin: 4rem 0 2rem 0;
-
-  .decorative-domains {
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 2rem;
-    color: $soft-yellow;
-    letter-spacing: 1px;
-    font-weight: 500;
+  .section-intro p,
+  .study-system__header p,
+  .about-chuba__copy p {
+    font-size: 0.9rem;
   }
 
-  p {
-    color: $light-blue;
-    font-family: 'Courier New', 'Poppins', monospace;
-    font-size: 1.05rem;
-    margin: 1rem 0rem 0rem;
+  .study-system {
+    margin: 0 -2rem 6rem;
+    padding: 3.5rem 2rem;
   }
-}
 
-
-@media (max-width: 900px) {
-  .domain-section {
-    .decorative-domains {
-      font-size: 1.5rem;
-    }
-    p {
-      font-size: 1.0rem;
-    }
+  .study-step {
+    padding: 1.6rem 1rem;
   }
-}
 
-@media (max-width: 600px) {
-  .domain-section {
-    .decorative-domains {
-      font-size: 1.2rem;
-    }
-    p {
-      font-size: 0.95rem;
-    }
+  .study-step__number {
+    top: 1.6rem;
+    right: 1rem;
   }
-}
 
-@media (max-width: 400px) {
-  .domain-section {
-    .decorative-domains {
-      font-size: 1.2rem;
-    }
-    p {
-      font-size: 0.90rem;
-    }
+  .about-chuba {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
