@@ -14,6 +14,7 @@ $retro-red: #e43a3a;
 
 
 .navbar {
+  position: relative;
   background: #424242;
   height: 4rem;
   display: flex;
@@ -23,7 +24,7 @@ $retro-red: #e43a3a;
   font-family: 'Courier New', monospace;
   border-bottom: 2px solid $retro-orange;
   box-shadow: 0 2px 0 $retro-orange;
-  z-index: 5;
+  z-index: 50;
 
   &-left {
     display: flex;
@@ -46,87 +47,42 @@ $retro-red: #e43a3a;
     .navbar-menu {
       list-style-type: none;
       display: flex;
-      gap: 2rem;
+      align-items: stretch;
+      gap: 0.35rem;
       margin: 0;
       padding: 0;
 
       .navbar-item {
         position: relative;
-        padding: 0.75rem 0;
-        color: #fff;
-        text-align: center;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 1.15rem;
-        transition: color 0.3s ease;
+        display: flex;
+        align-items: stretch;
 
-        &:hover {
-          color: #FFAB91;
-        }
+        &.active .navbar-trigger,
+        &.open .navbar-trigger {
+          color: #fff;
 
-        &:after {
-          content: '';
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          bottom: 5px;
-          left: calc(50% - 2px);
-          background: #FF8A65;
-          transform: scale(0);
-          transition: transform 0.3s ease;
-        }
-
-        &:hover:after {
-          transform: scale(1.6);
-        }
-
-        &.active {
-          color: #FFAB91; 
-          font-weight: 700;
-
-          &:after {
-            transform: scale(1.6);
-            background: #FF7043; 
+          &::after {
+            transform: scaleX(1);
           }
+        }
+
+        &.open .navbar-trigger-chevron {
+          transform: rotate(180deg);
         }
 
         .navbar-submenu {
           position: absolute;
-          top: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          background: #2e2e2e;
-          border: 2px solid $retro-orange;
-          border-radius: 6px;
-          padding: 0;
-          list-style: none;
-          min-width: 160px;
-          z-index: 2;
-          box-shadow: 3px 3px 0 $retro-orange;
-
-          .navbar-subitem {
-            opacity: 0;
-            transform: translateY(10px);
-            animation: enter 0.3s ease forwards;
-            animation-fill-mode: forwards;
-
-            &:nth-child(1) { animation-delay: 0.1s; }
-            &:nth-child(2) { animation-delay: 0.2s; }
-            &:nth-child(3) { animation-delay: 0.3s; }
-
-            padding: 1.0rem 1rem;
-            color: #fff;
-            font-family: 'Courier New', monospace;
-            cursor: pointer;
-            text-align: center;
-            transition: background 0.2s ease, color 0.2s ease;
-
-            &:hover {
-              background: #1f1f1f;
-              color: #FFAB91;
-            }
-          }
+          top: calc(100% + 0.7rem);
+          left: 0;
+          width: min(420px, calc(100vw - 2rem));
+          padding: 0.75rem;
+          background: #242424;
+          border: 1px solid #5a5a5a;
+          border-top: 3px solid $retro-orange;
+          border-radius: 4px;
+          box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
+          z-index: 60;
+          animation: menu-enter 0.18s ease-out;
         }
       }
     }
@@ -153,13 +109,204 @@ $retro-red: #e43a3a;
         cursor: pointer;
       }
     }
+
   }
 }
 
-@keyframes enter {
+.navbar-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 0.85rem;
+  border: 0;
+  background: transparent;
+  color: #ececec;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0;
+    left: 0.75rem;
+    height: 2px;
+    background: $retro-orange;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.18s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(255, 255, 255, 0.055);
+    color: #fff;
+
+    &::after { transform: scaleX(1); }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $retro-yellow;
+    outline-offset: -2px;
+  }
+}
+
+.navbar-trigger-icon {
+  display: none;
+  color: $retro-orange;
+}
+
+.navbar-trigger-chevron {
+  color: #bdbdbd;
+  transition: transform 0.18s ease;
+}
+
+.navbar-submenu-header {
+  padding: 0.85rem 0.9rem 0.95rem;
+  border-bottom: 1px solid #484848;
+
+  span,
+  strong { display: block; }
+
+  span {
+    margin-bottom: 0.3rem;
+    color: $retro-orange;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  strong {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+  }
+}
+
+.navbar-submenu-links {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+}
+
+.navbar-subitem {
+  --menu-subject: #f2845c;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  background: transparent;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease,
+    transform 0.16s ease;
+
+  &--physics { --menu-subject: #86a0ff; }
+  &--chemistry { --menu-subject: #43c4c9; }
+  &--biology { --menu-subject: #7bc77d; }
+
+  &:hover,
+  &:focus-visible {
+    background: #303030;
+    border-left-color: var(--menu-subject);
+    transform: translateX(2px);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--menu-subject);
+    outline-offset: -1px;
+  }
+}
+
+.navbar-subitem-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: #353535;
+  border: 1px solid #505050;
+  color: var(--menu-subject);
+}
+
+.navbar-subitem-copy {
+  min-width: 0;
+
+  strong,
+  small { display: block; }
+
+  strong {
+    margin-bottom: 0.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  small {
+    color: #bdbdbd;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+}
+
+.navbar-subitem-arrow {
+  color: #8f8f8f;
+  transition: color 0.16s ease, transform 0.16s ease;
+}
+
+.navbar-subitem:hover .navbar-subitem-arrow,
+.navbar-subitem:focus-visible .navbar-subitem-arrow {
+  color: var(--menu-subject);
+  transform: translateX(3px);
+}
+
+.navbar-submenu-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.9rem 0.65rem;
+  border: 0;
+  border-top: 1px solid #484848;
+  background: transparent;
+  color: $retro-yellow;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+
+  svg { transition: transform 0.16s ease; }
+
+  &:hover,
+  &:focus-visible {
+    color: #ffd180;
+
+    svg { transform: translateX(4px); }
+  }
+
+  &:focus-visible {
+    outline: 1px solid $retro-yellow;
+    outline-offset: -2px;
+  }
+}
+
+@keyframes menu-enter {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-5px);
   }
   to {
     opacity: 1;
@@ -173,21 +320,18 @@ $retro-red: #e43a3a;
     padding: 0 1rem; 
 
     &-left {
-      gap: 1rem;
+      gap: 0.6rem;
 
       .navbar-menu {
-        gap: 1.5rem;
+        gap: 0.1rem;
 
         .navbar-item {
-          font-size: 0.9rem;
-          padding: 0.5rem 0;
-
           .navbar-submenu {
-            min-width: 130px; // narrower than default
-            .navbar-subitem {
-              font-size: 0.9rem;
-              padding: 0.9rem 0.5rem;
-            }
+            position: fixed;
+            top: 4.7rem;
+            right: 1rem;
+            left: 1rem;
+            width: auto;
           }
         }
       }
@@ -198,6 +342,16 @@ $retro-red: #e43a3a;
         padding: 0.5rem 1.0rem; 
         font-size: 0.95rem;
       }
+    }
+  }
+
+  .navbar-trigger {
+    padding-inline: 0.55rem;
+    font-size: 0.85rem;
+
+    &::after {
+      right: 0.5rem;
+      left: 0.5rem;
     }
   }
 }
@@ -215,55 +369,73 @@ $retro-red: #e43a3a;
       }
 
       .navbar-menu {
-        gap: 2.0rem;
-
-        .navbar-item {
-          font-size: 0.9rem;
-          padding: 0.5rem 0;
-
-          .navbar-submenu {
-            min-width: 120px; // smaller
-            .navbar-subitem {
-              font-size: 0.8rem;
-              padding: 0.7rem 0.7rem;
-            }
-          }
-        }
+        gap: 0.15rem;
       }
     }
 
     &-right {
       .navbar-button {
-        padding: 0.5rem 1.0rem; 
-        font-size: 0.9rem;
+        padding: 0.45rem 0.75rem;
+        font-size: 0.8rem;
+        box-shadow: 2px 2px 0 $retro-orange;
       }
     }
+  }
+
+  .navbar-trigger {
+    min-width: 36px;
+    justify-content: center;
+    padding-inline: 0.5rem;
+  }
+
+  .navbar-trigger-label,
+  .navbar-trigger-chevron {
+    display: none;
+  }
+
+  .navbar-trigger-icon { display: block; }
+
+  .navbar-submenu-header {
+    padding: 0.7rem 0.75rem 0.8rem;
+  }
+
+  .navbar-subitem {
+    grid-template-columns: 38px minmax(0, 1fr) 18px;
+    gap: 0.7rem;
+    padding: 0.65rem 0.7rem;
+  }
+
+  .navbar-subitem-icon {
+    width: 38px;
+    height: 38px;
   }
 }
 
 @media (max-width: 400px) {
   .navbar {
     &-left {
-      .navbar-menu {
-        gap: 1.3rem;
+      gap: 0.35rem;
 
-        .navbar-item {
-          .navbar-submenu {
-            min-width: 100px; // smallest
-            .navbar-subitem {
-              font-size: 0.7rem;
-              padding: 0.6rem 0.6rem;
-            }
-          }
-        }
+      .navbar-menu {
+        gap: 0;
       }
     }
 
     &-right {
       .navbar-button {
-        padding: 0.4rem 0.8rem; 
-        font-size: 0.75rem;
+        padding: 0.35rem 0.5rem;
+        font-size: 0.68rem;
+        letter-spacing: 0;
       }
     }
+  }
+
+  .navbar-trigger {
+    min-width: 31px;
+    padding-inline: 0.4rem;
+  }
+
+  .navbar-subitem-copy small {
+    font-size: 0.67rem;
   }
 }
