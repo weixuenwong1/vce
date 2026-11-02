@@ -1,0 +1,104 @@
+.catalogue-error {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 4rem;
+  padding: 1.5rem;
+  background: #202020;
+  border: 1px solid #666;
+  border-left: 4px solid var(--subject-accent, #f2845c);
+  box-shadow: 4px 4px 0 #151515;
+  color: #fff;
+  text-align: left;
+}
+
+.catalogue-error__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--subject-accent, #f2845c);
+  color: var(--subject-accent, #f2845c);
+}
+
+.catalogue-error__copy {
+  min-width: 0;
+
+  .catalogue-error__eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--subject-accent, #f2845c);
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  > p:last-child {
+    margin: 0.45rem 0 0;
+    color: #c9c9c9;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}
+
+.catalogue-error > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: 2px solid var(--subject-accent, #f2845c);
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--subject-accent-strong, #a94728);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--subject-accent, #f2845c);
+    color: #171717;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+}
+
+@media (max-width: 700px) {
+  .catalogue-error {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    margin: 2rem auto 3rem;
+    padding: 1.1rem;
+  }
+
+  .catalogue-error__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .catalogue-error__copy {
+    h2 { font-size: 0.95rem; }
+    > p:last-child { font-size: 0.72rem; }
+  }
+
+  .catalogue-error > button {
+    grid-column: 1 / -1;
+    width: 100%;
+    font-size: 0.76rem;
+  }
+}

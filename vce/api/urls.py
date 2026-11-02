@@ -11,9 +11,11 @@ from .views import (
     SubjectChaptersView,
     ResourceCatalogueView,
     QuestionIssueReportView,
+    HomeStatsView,
 )
 
 urlpatterns = [
+    path("home-stats/", HomeStatsView.as_view(), name="home-stats"),
     path("subjects/", SubjectListView.as_view(), name="subject-list"),
     path("subjects/<int:subject_id>/chapters/", SubjectChaptersView.as_view(), name="subject-chapters"),
     path('catalogue/<slug:subject>/', ResourceCatalogueView.as_view(), name='resource-catalogue'),

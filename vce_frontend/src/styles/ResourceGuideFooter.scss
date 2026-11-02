@@ -32,3 +32,20 @@
     &:focus-visible { outline: 2px solid #ffd180; outline-offset: 4px; }
   }
 }
+
+@media (max-width: 800px) {
+  .resource-guide-footer {
+    margin-top: 2.25rem;
+
+    h2 { font-size: 1rem; }
+    p { font-size: 0.78rem; }
+    a { font-size: 0.78rem; }
+  }
+}
+
+@media (max-width: 500px) {
+  .resource-guide-footer {
+    h2 { font-size: 0.9rem; }
+    p, a { font-size: 0.7rem; }
+  }
+}

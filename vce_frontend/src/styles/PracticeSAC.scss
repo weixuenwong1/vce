@@ -55,6 +55,8 @@ $sac-highlight: hsl(12, 85%, 62%);
         margin-bottom: 3rem;
         font-weight: 700;
         color: #fff;
+
+        span { display: block; font-size: inherit; }
     }
 
     .practice-description-sac {
@@ -160,6 +162,32 @@ $sac-highlight: hsl(12, 85%, 62%);
   }
 }
 
+@media (min-width: 1001px) {
+  .practice-container-sac {
+    max-width: 1400px;
+    padding: 2.5rem 2rem;
+
+    h1 { font-size: 3.25rem; margin-bottom: 2.5rem; }
+    .practice-description-sac { font-size: 1rem; line-height: 1.7; }
+    .side-note-sac { font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
+    .chapter-section { gap: 2.5rem; }
+  }
+
+  .sac-chapter-wrapper {
+    .sac-left {
+      padding: 1.7rem;
+
+      .sac-chapter-heading { font-size: 1.5rem; }
+      .sac-chapter-description { font-size: 0.9rem; }
+    }
+
+    .sac-right .generate-tab {
+      padding: 1.7rem;
+      h2 { font-size: 1.05rem; }
+    }
+  }
+}
+
 .coming-soon {
   align-items: center; 
   text-align: center;
@@ -185,6 +213,19 @@ $sac-highlight: hsl(12, 85%, 62%);
 }
 
 @media (max-width: 1000px) {
+  .practice-container-sac {
+    padding: 2rem 1.5rem;
+
+    h1 {
+      font-size: 1.9rem;
+      line-height: 1.14;
+      margin-bottom: 2rem;
+    }
+
+    .practice-description-sac,
+    .side-note-sac { font-size: 0.8rem; }
+  }
+
   .sac-chapter-wrapper {
     flex-direction: column;
 
@@ -192,11 +233,11 @@ $sac-highlight: hsl(12, 85%, 62%);
       padding: 1.5rem;
 
       .sac-chapter-heading {
-        font-size: 1.8rem;
+        font-size: 1.45rem;
       }
 
       .sac-chapter-description {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
       }
     }
 
@@ -208,7 +249,7 @@ $sac-highlight: hsl(12, 85%, 62%);
         padding: 1.2rem;
 
         h2 {
-          font-size: 1.3rem;
+          font-size: 1rem;
         }
       }
     }
@@ -223,12 +264,12 @@ $sac-highlight: hsl(12, 85%, 62%);
     padding: 2rem 1rem;
 
     h1 {
-      font-size: 2.7rem;
+      font-size: 1.8rem;
     }
 
     .practice-description-sac,
     .side-note-sac {
-      font-size: 1rem;
+      font-size: 0.78rem;
       padding: 0;
     }
   }
@@ -240,11 +281,11 @@ $sac-highlight: hsl(12, 85%, 62%);
       padding: 1.2rem;
 
       .sac-chapter-heading {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       .sac-chapter-description {
-        font-size: 0.9rem;
+        font-size: 0.76rem;
       }
     }
 
@@ -253,7 +294,7 @@ $sac-highlight: hsl(12, 85%, 62%);
         padding: 1rem;
 
         h2 {
-          font-size: 1.15rem;
+          font-size: 0.9rem;
         }
       }
     }
@@ -269,13 +310,13 @@ $sac-highlight: hsl(12, 85%, 62%);
     padding: 1.5rem 1rem;
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .practice-description-sac,
     .side-note-sac {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
   }
 
@@ -286,11 +327,11 @@ $sac-highlight: hsl(12, 85%, 62%);
       padding: 1rem;
 
       .sac-chapter-heading {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
       }
 
       .sac-chapter-description {
-        font-size: 0.85rem;
+        font-size: 0.72rem;
         line-height: 1.4;
       }
     }
@@ -300,7 +341,7 @@ $sac-highlight: hsl(12, 85%, 62%);
         padding: 1.0rem;
 
         h2 {
-          font-size: 1rem;
+          font-size: 0.82rem;
         }
       }
     }

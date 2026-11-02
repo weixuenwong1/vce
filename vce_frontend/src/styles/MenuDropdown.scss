@@ -49,6 +49,8 @@ $white: #FFF;
         margin-bottom: 3rem;
         font-weight: 700;
         color: #fff;
+
+        span { display: block; font-size: inherit; }
     }
 
     .practice-description {
@@ -184,6 +186,26 @@ $white: #FFF;
     }
 }
 
+@media (min-width: 1001px) {
+  .practice-container {
+    max-width: 1400px;
+    padding: 2.5rem 2rem;
+
+    h1 { font-size: 3.35rem; margin-bottom: 2.5rem; }
+    .practice-description { font-size: 1rem; line-height: 1.7; }
+    .side-note-practice,
+    .side-note { font-size: 1rem; line-height: 1.7; }
+    .chapter-section { gap: 2.5rem; }
+    .chapter-heading { font-size: 2.15rem; margin-bottom: 3rem; }
+    .chapter-wrapper { min-height: 230px; }
+    .chapter-left-box,
+    .chapter-right-box { padding: 1.7rem; }
+    .subtitle { font-size: 1.2rem; }
+    .chapter-left-box .chapter-description { font-size: 1rem; line-height: 1.65; }
+    .chapter-right-box .topics-table td { font-size: 1rem; padding: 1rem; }
+  }
+}
+
 .dividerMenu {
   border: none;
   height: 4px;
@@ -239,24 +261,26 @@ $white: #FFF;
 
 @media (max-width: 1000px) {
   .practice-container {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.5rem;
 
     h1 {
-      font-size: 3rem;
+      font-size: 1.9rem;
+      line-height: 1.14;
+      margin-bottom: 2rem;
     }
 
     .chapter-left-box {
         .chapter-description {
-            font-size: 1.05rem;
+            font-size: 0.82rem;
         }
     }
 
     .side-note-practice {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
 
     .chapter-heading {
-      font-size: 2.2rem;
+      font-size: 1.55rem;
     }
 
     .chapter-wrapper {
@@ -284,17 +308,17 @@ $white: #FFF;
     padding: 2rem 1rem;
 
     h1 {
-      font-size: 2.7rem;
+      font-size: 1.8rem;
     }
 
     .chapter-left-box {
         .chapter-description {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
         }
     }
 
-    span {
-        font-size: 1.05rem;
+    .topic-text {
+        font-size: 0.84rem;
     }
 
     .flipping-hourglass {
@@ -302,34 +326,34 @@ $white: #FFF;
     }
 
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     .practice-description,
     .side-note-practice {
-      font-size: 1rem;
+      font-size: 0.8rem;
       padding: 0;
     }
 
     .contact-question {
-      font-size: 0.9rem;
+      font-size: 0.76rem;
     }
 
     .side-note {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
 
     .chapter-heading {
-      font-size: 2rem;
+      font-size: 1.45rem;
     }
 
     .chapter-description {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
 
     .topics-table td {
-      font-size: 1rem;
-      padding: 1rem;
+      font-size: 0.82rem;
+      padding: 0.85rem;
     }
 
     .coming-soon {
@@ -344,17 +368,17 @@ $white: #FFF;
     padding: 1.5rem 1rem;
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
     .chapter-left-box {
         .chapter-description {
-            font-size: 0.90rem;
+            font-size: 0.74rem;
         }
     }
     
-    span {
-        font-size: 0.90rem;
+    .topic-text {
+        font-size: 0.76rem;
     }
 
     .flipping-hourglass {
@@ -362,30 +386,30 @@ $white: #FFF;
     }
 
     .subtitle {
-      font-size: 1.15rem;
+      font-size: 0.9rem;
     }
 
     .practice-description,
     .side-note-practice,
     .side-note {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
     }
 
     .contact-question {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
 
     .chapter-heading {
-      font-size: 1.6rem;
+      font-size: 1.25rem;
     }
 
     .chapter-description {
-      font-size: 0.95rem;
+      font-size: 0.74rem;
     }
 
     .topics-table td {
-      font-size: 0.95rem;
-      padding: 0.9rem;
+      font-size: 0.74rem;
+      padding: 0.75rem;
     }
 
     .coming-soon {

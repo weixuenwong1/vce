@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.generics import  ListAPIView
 from django.shortcuts import get_object_or_404
+from django.db.models import BigIntegerField, Sum, Value
+from django.db.models.functions import Coalesce
 
 from rest_framework.response import Response
 import random
@@ -18,6 +20,7 @@ from .serializers import (
 from problems.models import Question, QuestionIssueReport, SeenQuestion
 from contents.models import Subject, Chapter, Topic
 from accounts.engagement import record_engagement
+from accounts.models import UserSubjectEngagement
 
 
 from django.db import transaction
@@ -25,6 +28,9 @@ from django.db import transaction
 
 SUMMARY_PREVIEW_CHARACTERS = 1600
 QUESTION_PREVIEW_LIMIT = 3
+QUESTION_ATTEMPTED_BASELINE = 10_000
+SUMMARY_OPENED_BASELINE = 1_500
+PRACTICE_SAC_BASELINE = 400
 CURATED_QUESTION_PREVIEWS = {
     ("physics", "motion-and-energy", "newton-s-laws-of-motion"): [2, 84, 73, 9],
     ("physics", "motion-and-energy", "graphical-analysis-of-motion"): [554, 553],
@@ -48,6 +54,34 @@ CURATED_QUESTION_PREVIEWS = {
     ("physics", "einsteins-special-relativity", "special-relativity"): [574, 593, 561],
     ("physics", "einsteins-special-relativity", "einstein-s-relationship-between-mass-and-energy"): [580, 585, 581],
 }
+
+
+class HomeStatsView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        totals = UserSubjectEngagement.objects.aggregate(
+            questions_attempted=Coalesce(
+                Sum("questions_viewed"), Value(0), output_field=BigIntegerField()
+            ),
+            summaries_opened=Coalesce(
+                Sum("summaries_viewed"), Value(0), output_field=BigIntegerField()
+            ),
+            practice_sacs_started=Coalesce(
+                Sum("practice_sacs_started"), Value(0), output_field=BigIntegerField()
+            ),
+        )
+        return Response(
+            {
+                "questions_attempted": (
+                    QUESTION_ATTEMPTED_BASELINE + totals["questions_attempted"]
+                ),
+                "summaries_opened": SUMMARY_OPENED_BASELINE + totals["summaries_opened"],
+                "practice_sacs_attempted": (
+                    PRACTICE_SAC_BASELINE + totals["practice_sacs_started"]
+                ),
+            }
+        )
 
 
 def question_preview(subject, chapter_slug, topic_slug, questions):

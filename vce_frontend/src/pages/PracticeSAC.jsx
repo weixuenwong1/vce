@@ -2,6 +2,7 @@ import { React, useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import ResourceCatalogueError from '../components/ResourceCatalogueError';
 import SubjectHubGuide from '../components/SubjectHubGuide';
 import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/PracticeSAC.scss';
@@ -49,15 +50,9 @@ const PracticeSAC = () => {
         <div className={`practice-page-sac subject-theme subject-theme--${subject.toLowerCase()}`}>
           <div className="practice-container-sac">
               <h1>
-                  Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice SACs {subjectEmojis[subject.toLowerCase()] || "📚"}
+                  <span>Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4</span>
+                  <span>Practice SACs {subjectEmojis[subject.toLowerCase()] || "📚"}</span>
               </h1>
-              <p className="practice-description-sac">
-                  Prepare for VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 SACs with chapter-based practice questions, total marks and worked solutions.
-              </p>
-              <p className="side-note-sac">
-                  SAC structures vary by school in question count, difficulty and format. Use it as a preparation tool, not a replica of your school's SAC.
-              </p>
-
               <SubjectHubGuide subject={subject.toLowerCase()} section="practice-sac" />
 
               <hr className="dividerMenu"/>
@@ -93,10 +88,7 @@ const PracticeSAC = () => {
             )}
 
         {!loading && loadError && (
-          <div role="alert">
-            <p>Unable to load resources. Please try again.</p>
-            <button type="button" onClick={() => getChapters({ force: true })}>Try again</button>
-          </div>
+          <ResourceCatalogueError onRetry={() => getChapters({ force: true })} />
         )}
         {!loading && !loadError && chapters.length === 0 && (
                 <div className="coming-soon">

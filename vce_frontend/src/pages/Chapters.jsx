@@ -1,5 +1,6 @@
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import ResourceCatalogueError from '../components/ResourceCatalogueError';
 import SubjectHubGuide from '../components/SubjectHubGuide';
 import { React, useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -45,19 +46,9 @@ const Chapters = () => {
         <div className={`practice-page subject-theme subject-theme--${subject.toLowerCase()}`}>
             <div className="practice-container">
                 <h1>
-                    Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}
+                    <span>Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4</span>
+                    <span>Summaries {subjectEmojis[subject.toLowerCase()] || "📚"}</span>
                 </h1>
-                <p className="practice-description">
-                    Review VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 with chapter and topic summaries.
-                    Choose a topic below to revisit key concepts and explanations, then apply your understanding in practice questions as you prepare for SACs and exams.
-                </p>
-                <p className="side-note">
-                    Summaries are designed to complement your textbook — try to focus on understanding the content, not memorising.
-                </p>
-                <p className="contact-question">
-                    <strong>Do let us know if you have any questions about the content.</strong>
-                </p>
-
                 <SubjectHubGuide subject={subject.toLowerCase()} section="summaries" />
 
                  <hr className="dividerMenu"/>
@@ -100,10 +91,7 @@ const Chapters = () => {
                 )}
 
         {!loading && loadError && (
-          <div role="alert">
-            <p>Unable to load resources. Please try again.</p>
-            <button type="button" onClick={() => getChapter({ force: true })}>Try again</button>
-          </div>
+          <ResourceCatalogueError onRetry={() => getChapter({ force: true })} />
         )}
         {!loading && !loadError && chapter.length === 0 && (
                     <div className="coming-soon">

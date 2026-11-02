@@ -1,5 +1,6 @@
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
+import ResourceCatalogueError from '../components/ResourceCatalogueError';
 import SubjectHubGuide from '../components/SubjectHubGuide';
 import { React, useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -45,15 +46,9 @@ const Practice = () => {
     <div className={`practice-page subject-theme subject-theme--${subject.toLowerCase()}`}>
       <div className="practice-container">
         <h1>
-          Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4 Practice Questions {subjectEmojis[subject.toLowerCase()] || "📚"}
+          <span>Free VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3/4</span>
+          <span>Practice Questions {subjectEmojis[subject.toLowerCase()] || "📚"}</span>
         </h1>
-        <p className="practice-description">
-          Revise VCE {subject.charAt(0).toUpperCase() + subject.slice(1)} Units 3 and 4 with topic-based practice questions and worked solutions.
-          Choose a chapter below, work from foundational questions towards exam-style problems, and use the solutions to check your reasoning before SACs and exams.
-        </p>
-        <p className="side-note-practice">
-          There isn’t always just one way to solve a problem.
-        </p>
         <SubjectHubGuide subject={subject.toLowerCase()} section="practice" />
 
         <hr className="dividerMenu" />
@@ -96,10 +91,7 @@ const Practice = () => {
         )}
 
         {!loading && loadError && (
-          <div role="alert">
-            <p>Unable to load resources. Please try again.</p>
-            <button type="button" onClick={() => getChapters({ force: true })}>Try again</button>
-          </div>
+          <ResourceCatalogueError onRetry={() => getChapters({ force: true })} />
         )}
         {!loading && !loadError && chapters.length === 0 && (
           <div className="coming-soon">

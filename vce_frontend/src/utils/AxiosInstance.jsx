@@ -47,7 +47,7 @@ AxiosInstance.interceptors.response.use(
         return AxiosInstance(config);
       }
     }
-    if (status >= 500) {
+    if (status >= 500 && !config?.suppressGlobalError) {
       window.location.href = "/500";
     }
     return Promise.reject(error);
