@@ -30,7 +30,7 @@ SUMMARY_PREVIEW_CHARACTERS = 1600
 QUESTION_PREVIEW_LIMIT = 3
 QUESTION_ATTEMPTED_BASELINE = 10_000
 SUMMARY_OPENED_BASELINE = 1_500
-PRACTICE_SAC_BASELINE = 400
+PRACTICE_SAC_BASELINE = 1_000
 CURATED_QUESTION_PREVIEWS = {
     ("physics", "motion-and-energy", "newton-s-laws-of-motion"): [2, 84, 73, 9],
     ("physics", "motion-and-energy", "graphical-analysis-of-motion"): [554, 553],

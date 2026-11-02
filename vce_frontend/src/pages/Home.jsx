@@ -61,7 +61,7 @@ const Home = () => {
   const [impactStats, setImpactStats] = useState({
     questions_attempted: 10000,
     summaries_opened: 1500,
-    practice_sacs_attempted: 400,
+    practice_sacs_attempted: 1000,
   });
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const Home = () => {
           setImpactStats({
             questions_attempted: Number(data.questions_attempted) || 10000,
             summaries_opened: Number(data.summaries_opened) || 1500,
-            practice_sacs_attempted: Number(data.practice_sacs_attempted) || 400,
+            practice_sacs_attempted: Number(data.practice_sacs_attempted) || 1000,
           });
         }
       })
