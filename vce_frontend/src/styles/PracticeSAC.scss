@@ -85,8 +85,18 @@ $sac-highlight: hsl(12, 85%, 62%);
     .chapter-section {
         display: flex;
         flex-direction: column;
+        width: 100%;
+        max-width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
         gap: 3rem;
     }
+}
+
+.practice-container-sac .dividerMenu {
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .sac-chapter-wrapper {
@@ -164,7 +174,7 @@ $sac-highlight: hsl(12, 85%, 62%);
 
 @media (min-width: 1001px) {
   .practice-container-sac {
-    max-width: 1400px;
+    max-width: 1300px;
     padding: 2.5rem 2rem;
 
     h1 { font-size: 3.25rem; margin-bottom: 2.5rem; }
