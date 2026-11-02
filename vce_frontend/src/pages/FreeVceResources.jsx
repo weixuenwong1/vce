@@ -1,4 +1,4 @@
-import { BookOpen, ClipboardCheck, PencilLine } from 'lucide-react';
+import { ArrowRight, BookOpen, ClipboardCheck, PencilLine } from 'lucide-react';
 import { createElement } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/FreeVceResources.scss';
@@ -8,19 +8,19 @@ const subjects = [
     slug: 'physics',
     name: 'Physics',
     className: 'physics',
-    description: 'Revise motion, fields, electricity, waves, special relativity and scientific investigations for VCE Physics Units 3 and 4.',
+    description: 'Revise motion, fields, electricity, waves, special relativity and scientific investigations for VCE Physics Units 3/4.',
   },
   {
     slug: 'chemistry',
     name: 'Chemistry',
     className: 'chemistry',
-    description: 'Study fuels, reaction rates and equilibrium, electrolysis, organic chemistry and instrumental analysis for VCE Chemistry Units 3 and 4.',
+    description: 'Study fuels, reaction rates and equilibrium, electrolysis, organic chemistry and instrumental analysis for VCE Chemistry Units 3/4.',
   },
   {
     slug: 'biology',
     name: 'Biology',
     className: 'biology',
-    description: 'Review nucleic acids, proteins, biochemical pathways, immunity and evolution for VCE Biology Units 3 and 4.',
+    description: 'Review nucleic acids, proteins, biochemical pathways, immunity and evolution for VCE Biology Units 3/4.',
   },
 ];
 
@@ -50,11 +50,14 @@ export default function FreeVceResources() {
     <div className="free-resources-page">
       <header className="free-resources-intro">
         <p className="free-resources-kicker">Chuba study library</p>
-        <h1>Free VCE Resources for Units 3 and 4</h1>
+        <h1>Free VCE Resources for Units 3/4</h1>
         <p>
-          Explore free VCE Physics, Chemistry and Biology resources organised by subject,
-          chapter and topic. Use concise summaries to revise, practice questions to apply
-          your knowledge, and practice SACs to prepare for assessments.
+          Explore free VCE Physics, Chemistry and Biology resources
+          <span className="free-resources-mobile-extra"> organised by subject, chapter and topic</span>
+          {' '}before committing to Chuba Pro.
+          <span className="free-resources-mobile-extra"> Use concise summaries to revise,
+            practice questions to apply your knowledge, and practice SACs to prepare for assessments.
+          </span>
         </p>
         <nav className="free-resources-jump" aria-label="Jump to a VCE subject">
           {subjects.map((subject) => (
@@ -71,7 +74,7 @@ export default function FreeVceResources() {
             key={subject.slug}
           >
             <div className="free-subject-heading">
-              <p>VCE Units 3 and 4</p>
+              <p>VCE Units 3/4</p>
               <h2>Free VCE {subject.name} Resources</h2>
               <span>{subject.description}</span>
             </div>
@@ -91,6 +94,31 @@ export default function FreeVceResources() {
           </section>
         ))}
 
+        <section className="free-resources-answer" aria-labelledby="free-resources-answer-title">
+          <p className="free-resources-answer__kicker">Free VCE study resources</p>
+          <h2 id="free-resources-answer-title">Where can students find free VCE science resources?</h2>
+          <p>
+            Chuba offers free VCE Units 3/4 Physics, Chemistry and Biology resources online.
+            Students can browse topic summaries, exam-style practice questions with worked
+            solutions, and practice SACs
+            <span className="free-resources-mobile-extra"> organised by subject, chapter and topic</span>.
+          </p>
+          <dl>
+            <div>
+              <dt>Who are the resources for?</dt>
+              <dd>Students studying VCE Units 3/4 Physics, Chemistry or Biology.</dd>
+            </div>
+            <div>
+              <dt>What can students access?</dt>
+              <dd>Topic summaries, practice questions, worked solutions and practice SACs.</dd>
+            </div>
+            <div>
+              <dt>How are resources organised?</dt>
+              <dd>By subject, chapter and topic, so students can focus on what they are learning at school.</dd>
+            </div>
+          </dl>
+        </section>
+
         <section className="free-resources-next-step">
           <h2>Build a VCE revision routine</h2>
           <p>
@@ -98,7 +126,13 @@ export default function FreeVceResources() {
             matching questions without looking at the solution, and then use a practice SAC
             when you are ready to combine several concepts.
           </p>
-          <Link to="/how-to-use-chuba">See how to use Chuba effectively</Link>
+          <Link className="free-resources-next-step__desktop-link" to="/how-to-use-chuba">
+            See how to use Chuba effectively
+          </Link>
+          <Link className="free-resources-next-step__mobile-link" to="/how-to-use-chuba">
+            Build a VCE revision routine
+            <ArrowRight aria-hidden="true" size={17} />
+          </Link>
         </section>
       </main>
     </div>

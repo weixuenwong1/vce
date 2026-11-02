@@ -3,7 +3,7 @@
   background: #2f2f2f;
   color: #fff;
   font-family: 'Poppins', sans-serif;
-  padding: 4rem 2rem 7rem;
+  padding: 2.5rem 2rem 7rem;
 }
 
 .free-resources-intro,
@@ -13,7 +13,7 @@
 }
 
 .free-resources-intro {
-  padding: 4rem 0 5rem;
+  padding: 2.5rem 0 5rem;
   border-bottom: 2px solid #686868;
 
   .free-resources-kicker {
@@ -179,18 +179,238 @@
   }
 }
 
+.free-resources-next-step__mobile-link {
+  display: none;
+}
+
+.free-resources-answer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  column-gap: 4rem;
+  padding: 5rem 0;
+  border-bottom: 2px solid #565656;
+
+  &__kicker {
+    grid-column: 1 / -1;
+    margin: 0 0 0.8rem;
+    color: #ffd180;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  > p:not(.free-resources-answer__kicker) {
+    margin: 0;
+    color: #d3d3d3;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  dl {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2.5rem 0 0;
+    border-top: 2px solid #686868;
+  }
+
+  dl div {
+    padding: 1.4rem 1.3rem 0 0;
+
+    & + div {
+      border-left: 1px solid #686868;
+      padding-left: 1.3rem;
+    }
+  }
+
+  dt {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+  }
+
+  dd {
+    margin: 0.55rem 0 0;
+    color: #c8c8c8;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}
+
 @media (max-width: 800px) {
-  .free-resources-page { padding: 2rem 1.25rem 5rem; }
+  .free-resources-page { padding: 1.5rem 1.25rem 4rem; }
 
   .free-resources-intro {
-    padding: 2.5rem 0 3.5rem;
-    h1 { font-size: 2.5rem; }
+    padding: 2rem 0 2.75rem;
+    h1 { font-size: 1.9rem; line-height: 1.12; }
+    > p:not(.free-resources-kicker) { font-size: 0.82rem; line-height: 1.6; }
   }
 
   .free-subject-section {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3.5rem 0;
+    gap: 1.5rem;
+    padding: 2.75rem 0;
+  }
+
+  .free-subject-heading h2 { font-size: 1.45rem; }
+  .free-subject-heading span { font-size: 0.76rem; line-height: 1.55; }
+  .free-resources-jump a {
+    padding: 0.58rem 0.88rem;
+    font-size: 0.84rem;
+  }
+  .free-resource-links > a {
+    min-height: 78px;
+    padding: 0.8rem 1rem;
+
+    strong { font-size: 0.88rem; }
+    small { display: none; }
+  }
+  .free-resources-next-step h2 { font-size: 1.45rem; }
+  .free-resources-next-step p { font-size: 0.82rem; }
+  .free-resources-answer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2.75rem 0;
+
+    h2 { font-size: 1.45rem; }
+    > p:not(.free-resources-answer__kicker) { font-size: 0.82rem; }
+    dl { grid-template-columns: 1fr; margin-top: 1.25rem; }
+    dl div { padding: 1rem 0; }
+    dl div + div { border-left: 0; border-top: 1px solid #565656; padding-left: 0; }
+  }
+}
+
+@media (max-width: 600px) {
+  .free-resources-page {
+    padding-inline: 1rem;
+  }
+
+  .free-resources-intro {
+    padding: 1.5rem 0 2.25rem;
+
+    .free-resources-kicker {
+      margin-bottom: 0.7rem;
+      font-size: 0.72rem;
+    }
+
+    h1 {
+      font-size: 1.55rem;
+      line-height: 1.18;
+    }
+
+    > p:not(.free-resources-kicker) {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+  }
+
+  .free-resources-mobile-extra {
+    display: none;
+  }
+
+  .free-resources-jump {
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+
+    a {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.76rem;
+    }
+  }
+
+  .free-subject-section {
+    gap: 1.15rem;
+    padding: 2.25rem 0;
+  }
+
+  .free-subject-heading {
+    padding-left: 1rem;
+
+    p {
+      margin-bottom: 0.45rem;
+      font-size: 0.7rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    span {
+      font-size: 0.72rem;
+      line-height: 1.5;
+    }
+  }
+
+  .free-resource-links > a {
+    min-height: 62px;
+
+    strong {
+      font-size: 0.8rem;
+    }
+  }
+
+  .free-resources-next-step {
+    padding-top: 2.5rem;
+
+    h2,
+    p,
+    .free-resources-next-step__desktop-link {
+      display: none;
+    }
+  }
+
+  .free-resources-next-step__mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid #686868;
+    border-bottom: 1px solid #686868;
+    color: #ffd180;
+    font-size: 0.76rem;
+    text-decoration: none;
+
+    svg {
+      flex: 0 0 auto;
+      transition: transform 0.18s ease;
+    }
+
+    &:hover svg,
+    &:focus-visible svg {
+      transform: translateX(4px);
+    }
+  }
+
+  .free-resources-answer {
+    &__kicker {
+      font-size: 0.7rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    > p:not(.free-resources-answer__kicker) {
+      font-size: 0.76rem;
+      line-height: 1.6;
+    }
+
+    dt {
+      font-size: 0.8rem;
+    }
+
+    dd {
+      font-size: 0.72rem;
+    }
   }
 }
 
@@ -198,20 +418,36 @@
   .free-resources-page { padding-inline: 1rem; }
 
   .free-resources-intro {
-    h1 { font-size: 2rem; }
-    > p:not(.free-resources-kicker) { font-size: 0.95rem; }
+    h1 { font-size: 1.55rem; }
+    > p:not(.free-resources-kicker) { font-size: 0.74rem; }
   }
 
-  .free-resources-jump a { flex: 1; text-align: center; }
+  .free-resources-jump a {
+    flex: 1;
+    padding: 0.52rem 0.68rem;
+    font-size: 0.74rem;
+    text-align: center;
+  }
 
-  .free-subject-heading h2 { font-size: 1.55rem; }
+  .free-subject-heading h2 { font-size: 1.25rem; }
+  .free-subject-heading span { font-size: 0.68rem; line-height: 1.5; }
 
   .free-resource-links > a {
     grid-template-columns: 26px 1fr 22px;
     gap: 0.7rem;
-    padding: 0.9rem;
+    min-height: 70px;
+    padding: 0.7rem;
 
-    strong { font-size: 0.9rem; }
-    small { font-size: 0.75rem; }
+    strong { font-size: 0.8rem; }
+    small { font-size: 0.68rem; }
+  }
+
+  .free-resources-next-step h2 { font-size: 1.25rem; }
+  .free-resources-next-step p { font-size: 0.74rem; }
+  .free-resources-answer {
+    h2 { font-size: 1.25rem; }
+    > p:not(.free-resources-answer__kicker) { font-size: 0.74rem; }
+    dt { font-size: 0.8rem; }
+    dd { font-size: 0.7rem; }
   }
 }
