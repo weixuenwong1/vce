@@ -73,6 +73,35 @@ class BillingApiTests(APITestCase):
         self.assertEqual(response.data["detail"], "Checkout is not available yet.")
         create_session.assert_not_called()
 
+    @override_settings(
+        BILLING_CHECKOUT_ENABLED=False,
+        BILLING_CHECKOUT_TEST_EMAILS={"student@example.com"},
+    )
+    @patch("billing.views.stripe.checkout.Session.create")
+    @patch("billing.views.stripe.Customer.create")
+    def test_allowlisted_account_can_checkout_while_public_checkout_is_disabled(
+        self,
+        create_customer,
+        create_session,
+    ):
+        create_customer.return_value = SimpleNamespace(id="cus_private_test")
+        create_session.return_value = SimpleNamespace(
+            url="https://checkout.stripe.test/private-session"
+        )
+
+        response = self.client.post(
+            reverse("billing-checkout"),
+            {"plan": "self-study", "subject": "physics", "billing_cycle": "monthly"},
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.data["checkout_url"],
+            "https://checkout.stripe.test/private-session",
+        )
+        create_session.assert_called_once()
+
     @override_settings(REFERRALS_ENABLED=False)
     def test_referral_feature_switch_hides_offers(self):
         response = self.client.get(

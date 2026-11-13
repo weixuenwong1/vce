@@ -208,6 +208,11 @@ PAID_ACCESS_ENFORCEMENT_ENABLED = environment_flag(
     "PAID_ACCESS_ENFORCEMENT_ENABLED"
 )
 REFERRALS_ENABLED = environment_flag("REFERRALS_ENABLED")
+BILLING_CHECKOUT_TEST_EMAILS = {
+    email.strip().lower()
+    for email in os.getenv("BILLING_CHECKOUT_TEST_EMAILS", "").split(",")
+    if email.strip()
+}
 
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")

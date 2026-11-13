@@ -44,6 +44,13 @@ def feature_unavailable_response(feature):
     )
 
 
+def checkout_enabled_for(user):
+    if settings.BILLING_CHECKOUT_ENABLED:
+        return True
+    email = str(getattr(user, "email", "")).strip().lower()
+    return bool(email and email in settings.BILLING_CHECKOUT_TEST_EMAILS)
+
+
 def configure_stripe():
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -58,7 +65,7 @@ class CreateCheckoutSessionView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        if not settings.BILLING_CHECKOUT_ENABLED:
+        if not checkout_enabled_for(request.user):
             return feature_unavailable_response("Checkout")
 
         configuration_error = stripe_configuration_error()
