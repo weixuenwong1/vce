@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from contents.models import Subject, Chapter, Topic
 from problems.models import Question, Order, Solution
+from accounts.models import TutoringInterest
 
 
 # ------------------------
@@ -121,3 +122,30 @@ class QuestionSerializer(serializers.ModelSerializer):
         if solution:
             return SolutionSerializer(solution).data
         return None
+
+
+class TutoringInterestSerializer(serializers.ModelSerializer):
+    website = serializers.CharField(write_only=True, required=False, allow_blank=True)
+    phone = serializers.CharField(max_length=40, allow_blank=False)
+    year_level = serializers.ChoiceField(
+        choices=("Year 11", "Year 12")
+    )
+
+    class Meta:
+        model = TutoringInterest
+        fields = (
+            "student_name",
+            "email",
+            "phone",
+            "subject",
+            "year_level",
+            "preferred_format",
+            "goals",
+            "availability",
+            "website",
+        )
+
+    def validate(self, attrs):
+        if attrs.pop("website", "").strip():
+            raise serializers.ValidationError("Unable to submit this enquiry.")
+        return attrs

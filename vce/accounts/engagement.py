@@ -6,6 +6,7 @@ from .models import UserSubjectEngagement
 
 TRACKED_COUNTERS = {
     "questions_viewed",
+    "questions_attempted",
     "summaries_viewed",
     "practice_sacs_started",
 }

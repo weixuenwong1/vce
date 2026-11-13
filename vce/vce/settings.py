@@ -18,6 +18,14 @@ from corsheaders.defaults import default_headers, default_methods
 
 load_dotenv()
 
+
+def environment_flag(name, default=False):
+    """Read an opt-in boolean environment setting."""
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +49,7 @@ INSTALLED_APPS = [
     'contents',
     'problems',
     'accounts',
+    'billing',
     'storages',
     'rest_framework',
     'corsheaders',
@@ -191,3 +200,36 @@ AWS_S3_SIGNATURE_VERSION = os.getenv("AWS_S3_SIGNATURE_VERSION")
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
+
+# Stripe price identifiers are server-side configuration. Never accept a price ID
+# from the browser, because the selected plan must be priced authoritatively here.
+BILLING_CHECKOUT_ENABLED = environment_flag("BILLING_CHECKOUT_ENABLED")
+PAID_ACCESS_ENFORCEMENT_ENABLED = environment_flag(
+    "PAID_ACCESS_ENFORCEMENT_ENABLED"
+)
+REFERRALS_ENABLED = environment_flag("REFERRALS_ENABLED")
+
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
+STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+STRIPE_FRONTEND_URL = os.getenv("STRIPE_FRONTEND_URL", "https://chuba.io")
+STRIPE_PRICE_IDS = {
+    "self-study": {
+        "monthly": os.getenv("STRIPE_PRICE_SELF_STUDY_MONTHLY", ""),
+        "annual": os.getenv("STRIPE_PRICE_SELF_STUDY_ANNUAL", ""),
+    },
+    "supported": {
+        "monthly": os.getenv("STRIPE_PRICE_SUPPORTED_MONTHLY", ""),
+        "annual": os.getenv("STRIPE_PRICE_SUPPORTED_ANNUAL", ""),
+    },
+}
+
+# Referral coupons are fixed-amount, one-time Stripe coupons in AUD. They apply
+# only to the annual Checkout Session selected by an eligible referred user.
+STRIPE_REFERRAL_COUPON_IDS = {
+    "self-study": os.getenv("STRIPE_REFERRAL_COUPON_SELF_STUDY", ""),
+    "supported": os.getenv("STRIPE_REFERRAL_COUPON_SUPPORTED", ""),
+}
+STRIPE_REFERRAL_AMOUNTS = {
+    "self-study": 1900,
+    "supported": 3500,
+}

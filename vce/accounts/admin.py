@@ -8,7 +8,84 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.html import format_html
 
-from .models import CustomUser, UserEngagementDashboard, UserSubjectEngagement
+from .models import (
+    CustomUser,
+    Referral,
+    ReferralCode,
+    TutoringInterest,
+    UserEngagementDashboard,
+    UserSubjectEngagement,
+)
+
+
+@admin.register(ReferralCode)
+class ReferralCodeAdmin(admin.ModelAdmin):
+    list_display = ("code", "user", "created_at")
+    search_fields = ("code", "user__email")
+    readonly_fields = ("code", "user", "created_at")
+
+
+@admin.register(Referral)
+class ReferralAdmin(admin.ModelAdmin):
+    list_display = (
+        "referrer",
+        "referred_user",
+        "status",
+        "code_used",
+        "created_at",
+        "qualified_at",
+        "rewarded_at",
+        "reward_due_at",
+        "referrer_reward_amount",
+        "stripe_refund_id",
+    )
+    list_filter = ("status", "created_at")
+    search_fields = ("referrer__email", "referred_user__email", "code_used")
+    readonly_fields = (
+        "referrer",
+        "referred_user",
+        "code_used",
+        "created_at",
+        "qualifying_membership",
+        "reward_due_at",
+        "friend_discount_amount",
+        "referrer_reward_amount",
+        "stripe_refund_id",
+        "last_reward_attempt_at",
+        "reward_error",
+    )
+
+
+@admin.register(TutoringInterest)
+class TutoringInterestAdmin(admin.ModelAdmin):
+    list_display = (
+        "student_name",
+        "email",
+        "subject",
+        "year_level",
+        "preferred_format",
+        "status",
+        "created_at",
+    )
+    list_filter = ("status", "subject", "preferred_format", "year_level", "created_at")
+    search_fields = ("student_name", "email", "phone", "guardian_name", "guardian_email")
+    list_editable = ("status",)
+    readonly_fields = ("user", "created_at", "updated_at")
+    date_hierarchy = "created_at"
+    list_per_page = 40
+    fieldsets = (
+        ("Student", {"fields": ("user", "student_name", "email", "year_level", "subject")}),
+        (
+            "Tutoring preferences",
+            {"fields": ("preferred_format", "goals", "availability")},
+        ),
+        (
+            "Contact permission",
+            {"fields": ("phone", "phone_contact_consent", "guardian_name", "guardian_email")},
+        ),
+        ("Follow-up", {"fields": ("status", "admin_notes")}),
+        ("Dates", {"fields": ("created_at", "updated_at")}),
+    )
 
 
 class UserSubjectEngagementInline(admin.TabularInline):
@@ -18,6 +95,7 @@ class UserSubjectEngagementInline(admin.TabularInline):
     fields = (
         "subject",
         "questions_viewed",
+        "questions_attempted",
         "summaries_viewed",
         "practice_sacs_started",
         "first_activity_at",
@@ -148,6 +226,9 @@ class UserEngagementDashboardAdmin(admin.ModelAdmin):
             questions=Coalesce(
                 Sum("questions_viewed"), Value(0), output_field=BigIntegerField()
             ),
+            attempts=Coalesce(
+                Sum("questions_attempted"), Value(0), output_field=BigIntegerField()
+            ),
             summaries=Coalesce(
                 Sum("summaries_viewed"), Value(0), output_field=BigIntegerField()
             ),
@@ -174,6 +255,7 @@ class UserEngagementDashboardAdmin(admin.ModelAdmin):
                     .count(),
                 ),
                 ("Questions viewed", totals["questions"]),
+                ("Questions attempted", totals["attempts"]),
                 ("Summaries opened", totals["summaries"]),
                 ("Practice SACs", totals["sacs"]),
             ],

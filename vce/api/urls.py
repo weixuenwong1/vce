@@ -11,11 +11,16 @@ from .views import (
     SubjectChaptersView,
     ResourceCatalogueView,
     QuestionIssueReportView,
+    TutoringInterestView,
     HomeStatsView,
+    QuestionAttemptView,
+    ReferralDetailsView,
 )
 
 urlpatterns = [
+    path("tutoring-interest/", TutoringInterestView.as_view(), name="tutoring-interest"),
     path("home-stats/", HomeStatsView.as_view(), name="home-stats"),
+    path("referrals/me/", ReferralDetailsView.as_view(), name="referral-details"),
     path("subjects/", SubjectListView.as_view(), name="subject-list"),
     path("subjects/<int:subject_id>/chapters/", SubjectChaptersView.as_view(), name="subject-chapters"),
     path('catalogue/<slug:subject>/', ResourceCatalogueView.as_view(), name='resource-catalogue'),
@@ -27,6 +32,11 @@ urlpatterns = [
         'problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/<int:question_id>/report/',
         QuestionIssueReportView.as_view(),
         name='question-issue-report',
+    ),
+    path(
+        'problems/<slug:subject>/<slug:chapter_slug>/<slug:topic_slug>/<int:question_id>/attempt/',
+        QuestionAttemptView.as_view(),
+        name='question-attempt',
     ),
 
     path("reset-seen/<int:topic_id>/", ResetSeenQuestionsView.as_view()),

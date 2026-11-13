@@ -2,6 +2,7 @@ from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.generics import  ListAPIView
+from rest_framework.throttling import AnonRateThrottle
 from django.shortcuts import get_object_or_404
 from django.db.models import BigIntegerField, Sum, Value
 from django.db.models.functions import Coalesce
@@ -16,21 +17,33 @@ from .serializers import (
     TopicSummarySerializer, 
     SubjectSerializer,
     ChapterCatalogueSerializer,
+    TutoringInterestSerializer,
 )
 from problems.models import Question, QuestionIssueReport, SeenQuestion
 from contents.models import Subject, Chapter, Topic
 from accounts.engagement import record_engagement
-from accounts.models import UserSubjectEngagement
+from accounts.models import Referral, ReferralCode, UserSubjectEngagement
+from accounts.emails import send_tutoring_interest_emails
+from billing.access import has_subject_access
 
 
 from django.db import transaction
 
 
 SUMMARY_PREVIEW_CHARACTERS = 1600
+SUMMARY_PREVIEW_MIN_CHARACTERS = 600
 QUESTION_PREVIEW_LIMIT = 3
 QUESTION_ATTEMPTED_BASELINE = 10_000
 SUMMARY_OPENED_BASELINE = 1_500
 PRACTICE_SAC_BASELINE = 1_000
+PUBLIC_FULL_SUMMARIES = {
+    ("physics", "motion-and-energy", "newton-s-laws-of-motion"),
+    ("physics", "fields", "newton-s-universal-law-of-gravitation"),
+    ("chemistry", "supplying-energy", "carbon-based-fuels"),
+    ("chemistry", "rate-and-yield", "rates-of-chemical-reactions"),
+    ("biology", "proteins-and-nucleic-acids", "nucleic-acids-and-proteins"),
+    ("biology", "biochemical-pathways", "photosynthesis"),
+}
 CURATED_QUESTION_PREVIEWS = {
     ("physics", "motion-and-energy", "newton-s-laws-of-motion"): [2, 84, 73, 9],
     ("physics", "motion-and-energy", "graphical-analysis-of-motion"): [554, 553],
@@ -54,6 +67,21 @@ CURATED_QUESTION_PREVIEWS = {
     ("physics", "einsteins-special-relativity", "special-relativity"): [574, 593, 561],
     ("physics", "einsteins-special-relativity", "einstein-s-relationship-between-mass-and-energy"): [580, 585, 581],
 }
+
+
+class TutoringInterestThrottle(AnonRateThrottle):
+    rate = "5/hour"
+
+
+class TutoringInterestView(generics.CreateAPIView):
+    serializer_class = TutoringInterestSerializer
+    permission_classes = [AllowAny]
+    throttle_classes = [TutoringInterestThrottle]
+
+    def perform_create(self, serializer):
+        user = self.request.user if self.request.user.is_authenticated else None
+        enquiry = serializer.save(user=user)
+        send_tutoring_interest_emails(enquiry)
 
 
 class HomeStatsView(APIView):
@@ -84,6 +112,25 @@ class HomeStatsView(APIView):
         )
 
 
+class ReferralDetailsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        referral_code, _ = ReferralCode.objects.get_or_create(user=request.user)
+        referrals = Referral.objects.filter(referrer=request.user)
+        return Response(
+            {
+                "code": referral_code.code,
+                "successful_referrals": referrals.filter(
+                    status__in=(Referral.STATUS_QUALIFIED, Referral.STATUS_REWARDED)
+                ).count(),
+                "pending_referrals": referrals.filter(
+                    status=Referral.STATUS_REGISTERED
+                ).count(),
+            }
+        )
+
+
 def question_preview(subject, chapter_slug, topic_slug, questions):
     """Return curated preview questions in order, with a safe default fallback."""
     preview_ids = CURATED_QUESTION_PREVIEWS.get(
@@ -106,12 +153,20 @@ def question_preview(subject, chapter_slug, topic_slug, questions):
 def summary_preview(content):
     """Return a readable Markdown excerpt without cutting a paragraph in half."""
     content = content or ""
-    if len(content) <= SUMMARY_PREVIEW_CHARACTERS:
+    if not content:
         return content, False
 
-    boundary = content.rfind("\n\n", 800, SUMMARY_PREVIEW_CHARACTERS)
+    # Keep every free preview incomplete, including summaries shorter than the
+    # usual preview ceiling. Otherwise a short paid summary would be exposed in
+    # full simply because it did not reach the character limit.
+    preview_length = min(
+        SUMMARY_PREVIEW_CHARACTERS,
+        max(SUMMARY_PREVIEW_MIN_CHARACTERS, len(content) // 2),
+        len(content) - 1,
+    )
+    boundary = content.rfind("\n\n", preview_length // 2, preview_length)
     if boundary == -1:
-        boundary = SUMMARY_PREVIEW_CHARACTERS
+        boundary = preview_length
     return content[:boundary].rstrip(), True
 
 
@@ -187,11 +242,23 @@ class TopicSummaryView(APIView):
         topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
         data = dict(TopicSummarySerializer(topic).data)
 
-        if not request.user.is_authenticated:
+        is_public_summary = (
+            subject.lower(),
+            chapter_slug,
+            topic_slug,
+        ) in PUBLIC_FULL_SUMMARIES
+        has_access = is_public_summary or has_subject_access(
+            request.user,
+            chapter.subject,
+        )
+        if not has_access:
             data["content"], data["is_preview"] = summary_preview(data.get("content"))
+            data["requires_subscription"] = request.user.is_authenticated
         else:
             data["is_preview"] = False
-            record_engagement(request.user, chapter.subject, "summaries_viewed")
+            data["requires_subscription"] = False
+            if request.user.is_authenticated:
+                record_engagement(request.user, chapter.subject, "summaries_viewed")
 
         return Response(data, status=status.HTTP_200_OK)
 
@@ -222,7 +289,8 @@ class NextQuestionView(APIView):
         if total == 0:
             return Response({"detail": "No questions in this topic."}, status=404)
 
-        if not request.user.is_authenticated:
+        has_access = has_subject_access(request.user, chapter.subject)
+        if not has_access:
             try:
                 preview_index = int(request.data.get("preview_index", 0))
             except (TypeError, ValueError):
@@ -236,9 +304,25 @@ class NextQuestionView(APIView):
             )
             preview_limit = len(preview_questions)
             if preview_index < 0 or preview_index >= preview_limit:
+                is_authenticated = request.user.is_authenticated
                 return Response(
-                    {"detail": "Sign in to continue with more questions."},
-                    status=status.HTTP_401_UNAUTHORIZED,
+                    {
+                        "detail": (
+                            "An active membership for this subject is required."
+                            if is_authenticated
+                            else "Sign in or choose a plan to continue."
+                        ),
+                        "code": (
+                            "membership_required"
+                            if is_authenticated
+                            else "authentication_required"
+                        ),
+                    },
+                    status=(
+                        status.HTTP_403_FORBIDDEN
+                        if is_authenticated
+                        else status.HTTP_401_UNAUTHORIZED
+                    ),
                 )
 
             question = preview_questions[preview_index]
@@ -252,6 +336,7 @@ class NextQuestionView(APIView):
                         "preview_index": preview_index,
                         "preview_limit": preview_limit,
                         "total_available": total,
+                        "requires_subscription": request.user.is_authenticated,
                     },
                 },
                 status=status.HTTP_200_OK,
@@ -338,6 +423,24 @@ class QuestionIssueReportView(APIView):
         )
 
 
+class QuestionAttemptView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, subject, chapter_slug, topic_slug, question_id):
+        chapter = get_object_or_404(
+            Chapter,
+            slug=chapter_slug,
+            subject__name__iexact=subject,
+        )
+        topic = get_object_or_404(Topic, chapter=chapter, slug=topic_slug)
+        get_object_or_404(
+            Question.objects.filter(topic=topic).distinct(),
+            pk=question_id,
+        )
+        record_engagement(request.user, chapter.subject, "questions_attempted")
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 class ResetSeenQuestionsView(APIView):
     """
     DELETE: Reset (clear) all seen questions for a user in a given topic.
@@ -361,10 +464,21 @@ class RandomSACQuestionsView(APIView):
     - Physics: 10 SA (default).
     - Other subjects: evenly distributed across topics.
     """
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, subject, chapter_slug):
         chapter = get_object_or_404(
             Chapter, subject__name__iexact=subject, slug=chapter_slug
         )
+
+        if not has_subject_access(request.user, chapter.subject):
+            return Response(
+                {
+                    "detail": "An active membership for this subject is required.",
+                    "code": "membership_required",
+                },
+                status=status.HTTP_403_FORBIDDEN,
+            )
 
         topics = Topic.objects.filter(chapter=chapter)
         if not topics.exists():
