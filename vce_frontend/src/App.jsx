@@ -24,6 +24,10 @@ const PracticeSAC = lazy(() => import('./pages/PracticeSAC'))
 const Home = lazy(() => import('./pages/Home'))
 const Register = lazy(() => import('./pages/Register'))
 const Login = lazy(() => import('./pages/Login'))
+const GoPro = lazy(() => import('./pages/GoPro'))
+const Tutoring = lazy(() => import('./pages/Tutoring'))
+const ChoosePlan = lazy(() => import('./pages/ChoosePlan'))
+const CheckoutSuccess = lazy(() => import('./pages/CheckoutSuccess'))
 const PasswordResetRequest = lazy(() => import('./pages/PasswordResetRequest'))
 const PasswordReset = lazy(() => import('./pages/PasswordReset'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
@@ -67,6 +71,9 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/go-pro" element={<GoPro />} />
+            <Route path="/tutoring" element={<Tutoring />} />
+            <Route path="/choose-plan/:planId" element={<ChoosePlan />} />
             <Route path="/request/password_reset" element={<PasswordResetRequest />} />
             <Route path="/password-reset/:token" element={<PasswordReset />} />
 
@@ -84,6 +91,7 @@ export default function App() {
 
             <Route element={<ProtectedRoute />}>
               <Route path="/practice-sac/:subject/:chapter_slug" element={<SAC />} />
+              <Route path="/checkout/success" element={<CheckoutSuccess />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/404" replace />} />
