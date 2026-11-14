@@ -3,6 +3,7 @@ import AxiosInstance from '../utils/AxiosInstance'
 import { useParams, useNavigate } from 'react-router-dom';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { topicOrders } from '../data/ListOrders';
+import SignInGate from '../components/SignInGate';
 import {
   getQuestionImageUrls,
   getWebpUrl,
@@ -18,6 +19,7 @@ const SAC = () => {
   const [loading, setLoading] = useState(true);
   const [chapterName, setChapterName] = useState('');
   const [showSolutions, setShowSolutions] = useState(false);
+  const [membershipRequired, setMembershipRequired] = useState(false);
   const navigate = useNavigate()
 
   const mathJaxConfig = {
@@ -56,6 +58,7 @@ const SAC = () => {
     }
 
     setLoading(true);
+    setMembershipRequired(false);
 
     const MIN_SPINNER_MS = 350;
     const minDelay = new Promise(res => setTimeout(res, MIN_SPINNER_MS));
@@ -105,7 +108,10 @@ const SAC = () => {
           setQuestions(arrangedQuestions);
         } else {
           const status = sacRes.reason?.response?.status;
-          if (status === 404) {
+          const code = sacRes.reason?.response?.data?.code;
+          if (status === 403 && code === 'membership_required') {
+            setMembershipRequired(true);
+          } else if (status === 404) {
             navigate("/404");
             return;
           } else {
@@ -159,6 +165,16 @@ const SAC = () => {
     return (
       <div className="loader-overlay">
         <div className="loader3"></div>
+      </div>
+    );
+  }
+
+  if (membershipRequired) {
+    return (
+      <div className="practice-sac-container">
+        <div className="inner-container">
+          <SignInGate resource={`${subject} practice SACs`} />
+        </div>
       </div>
     );
   }

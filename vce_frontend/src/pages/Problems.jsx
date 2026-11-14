@@ -28,6 +28,9 @@ const QuestionsForTopic = () => {
     const [contentVisible, setContentVisible] = useState(false);
     const [totalAvailable, setTotalAvailable] = useState(0);
     const [previewLimit, setPreviewLimit] = useState(0);
+    const [previewNextIndex, setPreviewNextIndex] = useState(0);
+    const [isPreview, setIsPreview] = useState(false);
+    const [accessRequired, setAccessRequired] = useState(false);
     const [navLock, setNavLock] = useState(false);
     const [reportOpen, setReportOpen] = useState(false);
     const [reportDescription, setReportDescription] = useState('');
@@ -39,15 +42,16 @@ const QuestionsForTopic = () => {
     const topicName = getTopicName(subject, chapter_slug, topic_slug) || topic_slug.replace(/-/g, ' ');
 
     const nextUrl = `api/problems/${subject}/${chapter_slug}/${topic_slug}/`; 
+    const previewProgressKey = `chuba:question-preview:${subject}:${chapter_slug}:${topic_slug}`;
 
     const prevDisabled = cursor <= 0 || navLock;
-    const previewComplete = !authed && previewLimit > 0 && cursor + 1 >= previewLimit;
+    const previewComplete = isPreview && previewLimit > 0 && previewNextIndex >= previewLimit;
     const nextDisabled = navLock || previewComplete;
 
     async function fetchNextQuestion(previewIndex = 0) {
         const res = await AxiosInstance.post(
             nextUrl,
-            authed ? {} : { preview_index: previewIndex },
+            { preview_index: previewIndex },
         );
         return res.data; 
     }
@@ -61,12 +65,21 @@ const QuestionsForTopic = () => {
             setHistory([]);         
             setCursor(-1);
             setCurrent(null);
+            setIsPreview(false);
+            setAccessRequired(false);
 
             try {
                 const MIN_SPINNER_MS = 350;
                 const spin = new Promise(r => setTimeout(r, MIN_SPINNER_MS));
 
-                const { question, meta } = await fetchNextQuestion();
+                const storedPreviewIndex = Number.parseInt(
+                    localStorage.getItem(previewProgressKey) || '0',
+                    10,
+                );
+                const initialPreviewIndex = Number.isFinite(storedPreviewIndex)
+                    ? Math.max(0, storedPreviewIndex)
+                    : 0;
+                const { question, meta } = await fetchNextQuestion(initialPreviewIndex);
                 if (cancelled) return;
 
                 const questionImages = getQuestionImageUrls(question);
@@ -77,6 +90,15 @@ const QuestionsForTopic = () => {
 
                 setTotalAvailable(meta?.total_available ?? 0);
                 setPreviewLimit(meta?.preview_limit ?? 0);
+                setIsPreview(Boolean(meta?.preview));
+                if (meta?.preview) {
+                    const nextPreviewIndex = (meta.preview_index ?? initialPreviewIndex) + 1;
+                    setPreviewNextIndex(nextPreviewIndex);
+                    localStorage.setItem(previewProgressKey, String(nextPreviewIndex));
+                } else {
+                    setPreviewNextIndex(0);
+                    localStorage.removeItem(previewProgressKey);
+                }
                 setHistory([question]);
                 setCursor(0);
                 setCurrent(question);
@@ -84,7 +106,13 @@ const QuestionsForTopic = () => {
                 await Promise.all([spin, questionImagesReady]);
                 setContentVisible(true);
             } catch (e) {
-                if (e.response?.status === 404) {
+                const status = e.response?.status;
+                const code = e.response?.data?.code;
+                if ((status === 401 || status === 403) && (
+                    code === 'authentication_required' || code === 'membership_required'
+                )) {
+                    setAccessRequired(true);
+                } else if (status === 404) {
                     navigate('/404');
                 } else {
                     navigate('/500');
@@ -117,7 +145,9 @@ const QuestionsForTopic = () => {
         }
 
         try {
-            const { question, meta } = await fetchNextQuestion(history.length);
+            const { question, meta } = await fetchNextQuestion(
+                isPreview ? previewNextIndex : history.length,
+            );
             const questionImages = getQuestionImageUrls(question);
             const solutionImages = getQuestionImageUrls(question, { includeSolutions: true })
                 .filter((url) => !questionImages.includes(url));
@@ -130,6 +160,15 @@ const QuestionsForTopic = () => {
             }
             setTotalAvailable(meta?.total_available ?? totalAvailable);
             setPreviewLimit(meta?.preview_limit ?? previewLimit);
+            setIsPreview(Boolean(meta?.preview));
+            if (meta?.preview) {
+                const nextPreviewIndex = (meta.preview_index ?? previewNextIndex) + 1;
+                setPreviewNextIndex(nextPreviewIndex);
+                localStorage.setItem(previewProgressKey, String(nextPreviewIndex));
+            } else {
+                setPreviewNextIndex(0);
+                localStorage.removeItem(previewProgressKey);
+            }
 
             setHistory(prev => [...prev, question]);
             setCursor(prev => prev + 1);
@@ -142,7 +181,15 @@ const QuestionsForTopic = () => {
             if (import.meta.env.DEV) {
                 console.error("Failed to fetch next", e);
             }
-            navigate('/500');
+            const status = e.response?.status;
+            const code = e.response?.data?.code;
+            if ((status === 401 || status === 403) && (
+                code === 'authentication_required' || code === 'membership_required'
+            )) {
+                setAccessRequired(true);
+            } else {
+                navigate('/500');
+            }
         } finally {
             setNavLock(false);
         }
@@ -208,6 +255,16 @@ const QuestionsForTopic = () => {
             );
         }
     }, [authed, chapter_slug, contentVisible, current?.question_uid, subject, topic_slug]);
+
+    if (accessRequired) {
+        return (
+            <main className="question-display-container">
+                <div className="inner-container">
+                    <SignInGate resource={`${topicName} practice questions`} />
+                </div>
+            </main>
+        );
+    }
 
     if (loading || !contentVisible || !current) {
         return (
