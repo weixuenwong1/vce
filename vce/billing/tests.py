@@ -812,6 +812,42 @@ class BillingApiTests(APITestCase):
         self.assertTrue(membership.has_access)
 
     @patch("billing.views.stripe.Webhook.construct_event")
+    def test_explicit_cancel_at_marks_subscription_as_scheduled_to_cancel(
+        self, construct_event
+    ):
+        membership = self.create_monthly_membership()
+        expiry = timezone.now() + timedelta(days=12)
+        construct_event.return_value = {
+            "type": "customer.subscription.updated",
+            "data": {"object": {
+                "id": membership.stripe_subscription_id,
+                "customer": membership.stripe_customer_id,
+                "status": "active",
+                "cancel_at": int(expiry.timestamp()),
+                "cancel_at_period_end": False,
+                "metadata": {},
+                "items": {"data": [{
+                    "price": {"id": membership.stripe_price_id},
+                    "current_period_end": int(expiry.timestamp()),
+                }]},
+            }},
+        }
+        self.client.force_authenticate(user=None)
+
+        response = self.client.post(
+            reverse("stripe-webhook"),
+            data=b"{}",
+            content_type="application/json",
+            HTTP_STRIPE_SIGNATURE="test-signature",
+        )
+
+        self.assertEqual(response.status_code, 200)
+        membership.refresh_from_db()
+        self.assertTrue(membership.cancel_at_period_end)
+        self.assertEqual(membership.status, "active")
+        self.assertTrue(membership.has_access)
+
+    @patch("billing.views.stripe.Webhook.construct_event")
     def test_deleted_subscription_removes_access(self, construct_event):
         membership = self.create_monthly_membership()
         construct_event.return_value = {
