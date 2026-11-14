@@ -128,6 +128,7 @@ def sync_subscription(subscription):
             "current_period_end": current_period_end,
             "cancel_at_period_end": bool(
                 object_value(subscription, "cancel_at_period_end", False)
+                or object_value(subscription, "cancel_at")
             ),
         },
     )
