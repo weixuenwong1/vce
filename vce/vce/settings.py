@@ -207,6 +207,11 @@ BILLING_CHECKOUT_ENABLED = environment_flag("BILLING_CHECKOUT_ENABLED")
 PAID_ACCESS_ENFORCEMENT_ENABLED = environment_flag(
     "PAID_ACCESS_ENFORCEMENT_ENABLED"
 )
+PAID_ACCESS_TEST_EMAILS = {
+    email.strip().lower()
+    for email in os.getenv("PAID_ACCESS_TEST_EMAILS", "").split(",")
+    if email.strip()
+}
 REFERRALS_ENABLED = environment_flag("REFERRALS_ENABLED")
 BILLING_CHECKOUT_TEST_EMAILS = {
     email.strip().lower()

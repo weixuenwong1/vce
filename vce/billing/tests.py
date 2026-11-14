@@ -137,6 +137,25 @@ class BillingApiTests(APITestCase):
     def test_disabled_paid_access_gate_preserves_signed_in_access(self):
         self.assertTrue(has_subject_access(self.user, "physics"))
 
+    @override_settings(
+        PAID_ACCESS_ENFORCEMENT_ENABLED=False,
+        PAID_ACCESS_TEST_EMAILS={"student@example.com"},
+    )
+    def test_allowlisted_account_is_subject_to_paid_access_gate(self):
+        self.assertFalse(has_subject_access(self.user, "physics"))
+
+        self.create_monthly_membership()
+
+        self.assertTrue(has_subject_access(self.user, "physics"))
+        self.assertFalse(has_subject_access(self.user, "chemistry"))
+
+    @override_settings(
+        PAID_ACCESS_ENFORCEMENT_ENABLED=False,
+        PAID_ACCESS_TEST_EMAILS={"another-student@example.com"},
+    )
+    def test_non_allowlisted_account_keeps_existing_access_during_rollout(self):
+        self.assertTrue(has_subject_access(self.user, "physics"))
+
     @override_settings(REFERRALS_ENABLED=False)
     def test_disabled_referrals_block_reward_processing_command(self):
         with self.assertRaisesMessage(CommandError, "Referral rewards are disabled."):
