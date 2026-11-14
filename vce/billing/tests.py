@@ -156,6 +156,48 @@ class BillingApiTests(APITestCase):
     def test_non_allowlisted_account_keeps_existing_access_during_rollout(self):
         self.assertTrue(has_subject_access(self.user, "physics"))
 
+    def test_subject_access_endpoint_reports_membership_by_subject(self):
+        self.create_monthly_membership()
+
+        physics_response = self.client.get(
+            reverse("billing-subject-access", args=["physics"])
+        )
+        chemistry_response = self.client.get(
+            reverse("billing-subject-access", args=["chemistry"])
+        )
+
+        self.assertEqual(physics_response.status_code, 200)
+        self.assertEqual(
+            physics_response.data,
+            {"subject": "physics", "has_access": True},
+        )
+        self.assertEqual(chemistry_response.status_code, 200)
+        self.assertEqual(
+            chemistry_response.data,
+            {"subject": "chemistry", "has_access": False},
+        )
+
+    def test_subject_access_endpoint_reports_locked_for_signed_out_user(self):
+        self.client.force_authenticate(user=None)
+
+        response = self.client.get(
+            reverse("billing-subject-access", args=["physics"])
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.data,
+            {"subject": "physics", "has_access": False},
+        )
+
+    def test_subject_access_endpoint_rejects_unknown_subject(self):
+        response = self.client.get(
+            reverse("billing-subject-access", args=["mathematics"])
+        )
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.data["detail"], "Choose a valid subject.")
+
     @override_settings(REFERRALS_ENABLED=False)
     def test_disabled_referrals_block_reward_processing_command(self):
         with self.assertRaisesMessage(CommandError, "Referral rewards are disabled."):

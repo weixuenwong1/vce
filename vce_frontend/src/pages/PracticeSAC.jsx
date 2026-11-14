@@ -1,15 +1,18 @@
 import { React, useCallback, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { LockKeyhole } from 'lucide-react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ResourceGuideFooter from '../components/ResourceGuideFooter';
 import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
 import ResourceCatalogueError from '../components/ResourceCatalogueError';
 import SubjectHubGuide from '../components/SubjectHubGuide';
+import AxiosInstance from '../utils/AxiosInstance';
 import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/PracticeSAC.scss';
 
 const PracticeSAC = () => {
     const { subject } = useParams();
     const [chapters, setChapters] = useState([]);
+    const [hasAccess, setHasAccess] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
     const navigate = useNavigate();
@@ -24,8 +27,17 @@ const PracticeSAC = () => {
         setLoading(true);
         setLoadError(false);
         try {
-            setChapters(await getResourceCatalogue(subject.toLowerCase(), { force }));
+            const normalizedSubject = subject.toLowerCase();
+            const [catalogue, accessResponse] = await Promise.all([
+                getResourceCatalogue(normalizedSubject, { force }),
+                AxiosInstance.get(`/api/billing/access/${normalizedSubject}/`, {
+                    suppressGlobalError: true,
+                }),
+            ]);
+            setChapters(catalogue);
+            setHasAccess(Boolean(accessResponse.data?.has_access));
         } catch (err) {
+            setHasAccess(null);
             setLoadError(true);
             console.error("Error fetching chapters:", err);
         } finally {
@@ -67,21 +79,31 @@ const PracticeSAC = () => {
                                 <h4 className="sac-chapter-heading">{item.chapter_name}</h4>
                                 <p className="sac-chapter-description">{item.chapter_description}</p>
                                 </div>
-                                <div className="sac-right"
-                                    role="button"
-                                    tabIndex="0"
-                                    aria-label={`Generate Practice SAC for ${item.chapter_name}`}
-                                    onClick={() => handleChapterClick(item.slug)}
-                                    onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        handleChapterClick(item.slug);
-                                    }
-                                    }}
-                                >
-                                <div className="generate-tab">
-                                    <h2>Generate Practice SAC</h2>
-                                </div>
-                                </div>
+                                {hasAccess ? (
+                                    <div className="sac-right"
+                                        role="button"
+                                        tabIndex="0"
+                                        aria-label={`Generate Practice SAC for ${item.chapter_name}`}
+                                        onClick={() => handleChapterClick(item.slug)}
+                                        onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            handleChapterClick(item.slug);
+                                        }
+                                        }}
+                                    >
+                                        <div className="generate-tab">
+                                            <h2>Generate Practice SAC</h2>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="sac-right sac-right--locked">
+                                        <div className="generate-tab generate-tab--locked">
+                                            <LockKeyhole aria-hidden="true" size={22} />
+                                            <h2>Chuba Pro required</h2>
+                                            <Link to="/go-pro#plans">View plans</Link>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             ))}
                 </div>

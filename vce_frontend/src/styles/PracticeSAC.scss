@@ -169,6 +169,35 @@ $sac-highlight: hsl(12, 85%, 62%);
         margin: 0;
       }
     }
+
+    &--locked {
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .generate-tab--locked {
+      flex-direction: column;
+      gap: 0.55rem;
+      color: #d8d8d8;
+
+      svg {
+        color: var(--subject-accent);
+      }
+
+      &:hover {
+        background: transparent;
+        color: #d8d8d8;
+        cursor: default;
+        box-shadow: none;
+      }
+
+      a {
+        color: var(--subject-accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 0.2rem;
+      }
+    }
   }
 }
 

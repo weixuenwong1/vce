@@ -42,7 +42,8 @@ AxiosInstance.interceptors.response.use(
       if (sentToken === `Token ${localStorage.getItem('Token')}`) clearSession();
       const publicCatalogue = /^\/?api\/(?:chapters\/(?:[^/]+\/(?:topics\/)?)?|catalogue\/[^/]+\/?)$/.test(config.url);
       const publicPreview = /^\/?api\/(?:summary|problems)\/[^/]+\/[^/]+\/[^/]+\/?$/.test(config.url);
-      if (config.method === 'get' && (publicCatalogue || publicPreview) && !config.sessionRetried) {
+      const publicAccessStatus = /^\/?api\/billing\/access\/[^/]+\/?$/.test(config.url);
+      if (config.method === 'get' && (publicCatalogue || publicPreview || publicAccessStatus) && !config.sessionRetried) {
         config.sessionRetried = true;
         return AxiosInstance(config);
       }

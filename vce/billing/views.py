@@ -13,6 +13,7 @@ from rest_framework.views import APIView
 
 from accounts.models import Referral
 
+from .access import has_subject_access
 from .models import BillingCustomer, MembershipSubscription
 from .referrals import (
     ReferralClaimError,
@@ -226,6 +227,23 @@ class ReferralOfferView(APIView):
                 plan: int(amount or 0) / 100
                 for plan, amount in settings.STRIPE_REFERRAL_AMOUNTS.items()
             } if eligible else {},
+        })
+
+
+class SubjectAccessView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, subject):
+        normalized_subject = str(subject).strip().lower()
+        if normalized_subject not in SUBJECTS:
+            return Response(
+                {"detail": "Choose a valid subject."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        return Response({
+            "subject": normalized_subject,
+            "has_access": has_subject_access(request.user, normalized_subject),
         })
 
 
