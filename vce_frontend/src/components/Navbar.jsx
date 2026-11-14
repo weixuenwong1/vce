@@ -6,10 +6,14 @@ import {
   BookOpenText,
   ChevronDown,
   ClipboardCheck,
+  CreditCard,
   Dna,
   FlaskConical,
+  LogOut,
   PencilLine,
+  UserRound,
 } from 'lucide-react';
+import { toast } from 'react-toastify';
 import AxiosInstance from '../utils/AxiosInstance'
 import '../styles/NavBar.scss';
 import { prefetchAuth } from '../utils/prefetchAuth';
@@ -72,13 +76,29 @@ function Navbar() {
   const isLoggedIn = useSession();
 
   const [openMenu, setOpenMenu] = useState(null);
+  const [billingPortalLoading, setBillingPortalLoading] = useState(false);
   const navbarRef = useRef(null);
 
   const logoutUser = () => {
+    setOpenMenu(null);
     AxiosInstance.post(`logout/`).then(() => {
       clearSession();
       navigate('/login');
     });
+  };
+
+  const openBillingPortal = async () => {
+    if (billingPortalLoading) return;
+    setBillingPortalLoading(true);
+    try {
+      const { data } = await AxiosInstance.post('api/billing/portal/');
+      if (!data?.portal_url) throw new Error('Billing portal URL was not returned.');
+      window.location.assign(data.portal_url);
+    } catch (error) {
+      const detail = error?.response?.data?.detail;
+      toast.error(detail || 'Billing could not be opened. Please try again.');
+      setBillingPortalLoading(false);
+    }
   };
 
 
@@ -219,12 +239,43 @@ function Navbar() {
             Sign in
           </button>
         ) : (
-          <button
-            className="navbar-button"
-            onClick={logoutUser}
-          >
-            Logout
-          </button>
+          <div className={`navbar-account ${openMenu === 'account' ? 'open' : ''}`}>
+            <button
+              className="navbar-button navbar-account-trigger"
+              type="button"
+              title="Account"
+              aria-expanded={openMenu === 'account'}
+              aria-haspopup="menu"
+              onClick={() => setOpenMenu(openMenu === 'account' ? null : 'account')}
+            >
+              <UserRound size={17} aria-hidden="true" />
+              <span>Account</span>
+              <ChevronDown className="navbar-account-chevron" size={14} aria-hidden="true" />
+            </button>
+            {openMenu === 'account' && (
+              <div className="navbar-account-menu" role="menu">
+                <button
+                  type="button"
+                  role="menuitem"
+                  disabled={billingPortalLoading}
+                  onClick={openBillingPortal}
+                >
+                  <CreditCard size={17} aria-hidden="true" />
+                  <span>
+                    <strong>{billingPortalLoading ? 'Opening billing...' : 'Manage billing'}</strong>
+                    <small>Payments and monthly plans</small>
+                  </span>
+                </button>
+                <button type="button" role="menuitem" onClick={logoutUser}>
+                  <LogOut size={17} aria-hidden="true" />
+                  <span>
+                    <strong>Logout</strong>
+                    <small>Sign out of Chuba</small>
+                  </span>
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </nav>
