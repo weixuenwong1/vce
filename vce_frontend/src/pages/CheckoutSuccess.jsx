@@ -46,15 +46,15 @@ const CheckoutSuccess = () => {
         <span className={`checkout-result-icon${isActive ? ' is-active' : ''}`}>
           {isActive ? <Check aria-hidden="true" /> : <Clock3 aria-hidden="true" />}
         </span>
-        <p className="checkout-result-kicker">CHUBA MEMBERSHIP</p>
+        <p className="checkout-result-kicker">CHUBA PRO</p>
         <h1>
           {isActive && 'You are ready to study.'}
-          {isProcessing && 'Confirming your membership.'}
+          {isProcessing && 'Confirming your Chuba Pro access.'}
           {result.status === 'error' && 'We could not verify this checkout.'}
         </h1>
         <p>
           {isActive
-            ? 'Your payment was confirmed and your Chuba membership is now active.'
+            ? 'Your payment was confirmed and your Chuba Pro access is now active.'
             : 'Stripe may still be finalising the payment. Your access will update automatically once it is confirmed.'}
         </p>
         <div className="checkout-result-actions">
