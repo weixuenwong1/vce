@@ -228,9 +228,15 @@ function Navbar() {
       </div>
 
       <div className="navbar-right">
+        <button
+          className="navbar-button navbar-button-pro"
+          onClick={() => navigate('/go-pro')}
+        >
+          Go Pro
+        </button>
         {!isLoggedIn ? (
           <button
-            className="navbar-button"
+            className="navbar-button navbar-button-auth"
             onClick={() => navigate('/login')}
             onMouseEnter={() => prefetchAuth('login')}
             onFocus={() => prefetchAuth('login')}

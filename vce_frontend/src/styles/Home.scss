@@ -41,7 +41,10 @@ $soft-yellow: #FFD180;
 }
 
 .hero-left {
+  box-sizing: border-box;
   flex: 1;
+  min-width: 0;
+  width: 100%;
   max-width: 650px;
   display: flex;
   flex-direction: column;
@@ -58,6 +61,7 @@ $soft-yellow: #FFD180;
   }
 
   .hero-resource-intro {
+    box-sizing: border-box;
     position: relative;
     margin-top: 1.25rem;
     padding: 1.35rem 0 0.2rem 1.6rem;
@@ -126,11 +130,17 @@ $soft-yellow: #FFD180;
     &--biology { color: #7bc77d; }
   }
 
+  .hero-resource-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.65rem;
+  }
+
   .free-resources-hero-link {
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
-    margin-top: 1.65rem;
     padding: 0.85rem 1rem;
     background: transparent;
     border: 1px solid $orange;
@@ -161,6 +171,25 @@ $soft-yellow: #FFD180;
         transform: translateX(5px);
       }
     }
+
+    &--pro {
+      background: $orange;
+      border-color: $orange;
+      color: #171717;
+      box-shadow: 3px 3px 0 #b74f32;
+
+      svg { color: #171717; }
+
+      &:hover,
+      &:focus-visible {
+        background: #ffd180;
+        border-color: #ffd180;
+        color: #171717;
+        box-shadow: 5px 5px 0 #b74f32;
+
+        svg { color: #171717; }
+      }
+    }
   }
 
   @media (max-width: 900px) {
@@ -184,6 +213,11 @@ $soft-yellow: #FFD180;
     .hero-resource-subjects {
       gap: 0.6rem 0.9rem;
       font-size: 0.78rem;
+    }
+
+    .hero-resource-actions {
+      align-items: flex-start;
+      flex-direction: column;
     }
 
     .free-resources-hero-link {

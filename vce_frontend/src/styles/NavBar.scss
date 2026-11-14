@@ -89,9 +89,17 @@ $retro-red: #e43a3a;
   }
 
   &-right {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
     flex: 0 0 auto;
 
     .navbar-button {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
       background: #FFE0B2;
       color: #2b2b2b;
       font-family: 'Courier New', monospace;
@@ -109,6 +117,25 @@ $retro-red: #e43a3a;
         transform: translateY(-2px);
         box-shadow: 5px 5px 0 $retro-orange;
         cursor: pointer;
+      }
+    }
+
+    .navbar-button-pro,
+    .navbar-button-auth {
+      width: 96px;
+      min-height: 42px;
+    }
+
+    .navbar-button-pro {
+      background: #3a3028;
+      color: $retro-yellow;
+      border-color: $retro-yellow;
+      box-shadow: 3px 3px 0 $retro-yellow;
+
+      &:hover {
+        background: $retro-yellow;
+        color: #2b2b2b;
+        box-shadow: 5px 5px 0 $retro-orange;
       }
     }
 
@@ -413,9 +440,17 @@ $retro-red: #e43a3a;
     }
 
     &-right {
+      gap: 0.65rem;
+
       .navbar-button {
         padding: 0.5rem 1.0rem; 
         font-size: 0.95rem;
+      }
+
+      .navbar-button-pro,
+      .navbar-button-auth {
+        width: 90px;
+        min-height: 40px;
       }
 
     }
@@ -440,8 +475,7 @@ $retro-red: #e43a3a;
       gap: 1.0rem;
 
       .navbar-logo {
-        height: 50px; 
-        width: 50px;
+        display: none;
       }
 
       .navbar-menu {
@@ -450,10 +484,24 @@ $retro-red: #e43a3a;
     }
 
     &-right {
+      position: absolute;
+      right: 1rem;
+      gap: 0.5rem;
+
       .navbar-button {
         padding: 0.45rem 0.75rem;
         font-size: 0.8rem;
         box-shadow: 2px 2px 0 $retro-orange;
+      }
+
+      .navbar-button-pro,
+      .navbar-button-auth {
+        width: 76px;
+        min-height: 36px;
+      }
+
+      .navbar-button-pro {
+        box-shadow: 2px 2px 0 $retro-yellow;
       }
 
       .navbar-account-trigger {
@@ -503,6 +551,8 @@ $retro-red: #e43a3a;
 
 @media (max-width: 400px) {
   .navbar {
+    padding-inline: 0.65rem;
+
     &-left {
       gap: 0.35rem;
 
@@ -512,10 +562,19 @@ $retro-red: #e43a3a;
     }
 
     &-right {
+      right: 0.65rem;
+      gap: 0.35rem;
+
       .navbar-button {
         padding: 0.35rem 0.5rem;
         font-size: 0.68rem;
         letter-spacing: 0;
+      }
+
+      .navbar-button-pro,
+      .navbar-button-auth {
+        width: 62px;
+        min-height: 32px;
       }
     }
   }

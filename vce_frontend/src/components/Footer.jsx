@@ -39,6 +39,13 @@ const Footer = () => {
           </ul>
         </div>
         <div>
+          <h4>Chuba Pro</h4>
+          <ul>
+            <li><Link to="/go-pro#plans">View Plans</Link></li>
+            <li><Link to="/tutoring">Tutoring</Link></li>
+          </ul>
+        </div>
+        <div>
           <h4>Contact</h4>
           <p>support@chuba.io</p>
         </div>

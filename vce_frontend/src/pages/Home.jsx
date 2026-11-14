@@ -97,10 +97,19 @@ const Home = () => {
               <span className="hero-resource-subject hero-resource-subject--chemistry">Chemistry</span>
               <span className="hero-resource-subject hero-resource-subject--biology">Biology</span>
             </div>
-            <Link className="free-resources-hero-link" to="/free-vce-resources">
-              Browse resources
-              <ArrowRight aria-hidden="true" size={20} strokeWidth={2.5} />
-            </Link>
+            <div className="hero-resource-actions">
+              <Link className="free-resources-hero-link" to="/free-vce-resources">
+                Browse resources
+                <ArrowRight aria-hidden="true" size={20} strokeWidth={2.5} />
+              </Link>
+              <Link
+                className="free-resources-hero-link free-resources-hero-link--pro"
+                to="/go-pro#plans"
+              >
+                View Chuba Pro
+                <ArrowRight aria-hidden="true" size={20} strokeWidth={2.5} />
+              </Link>
+            </div>
           </div>
         </div>
 
