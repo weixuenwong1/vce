@@ -19,7 +19,7 @@ export const membershipPlans = {
     name: 'Chuba Supported',
     shortName: 'Supported',
     description: 'Complete resources with personal help from Chuba tutors.',
-    monthlyPrice: 35,
+    monthlyPrice: 34,
     annualPrice: 279,
     features: [
       'Everything included in Chuba Self Study',

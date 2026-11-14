@@ -37,7 +37,7 @@ const plans = [
     eyebrow: 'Guided study',
     name: 'Chuba Supported',
     description: 'Resources plus personal help when a question or explanation does not click.',
-    price: '$35',
+    price: '$34',
     cadence: 'per month',
     alternativePrice: '$279 per year',
     annualPrice: 279,
