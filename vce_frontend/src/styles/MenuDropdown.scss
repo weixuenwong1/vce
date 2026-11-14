@@ -172,7 +172,10 @@ $white: #FFF;
         }
 
         .topic-row {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
           color: inherit;
           text-decoration: none;
 
@@ -181,6 +184,21 @@ $white: #FFF;
             outline: 2px solid var(--subject-accent);
             outline-offset: 4px;
           }
+        }
+
+        .topic-free-badge {
+          display: inline-flex;
+          align-items: center;
+          flex: 0 0 auto;
+          gap: 0.35rem;
+          padding: 0.3rem 0.45rem;
+          border: 1px solid var(--subject-accent);
+          color: var(--subject-accent);
+          font-family: 'Courier New', monospace;
+          font-size: 0.68rem;
+          font-weight: 700;
+          line-height: 1;
+          white-space: nowrap;
         }
 
         tr:last-child td {
@@ -326,6 +344,10 @@ $white: #FFF;
         font-size: 0.84rem;
     }
 
+    .topic-free-badge {
+      font-size: 0.62rem;
+    }
+
     .flipping-hourglass {
         font-size: 2.0rem;
     }
@@ -384,6 +406,17 @@ $white: #FFF;
     
     .topic-text {
         font-size: 0.76rem;
+    }
+
+    .topic-row {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .topic-free-badge {
+      font-size: 0.58rem;
+      padding: 0.25rem 0.4rem;
     }
 
     .flipping-hourglass {

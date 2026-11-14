@@ -3,7 +3,9 @@ import ResourceCatalogueLoading from '../components/ResourceCatalogueLoading';
 import ResourceCatalogueError from '../components/ResourceCatalogueError';
 import SubjectHubGuide from '../components/SubjectHubGuide';
 import { React, useCallback, useEffect, useState } from 'react';
+import { LockOpen } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { isFullyFreeSummary } from '../data/freeSummaries';
 import { getResourceCatalogue } from '../utils/resourceCatalogue';
 import '../styles/MenuDropdown.scss';
 
@@ -68,19 +70,33 @@ const Chapters = () => {
                                         <div className="chapter-right-box">
                                             <table className="topics-table">
                                                 <tbody>
-                                                    {item.topics.map((topic) => (
-                                                        <tr key={topic.topic_uid}>
-                                                            <td>
-                                                                <Link
-                                                                className="topic-row"
-                                                                to={`/summaries/${subject}/${item.slug}/${topic.slug}`}
-                                                                aria-label={`Go to ${topic.topic_name} summary`}
-                                                                >
-                                                                <span className="topic-text">{topic.topic_name}</span>
-                                                                </Link>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
+                                                    {item.topics.map((topic) => {
+                                                        const isFullyFree = isFullyFreeSummary(
+                                                            subject,
+                                                            item.slug,
+                                                            topic.slug,
+                                                        );
+
+                                                        return (
+                                                            <tr key={topic.topic_uid}>
+                                                                <td>
+                                                                    <Link
+                                                                        className={`topic-row${isFullyFree ? ' topic-row--free' : ''}`}
+                                                                        to={`/summaries/${subject}/${item.slug}/${topic.slug}`}
+                                                                        aria-label={`Go to ${topic.topic_name} summary${isFullyFree ? ', available in full for free' : ''}`}
+                                                                    >
+                                                                        <span className="topic-text">{topic.topic_name}</span>
+                                                                        {isFullyFree && (
+                                                                            <span className="topic-free-badge">
+                                                                                <LockOpen size={14} aria-hidden="true" />
+                                                                                Free full summary
+                                                                            </span>
+                                                                        )}
+                                                                    </Link>
+                                                                </td>
+                                                            </tr>
+                                                        );
+                                                    })}
                                                 </tbody>
                                             </table>
                                         </div>
