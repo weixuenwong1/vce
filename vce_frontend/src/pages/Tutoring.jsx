@@ -67,10 +67,17 @@ const Tutoring = () => {
 
     try {
       const { first_name, last_name, ...enquiry } = form;
-      await AxiosInstance.post('api/tutoring-interest/', {
-        ...enquiry,
-        student_name: `${first_name} ${last_name}`.trim(),
-      });
+      await AxiosInstance.post(
+        'api/tutoring-interest/',
+        {
+          ...enquiry,
+          student_name: `${first_name} ${last_name}`.trim(),
+        },
+        {
+          timeout: 45000,
+          suppressGlobalError: true,
+        },
+      );
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (requestError) {
@@ -78,11 +85,12 @@ const Tutoring = () => {
       const firstMessage = responseData && typeof responseData === 'object'
         ? Object.values(responseData).flat().find(Boolean)
         : null;
-      setError(
-        typeof firstMessage === 'string'
+      const timedOut = requestError?.code === 'ECONNABORTED';
+      setError(timedOut
+        ? 'Your enquiry is taking longer than expected. Check your email before submitting again, or email support@chuba.io.'
+        : (typeof firstMessage === 'string'
           ? firstMessage
-          : 'We could not send your enquiry. Please try again or email support@chuba.io.',
-      );
+          : 'We could not send your enquiry. Please try again or email support@chuba.io.'));
     } finally {
       setSubmitting(false);
     }

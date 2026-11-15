@@ -1,7 +1,7 @@
 import logging
 
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives, get_connection
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 
 def send_tutoring_interest_emails(enquiry):
     from_email = settings.DEFAULT_FROM_EMAIL or "support@chuba.io"
+    connection = get_connection()
     context = {"enquiry": enquiry}
     html_message = render_to_string(
         "backend/tutoring_interest_confirmation.html",
@@ -21,6 +22,7 @@ def send_tutoring_interest_emails(enquiry):
         body=strip_tags(html_message),
         from_email=from_email,
         to=[enquiry.email],
+        connection=connection,
     )
     confirmation.attach_alternative(html_message, "text/html")
 
@@ -39,13 +41,29 @@ def send_tutoring_interest_emails(enquiry):
         body=internal_message,
         from_email=from_email,
         to=[getattr(settings, "TUTORING_ENQUIRY_EMAIL", "support@chuba.io")],
+        connection=connection,
     )
 
-    for message in (confirmation, internal):
+    try:
+        connection.open()
+    except Exception:
+        logger.exception("Unable to open the tutoring enquiry email connection")
+        return
+
+    try:
+        for message in (confirmation, internal):
+            try:
+                message.send()
+            except Exception:
+                logger.exception(
+                    "Unable to send tutoring enquiry email for enquiry %s",
+                    enquiry.pk,
+                )
+    finally:
         try:
-            message.send()
+            connection.close()
         except Exception:
-            logger.exception("Unable to send tutoring enquiry email for enquiry %s", enquiry.pk)
+            logger.exception("Unable to close the tutoring enquiry email connection")
 
 
 def send_referral_reward_email(referral):
