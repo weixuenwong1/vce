@@ -178,24 +178,6 @@ $soft-yellow: #FFD180;
       }
     }
 
-    &--pro {
-      background: $orange;
-      border-color: $orange;
-      color: #171717;
-      box-shadow: 3px 3px 0 #b74f32;
-
-      svg { color: #171717; }
-
-      &:hover,
-      &:focus-visible {
-        background: #ffd180;
-        border-color: #ffd180;
-        color: #171717;
-        box-shadow: 5px 5px 0 #b74f32;
-
-        svg { color: #171717; }
-      }
-    }
   }
 
   @media (max-width: 900px) {

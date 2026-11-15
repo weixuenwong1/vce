@@ -102,13 +102,6 @@ const Home = () => {
                 Browse resources
                 <ArrowRight aria-hidden="true" size={20} strokeWidth={2.5} />
               </Link>
-              <Link
-                className="free-resources-hero-link free-resources-hero-link--pro"
-                to="/go-pro#plans"
-              >
-                View Chuba Pro
-                <ArrowRight aria-hidden="true" size={20} strokeWidth={2.5} />
-              </Link>
             </div>
           </div>
         </div>
