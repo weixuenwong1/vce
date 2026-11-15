@@ -73,6 +73,8 @@ CURATED_QUESTION_PREVIEWS = {
     ("chemistry", "rate-and-yield", "rates-of-chemical-reactions"): [705, 717, 632],
     ("chemistry", "rate-and-yield", "extent-of-chemical-reactions"): [716, 663, 786],
     ("chemistry", "rate-and-yield", "electrolysis"): [973, 741, 814],
+    ("chemistry", "fundamentals-of-organic-compounds", "organic-compounds-structure-and-properties"): [1059, 862, 845],
+    ("chemistry", "fundamentals-of-organic-compounds", "reactions-of-organic-compounds"): [794, 840, 799],
 }
 
 
