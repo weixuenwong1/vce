@@ -66,6 +66,10 @@ CURATED_QUESTION_PREVIEWS = {
     ("physics", "waves-and-particles", "similarities-between-light-and-matter"): [546, 513, 517],
     ("physics", "einsteins-special-relativity", "special-relativity"): [574, 593, 561],
     ("physics", "einsteins-special-relativity", "einstein-s-relationship-between-mass-and-energy"): [580, 585, 581],
+    ("chemistry", "supplying-energy", "carbon-based-fuels"): [897, 910, 902],
+    ("chemistry", "supplying-energy", "energy-in-chemical-reactions"): [921, 1013, 925],
+    ("chemistry", "supplying-energy", "redox-reactions"): [654, 666, 1094],
+    ("chemistry", "supplying-energy", "galvanic-and-fuel-cells"): [877, 876, 878],
 }
 
 
