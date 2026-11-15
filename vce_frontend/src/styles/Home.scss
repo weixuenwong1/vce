@@ -12,6 +12,12 @@ $soft-yellow: #FFD180;
 /* HomePage SCSS */
 /* ------------------------------- */
 
+@media (min-width: 901px) and (max-width: 1800px) {
+  .homepage-container {
+    zoom: 0.9;
+  }
+}
+
 .hero-section {
   min-block-size: clamp(520px, 60svh, 800px);
   display: flex;
