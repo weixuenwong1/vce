@@ -70,6 +70,9 @@ CURATED_QUESTION_PREVIEWS = {
     ("chemistry", "supplying-energy", "energy-in-chemical-reactions"): [921, 1013, 925],
     ("chemistry", "supplying-energy", "redox-reactions"): [654, 666, 1094],
     ("chemistry", "supplying-energy", "galvanic-and-fuel-cells"): [877, 876, 878],
+    ("chemistry", "rate-and-yield", "rates-of-chemical-reactions"): [705, 717, 632],
+    ("chemistry", "rate-and-yield", "extent-of-chemical-reactions"): [716, 663, 786],
+    ("chemistry", "rate-and-yield", "electrolysis"): [973, 741, 814],
 }
 
 
