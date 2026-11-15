@@ -75,6 +75,9 @@ CURATED_QUESTION_PREVIEWS = {
     ("chemistry", "rate-and-yield", "electrolysis"): [973, 741, 814],
     ("chemistry", "fundamentals-of-organic-compounds", "organic-compounds-structure-and-properties"): [1059, 862, 845],
     ("chemistry", "fundamentals-of-organic-compounds", "reactions-of-organic-compounds"): [794, 840, 799],
+    ("chemistry", "analysis-of-organic-compounds", "lab-analysis-of-organic-compounds"): [928, 1122, 1116],
+    ("chemistry", "analysis-of-organic-compounds", "instrumental-analysis-of-organic-compounds"): [1139, 1064, 1063],
+    ("chemistry", "analysis-of-organic-compounds", "medicinal-chemistry"): [1050, 1067, 1163],
 }
 
 
